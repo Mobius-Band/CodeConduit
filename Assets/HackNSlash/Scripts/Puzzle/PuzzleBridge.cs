@@ -10,7 +10,7 @@ public class PuzzleBridge : MonoBehaviour
     [SerializeField] private PuzzleReactor _puzzleReactor;
 
     private bool areAllSwitchesActivated => Array.TrueForAll(_puzzleSwitches, p => p.isActivated);
-    public event Action<bool> OnAnySwitchActivated;
+    public event Action<bool> OnAnySwitchToggled;
     
     private void Start()
     {
@@ -19,11 +19,11 @@ public class PuzzleBridge : MonoBehaviour
             puzzleSwitch.OnSwitchActivated += CheckSwitches;
             puzzleSwitch.OnSwitchDeactivated += CheckSwitches;
         }
-        OnAnySwitchActivated += _puzzleReactor.React;
+        OnAnySwitchToggled += _puzzleReactor.React;
     }
 
     private void CheckSwitches()
     {
-        OnAnySwitchActivated?.Invoke(areAllSwitchesActivated);
+        OnAnySwitchToggled?.Invoke(areAllSwitchesActivated);
     }
 }

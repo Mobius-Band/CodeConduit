@@ -9,6 +9,16 @@ namespace HackNSlash.Scripts.Puzzle
         
         public event Action OnSwitchActivated;
         public event Action OnSwitchDeactivated;
+
+        protected void Activate()
+        {
+            OnSwitchActivated?.Invoke();
+        }
+        
+        protected void Deactivate()
+        {
+            OnSwitchDeactivated?.Invoke();
+        }
         
         
     }

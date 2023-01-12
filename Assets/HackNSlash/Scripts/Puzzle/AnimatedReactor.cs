@@ -14,7 +14,7 @@ namespace HackNSlash.Scripts.Puzzle
         
         public override void React(bool isOn)
         {
-            Debug.Log("Reacted");
+            Debug.Log("Reacted: " + isOn);
             _anim.SetBool("isOn", isOn);
         }
     }
