@@ -559,6 +559,7 @@ GameObject:
   - component: {fileID: 7999598550174513715}
   - component: {fileID: 7999598550174513723}
   - component: {fileID: 7999598550174513730}
+  - component: {fileID: 8960845202737054330}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -646,6 +647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimationManager: {fileID: 2727309191182478296}
+  _isPuzzlePlayer: 0
+  _pauseMenu: {fileID: 0}
 --- !u!114 &808592646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,9 +675,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   _currentHealth: 0
-  gameOverSceneReference:
-    sceneAsset: {fileID: 102900000, guid: b630b27b3243c1142a80d215b5b736dc, type: 3}
-    sceneAssetGuidHex: b630b27b3243c1142a80d215b5b736dc
 --- !u!114 &7999598550174513715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtbox: {fileID: 621928934}
   health: {fileID: 7999598550174513714}
-  knockback: {fileID: 0}
+  knockback: {fileID: 8960845202737054330}
 --- !u!114 &7999598550174513723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +731,19 @@ MonoBehaviour:
   _effectMaterial: {fileID: 2100000, guid: f393be1785e183a4f809c3a499e04001, type: 2}
   _meshRenderer: {fileID: 7562291654528694484}
   _speed: 0.1
+--- !u!114 &8960845202737054330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7999598550545812522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcdffdfd3b29ef541b34a007fa3d934b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockbackForce: 80
 --- !u!1001 &7266028343921309149
 PrefabInstance:
   m_ObjectHideFlags: 0

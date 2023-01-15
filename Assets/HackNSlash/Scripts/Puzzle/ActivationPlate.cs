@@ -18,6 +18,11 @@ public class ActivationPlate : PuzzleSwitch
 
     private int collidersWithin;
 
+    private void Start()
+    {
+        renderer.material = inactiveMaterial;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!triggererMask.Contains(other.gameObject.layer)) 
