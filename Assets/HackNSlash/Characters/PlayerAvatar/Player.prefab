@@ -458,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &827625129151443368
 Transform:
   m_ObjectHideFlags: 0
@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimationManager: {fileID: 2727309191182478296}
+  _pauseMenu: {fileID: 0}
 --- !u!114 &808592646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,9 +673,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   _currentHealth: 0
-  gameOverSceneReference:
-    sceneAsset: {fileID: 102900000, guid: b630b27b3243c1142a80d215b5b736dc, type: 3}
-    sceneAssetGuidHex: b630b27b3243c1142a80d215b5b736dc
 --- !u!114 &7999598550174513715
 MonoBehaviour:
   m_ObjectHideFlags: 0
