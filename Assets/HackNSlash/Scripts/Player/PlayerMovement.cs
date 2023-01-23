@@ -109,7 +109,6 @@ namespace Player
             _comboManager.RegainAttack();
             RegainRotation();
             RegainMovement();
-            _rigidbody.freezeRotation = false;
             _isDashing = false;
         }
 
@@ -126,6 +125,7 @@ namespace Player
         public void SuspendRotation()
         {
             _isRotationSuspended = true;
+            _rigidbody.freezeRotation = true;
         }
 
         public void SuspendMovement()
@@ -136,6 +136,8 @@ namespace Player
         public void RegainRotation()
         {
             _isRotationSuspended = false;
+            _rigidbody.freezeRotation = false;
+            _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         public void RegainMovement()
