@@ -100,14 +100,16 @@ namespace Player
             SuspendMovement();
 
             _rigidbody.velocity = direction * (_moveSpeed + _dashSpeed);
+            _rigidbody.freezeRotation = true;
             
             _animator.Play("Dash");
             
             yield return new WaitForSeconds(_dashTime);
-            
+
             _comboManager.RegainAttack();
             RegainRotation();
             RegainMovement();
+            _rigidbody.freezeRotation = false;
             _isDashing = false;
         }
 

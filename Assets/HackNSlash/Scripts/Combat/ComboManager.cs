@@ -57,6 +57,7 @@ namespace Combat
         public void SetReturningToIdle()
         {
             isReturningToIdle = true;
+            _playerMovement.RegainRotation();
         }
         
         private void PlayAttackAnimation()
