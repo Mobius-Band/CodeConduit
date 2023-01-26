@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3557022638683538589}
   - component: {fileID: 3557022638683538590}
   - component: {fileID: 3557022638683538591}
-  - component: {fileID: 3557022638683538595}
   - component: {fileID: 3557022638683538594}
   - component: {fileID: 2137494788351186223}
   m_Layer: 0
@@ -94,32 +93,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3557022638683538585}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cb7ef8949c39d164989e96e9827a1cdd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &3557022638683538595
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3557022638683538585}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7059a92704066ee43b894e3fe6f9f32f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3557022638683538594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _puzzleSwitches:
   - {fileID: 0}
-  _puzzleReactor: {fileID: 0}
+  _puzzleReactor: {fileID: 2137494788351186223}
 --- !u!114 &2137494788351186223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,5 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c6699624c44c4e934f5d7118f698aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingOffset: {x: 0, y: 0, z: 0}
-  movementDurationInSecs: 0
+  openingOffset: {x: 0, y: 5, z: 0}
+  movementDurationInSecs: 0.2
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 832
+  obstacleCheckInterval: 0.01

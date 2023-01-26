@@ -7,6 +7,7 @@ namespace Combat
 {
     public class ComboManager : AttackManager
     {
+        [SerializeField] private bool canAttack;
         private PlayerMovement _playerMovement;
         private bool isReturningToIdle;
         private bool _hasNextAttack;
@@ -18,6 +19,8 @@ namespace Combat
 
         public void HandleAttackInput()
         {
+            if (!canAttack) 
+                return;
             if (isReturningToIdle || !_isAttacking)
             {
                 if (currentAttackIndex < attacks.Length)
