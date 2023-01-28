@@ -2,13 +2,14 @@
 
 namespace Player
 {
-    public class PlayerInputManager : MonoBehaviour
+    public class PlayerInputManager : Singleton<PlayerInputManager>
     {
         public PlayerInputActions InputActions { get; private set; }
         private PlayerAttack _playerAttack;
         
-        void Awake()
+        new void Awake()
         {
+            base.Awake();
             InputActions = new PlayerInputActions();
         }
         

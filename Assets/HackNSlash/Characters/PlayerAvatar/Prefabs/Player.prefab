@@ -716,6 +716,7 @@ MonoBehaviour:
   currentAttackIndex: 2
   _isAttacking: 0
   animator: {fileID: 2381025253736406870}
+  canAttack: 1
 --- !u!114 &7999598550174513730
 MonoBehaviour:
   m_ObjectHideFlags: 0

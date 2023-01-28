@@ -1,8 +1,7 @@
 using System;
-using HackNSlash.Scripts.GameManagement;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 namespace HackNSlash.Scripts.Enemy
 {
@@ -13,28 +12,41 @@ namespace HackNSlash.Scripts.Enemy
         [SerializeField] private int _maximumWave;
         [SerializeField] private TextMeshProUGUI _waveText;
         [SerializeField] private Transform playerTransform;
+        [SerializeField] private UnityEvent OnWaveFinished;
+        [SerializeField] private UnityEvent OnAllWavesFinished;
+        [Space(10)] 
+        [SerializeField] private bool startWithLastWave;
+        
         private int _enemiesLeft;
         private int _currentWave = 0;
 
         private void Awake()
         {
             SetSpawningCount();
+
+            if (startWithLastWave)
+            {
+                _currentWave = _maximumWave-1;
+            }
         }
 
         private void Update()
         {
-             _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
+            _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
             
             if (_enemiesLeft <= 0)
             {
                 _currentWave += 1;
-
+                
                 if (_currentWave > _maximumWave)
                 {
-                    //TODO: Make it an event
-                    GameManager.Instance.LoadVictoryScene();
+                    OnAllWavesFinished?.Invoke();
+                    enabled = false;
                 }
                 
+                if (!enabled) return;
+                
+                OnWaveFinished?.Invoke();
                 StartWave(_currentWave);
             }
         }

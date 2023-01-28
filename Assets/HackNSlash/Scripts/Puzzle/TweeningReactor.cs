@@ -2,13 +2,17 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Puzzle
 {
     public class TweeningReactor : PuzzleReactor
     {
-        [SerializeField] private Vector3 openingOffset;
+        [Header("MOVEMENT")]
+        [FormerlySerializedAs("openingOffset")] [SerializeField] private Vector3 tweeningOffset;
         [SerializeField] private float movementDurationInSecs;
+
+        [Header("OBSTACLE CHECKING")]
         [SerializeField] private LayerMask obstacleMask;
         [SerializeField] private float obstacleCheckInterval;
 
@@ -26,9 +30,8 @@ namespace HackNSlash.Scripts.Puzzle
         private bool HasAnyObstacles()
         {
             Vector3 origin = transform.position;
-            RaycastHit[] obstacles = new RaycastHit[1];
-            bool hasAnyObstacle = Physics.BoxCast(origin, transform.lossyScale / 2, openingOffset.normalized * CheckSignal(),
-                Quaternion.identity, openingOffset.magnitude, obstacleMask, QueryTriggerInteraction.Ignore);
+            bool hasAnyObstacle = Physics.BoxCast(origin, transform.lossyScale / 2, tweeningOffset.normalized * CheckSignal(),
+                transform.rotation, tweeningOffset.magnitude, obstacleMask, QueryTriggerInteraction.Ignore);
             return hasAnyObstacle;
         }
 
@@ -38,8 +41,7 @@ namespace HackNSlash.Scripts.Puzzle
             {
                 yield return new WaitForSeconds(obstacleCheckInterval);
             }
-            movementTween = transform.DOMove(initialPosition + openingOffset * Convert.ToInt32(isOn), movementDurationInSecs);
-            yield break;
+            movementTween = transform.DOMove(initialPosition + tweeningOffset * Convert.ToInt32(isOn), movementDurationInSecs);
         }
 
         private int CheckSignal()
@@ -47,25 +49,22 @@ namespace HackNSlash.Scripts.Puzzle
             return isDown ? 1 : -1;
         }
         
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Vector3 origin = transform.position;
-            
             Gizmos.color = HasAnyObstacles() ? Color.red : Color.green;
-            
             ExtDebug.DrawBoxCastBox(
-                origin, transform.lossyScale / 2, Quaternion.identity, openingOffset.normalized,
-                openingOffset.magnitude, Gizmos.color);
+                origin, transform.lossyScale / 2, transform.rotation, tweeningOffset.normalized,
+                tweeningOffset.magnitude, Gizmos.color);
             ExtDebug.DrawBoxCastBox(
-                origin, transform.lossyScale / 2, Quaternion.identity, openingOffset.normalized * -1,
-                openingOffset.magnitude, Gizmos.color);
+                origin, transform.lossyScale / 2, transform.rotation, tweeningOffset.normalized * -1,
+                tweeningOffset.magnitude, Gizmos.color);
         }
         
         public override void React(bool isOn)
         {
             isDown = isOn;
             StartCoroutine(TryMove(isOn));
-            
         }
 
     }

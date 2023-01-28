@@ -13,7 +13,7 @@ namespace HackNSlash.Scripts.Player
         
         protected override void Die()
         {
-            GameManager.Instance.LoadGameOverScene();
+            GameManager.Instance.SceneManager.LoadGameOverScene();
         }
     }
 }

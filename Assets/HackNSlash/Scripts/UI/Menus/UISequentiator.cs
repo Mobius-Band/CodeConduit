@@ -38,7 +38,7 @@ namespace HackNSlash.Scripts.TitleScreen
 
         private void SequentiateToMainMenu()
         {
-            StartCoroutine(SequentiateScreens(GameManager.Instance.LoadMainMenu));
+            StartCoroutine(SequentiateScreens(GameManager.Instance.SceneManager.LoadMainMenu));
         }
 
         private IEnumerator DelayedSequentiationInput(Action sequenceEndAction)

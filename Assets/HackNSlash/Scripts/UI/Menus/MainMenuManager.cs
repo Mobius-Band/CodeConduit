@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] gamePlayElements;
+    // [SerializeField] private GameObject[] gamePlayElements;
     [SerializeField] private GameObject[] mainMenuElements;
     [SerializeField] private GameObject controlScreen;
     [Header("Main Menu Buttons")]
@@ -27,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
         else
         {
             HideAllMenus();
-            StartGameplay();
+            // StartGameplay();
         }
         
     }
@@ -35,21 +35,22 @@ public class MainMenuManager : MonoBehaviour
     private void ShowMainMenu()
     {
         controlScreen.SetActive(false);
-        Array.ForEach(gamePlayElements, ctx => ctx.SetActive(false));
+        // Array.ForEach(gamePlayElements, ctx => ctx.SetActive(false));
         Array.ForEach(mainMenuElements, ctx => ctx.SetActive(true));
         GameManager.Instance.SetMousePointerForGameplay(false);
         GameManager.Instance.PauseGame();
         EventSystem.current.SetSelectedGameObject(playButton.gameObject);
     }
 
-    public void StartGameplay()
+    private void StartGameplay()
     {
-        Array.ForEach(gamePlayElements, ctx => ctx.SetActive(true));
-        Array.ForEach(mainMenuElements, ctx => ctx.SetActive(false));
-        controlScreen.SetActive(false);
-        GameManager.Instance.isBooting = false;
-        GameManager.Instance.SetMousePointerForGameplay(true);
-        GameManager.Instance.ResumeGame();
+        // // Array.ForEach(gamePlayElements, ctx => ctx.SetActive(true));
+        // // Array.ForEach(mainMenuElements, ctx => ctx.SetActive(false));
+        // controlScreen.SetActive(false);
+        // GameManager.Instance.isBooting = false;
+        // GameManager.Instance.SetMousePointerForGameplay(true);
+        // GameManager.Instance.ResumeGame();
+        GameManager.Instance.SceneManager.LoadFirstGameplayScene();
     }
     
     public void ShowControls()
@@ -63,7 +64,7 @@ public class MainMenuManager : MonoBehaviour
     public void HideControls()
     {
         controlScreen.SetActive(false);
-        // Array.ForEach(mainMenuElements, ctx => ctx.SetActive(true));
+        Array.ForEach(mainMenuElements, ctx => ctx.SetActive(true));
         ShowMainMenu();
     }
     
