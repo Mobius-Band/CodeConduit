@@ -8,19 +8,42 @@ namespace Enemy
     {
         [SerializeField] private Material _effectMaterial;
         [SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
         [SerializeField] private float _speed;
         private Material _originalMaterial;
 
         private void Awake()
         {
-            _originalMaterial = _meshRenderer.material;
+            if (_meshRenderer != null)
+            {
+                _originalMaterial = _meshRenderer.material;
+            }
+            else
+            {
+                _originalMaterial = _skinnedMeshRenderer.material;
+            }
         }
 
         public IEnumerator TakeDamageEffectCoroutine()
         {
-            _meshRenderer.material = _effectMaterial;
+            if (_meshRenderer != null)
+            {
+                _meshRenderer.material = _effectMaterial;
+            }
+            else
+            {
+                _skinnedMeshRenderer.material = _effectMaterial;
+            }
+            
             yield return new WaitForSeconds(_speed);
-            _meshRenderer.material = _originalMaterial;
+            if (_meshRenderer != null)
+            {
+                _meshRenderer.material = _originalMaterial;
+            }
+            else
+            {
+                _skinnedMeshRenderer.material = _originalMaterial;
+            }
         }
     }
 }

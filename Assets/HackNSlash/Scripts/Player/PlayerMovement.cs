@@ -100,11 +100,12 @@ namespace Player
             SuspendMovement();
 
             _rigidbody.velocity = direction * (_moveSpeed + _dashSpeed);
+            _rigidbody.freezeRotation = true;
             
             if (_animator != null) _animator.Play("Dash");
             
             yield return new WaitForSeconds(_dashTime);
-            
+
             _comboManager.RegainAttack();
             RegainRotation();
             RegainMovement();
@@ -124,6 +125,7 @@ namespace Player
         public void SuspendRotation()
         {
             _isRotationSuspended = true;
+            _rigidbody.freezeRotation = true;
         }
 
         public void SuspendMovement()
@@ -134,6 +136,8 @@ namespace Player
         public void RegainRotation()
         {
             _isRotationSuspended = false;
+            _rigidbody.freezeRotation = false;
+            _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         public void RegainMovement()
