@@ -230,6 +230,7 @@ MonoBehaviour:
   _rotationTime: 10
   _cameraHolder: {fileID: 0}
   _animator: {fileID: 1148600999}
+  _canDash: 1
   _dashSpeed: 30
   _dashTime: 0.5
 --- !u!114 &808592645
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimationManager: {fileID: 1148601000}
+  _isPuzzlePlayer: 0
   _pauseMenu: {fileID: 0}
 --- !u!114 &808592646
 MonoBehaviour:
@@ -313,6 +315,7 @@ MonoBehaviour:
   currentAttackIndex: 2
   _isAttacking: 0
   animator: {fileID: 1148600999}
+  canAttack: 1
 --- !u!114 &7999598550174513730
 MonoBehaviour:
   m_ObjectHideFlags: 0

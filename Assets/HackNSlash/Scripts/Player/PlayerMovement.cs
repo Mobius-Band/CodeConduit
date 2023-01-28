@@ -15,6 +15,7 @@ namespace Player
         // [SerializeField] private Transform _isometricCameraHolder;
         [SerializeField] private Transform _cameraHolder;
         [SerializeField] private Animator _animator;
+        [SerializeField] private bool _canDash;
         [SerializeField] private float _dashSpeed;
         [SerializeField] private float _dashTime;
         public Vector2 MoveInput { get => _moveInput; set => _moveInput = value; }
@@ -78,6 +79,10 @@ namespace Player
         
         public void Dash()
         {
+            if (!_canDash)
+            {
+                return;
+            }
             if (!_isDashing)
             {
                 StartCoroutine(DashCoroutine());
