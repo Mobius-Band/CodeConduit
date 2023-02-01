@@ -1,3 +1,4 @@
+using System;
 using Combat;
 using HackNSlash.Scripts.UI;
 using UnityEngine;
@@ -33,11 +34,25 @@ namespace Player
             _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
             _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
             _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+            _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
+            _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
+            _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
             
             //External
             _input.InputActions.Player.Pause.performed += _ => _pauseMenu.TogglePauseMenu();
         }
-        
+
+        private void OnDisable()
+        {
+            _playerAnimationManager.OnAnimationEndCombo -= _comboManager.EndCombo;
+            _playerAnimationManager.OnAnimationHit -= _comboManager.ToggleHitbox;
+            _playerAnimationManager.OnAnimationSuspendRotation -= _movement.SuspendRotation;
+            _playerAnimationManager.OnAnimationReturningToIdle -= _comboManager.SetReturningToIdle;
+            _playerAnimationManager.OnAnimationEndDash -= _movement.EndDash;
+            _playerAnimationManager.OnAnimationSetNextAttack -= _comboManager.SetNextAttack;
+            _playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.CurrentAttack);
+        }
+
         void Update()
         {
             _movement.MoveInput = _input.InputActions.Player.Move.ReadValue<Vector2>();

@@ -33,13 +33,12 @@ namespace Combat
             _playerMovement.RegainRotation();
             Attack(currentAttackIndex);
             PlayAttackAnimation();
-            SetNextAttack();
             isReturningToIdle = false;
         }
         
         public void SetNextAttack()
         {
-            if (currentAttackIndex < attacks.Length)
+            if (currentAttackIndex < attacks.Length - 1)
             {
                 currentAttackIndex++;
             }
@@ -48,8 +47,8 @@ namespace Combat
         public void EndCombo()
         {
             isReturningToIdle = false;
-            currentAttackIndex = 0;
             StopAttack();
+            currentAttackIndex = 0;
             _playerMovement.RegainMovement();
             _playerMovement.RegainRotation();
         }

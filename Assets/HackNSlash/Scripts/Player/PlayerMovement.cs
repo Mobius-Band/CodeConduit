@@ -76,15 +76,7 @@ namespace Player
             moveDirection.Normalize();
         }
         
-        public void Dash()
-        {
-            if (!_isDashing)
-            {
-                StartCoroutine(DashCoroutine());
-            }
-        }
-
-        private IEnumerator DashCoroutine()
+        private IEnumerator DashCoroutine(float dashSpeed)
         {
             var direction = transform.forward;
             if (IsMoving() || _comboManager._isAttacking)
@@ -99,17 +91,43 @@ namespace Player
             SuspendRotation();
             SuspendMovement();
 
-            _rigidbody.velocity = direction * (_moveSpeed + _dashSpeed);
+            _rigidbody.velocity = direction * (dashSpeed);
             _rigidbody.freezeRotation = true;
             
             _animator.Play("Dash");
-            
-            yield return new WaitForSeconds(_dashTime);
+            //_animator.speed = dashTime * 2;
 
+            while (_isDashing)
+            {
+                yield return null;
+            }
+
+            _animator.speed = 1;
+            RegainMovement();
             _comboManager.RegainAttack();
             RegainRotation();
-            RegainMovement();
-            _isDashing = false;
+        }
+        
+        public void Dash()
+        {
+            if (!_isDashing)
+            {
+                StartCoroutine(DashCoroutine(_dashSpeed));
+            }
+        }
+
+        public IEnumerator AttackStepCoroutine(float amount, float duration)
+        {
+            var direction = transform.forward;
+            _rigidbody.velocity = direction * (amount);
+            yield return new WaitForSeconds(duration);
+            _rigidbody.velocity = direction * 0;
+        }
+
+        public void AttackStep(Attack attack)
+        {
+            print(attack.damage);
+            StartCoroutine(AttackStepCoroutine(attack.stepAmount, attack.stepDuration));
         }
 
         public bool IsMoving()
@@ -143,6 +161,11 @@ namespace Player
         public void RegainMovement()
         {
             _isMovementSuspended = false;
+        }
+
+        public void EndDash()
+        {
+            _isDashing = false;
         }
     }
 }
