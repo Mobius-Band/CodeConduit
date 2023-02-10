@@ -10,6 +10,7 @@ namespace Combat
         private PlayerMovement _playerMovement;
         private bool isReturningToIdle;
         private bool _hasNextAttack;
+        private bool _isAttackSuspended;
 
         private void Start()
         {
@@ -18,6 +19,11 @@ namespace Combat
 
         public void HandleAttackInput()
         {
+            if (_isAttackSuspended)
+            {
+                return;
+            }
+            
             if (isReturningToIdle || !_isAttacking)
             {
                 if (currentAttackIndex < attacks.Length)
@@ -49,8 +55,11 @@ namespace Combat
             isReturningToIdle = false;
             StopAttack();
             currentAttackIndex = 0;
-            _playerMovement.RegainMovement();
-            _playerMovement.RegainRotation();
+            if (!_playerMovement._isDashing)
+            {
+                _playerMovement.RegainMovement();
+                _playerMovement.RegainRotation();
+            }
         }
 
         public void SetReturningToIdle()
@@ -73,6 +82,16 @@ namespace Combat
                     animator.Play("attack3");
                     break;
             }
+        }
+
+        public void SuspendAttack()
+        {
+            _isAttackSuspended = true;
+        }
+
+        public void RegainAttack()
+        {
+            _isAttackSuspended = false;
         }
     }
 }

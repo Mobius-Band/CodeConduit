@@ -11,20 +11,17 @@ namespace Player
         [SerializeField] private float _moveSpeed;
         [Range(1, 50)] 
         [SerializeField] private float _rotationTime = 1f;
-        // [SerializeField] private Transform _perspectiveCameraHolder;
-        // [SerializeField] private Transform _isometricCameraHolder;
         [SerializeField] private Transform _cameraHolder;
         [SerializeField] private Animator _animator;
         [SerializeField] private float _dashSpeed;
         [SerializeField] private float _dashTime;
         public Vector2 MoveInput { get => _moveInput; set => _moveInput = value; }
+        public bool _isDashing;
         private ComboManager _comboManager;
         private Rigidbody _rigidbody;
         private Vector2 _moveInput;
-        // private Vector2 _rotationInput;
         private Vector3 _moveDirection;
         private float _rotationVelocity;
-        private bool _isDashing;
         private bool _isMovementSuspended;
         private bool _isRotationSuspended;
         private float _rotationAngle;
@@ -86,21 +83,22 @@ namespace Player
             }
             
             _isDashing = true;
-            _comboManager.EndCombo();
             _comboManager.SuspendAttack();
-            SuspendRotation();
+            _comboManager.EndCombo();
             SuspendMovement();
+            SuspendRotation();
 
             _rigidbody.velocity = direction * (dashSpeed);
             _rigidbody.freezeRotation = true;
             
             _animator.Play("Dash");
-            //_animator.speed = dashTime * 2;
 
             while (_isDashing)
             {
                 yield return null;
             }
+            
+            // --> go to returning animation when !isdashing
 
             _animator.speed = 1;
             RegainMovement();
@@ -126,7 +124,6 @@ namespace Player
 
         public void AttackStep(Attack attack)
         {
-            print(attack.damage);
             StartCoroutine(AttackStepCoroutine(attack.stepAmount, attack.stepDuration));
         }
 
@@ -160,6 +157,7 @@ namespace Player
 
         public void RegainMovement()
         {
+            EndDash();
             _isMovementSuspended = false;
         }
 
