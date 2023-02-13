@@ -75,18 +75,18 @@ namespace Player
         
         private IEnumerator DashCoroutine(float dashSpeed)
         {
+            _isDashing = true;
+            _comboManager.SuspendAttack();
+            _comboManager.EndCombo();
+            SuspendMovement();
+            SuspendRotation();
+            
             var direction = transform.forward;
             if (IsMoving() || _comboManager._isAttacking)
             {
                 transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
                 direction = _moveDirection;
             }
-            
-            _isDashing = true;
-            _comboManager.SuspendAttack();
-            _comboManager.EndCombo();
-            SuspendMovement();
-            SuspendRotation();
 
             _rigidbody.velocity = direction * (dashSpeed);
             _rigidbody.freezeRotation = true;
@@ -118,8 +118,12 @@ namespace Player
         {
             var direction = transform.forward;
             _rigidbody.velocity = direction * (amount);
-            yield return new WaitForSeconds(duration);
-            _rigidbody.velocity = direction * 0;
+            
+            if (!_isDashing)
+            {
+                yield return new WaitForSeconds(duration);
+                _rigidbody.velocity = direction * 0;
+            }
         }
 
         public void AttackStep(Attack attack)
