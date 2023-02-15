@@ -13,10 +13,12 @@ namespace Player
         [SerializeField] private float _rotationTime = 1f;
         [SerializeField] private Transform _cameraHolder;
         [SerializeField] private Animator _animator;
+        [Range(0, 100)] 
         [SerializeField] private float _dashSpeed;
+        [Range(0, 1)] 
         [SerializeField] private float _dashTime;
+        [HideInInspector] public bool _isDashing;
         public Vector2 MoveInput { get => _moveInput; set => _moveInput = value; }
-        public bool _isDashing;
         private ComboManager _comboManager;
         private Rigidbody _rigidbody;
         private Vector2 _moveInput;
@@ -43,6 +45,8 @@ namespace Player
             }
             
             LerpRotate(movementAngle);
+            
+            _animator.SetBool("isDashing", _isDashing);
         }
 
         private void FixedUpdate()
@@ -80,27 +84,17 @@ namespace Player
             _comboManager.EndCombo();
             SuspendMovement();
             SuspendRotation();
-            
-            var direction = transform.forward;
-            if (IsMoving() || _comboManager._isAttacking)
-            {
-                transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
-                direction = _moveDirection;
-            }
 
-            _rigidbody.velocity = direction * (dashSpeed);
+            var moveInput = new Vector3(_moveInput.x, 0, _moveInput.y);
+            transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
+            _rigidbody.velocity = _moveDirection * (dashSpeed);
             _rigidbody.freezeRotation = true;
             
-            _animator.Play("Dash");
+            _animator.Play("DashStart");
 
-            while (_isDashing)
-            {
-                yield return null;
-            }
-            
-            // --> go to returning animation when !isdashing
+            yield return new WaitForSeconds(_dashTime);
 
-            _animator.speed = 1;
+            _isDashing = false;
             RegainMovement();
             _comboManager.RegainAttack();
             RegainRotation();
