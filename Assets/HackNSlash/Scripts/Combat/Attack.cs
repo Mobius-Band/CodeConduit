@@ -12,6 +12,5 @@ namespace Combat
         public int damage;
         public Vector3 hitboxPosition;
         public Vector3 hitboxSize;
-        //public Animation animation;
     }
 }
