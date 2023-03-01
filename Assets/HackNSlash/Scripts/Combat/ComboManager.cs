@@ -1,4 +1,5 @@
 ﻿using System;
+using HackNSlash.Scripts.Audio;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ namespace Combat
     public class ComboManager : AttackManager
     {
         private PlayerMovement _playerMovement;
+        [SerializeField] private AudioManager _audioManager;
         private bool isReturningToIdle;
         private bool _hasNextAttack;
 
@@ -66,12 +68,15 @@ namespace Combat
             {
                 case 0:
                     animator.Play("attack1");
+                    _audioManager.Play("attack1");
                     break;
                 case 1:
                     animator.Play("attack2");
+                    _audioManager.Play("attack2");
                     break;
                 case 2:
                     animator.Play("attack3");
+                    _audioManager.Play("attack3");
                     break;
             }
         }

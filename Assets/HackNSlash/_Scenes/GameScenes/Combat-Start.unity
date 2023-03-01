@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 18955844}
   - component: {fileID: 18955842}
   - component: {fileID: 18955845}
+  - component: {fileID: 18955846}
   m_Layer: 0
   m_Name: IsometricPerspectiveCamera45
   m_TagString: Untagged
@@ -247,6 +248,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _focus: {fileID: 400750109}
   _speed: 2
+--- !u!81 &18955846
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18955840}
+  m_Enabled: 1
 --- !u!1 &114146442
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +436,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1884809688}
+--- !u!1 &183870122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183870123}
+  - component: {fileID: 183870124}
+  m_Layer: 0
+  m_Name: PlayerAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &183870123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183870122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1685629591}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183870124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183870122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c557eb39ae1da95448ea7d1b6ae93ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: b3dd6d1f6e6d3c140be745b30c370868, type: 3}
+    name: walk
+    volume: 1
+    pitch: 1.25
+    loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 97e0781f852289a47ad1f6a817f6efdc, type: 3}
+    name: attack1
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 2fa2301f37df3c54fb06f295d176c422, type: 3}
+    name: attack2
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1448a090227d6c644a197297f2388a8b, type: 3}
+    name: attack3
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 796d15c3daede6f46a67cd51b67ae928, type: 3}
+    name: dash
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &197014934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
@@ -2264,6 +2348,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 7999598550174513714}
+--- !u!1 &1685629590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685629591}
+  m_Layer: 0
+  m_Name: AudioManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1685629591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685629590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 183870123}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688890463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,11 +3451,21 @@ PrefabInstance:
       propertyPath: knockback
       value: 
       objectReference: {fileID: 7999598550174513738}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: _audioManager
+      value: 
+      objectReference: {fileID: 183870124}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7999598550545812523, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: _audioManager
+      value: 
+      objectReference: {fileID: 183870124}
     - target: {fileID: 7999598550545812523, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: _cameraHolder

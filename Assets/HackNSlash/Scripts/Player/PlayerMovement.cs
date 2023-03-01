@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Combat;
+using HackNSlash.Scripts.Audio;
 using UnityEngine;
 
 namespace Player
@@ -13,6 +14,7 @@ namespace Player
         [SerializeField] private float _rotationTime = 1f;
         // [SerializeField] private Transform _perspectiveCameraHolder;
         // [SerializeField] private Transform _isometricCameraHolder;
+        [SerializeField] private AudioManager _audioManager;
         [SerializeField] private Transform _cameraHolder;
         [SerializeField] private Animator _animator;
         [SerializeField] private float _dashSpeed;
@@ -34,6 +36,7 @@ namespace Player
         {
             _rigidbody = GetComponent<Rigidbody>();
             _comboManager = GetComponent<ComboManager>();
+            _audioManager.Play("walk");
         }
 
         private void Update()
@@ -54,10 +57,12 @@ namespace Player
             {
                 _animator.SetBool("isMoving", true);
                 _rigidbody.velocity = _moveDirection * _moveSpeed;
+                _audioManager.sounds[0].source.enabled = true;
             }
             else
             {
                 _animator.SetBool("isMoving", false);
+                _audioManager.sounds[0].source.enabled = false;
             }
         }
         
@@ -103,6 +108,7 @@ namespace Player
             _rigidbody.freezeRotation = true;
             
             _animator.Play("Dash");
+            _audioManager.Play("dash");
             
             yield return new WaitForSeconds(_dashTime);
 
