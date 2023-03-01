@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = System.Random;
 
 namespace HackNSlash.Scripts.Audio
 {
@@ -41,6 +42,17 @@ namespace HackNSlash.Scripts.Audio
             }
             
             s.source.Play();
+        }
+
+        public void PlayRandom(int first, int last)
+        {
+            int index = UnityEngine.Random.Range(first, last);
+            Sound s = sounds[index];
+
+            if (s == null)
+            {
+                Debug.LogWarning("Sound with index: " + index + " not found!");
+            }
         }
     }
 }
