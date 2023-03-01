@@ -7,10 +7,10 @@ namespace Combat
 {
     public class ComboManager : AttackManager
     {
-        [SerializeField] private bool canAttack;
         private PlayerMovement _playerMovement;
         private bool isReturningToIdle;
         private bool _hasNextAttack;
+        private bool _isAttackSuspended;
 
         private void Start()
         {
@@ -19,8 +19,11 @@ namespace Combat
 
         public void HandleAttackInput()
         {
-            if (!canAttack) 
+            if (_isAttackSuspended)
+            {
                 return;
+            }
+            
             if (isReturningToIdle || !_isAttacking)
             {
                 if (currentAttackIndex < attacks.Length)
@@ -36,13 +39,12 @@ namespace Combat
             _playerMovement.RegainRotation();
             Attack(currentAttackIndex);
             PlayAttackAnimation();
-            SetNextAttack();
             isReturningToIdle = false;
         }
         
         public void SetNextAttack()
         {
-            if (currentAttackIndex < attacks.Length)
+            if (currentAttackIndex < attacks.Length - 1)
             {
                 currentAttackIndex++;
             }
@@ -51,10 +53,13 @@ namespace Combat
         public void EndCombo()
         {
             isReturningToIdle = false;
-            currentAttackIndex = 0;
             StopAttack();
-            _playerMovement.RegainMovement();
-            _playerMovement.RegainRotation();
+            currentAttackIndex = 0;
+            if (!_playerMovement._isDashing)
+            {
+                _playerMovement.RegainMovement();
+                _playerMovement.RegainRotation();
+            }
         }
 
         public void SetReturningToIdle()
@@ -77,6 +82,16 @@ namespace Combat
                     animator.Play("attack3");
                     break;
             }
+        }
+
+        public void SuspendAttack()
+        {
+            _isAttackSuspended = true;
+        }
+
+        public void RegainAttack()
+        {
+            _isAttackSuspended = false;
         }
     }
 }
