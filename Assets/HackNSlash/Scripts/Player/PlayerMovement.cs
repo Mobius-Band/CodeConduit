@@ -85,8 +85,14 @@ namespace Player
             SuspendMovement();
             SuspendRotation();
 
-            var moveInput = new Vector3(_moveInput.x, 0, _moveInput.y);
-            transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
+            if (_moveInput == Vector2.zero)
+            {
+                _moveDirection = transform.forward;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
+            }
             _rigidbody.velocity = _moveDirection * (dashSpeed);
             _rigidbody.freezeRotation = true;
             
@@ -113,9 +119,10 @@ namespace Player
             var direction = transform.forward;
             _rigidbody.velocity = direction * (amount);
             
-            if (!_isDashing)
+            yield return new WaitForSeconds(duration);
+            
+            if (_comboManager._isAttacking)
             {
-                yield return new WaitForSeconds(duration);
                 _rigidbody.velocity = direction * 0;
             }
         }
