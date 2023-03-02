@@ -306,18 +306,18 @@ MonoBehaviour:
   - damage: 5
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.25}
-    stepAmount: 0
-    stepDuration: 0
+    stepAmount: 15
+    stepDuration: 0.2
   - damage: 5
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.3}
-    stepAmount: 0
-    stepDuration: 0
+    stepAmount: 20
+    stepDuration: 0.4
   - damage: 10
     hitboxPosition: {x: 0, y: 0, z: 1.45}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.5}
-    stepAmount: 0
-    stepDuration: 0
+    stepAmount: 15
+    stepDuration: 0.2
   hitbox: {fileID: 893670863654729700}
   currentAttackIndex: 2
   _isAttacking: 0
