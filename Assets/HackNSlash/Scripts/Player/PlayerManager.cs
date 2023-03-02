@@ -27,6 +27,9 @@ namespace Player
         
         void Start()
         {
+            //External
+            _input.InputActions.Player.Pause.performed += _ => _pauseMenu.TogglePauseMenu();
+            
             if (_isPuzzlePlayer)
             {
                 // create interaction function
@@ -51,9 +54,6 @@ namespace Player
             _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
             _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
             _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
-            
-            //External
-            _input.InputActions.Player.Pause.performed += _ => _pauseMenu.TogglePauseMenu();
         }
 
         private void OnDisable()

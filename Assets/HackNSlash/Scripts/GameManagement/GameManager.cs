@@ -13,7 +13,7 @@ namespace HackNSlash.Scripts.GameManagement
 
         public SceneRefSO SceneManager => sceneRefs;
         
-        public void ReloadGame()
+        public void LoadMainMenu()
         {
             isBooting = true;
             sceneRefs.LoadMainMenu();

@@ -25,7 +25,7 @@ namespace HackNSlash.Scripts.UI
             restartButton.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
             controlsButton.onClick.AddListener(ShowControls);
             controlsReturnButton.onClick.AddListener(HideControls);
-            toMenuButton.onClick.AddListener(GameManager.Instance.ReloadGame);
+            toMenuButton.onClick.AddListener(GameManager.Instance.LoadMainMenu);
         }
 
         private void Pause()

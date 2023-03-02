@@ -18,7 +18,7 @@ namespace HackNSlash.Scripts.TitleScreen
         {
             yield return new WaitForSeconds(inputDelay );
             InputSystem.onAnyButtonPress.CallOnce(ctx
-                => StartCoroutine(SequentiateScreens(GameManager.Instance.ReloadGame)));
+                => StartCoroutine(SequentiateScreens(GameManager.Instance.LoadMainMenu)));
         }
 
         private IEnumerator SequentiateScreens(Action sequenceEndAction)

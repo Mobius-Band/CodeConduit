@@ -1,5 +1,4 @@
-﻿using System;
-using Eflatun.SceneReference;
+﻿using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
 using UnityEngine.Events;
