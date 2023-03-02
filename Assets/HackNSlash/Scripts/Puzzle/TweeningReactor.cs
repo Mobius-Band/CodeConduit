@@ -14,12 +14,15 @@ namespace HackNSlash.Scripts.Puzzle
 
         [Header("OBSTACLE CHECKING")]
         [SerializeField] private LayerMask obstacleMask;
+        [SerializeField] private Vector3 detectionOffset;
         [SerializeField] private float obstacleCheckInterval;
 
         private bool isDown = false;
         private Vector3 initialPosition;
 
         private Tween movementTween;
+
+        private Vector3 DetectionScale => (transform.lossyScale + detectionOffset);
 
         private void Start()
         {
@@ -30,7 +33,7 @@ namespace HackNSlash.Scripts.Puzzle
         private bool HasAnyObstacles()
         {
             Vector3 origin = transform.position;
-            bool hasAnyObstacle = Physics.BoxCast(origin, transform.lossyScale / 2, tweeningOffset.normalized * CheckSignal(),
+            bool hasAnyObstacle = Physics.BoxCast(origin, DetectionScale / 2, tweeningOffset.normalized * CheckSignal(),
                 transform.rotation, tweeningOffset.magnitude, obstacleMask, QueryTriggerInteraction.Ignore);
             return hasAnyObstacle;
         }
@@ -54,10 +57,10 @@ namespace HackNSlash.Scripts.Puzzle
             Vector3 origin = transform.position;
             Gizmos.color = HasAnyObstacles() ? Color.red : Color.green;
             ExtDebug.DrawBoxCastBox(
-                origin, transform.lossyScale / 2, transform.rotation, tweeningOffset.normalized,
+                origin, DetectionScale / 2, transform.rotation, tweeningOffset.normalized,
                 tweeningOffset.magnitude, Gizmos.color);
             ExtDebug.DrawBoxCastBox(
-                origin, transform.lossyScale / 2, transform.rotation, tweeningOffset.normalized * -1,
+                origin, DetectionScale / 2, transform.rotation, tweeningOffset.normalized * -1,
                 tweeningOffset.magnitude, Gizmos.color);
         }
         
