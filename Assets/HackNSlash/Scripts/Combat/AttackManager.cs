@@ -23,7 +23,6 @@ namespace Combat
 
         [HideInInspector] public bool _isAttacking;
         public Animator animator;
-        private bool _isAttackSuspended;
 
         [Tooltip("Apply current attack's position and size to the hitbox, for debugging. " +
                  "Use this to visualize the current attack's hitbox in the editor.")]
@@ -77,16 +76,6 @@ namespace Combat
         public void StopAttack()
         {
             _isAttacking = false;
-        }
-
-        public void SuspendAttack()
-        {
-            _isAttackSuspended = true;
-        }
-
-        public void RegainAttack()
-        {
-            _isAttackSuspended = false;
         }
     }
 }

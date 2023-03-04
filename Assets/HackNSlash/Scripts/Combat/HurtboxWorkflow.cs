@@ -12,6 +12,7 @@ namespace Combat
         [SerializeField] private Hurtbox hurtbox;
         [SerializeField] private Health health;
         [SerializeField] private Knockback knockback;
+        [SerializeField] private Animator _animator;
             
         private void OnEnable()
         {
@@ -22,6 +23,7 @@ namespace Combat
 
             if (knockback != null)
             {
+                hurtbox.OnHitReceived += ctx => _animator.Play("Hit", 0);
                 hurtbox.OnHitReceived += ctx => knockback.ApplyKnockback(ctx.hitOriginTransform, ctx.Damage);
             }
         }

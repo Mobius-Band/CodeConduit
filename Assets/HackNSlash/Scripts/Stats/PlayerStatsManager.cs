@@ -9,7 +9,6 @@ namespace HackNSlash.Scripts.GameManagement
         public void SetHealthPercentage(int currentHealth, int maxHealth)
         {
             float healthPercentage = (float)currentHealth/maxHealth*100;
-            Debug.Log("Health Percentage: " + healthPercentage);
             PlayerPrefs.SetFloat(healthAccessor, healthPercentage);
         }
         

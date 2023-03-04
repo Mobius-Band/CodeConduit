@@ -44,9 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17eba983d7e94911b0213c8334d7a9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuSceneIndex: 1
-  combatScene0Index: 1
-  victorySceneReferenceIndex: 3
-  gameOverSceneReferenceIndex: 2
+  sceneRefs: {fileID: 11400000, guid: 6578aea4b23d31f47931e3aa7d6712d7, type: 2}
   isBooting: 1
   isPaused: 0

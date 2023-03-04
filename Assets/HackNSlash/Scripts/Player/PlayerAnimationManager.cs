@@ -9,6 +9,9 @@ public class PlayerAnimationManager : MonoBehaviour
     public Action OnAnimationHit;
     public Action OnAnimationSuspendRotation;
     public Action OnAnimationReturningToIdle;
+    public Action OnAnimationAttackStep;
+    public Action OnAnimationEndDash;
+    public Action OnAnimationSetNextAttack;
 
     
     void AnimationEndCombo()
@@ -29,5 +32,20 @@ public class PlayerAnimationManager : MonoBehaviour
     void AnimationReturningToIdle()
     {
         OnAnimationReturningToIdle?.Invoke();
+    }
+
+    void AnimationAttackStep()
+    {
+        OnAnimationAttackStep?.Invoke();
+    }
+
+    void AnimationEndDash()
+    {
+        OnAnimationEndDash?.Invoke();
+    }
+
+    void AnimationSetNextAttack()
+    {
+        OnAnimationSetNextAttack?.Invoke();
     }
 }

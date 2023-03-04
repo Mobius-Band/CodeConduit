@@ -12,21 +12,20 @@ namespace Player
         [SerializeField] private float _moveSpeed;
         [Range(1, 50)] 
         [SerializeField] private float _rotationTime = 1f;
-        // [SerializeField] private Transform _perspectiveCameraHolder;
-        // [SerializeField] private Transform _isometricCameraHolder;
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private Transform _cameraHolder;
         [SerializeField] private Animator _animator;
+        [Range(0, 100)] 
         [SerializeField] private float _dashSpeed;
+        [Range(0, 1)] 
         [SerializeField] private float _dashTime;
+        [HideInInspector] public bool _isDashing;
         public Vector2 MoveInput { get => _moveInput; set => _moveInput = value; }
         private ComboManager _comboManager;
         private Rigidbody _rigidbody;
         private Vector2 _moveInput;
-        // private Vector2 _rotationInput;
         private Vector3 _moveDirection;
         private float _rotationVelocity;
-        private bool _isDashing;
         private bool _isMovementSuspended;
         private bool _isRotationSuspended;
         private float _rotationAngle;
@@ -49,6 +48,8 @@ namespace Player
             }
             
             LerpRotate(movementAngle);
+            
+            _animator.SetBool("isDashing", _isDashing);
         }
 
         private void FixedUpdate()
@@ -81,41 +82,60 @@ namespace Player
             moveDirection.Normalize();
         }
         
+        private IEnumerator DashCoroutine(float dashSpeed)
+        {
+            _isDashing = true;
+            _comboManager.SuspendAttack();
+            _comboManager.EndCombo();
+            SuspendMovement();
+            SuspendRotation();
+
+            if (_moveInput == Vector2.zero)
+            {
+                _moveDirection = transform.forward;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
+            }
+            _rigidbody.velocity = _moveDirection * (dashSpeed);
+            _rigidbody.freezeRotation = true;
+            
+            _animator.Play("DashStart");
+            _audioManager.Play("dash");
+
+            yield return new WaitForSeconds(_dashTime);
+
+            _isDashing = false;
+            RegainMovement();
+            _comboManager.RegainAttack();
+            RegainRotation();
+        }
+        
         public void Dash()
         {
             if (!_isDashing)
             {
-                StartCoroutine(DashCoroutine());
+                StartCoroutine(DashCoroutine(_dashSpeed));
             }
         }
 
-        private IEnumerator DashCoroutine()
+        public IEnumerator AttackStepCoroutine(float amount, float duration)
         {
             var direction = transform.forward;
-            if (IsMoving() || _comboManager._isAttacking)
+            _rigidbody.velocity = direction * (amount);
+            
+            yield return new WaitForSeconds(duration);
+            
+            if (_comboManager._isAttacking)
             {
-                transform.rotation = Quaternion.Euler(0f, movementAngle, 0f);
-                direction = _moveDirection;
+                _rigidbody.velocity = direction * 0;
             }
-            
-            _isDashing = true;
-            _comboManager.EndCombo();
-            _comboManager.SuspendAttack();
-            SuspendRotation();
-            SuspendMovement();
+        }
 
-            _rigidbody.velocity = direction * (_moveSpeed + _dashSpeed);
-            _rigidbody.freezeRotation = true;
-            
-            _animator.Play("Dash");
-            _audioManager.Play("dash");
-            
-            yield return new WaitForSeconds(_dashTime);
-
-            _comboManager.RegainAttack();
-            RegainRotation();
-            RegainMovement();
-            _isDashing = false;
+        public void AttackStep(Attack attack)
+        {
+            StartCoroutine(AttackStepCoroutine(attack.stepAmount, attack.stepDuration));
         }
 
         public bool IsMoving()
@@ -148,7 +168,13 @@ namespace Player
 
         public void RegainMovement()
         {
+            EndDash();
             _isMovementSuspended = false;
+        }
+
+        public void EndDash()
+        {
+            _isDashing = false;
         }
     }
 }

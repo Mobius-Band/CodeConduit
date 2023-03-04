@@ -50,7 +50,7 @@ MonoBehaviour:
   inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   activeColor: {r: 0, g: 0, b: 1, a: 1}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
-  damage: 7
+  damage: 12
 --- !u!1 &754824679
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effectMaterial: {fileID: 2100000, guid: f393be1785e183a4f809c3a499e04001, type: 2}
   _meshRenderer: {fileID: 1756381825118617419}
+  _skinnedMeshRenderer: {fileID: 0}
   _speed: 0.1
 --- !u!114 &1756381825117879891
 MonoBehaviour:
@@ -449,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - damage: 7
+  - damage: 12
     hitboxPosition: {x: 0, y: 0, z: 1.27}
     hitboxSize: {x: 1.6, y: 1.6, z: 1.7}
   hitbox: {fileID: 203895117}
@@ -485,6 +486,7 @@ MonoBehaviour:
   hurtbox: {fileID: 8558181481965967197}
   health: {fileID: 2943333921522794505}
   knockback: {fileID: 1756381825117879892}
+  _animator: {fileID: 2882879165835375624}
 --- !u!1 &1756381825118617420
 GameObject:
   m_ObjectHideFlags: 0

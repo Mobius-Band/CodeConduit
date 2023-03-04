@@ -1,4 +1,4 @@
-﻿using HackNSlash.Scripts.GameManagement;
+using HackNSlash.Scripts.GameManagement;
 using Util;
 
 namespace HackNSlash.Scripts.Player
@@ -13,7 +13,7 @@ namespace HackNSlash.Scripts.Player
         
         protected override void Die()
         {
-            GameManager.Instance.LoadGameOverScene();
+            GameManager.Instance.SceneManager.LoadGameOverScene();
         }
     }
 }

@@ -1,62 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &363606905
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 363606906}
-  - component: {fileID: 363606907}
-  m_Layer: 0
-  m_Name: FlowManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &363606906
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363606905}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9134410771394879147}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &363606907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363606905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72388d913e48bdc4b8cf937e3b5c4a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamePlayElements:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mainMenuElements:
-  - {fileID: 9134410770569175401}
-  controlScreen: {fileID: 9134410771643378852}
-  playButton: {fileID: 9134410771770251820}
-  controlsButton: {fileID: 6156298624740046273}
-  quitButton: {fileID: 6156298623468942964}
-  returnButtons:
-  - {fileID: 1708324038581042898}
 --- !u!1 &9134410770569175401
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9134410771394879147}
+  - component: {fileID: 3949737959117130768}
   m_Layer: 0
   m_Name: ---MainMenuUI---
   m_TagString: Untagged
@@ -293,10 +237,29 @@ Transform:
   m_Children:
   - {fileID: 9134410770569175414}
   - {fileID: 9134410771643378853}
-  - {fileID: 363606906}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3949737959117130768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134410771394879146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72388d913e48bdc4b8cf937e3b5c4a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuElements:
+  - {fileID: 9134410770569175401}
+  controlScreen: {fileID: 9134410771643378852}
+  playButton: {fileID: 9134410771770251820}
+  controlsButton: {fileID: 6156298624740046273}
+  quitButton: {fileID: 6156298623468942964}
+  returnButtons:
+  - {fileID: 1132999971145297950}
 --- !u!1 &9134410771415463536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,9 +974,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8418136727f1e78418dedd87f3757841, type: 3}
---- !u!114 &1708324038581042898 stripped
+--- !u!114 &1132999971145297950 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 873056573, guid: 8418136727f1e78418dedd87f3757841,
+  m_CorrespondingSourceObject: {fileID: 1732785046861858801, guid: 8418136727f1e78418dedd87f3757841,
     type: 3}
   m_PrefabInstance: {fileID: 1708324037843482607}
   m_PrefabAsset: {fileID: 0}
