@@ -34,7 +34,6 @@ namespace HackNSlash.Scripts.Audio
 
         public void Play(string name)
         {
-            Debug.Log("aaaa");
             Sound s = Array.Find(sounds, sound => sound.name == name);
             
             if (s == null)

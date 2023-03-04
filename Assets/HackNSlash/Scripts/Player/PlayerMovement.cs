@@ -3,6 +3,7 @@ using System.Collections;
 using Combat;
 using HackNSlash.Scripts.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -35,6 +36,10 @@ namespace Player
         {
             _rigidbody = GetComponent<Rigidbody>();
             _comboManager = GetComponent<ComboManager>();
+        }
+
+        private void Start()
+        {
             _audioManager.Play("walk");
         }
 
@@ -54,6 +59,7 @@ namespace Player
 
         private void FixedUpdate()
         {
+
             if (IsMoving())
             {
                 _animator.SetBool("isMoving", true);
@@ -144,7 +150,6 @@ namespace Player
             {
                 return false;
             }
-
             return true;
         }
 
