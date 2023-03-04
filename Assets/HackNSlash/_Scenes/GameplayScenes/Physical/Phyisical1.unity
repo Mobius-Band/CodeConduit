@@ -513,6 +513,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &704890634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8564962912114786816, guid: ee76155120ec5844faba6d47143c7a24,
+    type: 3}
+  m_PrefabInstance: {fileID: 193993551719105226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &704890639
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704890634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &719228098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1232,26 @@ Transform:
   m_Father: {fileID: 828946662}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1582082282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153701454289835677, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7865051691408674845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1582082293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582082282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623ebb6901c442eabf74683e1e00eede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 5
+  _height: 5
 --- !u!1 &1591428154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,12 +1797,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1224917708179384747, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3334292146677506342, guid: ee76155120ec5844faba6d47143c7a24,
         type: 3}
       propertyPath: acceptableCollisionMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4247854018861150894, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247854018861150894, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564962912114786816, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
+      propertyPath: m_TagString
+      value: Movable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4247854018861150894, guid: ee76155120ec5844faba6d47143c7a24, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ee76155120ec5844faba6d47143c7a24, type: 3}
 --- !u!1001 &665962588898802305
 PrefabInstance:
@@ -2025,6 +2085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: canAttack
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865051691486091280, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7865051691825594290, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}

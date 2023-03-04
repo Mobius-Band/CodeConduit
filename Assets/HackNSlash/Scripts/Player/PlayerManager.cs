@@ -1,5 +1,6 @@
 using System;
 using Combat;
+using HackNSlash.Scripts.Player;
 using HackNSlash.Scripts.UI;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Player
         private PlayerInputManager _input;
         private ComboManager _comboManager;
         private PlayerMovement _movement;
+        private PlayerPickupSphere _playerPickupSphere;
 
         [Header("External References")] 
         [SerializeField] private PauseMenuManager _pauseMenu;
@@ -23,6 +25,7 @@ namespace Player
             _input = GetComponent<PlayerInputManager>();
             _comboManager = GetComponent<ComboManager>();
             _movement = GetComponent<PlayerMovement>();
+            _playerPickupSphere = GetComponent<PlayerPickupSphere>();
         }
         
         void Start()
@@ -33,7 +36,7 @@ namespace Player
             if (_isPuzzlePlayer)
             {
                 // create interaction function
-                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _movement.Dash();
+                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.PickupSphere();
                 return;
             }
             

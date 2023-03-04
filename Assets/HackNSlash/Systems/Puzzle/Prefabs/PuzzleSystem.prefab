@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580348272462114291}
   m_Layer: 0
-  m_Name: ActivatorBoxes
+  m_Name: ActivatorSpheres
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 7714594344107969548, guid: c492bc5ba88e3304dbd5316f417beca8,
         type: 3}
       propertyPath: m_Name
-      value: ActivatorBox
+      value: ActivatorSphere
       objectReference: {fileID: 0}
     - target: {fileID: 7714594344107969549, guid: c492bc5ba88e3304dbd5316f417beca8,
         type: 3}
