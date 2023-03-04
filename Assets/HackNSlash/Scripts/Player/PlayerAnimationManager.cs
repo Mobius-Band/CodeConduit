@@ -12,8 +12,9 @@ public class PlayerAnimationManager : MonoBehaviour
     public Action OnAnimationAttackStep;
     public Action OnAnimationEndDash;
     public Action OnAnimationSetNextAttack;
+    public Action OnAnimationRegainMovement;
+    public Action OnAnimationSuspendMovement;
 
-    
     void AnimationEndCombo()
     {
         OnAnimationEndCombo?.Invoke();
@@ -47,5 +48,15 @@ public class PlayerAnimationManager : MonoBehaviour
     void AnimationSetNextAttack()
     {
         OnAnimationSetNextAttack?.Invoke();
+    }
+
+    void AnimationRegainMovement()
+    {
+        OnAnimationRegainMovement?.Invoke();
+    }
+    
+    void AnimationSuspendMovement()
+    {
+        OnAnimationSuspendMovement?.Invoke();
     }
 }
