@@ -175,7 +175,6 @@ namespace Player
         {
             EndDash();
             _isMovementSuspended = false;
-            print("is movement suspended: " + _isMovementSuspended);
         }
 
         public void EndDash()
