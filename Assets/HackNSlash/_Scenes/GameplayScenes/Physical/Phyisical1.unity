@@ -1381,6 +1381,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1641129345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 193993553184084914, guid: ee76155120ec5844faba6d47143c7a24,
+    type: 3}
+  m_PrefabInstance: {fileID: 193993551719105226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1641129349
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641129345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1688890463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,8 +1803,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193993553184084913, guid: ee76155120ec5844faba6d47143c7a24,
         type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 193993553184084913, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 193993553184084913, guid: ee76155120ec5844faba6d47143c7a24,
         type: 3}

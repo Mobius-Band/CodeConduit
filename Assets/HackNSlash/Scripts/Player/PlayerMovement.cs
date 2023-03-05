@@ -54,21 +54,20 @@ namespace Player
             
             LerpRotate(movementAngle);
             
-            _animator.SetBool("isDashing", _isDashing);
+            //_animator.SetBool("isDashing", _isDashing);
         }
 
         private void FixedUpdate()
         {
-
             if (IsMoving())
             {
-                _animator.SetBool("isMoving", true);
+                //_animator.SetBool("isMoving", true);
                 _rigidbody.velocity = _moveDirection * _moveSpeed;
                 _audioManager.sounds[0].source.enabled = true;
             }
             else
             {
-                _animator.SetBool("isMoving", false);
+                //_animator.SetBool("isMoving", false);
                 _audioManager.sounds[0].source.enabled = false;
             }
         }
