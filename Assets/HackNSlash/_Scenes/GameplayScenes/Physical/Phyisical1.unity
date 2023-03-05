@@ -528,7 +528,7 @@ SphereCollider:
   m_GameObject: {fileID: 704890634}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -960,6 +960,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 665962588898802305}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1479725082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7399587276821413012, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7865051691408674845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1494518443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 153701454289835674, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
@@ -1250,8 +1256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623ebb6901c442eabf74683e1e00eede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 5
-  _height: 5
+  _activationDistance: 3
+  _holder: {fileID: 1479725082}
+  _sphere: {fileID: 0}
+  _sphereParent: {fileID: 0}
+  _canPickUp: 0
+  _isHoldingSphere: 0
 --- !u!1 &1591428154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,6 +1782,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 193993553184084913, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193993553184084913, guid: ee76155120ec5844faba6d47143c7a24,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 193993553184084914, guid: ee76155120ec5844faba6d47143c7a24,
         type: 3}
       propertyPath: m_IsActive
@@ -2081,10 +2101,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PhysicalPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 153701454677991556, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 153701454677991564, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
       propertyPath: canAttack
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 153701454677991564, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7865051691486091280, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
