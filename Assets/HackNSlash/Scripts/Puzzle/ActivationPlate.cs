@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using HackNSlash.Scripts.Player;
 using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.Util;
@@ -14,64 +15,86 @@ public class ActivationPlate : PuzzleSwitch
     [SerializeField] private Renderer renderer;
     [SerializeField] private Material activeMaterial;
     [SerializeField] private Material inactiveMaterial;
-
-    private int collidersWithin;
-
+    
+    private List<Collider> collidersWithin;
+    private int ColliderQuantity => collidersWithin.Count;
+    // private Collider currentActivator;
     private void Start()
     {
         renderer.material = inactiveMaterial;
+        collidersWithin = new List<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!triggererMask.Contains(other.gameObject.layer)) 
+        // if (currentActivator != null)
+        // {
+        //     return;
+        // }
+        if (triggererMask.Contains(other.gameObject.layer) == false) 
             return;
-        if (collidersWithin > 0)
+
+        if (collidersWithin.Contains(other) == false)
+        {
+            collidersWithin.Add(other);
+        }
+        else
         {
             return;
         }
-        collidersWithin++;
-        if (other.gameObject.TryGetComponent(out PlayerPickupSphere playerPickupSphere))
-        {
-            if (playerPickupSphere.IsHoldingSphere)
-            {
-                return;
-            }
-        }
+        
+        // currentActivator = other;
         isActivated = true;
         StopCoroutine(DeactivationTimer());
+        // Debug.Log(collidersWithin);
         Activate();
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!triggererMask.Contains(other.gameObject.layer)) 
+        // if (currentActivator == null)
+        // {
+        //     return;
+        // }
+        //
+        // if (other != currentActivator)
+        // {
+        //     return;
+        // }
+
+        // currentActivator = null;
+        
+        if (collidersWithin.Contains(other) == true)
+        {
+            collidersWithin.Remove(other);
+        }
+        else
+        {
             return;
-        collidersWithin--;
-        if (collidersWithin < 0)
-            return;
-        isActivated = false;
-        StartCoroutine(DeactivationTimer());
+        }
+        
+        if (ColliderQuantity == 0)
+        {
+            StartCoroutine(DeactivationTimer());
+        }
     }
 
     private IEnumerator DeactivationTimer()
     {
         yield return new WaitForSeconds(timer);
         Deactivate();
-        isActivated = false;
     }
 
     protected new void Activate()
     {
-        print(" aaaaa ");
         base.Activate();
         renderer.material = activeMaterial;
     }
 
     protected new void Deactivate()
     {
-        print(" bbbbb ");
+        isActivated = false;
         base.Deactivate();
         renderer.material = inactiveMaterial;
     }

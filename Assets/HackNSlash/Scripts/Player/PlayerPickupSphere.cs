@@ -1,9 +1,4 @@
-﻿using System;
-
-using DG.Tweening;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
 {
@@ -27,14 +22,16 @@ namespace HackNSlash.Scripts.Player
          }
 
          public void PickupSphere()
-        {
+         {
             if (_isHoldingSphere)
             {
+                _sphere.GetComponent<Collider>().isTrigger = false;
                 DropSphere();
             }
             
             if (_canPickUp && !_isHoldingSphere)
             {
+                _sphere.GetComponent<Collider>().isTrigger = true;
                 _isHoldingSphere = true;
             }
         }
@@ -43,7 +40,7 @@ namespace HackNSlash.Scripts.Player
         {
             _sphere.SetParent(_sphereParent);
             _sphere.localPosition = new Vector3(_sphere.localPosition.x, 1, _sphere.localPosition.z);
-            
+
             _isHoldingSphere = false;
         }
 
