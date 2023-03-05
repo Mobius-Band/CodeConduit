@@ -9,16 +9,24 @@ namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
-        [SerializeField] private float _activationDistance;
         [SerializeField] private Transform _holder;
-        //[SerializeField] private float _distance;
-        //[SerializeField] private float _height;
-        [SerializeField] private Transform _sphere;
-        [SerializeField] private Transform _sphereParent;
+        [SerializeField] private float _activationDistance;
         [SerializeField] private bool _canPickUp;
         [SerializeField] private bool _isHoldingSphere;
+         private Transform _sphere;
+         private Transform _sphereParent;
+         private BoxCollider _collider;
+         private float _colliderZInitialValue;
+         
+         public bool IsHoldingSphere => _isHoldingSphere;
 
-        public void PickupSphere()
+         private void Start()
+         {
+             _collider = GetComponent<BoxCollider>();
+             _colliderZInitialValue = _collider.size.z;
+         }
+
+         public void PickupSphere()
         {
             if (_isHoldingSphere)
             {
@@ -33,6 +41,9 @@ namespace HackNSlash.Scripts.Player
 
         private void DropSphere()
         {
+            _sphere.SetParent(_sphereParent);
+            _sphere.localPosition = new Vector3(_sphere.localPosition.x, 1, _sphere.localPosition.z);
+            
             _isHoldingSphere = false;
         }
 
@@ -41,12 +52,10 @@ namespace HackNSlash.Scripts.Player
             if (other.gameObject.CompareTag("Movable"))
             {
                 _sphere = other.gameObject.transform;
-                /*
                 if (!_isHoldingSphere)
                 {
                     _sphereParent = _sphere.parent;
                 }
-                */
             }
         }
 
@@ -66,17 +75,19 @@ namespace HackNSlash.Scripts.Player
                 _canPickUp = false;
             }
             
+            var colliderSize = _collider.size;
             if (_isHoldingSphere)
             {
                 _sphere.SetParent(_holder);
                 _sphere.localPosition = Vector3.zero;
-                _sphere.GetComponent<Rigidbody>().useGravity = false;
+                colliderSize.z = 4;
             }
             else
             {
-                _sphere.SetParent(_sphereParent);
-                _sphere.GetComponent<Rigidbody>().useGravity = true;
+                colliderSize.z = _colliderZInitialValue;
             }
+
+            _collider.size = colliderSize;
         }
     }
 }

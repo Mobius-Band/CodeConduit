@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using HackNSlash.Scripts.Player;
 using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.Util;
 using UnityEngine;
@@ -27,10 +26,22 @@ public class ActivationPlate : PuzzleSwitch
     {
         if (!triggererMask.Contains(other.gameObject.layer)) 
             return;
+        if (collidersWithin > 0)
+        {
+            return;
+        }
         collidersWithin++;
+        if (other.gameObject.TryGetComponent(out PlayerPickupSphere playerPickupSphere))
+        {
+            if (playerPickupSphere.IsHoldingSphere)
+            {
+                return;
+            }
+        }
         isActivated = true;
-        Activate();
         StopCoroutine(DeactivationTimer());
+        Activate();
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,7 +49,7 @@ public class ActivationPlate : PuzzleSwitch
         if (!triggererMask.Contains(other.gameObject.layer)) 
             return;
         collidersWithin--;
-        if (collidersWithin > 0)
+        if (collidersWithin < 0)
             return;
         isActivated = false;
         StartCoroutine(DeactivationTimer());
@@ -53,12 +64,14 @@ public class ActivationPlate : PuzzleSwitch
 
     protected new void Activate()
     {
+        print(" aaaaa ");
         base.Activate();
         renderer.material = activeMaterial;
     }
 
     protected new void Deactivate()
     {
+        print(" bbbbb ");
         base.Deactivate();
         renderer.material = inactiveMaterial;
     }
