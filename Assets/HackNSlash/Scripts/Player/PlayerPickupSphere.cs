@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
+        [Header("SETUP")]
         [SerializeField] private Transform _holder;
         [SerializeField] private float _activationDistance;
         [SerializeField] private bool _canPickUp;
         [SerializeField] private bool _isHoldingSphere;
+        [Header("EVENTS")] 
+        [SerializeField] private UnityEvent<bool> OnSphereCanBePicked;
          private Transform _sphere;
          private Transform _sphereParent;
          private BoxCollider _collider;
@@ -65,10 +69,18 @@ namespace HackNSlash.Scripts.Player
             
             if (Vector3.Distance(transform.position, _sphere.position) < _activationDistance)
             {
+                if (_canPickUp == false && _isHoldingSphere == false)
+                {
+                    OnSphereCanBePicked?.Invoke(!_canPickUp);
+                }
                 _canPickUp = true;
             }
             else
             {
+                if (_canPickUp == true && _isHoldingSphere == false)
+                {
+                    OnSphereCanBePicked?.Invoke(!_canPickUp);
+                }
                 _canPickUp = false;
             }
             
