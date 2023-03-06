@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using Combat;
 using HackNSlash.Scripts.Audio;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -147,8 +145,10 @@ namespace Player
         {
             if (_moveInput == Vector2.zero || _isMovementSuspended || _isDashing)
             {
+                _animator.SetBool("isMoving", false);
                 return false;
             }
+            _animator.SetBool("isMoving", true);
             return true;
         }
 
@@ -174,7 +174,6 @@ namespace Player
         {
             EndDash();
             _isMovementSuspended = false;
-            print("is movement suspended: " + _isMovementSuspended);
         }
 
         public void EndDash()
