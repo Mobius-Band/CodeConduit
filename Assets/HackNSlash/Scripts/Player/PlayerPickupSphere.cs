@@ -77,7 +77,7 @@ namespace HackNSlash.Scripts.Player
             }
             else
             {
-                if (_canPickUp == true && _isHoldingSphere == false)
+                if (_canPickUp == true)
                 {
                     OnSphereCanBePicked?.Invoke(!_canPickUp);
                 }
