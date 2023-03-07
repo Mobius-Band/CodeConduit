@@ -42,7 +42,7 @@ EditorBuildSettings:
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical3.unity
     guid: 8c0be625b1e661944a971a67fcfe8982
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical4.unity
+    path: 
     guid: 68af5355a0836d14894dc3ca50a7d790
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Digital2.unity
@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Digital3.unity
     guid: f3fe09fff3e45cb45ba670bc3f34d735
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical4.unity
+    guid: 2fc2a1750e79fc84b84968f34abe2b81
   m_configObjects: {}
