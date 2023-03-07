@@ -154,33 +154,122 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: b3dd6d1f6e6d3c140be745b30c370868, type: 3}
-    name: walk
-    volume: 2
-    pitch: 1.25
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 796d15c3daede6f46a67cd51b67ae928, type: 3}
+  - clip: {fileID: 8300000, guid: 3eb32db713e5bc94ebcf125908ab3aa6, type: 3}
     name: dash
+    tag: dash
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 97e0781f852289a47ad1f6a817f6efdc, type: 3}
-    name: attack1
-    volume: 0.5
+  - clip: {fileID: 8300000, guid: 54cd132c81f366b4ab9231ed3f6c68ba, type: 3}
+    name: hit1
+    tag: hit
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 8a2300f5c2e5cef49826522bff59c039, type: 3}
-    name: attack2
-    volume: 0.5
+  - clip: {fileID: 8300000, guid: b0ffe981bb628464a961e04de24ca3e2, type: 3}
+    name: hit2
+    tag: hit
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 1448a090227d6c644a197297f2388a8b, type: 3}
-    name: attack3
-    volume: 0.5
+  - clip: {fileID: 8300000, guid: 29edcd4ac9622b844a6f8dbfe696865e, type: 3}
+    name: hit3
+    tag: hit
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 9b02dd568ffd18e40bc396b80fa3e8b5, type: 3}
+    name: hit4
+    tag: hit
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a22a045c431450b45a90745f4c04e0a5, type: 3}
+    name: swoosh1
+    tag: swoosh
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 56f6603b671c95d4f8abb627c6bada82, type: 3}
+    name: swoosh2
+    tag: swoosh
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: faa3bb5e70580df4aace5530d67b8cfc, type: 3}
+    name: swoosh3
+    tag: swoosh
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 12d364f65065e8245abe0f1956525ae7, type: 3}
+    name: swoosh4
+    tag: swoosh
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7878a449e9b13c740b124c2330dfcd1a, type: 3}
+    name: dmg1
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 3ee6f0c7ade07eb498e60608b3074e3a, type: 3}
+    name: dmg2
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: cc5638beaaeaa754d88b59615625c4aa, type: 3}
+    name: dmg3
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: fbccaf8d806e0f4419ad54867c93dcf6, type: 3}
+    name: dmg4
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e3d0870063863f04f9f8f0a0951f17e9, type: 3}
+    name: dmg5
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 2de9ca7b6522d1a4eaca3fa720fdfbd2, type: 3}
+    name: dmg6
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b162682b6ca15644aac65d57efb24a3d, type: 3}
+    name: dmg7
+    tag: dmg
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6fc347d874f63664aadeca53bdc0e1f6, type: 3}
+    name: dmg8
+    tag: dmg
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}

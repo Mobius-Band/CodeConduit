@@ -76,15 +76,15 @@ namespace Combat
             {
                 case 0:
                     animator.Play("attack1");
-                    _audioManager.Play("attack1");
+                    _audioManager.Play("swoosh1");
                     break;
                 case 1:
                     animator.Play("attack2");
-                    _audioManager.Play("attack2");
+                    _audioManager.Play("swoosh3");
                     break;
                 case 2:
                     animator.Play("attack3");
-                    _audioManager.Play("attack3");
+                    _audioManager.Play("swoosh4");
                     break;
             }
         }
