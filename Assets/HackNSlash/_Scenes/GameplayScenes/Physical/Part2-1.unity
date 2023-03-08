@@ -2164,6 +2164,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312774226}
     m_Modifications:
+    - target: {fileID: 530214780809009298, guid: 85f68e80759841d479844370661d26a4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 530214780809009300, guid: 85f68e80759841d479844370661d26a4,
         type: 3}
       propertyPath: m_RootOrder
@@ -2228,6 +2233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758285544530660221, guid: 85f68e80759841d479844370661d26a4,
+        type: 3}
+      propertyPath: doorIndex
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f68e80759841d479844370661d26a4, type: 3}

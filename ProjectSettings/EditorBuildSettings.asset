@@ -24,28 +24,28 @@ EditorBuildSettings:
     path: Assets/HackNSlash/_Scenes/InfoScenes/MainMenu.unity
     guid: afa5c5e76bfac6c4e88cfa21a311a778
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Digital0.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Part2-Digital.unity
     guid: 247d7590ac266d54ab155725efb391a9
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical0.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part1-3.unity
     guid: 2daaebfda5f3e70449ab2ead61ee9b74
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Digital1.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Part3-Digital.unity
     guid: 09ff4a24072e435419ac7b9781107c1b
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical1.unity
+    path: 
     guid: 7e807bb59d8155e4fa45d01e40fbac2b
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical2.unity
+    path: 
     guid: b2130806a4da5d14cb7da0e792d85e16
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical3.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4.unity
     guid: 8c0be625b1e661944a971a67fcfe8982
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Digital2.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Part4-Digital.unity
     guid: 026b2c0c51ebddb4ebc9dc3fb1dc3672
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Digital3.unity
@@ -53,4 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical4.unity
     guid: 2fc2a1750e79fc84b84968f34abe2b81
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part2-1.unity
+    guid: fceb9dce34fe97348a5ce4c0d9559f1a
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part3-3.unity
+    guid: 68af5355a0836d14894dc3ca50a7d790
   m_configObjects: {}

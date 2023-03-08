@@ -1,4 +1,5 @@
-﻿using HackNSlash.Scripts.GamePlayFlowManagement;
+﻿using HackNSlash.ScriptableObjects;
+using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using Utilities;
 
@@ -6,12 +7,14 @@ namespace HackNSlash.Scripts.GameManagement
 {
     public class GameManager : Singleton<GameManager>
     {
-        [SerializeField] private SceneRefSO sceneRefs; 
-        
+        [SerializeField] private SceneRefSO sceneRefs;
+        [SerializeField] private AccessData _accessData;
+        [Space] [SerializeField] private string laserWallScene1, laserWallScene2;
         public bool isBooting = true;
         public bool isPaused = false;
 
         public SceneRefSO SceneManager => sceneRefs;
+        public AccessData AccessData => _accessData;
         
         public void LoadMainMenu()
         {
@@ -42,6 +45,19 @@ namespace HackNSlash.Scripts.GameManagement
         {
             Cursor.visible = !doIt;
             Cursor.lockState = !doIt ? CursorLockMode.None : CursorLockMode.Locked;
+        }
+
+        public void UnlockCurrentLaserWall()
+        {
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == laserWallScene1)
+            {
+                AccessData.canAccessPart2 = true;
+            }
+            
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == laserWallScene2)
+            {
+                AccessData.canAccessPart3 = true;
+            }
         }
     }
 }

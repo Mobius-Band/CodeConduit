@@ -1,4 +1,5 @@
 using System;
+using HackNSlash.Scripts.GameManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,7 @@ namespace HackNSlash.Scripts.Enemy
         [SerializeField] private int _maximumWave;
         [SerializeField] private TextMeshProUGUI _waveText;
         [SerializeField] private Transform playerTransform;
+        [Space] 
         [SerializeField] private UnityEvent OnWaveFinished;
         [SerializeField] private UnityEvent OnAllWavesFinished;
         [Space(10)] 
@@ -41,6 +43,7 @@ namespace HackNSlash.Scripts.Enemy
                 if (_currentWave > _maximumWave)
                 {
                     OnAllWavesFinished?.Invoke();
+                    GameManager.Instance.UnlockCurrentLaserWall();
                     enabled = false;
                 }
                 

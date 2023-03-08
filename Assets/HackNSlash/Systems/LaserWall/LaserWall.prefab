@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 530214780809009299}
   - component: {fileID: 530214780809009298}
   - component: {fileID: 530214780809009301}
+  - component: {fileID: 1758285544530660221}
   m_Layer: 0
   m_Name: LaserWall
   m_TagString: Untagged
@@ -97,3 +98,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1758285544530660221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530214780809009303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7acedbc8c110740bcf00d6d000660e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorIndex: -1
+  _collider: {fileID: 530214780809009301}
+  _renderer: {fileID: 530214780809009298}

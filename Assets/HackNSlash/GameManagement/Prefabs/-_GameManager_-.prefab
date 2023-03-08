@@ -45,5 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneRefs: {fileID: 11400000, guid: 6578aea4b23d31f47931e3aa7d6712d7, type: 2}
+  _accessData: {fileID: 11400000, guid: 74b316f56339164498d13ed2e19bf656, type: 2}
+  laserWallScene1: Part2-Digital
+  laserWallScene2: Part3-Digital
   isBooting: 1
   isPaused: 0
