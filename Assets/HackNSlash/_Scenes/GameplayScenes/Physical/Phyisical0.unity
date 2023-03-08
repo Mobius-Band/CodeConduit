@@ -2058,29 +2058,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153701454289835676, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
-      propertyPath: _dashTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153701454289835676, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
-        type: 3}
-      propertyPath: _dashSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153701454289835676, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
-        type: 3}
-      propertyPath: _moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 153701454289835676, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
-        type: 3}
       propertyPath: _cameraHolder
       value: 
       objectReference: {fileID: 2072978065}
-    - target: {fileID: 153701454289835676, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
-        type: 3}
-      propertyPath: _rotationTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 153701454289835677, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
       propertyPath: m_Name
