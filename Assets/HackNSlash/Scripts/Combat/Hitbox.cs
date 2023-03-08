@@ -71,7 +71,7 @@ namespace Combat
             };
             Array.ForEach(_hitColliders, 
                 hitCollider => hitCollider.gameObject.Send<IHitResponder>(_=>_.HitRespond(hitEventArgs)));
-            if (_audioManager != null) _audioManager.PlayRandom("hit", false);
+            if (_audioManager != null) _audioManager.PlayRandom("hit");
         }
         
         /// <summary>
