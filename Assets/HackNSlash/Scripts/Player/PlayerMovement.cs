@@ -38,7 +38,6 @@ namespace Player
 
         private void Start()
         {
-            _audioManager.Play("walk");
         }
 
         private void Update()
@@ -61,12 +60,12 @@ namespace Player
             {
                 _animator.SetBool("isMoving", true);
                 _rigidbody.velocity = _moveDirection * _moveSpeed;
-                _audioManager.sounds[0].source.enabled = true;
+                _audioManager.Play("walk");
             }
             else
             {
                 _animator.SetBool("isMoving", false);
-                _audioManager.sounds[0].source.enabled = false;
+                _audioManager.Mute("walk");
             }
         }
         

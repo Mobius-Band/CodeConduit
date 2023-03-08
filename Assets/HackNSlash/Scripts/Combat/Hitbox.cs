@@ -1,6 +1,7 @@
 ﻿using System;
 using Ez;
 using Ez.Msg.Demos;
+using HackNSlash.Scripts.Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -41,6 +42,8 @@ namespace Combat
                 _ => Color.white
             };
 
+        [SerializeField] private AudioManager _audioManager;
+
         void Update()
         {
             if (_state == ColliderState.Inactive)
@@ -68,6 +71,7 @@ namespace Combat
             };
             Array.ForEach(_hitColliders, 
                 hitCollider => hitCollider.gameObject.Send<IHitResponder>(_=>_.HitRespond(hitEventArgs)));
+            if (_audioManager != null) _audioManager.PlayRandom("hit");
         }
         
         /// <summary>
