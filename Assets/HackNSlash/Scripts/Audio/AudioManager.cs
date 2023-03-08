@@ -9,6 +9,7 @@ namespace HackNSlash.Scripts.Audio
     public class AudioManager : MonoBehaviour
     {
         public Sound[] sounds;
+        private int lastRandomIndex;
 
         public static AudioManager instance;
 
@@ -66,10 +67,21 @@ namespace HackNSlash.Scripts.Audio
             s.source.volume = 0;
         }
 
-        public void PlayRandom(string tag)
+        public void PlayRandom(string tag, bool repeats = false)
         {
             Vector2 indexes = SearchWithTag(tag);
             int index = (int)Random.Range(indexes.x, indexes.y);
+
+            if (!repeats)
+            {
+                while (index == lastRandomIndex)
+                {
+                    index = (int)Random.Range(indexes.x, indexes.y);
+                }
+            }
+            
+            lastRandomIndex = index;
+            
             Sound s = sounds[index];
 
             if (s == null)

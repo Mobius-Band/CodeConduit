@@ -1,4 +1,5 @@
 ﻿using System;
+using HackNSlash.Scripts.Audio;
 using UnityEngine;
 using Util;
 
@@ -13,12 +14,14 @@ namespace Combat
         [SerializeField] private Health health;
         [SerializeField] private Knockback knockback;
         [SerializeField] private Animator _animator;
+        [SerializeField] private AudioManager _audioManager;
             
         private void OnEnable()
         {
             if (health != null)
             {
                 hurtbox.OnHitReceived += ctx => health.TakeDamage(ctx.Damage);
+                if (_audioManager != null) hurtbox.OnHitReceived += ctx => _audioManager.PlayRandom("dmg");
             }
 
             if (knockback != null)
