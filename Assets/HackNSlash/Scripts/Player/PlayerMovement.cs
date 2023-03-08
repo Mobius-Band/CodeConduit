@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using Combat;
 using HackNSlash.Scripts.Audio;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -54,12 +52,11 @@ namespace Player
             
             LerpRotate(movementAngle);
             
-            _animator.SetBool("isDashing", _isDashing);
+            //_animator.SetBool("isDashing", _isDashing);
         }
 
         private void FixedUpdate()
         {
-
             if (IsMoving())
             {
                 _animator.SetBool("isMoving", true);
@@ -175,7 +172,6 @@ namespace Player
         {
             EndDash();
             _isMovementSuspended = false;
-            print("is movement suspended: " + _isMovementSuspended);
         }
 
         public void EndDash()
