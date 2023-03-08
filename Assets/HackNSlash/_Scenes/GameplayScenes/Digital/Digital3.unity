@@ -483,30 +483,35 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: b3dd6d1f6e6d3c140be745b30c370868, type: 3}
     name: walk
+    tag: 
     volume: 1
     pitch: 1.25
     loop: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 97e0781f852289a47ad1f6a817f6efdc, type: 3}
     name: attack1
+    tag: 
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 2fa2301f37df3c54fb06f295d176c422, type: 3}
     name: attack2
+    tag: 
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 1448a090227d6c644a197297f2388a8b, type: 3}
     name: attack3
+    tag: 
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 796d15c3daede6f46a67cd51b67ae928, type: 3}
     name: dash
+    tag: 
     volume: 1
     pitch: 1
     loop: 0
@@ -1022,6 +1027,75 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1001 &463055335
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325955057096676519, guid: 195a81216070c6f43bfbfa4903fa113f,
+        type: 3}
+      propertyPath: m_Name
+      value: MusicPlayerDigital
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 195a81216070c6f43bfbfa4903fa113f, type: 3}
 --- !u!1 &469820785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,6 +2246,13 @@ MonoBehaviour:
   _maximumWave: 4
   _waveText: {fileID: 810300535}
   playerTransform: {fileID: 400750109}
+  OnWaveFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAllWavesFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  startWithLastWave: 0
 --- !u!1 &1591428154
 GameObject:
   m_ObjectHideFlags: 0
