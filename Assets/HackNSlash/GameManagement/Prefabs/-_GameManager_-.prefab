@@ -50,3 +50,18 @@ MonoBehaviour:
   laserWallScene2: Part3-Digital
   isBooting: 1
   isPaused: 0
+  OnMainMenuLoaded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 74b316f56339164498d13ed2e19bf656, type: 2}
+        m_TargetAssemblyTypeName: HackNSlash.ScriptableObjects.AccessData, Assembly-CSharp
+        m_MethodName: EraseAccess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

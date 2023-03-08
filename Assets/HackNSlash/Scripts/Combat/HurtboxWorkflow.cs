@@ -23,7 +23,10 @@ namespace Combat
 
             if (knockback != null)
             {
-                hurtbox.OnHitReceived += ctx => _animator.Play("Hit", 0);
+                if (_animator != null)
+                {
+                    hurtbox.OnHitReceived += ctx => _animator.Play("Hit", 0);
+                }
                 hurtbox.OnHitReceived += ctx => knockback.ApplyKnockback(ctx.hitOriginTransform, ctx.Damage);
             }
         }

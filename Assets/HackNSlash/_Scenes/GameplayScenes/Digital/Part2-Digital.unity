@@ -2082,7 +2082,7 @@ MonoBehaviour:
   - {fileID: 245581474}
   - {fileID: 1646823475}
   _enemyParent: {fileID: 1133756799}
-  _maximumWave: 1
+  _maximumWave: 2
   _waveText: {fileID: 810300535}
   playerTransform: {fileID: 400750109}
   OnWaveFinished:
@@ -2103,7 +2103,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  startWithLastWave: 1
+  startWithLastWave: 0
 --- !u!1 &1591428154
 GameObject:
   m_ObjectHideFlags: 0

@@ -108,7 +108,7 @@ MonoBehaviour:
   inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   activeColor: {r: 0, g: 0, b: 1, a: 1}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
-  damage: 50
+  damage: 5
 --- !u!1 &4557081539709777768
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +307,8 @@ MonoBehaviour:
   _audioManager: {fileID: 6040675030765683148}
   _cameraHolder: {fileID: 0}
   _animator: {fileID: 1148600999}
-  _dashSpeed: 30
-  _dashTime: 0.5
+  _dashSpeed: 50
+  _dashTime: 0.45
   _isDashing: 0
 --- !u!114 &808592645
 MonoBehaviour:
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - damage: 50
+  - damage: 5
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.25}
     stepAmount: 15

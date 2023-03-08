@@ -67,11 +67,15 @@ namespace HackNSlash.Scripts.Enemy
         private void EnemyDied()
         {
             _enemiesLeft--;
+            Debug.Log("Enemies Left: " + _enemiesLeft);
+
         }
         
         private void EnemySpawned()
         {
             _enemiesLeft++;
+            Debug.Log("Enemies Left: " + _enemiesLeft);
+
         }
 
         private void SetSpawningCount()

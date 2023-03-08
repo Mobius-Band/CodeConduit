@@ -453,6 +453,8 @@ MonoBehaviour:
   - damage: 12
     hitboxPosition: {x: 0, y: 0, z: 1.27}
     hitboxSize: {x: 1.6, y: 1.6, z: 1.7}
+    stepAmount: 0
+    stepDuration: 0
   hitbox: {fileID: 203895117}
   currentAttackIndex: 0
   _isAttacking: 0

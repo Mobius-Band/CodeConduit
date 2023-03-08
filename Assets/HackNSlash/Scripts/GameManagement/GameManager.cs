@@ -1,17 +1,26 @@
 ﻿using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
+using UnityEngine.Events;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
 {
     public class GameManager : Singleton<GameManager>
     {
+        
         [SerializeField] private SceneRefSO sceneRefs;
+        
+        [Header("AREA ACCESS SETUP")]
         [SerializeField] private AccessData _accessData;
-        [Space] [SerializeField] private string laserWallScene1, laserWallScene2;
+        [SerializeField] private string laserWallScene1, laserWallScene2;
+        
+        [Header("GAMEFLOW SETUP")]
         public bool isBooting = true;
         public bool isPaused = false;
+        
+        [Header("SCENE TRANSITION EVENTS")] 
+        [SerializeField] private UnityEvent OnMainMenuLoaded;
 
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
@@ -19,6 +28,7 @@ namespace HackNSlash.Scripts.GameManagement
         public void LoadMainMenu()
         {
             isBooting = true;
+            OnMainMenuLoaded?.Invoke();
             sceneRefs.LoadMainMenu();
         }
         

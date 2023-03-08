@@ -2080,9 +2080,8 @@ MonoBehaviour:
   - {fileID: 1267994931}
   - {fileID: 694403975}
   - {fileID: 245581474}
-  - {fileID: 1646823475}
   _enemyParent: {fileID: 1133756799}
-  _maximumWave: 3
+  _maximumWave: 4
   _waveText: {fileID: 810300535}
   playerTransform: {fileID: 400750109}
   OnWaveFinished:
@@ -2103,7 +2102,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  startWithLastWave: 1
+  startWithLastWave: 0
 --- !u!1 &1591428154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2394,51 @@ Transform:
   m_Father: {fileID: 477326497}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1781710252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781710253}
+  - component: {fileID: 1781710254}
+  m_Layer: 0
+  m_Name: EnemySpawner (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1781710253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781710252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15, y: 2, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1834707307}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781710254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781710252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9639308b784e0744a68e654217270f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 1756381824401406759}
 --- !u!4 &1795315140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1756381825117879880, guid: 8337bdffb4bb9f44c84e6c80c020b183,
@@ -2445,6 +2489,7 @@ Transform:
   - {fileID: 694403976}
   - {fileID: 245581475}
   - {fileID: 1646823476}
+  - {fileID: 1781710253}
   m_Father: {fileID: 324770868}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3109,7 +3154,7 @@ PrefabInstance:
     - target: {fileID: 2943333921522794505, guid: 8337bdffb4bb9f44c84e6c80c020b183,
         type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8337bdffb4bb9f44c84e6c80c020b183, type: 3}

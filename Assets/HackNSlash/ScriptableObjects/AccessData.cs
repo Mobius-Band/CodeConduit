@@ -7,5 +7,10 @@ namespace HackNSlash.ScriptableObjects
     {
         public bool canAccessPart2;
         public bool canAccessPart3;
+
+        public void EraseAccess()
+        {
+            canAccessPart2 = canAccessPart3 = false;
+        }
     }
 }
