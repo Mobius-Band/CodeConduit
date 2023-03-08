@@ -62,6 +62,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1601651963135113858, guid: 0492c50a418a9054184050eea4b87fe0,
+        type: 3}
+      propertyPath: m_text
+      value: Press 'Interact' to go to the DIGITAL WORLD
+      objectReference: {fileID: 0}
     - target: {fileID: 2530325921479905227, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

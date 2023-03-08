@@ -1137,6 +1137,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4539422669179203789, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
+        type: 3}
+      propertyPath: m_text
+      value: Press 'Interact' to go to the NEXT ROOM
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcab58ac9c5d9a140a3d8ef7758c18b6, type: 3}
 --- !u!1 &1181378990
@@ -1573,7 +1578,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688890463
 GameObject:
