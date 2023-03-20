@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Phyisical2.unity
     guid: b2130806a4da5d14cb7da0e792d85e16
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-2-1.unity
     guid: 8c0be625b1e661944a971a67fcfe8982
   - enabled: 0
     path: 
@@ -62,4 +62,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part1-2.unity
     guid: 381a66a9cdafa404bb44b1b5609928da
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part3-1.unity
+    guid: 13a307edd9d92894291b5e3b29b279e3
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part3-2.unity
+    guid: 42a0b5c6b92f16240b22a146686b1adb
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-1.unity
+    guid: 05312854f09e88944be1bd3b378a889c
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-3.unity
+    guid: 302b180079c2e044a9a933640ba403a9
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-4.unity
+    guid: 60a4ae09897c7a243b0940e07773f606
   m_configObjects: {}
