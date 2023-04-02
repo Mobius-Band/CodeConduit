@@ -11,13 +11,14 @@ namespace HackNSlash.Scripts.Portal
     {
         [SerializeField] private SceneReference targetScene;
         [SerializeField] private bool shouldStartActive;
+        [SerializeField] private int accessorSceneIndex = -1;
         [SerializeField] private UnityEvent OnActivation;
         [SerializeField] private UnityEvent OnDeactivation;
 
         private void Start()
         {
             DisableInteraction();
-            SetActive(shouldStartActive);
+            SetActive(shouldStartActive && CanBeAccessed());
         }
 
         public void SetActive(bool value)
@@ -47,6 +48,26 @@ namespace HackNSlash.Scripts.Portal
         private void ShiftScene(InputAction.CallbackContext ctx)
         {
             targetScene.SafeLoad();
+        }
+
+        private bool CanBeAccessed()
+        {
+            switch ((uint)accessorSceneIndex)
+            {
+                case 2:
+                    if (GameManager.Instance.AccessData.canAccessPart2)
+                    {
+                        return false;
+                    }
+                    break;
+                case 3:
+                    if (GameManager.Instance.AccessData.canAccessPart3)
+                    {
+                        return false;
+                    }
+                    break;
+            }
+            return true;
         }
     }
 }

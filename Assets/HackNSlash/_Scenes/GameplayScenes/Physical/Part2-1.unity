@@ -556,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 2609025052392089555, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2609025052392089555, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
         type: 3}
@@ -2386,6 +2386,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392067280349090727, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
+        type: 3}
+      propertyPath: accessorSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 392067280349090727, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
         type: 3}
       propertyPath: targetScene.sceneAsset

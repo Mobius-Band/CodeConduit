@@ -1578,7 +1578,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688890463
 GameObject:
@@ -2109,6 +2109,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392067280349090727, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
+        type: 3}
+      propertyPath: accessorSceneIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 392067280349090727, guid: dcab58ac9c5d9a140a3d8ef7758c18b6,
         type: 3}
       propertyPath: targetScene.sceneAsset

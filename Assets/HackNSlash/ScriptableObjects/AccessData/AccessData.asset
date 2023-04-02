@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac1cf5339e1d3d4da8caa999f21d71a, type: 3}
   m_Name: AccessData
   m_EditorClassIdentifier: 
+  digitalPart2Scene:
+    sceneAsset: {fileID: 102900000, guid: 247d7590ac266d54ab155725efb391a9, type: 3}
+    sceneAssetGuidHex: 247d7590ac266d54ab155725efb391a9
+  digitalPart3Scene:
+    sceneAsset: {fileID: 102900000, guid: 09ff4a24072e435419ac7b9781107c1b, type: 3}
+    sceneAssetGuidHex: 09ff4a24072e435419ac7b9781107c1b
   canAccessPart2: 0
   canAccessPart3: 0
