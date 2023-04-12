@@ -6,5 +6,6 @@ namespace HackNSlash.ScriptableObjects
     public class ElevatorState : ScriptableObject
     {
         public bool isDown;
+        public bool startOnElevator = false;
     }
 }

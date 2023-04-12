@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140656a99c3c45b4c8659fcd72ed80cd, type: 3}
   m_Name: ElevatorState
   m_EditorClassIdentifier: 
-  isDown: 0
+  isDown: 1
+  startOnElevator: 0
