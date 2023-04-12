@@ -72,6 +72,9 @@ EditorBuildSettings:
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-1.unity
     guid: 05312854f09e88944be1bd3b378a889c
   - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-2-2.unity
+    guid: d6d1270f97c3c844a9c2ebd9a651cdca
+  - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-3.unity
     guid: 302b180079c2e044a9a933640ba403a9
   - enabled: 1

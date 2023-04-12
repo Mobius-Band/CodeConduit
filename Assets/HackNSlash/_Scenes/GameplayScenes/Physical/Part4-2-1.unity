@@ -136,6 +136,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: -_GameManager_-
       objectReference: {fileID: 0}
+    - target: {fileID: 2568441477226569321, guid: 8deda9d52ffead747b25f387f1615c5e,
+        type: 3}
+      propertyPath: _elevatorState
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a62b8737ba87ed469a7f4eaa41248ec,
+        type: 2}
     - target: {fileID: 2568441477226569322, guid: 8deda9d52ffead747b25f387f1615c5e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2194,21 +2200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5794041463581203293, guid: ee621fd890202f24398f461f69385c74,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5794041463581203293, guid: ee621fd890202f24398f461f69385c74,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5794041463581203293, guid: ee621fd890202f24398f461f69385c74,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5794041463581203293, guid: ee621fd890202f24398f461f69385c74,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2361,5 +2352,10 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 430340858}
+    - target: {fileID: 7865051692012321620, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c4c7e65f7204a4fae30c751ebdfcd3, type: 3}

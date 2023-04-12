@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5794041463581203293}
-  - component: {fileID: 6714273829035903569}
   - component: {fileID: 980997707601624378}
+  - component: {fileID: 1759988608}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -27,33 +27,13 @@ Transform:
   m_GameObject: {fileID: 5794041463581203292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5794041463741474849}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6714273829035903569
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5794041463581203292}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5201cc4be035b614ba77680f2e08e373, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &980997707601624378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +46,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4ba2b8b671ada458502693fe6ace92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _time: 3
+--- !u!65 &1759988608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5794041463581203292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 2, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5794041463741474848
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +71,7 @@ GameObject:
   - component: {fileID: 5794041463741474849}
   - component: {fileID: 5794041463741474860}
   - component: {fileID: 5794041463741474851}
-  - component: {fileID: 5794041463741474850}
+  - component: {fileID: 1993254796}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -150,7 +144,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5794041463741474850
+--- !u!65 &1993254796
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +155,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.0000001, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

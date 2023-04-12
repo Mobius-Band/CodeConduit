@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 621928931, guid: 4f87f1521805a794aa6863705018b061, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 808592645, guid: 4f87f1521805a794aa6863705018b061, type: 3}
       propertyPath: _pauseMenu
       value: 
@@ -875,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_Name
-      value: Player Physical Version
+      value: PhysicalPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
