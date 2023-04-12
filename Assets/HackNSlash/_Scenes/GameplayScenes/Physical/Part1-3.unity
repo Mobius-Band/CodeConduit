@@ -137,6 +137,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: -_GameManager_-
       objectReference: {fileID: 0}
+    - target: {fileID: 2568441477226569321, guid: 8deda9d52ffead747b25f387f1615c5e,
+        type: 3}
+      propertyPath: laserWallScene1.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 247d7590ac266d54ab155725efb391a9,
+        type: 3}
+    - target: {fileID: 2568441477226569321, guid: 8deda9d52ffead747b25f387f1615c5e,
+        type: 3}
+      propertyPath: laserWallScene2.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 09ff4a24072e435419ac7b9781107c1b,
+        type: 3}
+    - target: {fileID: 2568441477226569321, guid: 8deda9d52ffead747b25f387f1615c5e,
+        type: 3}
+      propertyPath: laserWallScene1.sceneAssetGuidHex
+      value: 247d7590ac266d54ab155725efb391a9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568441477226569321, guid: 8deda9d52ffead747b25f387f1615c5e,
+        type: 3}
+      propertyPath: laserWallScene2.sceneAssetGuidHex
+      value: 09ff4a24072e435419ac7b9781107c1b
+      objectReference: {fileID: 0}
     - target: {fileID: 2568441477226569322, guid: 8deda9d52ffead747b25f387f1615c5e,
         type: 3}
       propertyPath: m_RootOrder

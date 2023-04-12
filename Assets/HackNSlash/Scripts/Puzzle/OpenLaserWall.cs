@@ -1,11 +1,13 @@
+using DG.Tweening;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
 
 public class OpenLaserWall : MonoBehaviour
 {
     [SerializeField] private int doorIndex;
-    [SerializeField] private Collider _collider;
-    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Collider collider;
+    [SerializeField] private Renderer renderer;
+    [SerializeField] private float toggleDuration;
 
     private void Start()
     {
@@ -14,17 +16,21 @@ public class OpenLaserWall : MonoBehaviour
             case 2:
                 if (GameManager.Instance.AccessData.canAccessPart2)
                 {
-                    _collider.enabled = false;
-                    _renderer.enabled = false;
+                    DisableDoor();
                 }
                 break;
             case 3:
                 if (GameManager.Instance.AccessData.canAccessPart3)
                 {
-                    _collider.enabled = false;
-                    _renderer.enabled = false;
+                    DisableDoor();
                 }
                 break;
         }
+    }
+
+    private void DisableDoor()
+    {
+        renderer.material.DOFade(0, toggleDuration)
+            .OnComplete(() => collider.enabled = false);
     }
 }

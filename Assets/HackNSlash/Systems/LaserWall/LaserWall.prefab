@@ -111,5 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorIndex: -1
-  _collider: {fileID: 530214780809009301}
-  _renderer: {fileID: 530214780809009298}
+  collider: {fileID: 530214780809009301}
+  renderer: {fileID: 530214780809009298}
+  toggleDuration: 5

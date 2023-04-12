@@ -1,7 +1,9 @@
-﻿using HackNSlash.ScriptableObjects;
+﻿using Eflatun.SceneReference;
+using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
@@ -13,8 +15,7 @@ namespace HackNSlash.Scripts.GameManagement
         
         [Header("AREA ACCESS SETUP")]
         [SerializeField] private AccessData _accessData;
-        [SerializeField] private string laserWallScene1, laserWallScene2;
-        
+
         [Header("GAMEFLOW SETUP")]
         public bool isBooting = true;
         public bool isPaused = false;
@@ -63,12 +64,13 @@ namespace HackNSlash.Scripts.GameManagement
 
         public void UnlockCurrentLaserWall()
         {
-            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == laserWallScene1)
+            var activeSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            if (activeSceneIndex == AccessData.DigitalPart2Scene.BuildIndex)
             {
                 AccessData.canAccessPart2 = true;
             }
             
-            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == laserWallScene2)
+            if (activeSceneIndex == AccessData.DigitalPart3Scene.BuildIndex)
             {
                 AccessData.canAccessPart3 = true;
             }
