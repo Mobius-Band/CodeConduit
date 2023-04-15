@@ -3,9 +3,9 @@ using System.Collections;
 using DG.Tweening;
 using HackNSlash.Scripts.GameManagement;
 using Player;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Sequence = DG.Tweening.Sequence;
 
 namespace HackNSlash.Scripts.Util
 {
@@ -32,21 +32,17 @@ namespace HackNSlash.Scripts.Util
 
         private void Start()
         {
-            StartOnElevator = false;
+            DOTween.Init();
             
             if (SceneManager.GetActiveScene().name == _elevatorScene1)
             {
                 _upPosition = 10;
                 _downPosition = 0;
-                // only for this build
-                transform.position = new Vector3(transform.position.x, _downPosition, transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name == _elevatorScene2)
             {
                 _upPosition = 0;
                 _downPosition = -10;
-                // only for this build
-                transform.position = new Vector3(transform.position.x, _upPosition, transform.position.z);
             }
 
             if (!StartOnElevator)
@@ -57,34 +53,42 @@ namespace HackNSlash.Scripts.Util
             }
         
             // starting on the elevator:
-            
-            if (IsDown)
-            {
-                transform.position = new Vector3(transform.position.x, _upPosition, transform.position.z);
-                StartCoroutine(ElevatorGoDown());
-            }
-            else
-            {
-                transform.position = new Vector3(transform.position.x, _downPosition, transform.position.z);
-                StartCoroutine(ElevatorGoUp());
-            }
-
-            //_canUseElevator = false;
-            //_player.SetParent(transform);
-            //_player.GetComponent<Rigidbody>().isKinematic = true;
-            //_player.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            StartCoroutine(PlayerStartOnElevator());
         }
 
         private void ElevatorActivate()
         {
-            if (IsDown)
+            _canUseElevator = false;
+            
+            float direction;
+
+            if (StartOnElevator)
             {
-                StartCoroutine(ElevatorGoUp());
+                if (IsDown) { direction = _downPosition; }
+                else { direction = _upPosition; }
             }
             else
             {
-                StartCoroutine(ElevatorGoDown());
+                if (IsDown) { direction = _upPosition; }
+                else { direction = _downPosition; }
             }
+            
+
+            // using a dotween sequence to make the player enter the elevator and then go up
+            
+            Sequence sequence = DOTween.Sequence();
+            
+            sequence.Append(
+                _player.GetComponent<Rigidbody>().DOMove(new Vector3(
+                    transform.position.x, _player.transform.position.y, transform.position.z), _time/2));
+            
+            sequence.Append(
+                _player.transform.DORotate(new Vector3(
+                    _player.rotation.x, 0, _player.rotation.z), _time/2));
+            
+            sequence.Append(transform.DOMove(new Vector3(0, direction, 0), _time));
+            
+            DOTween.Play(sequence);
         }
 
         private IEnumerator PlayerEnterElevator()
@@ -92,53 +96,61 @@ namespace HackNSlash.Scripts.Util
             _player.SetParent(transform);
             _player.GetComponent<PlayerMovement>().SuspendMovement();
             _player.GetComponent<PlayerMovement>().SuspendRotation();
-            
-            // sometimes this works, but then the elevator's DOMove doesn't
-            
-            //_player.GetComponent<Rigidbody>().DOMove(new Vector3(
-            //    transform.position.x, _player.transform.position.y, transform.position.z), 1);
-        
+            _player.GetComponent<Rigidbody>().isKinematic = true;
+
             ElevatorActivate();
-        
-            yield return new WaitForSeconds(_time);
+
+            StartOnElevator = true;
+            
+            yield return new WaitForSeconds(_time * 2);
         
             if (IsDown) { IsDown = false; } 
             else { IsDown = true; }
             
             ChangeScene();
         }
+
+        private IEnumerator PlayerStartOnElevator()
+        {
+            if (IsDown)
+            {
+                transform.position = new Vector3(transform.position.x,_upPosition, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x,_downPosition, transform.position.z);
+            }
+            
+            _canUseElevator = false;
+            _player.SetParent(transform);
+            _player.GetComponent<PlayerMovement>().SuspendMovement();
+            _player.GetComponent<PlayerMovement>().SuspendRotation();
+            _player.GetComponent<Rigidbody>().isKinematic = true;
+            _player.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+
+            ElevatorActivate();
+            
+            yield return new WaitForSeconds(_time * 2);
+            
+            _player.GetComponent<PlayerMovement>().RegainMovement();
+            _player.GetComponent<PlayerMovement>().RegainRotation();
+            _player.GetComponent<Rigidbody>().isKinematic = false;
+            
+            yield return new WaitForSeconds(_time);
+
+            StartOnElevator = false;
+            _canUseElevator = true;
+        }
         
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                //StartOnElevator = true;
-                
                 if (_canUseElevator)
                 {
                     StartCoroutine(PlayerEnterElevator());
                 }
             }
-        }
-
-        private IEnumerator ElevatorGoUp()
-        {
-            _player.GetComponent<Rigidbody>().isKinematic = true;
-            transform.DOMove(new Vector3(0, _upPosition, 0), _time);
-
-            yield return new WaitForSeconds(_time + 0.5f);
-            
-            _player.GetComponent<Rigidbody>().isKinematic = false;
-        }
-
-        private IEnumerator ElevatorGoDown()
-        {
-            _player.GetComponent<Rigidbody>().isKinematic = true;
-            transform.DOMove(new Vector3(0, _downPosition, 0), _time);
-            
-            yield return new WaitForSeconds(_time + 0.5f);
-            
-            _player.GetComponent<Rigidbody>().isKinematic = false;
         }
 
         private void ChangeScene()
