@@ -51,6 +51,7 @@ MonoBehaviour:
   activeColor: {r: 0, g: 0, b: 1, a: 1}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   damage: 12
+  _audioManager: {fileID: 0}
 --- !u!1 &754824679
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +320,7 @@ Transform:
   - {fileID: 1756381825118617421}
   - {fileID: 203895116}
   - {fileID: 2633767070648000369}
+  - {fileID: 6003781667467696155}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -489,6 +491,8 @@ MonoBehaviour:
   health: {fileID: 2943333921522794505}
   knockback: {fileID: 1756381825117879892}
   _animator: {fileID: 2882879165835375624}
+  _audioManager: {fileID: 0}
+  _vfxManager: {fileID: 666541943393612739}
 --- !u!1 &1756381825118617420
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +578,57 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6959522914875523725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6003781667467696155}
+  - component: {fileID: 666541943393612739}
+  m_Layer: 6
+  m_Name: VFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6003781667467696155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959522914875523725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1756381825117879880}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666541943393612739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959522914875523725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7147ffadfb2ccf41afbf38dabceaaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualEffects:
+  - visualEffect: {fileID: 5594184920316917956, guid: d2dfb48b25fd1094f84e22fcf4e9c56b,
+      type: 3}
+    name: impact
+    delay: 0
+    duration: 1
+    rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &7438622048408902807
 GameObject:
   m_ObjectHideFlags: 0
