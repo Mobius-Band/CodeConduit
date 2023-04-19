@@ -1,8 +1,7 @@
-﻿using System;
-using HackNSlash.Scripts.Audio;
+﻿using HackNSlash.Scripts.Audio;
+using HackNSlash.Scripts.VFX;
 using Player;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Combat
 {
@@ -10,6 +9,7 @@ namespace Combat
     {
         private PlayerMovement _playerMovement;
         [SerializeField] private AudioManager _audioManager;
+        [SerializeField] private VFXManager _vfxManager;
         private bool isReturningToIdle;
         private bool _hasNextAttack;
         private bool _isAttackSuspended;
@@ -70,6 +70,7 @@ namespace Combat
             _playerMovement.RegainRotation();
         }
         
+        // also plays sound and vfx (should rename)
         private void PlayAttackAnimation()
         {
             switch (currentAttackIndex)
@@ -77,14 +78,17 @@ namespace Combat
                 case 0:
                     animator.Play("attack1");
                     _audioManager.Play("swoosh1");
+                    _vfxManager.PlayVFX("slash", transform);
                     break;
                 case 1:
                     animator.Play("attack2");
                     _audioManager.Play("swoosh3");
+                    _vfxManager.PlayVFX("slash2", transform);
                     break;
                 case 2:
                     animator.Play("attack3");
                     _audioManager.Play("swoosh4");
+                    _vfxManager.PlayVFX("slash", transform);
                     break;
             }
         }
