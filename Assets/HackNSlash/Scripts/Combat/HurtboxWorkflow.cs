@@ -1,5 +1,6 @@
 ﻿using System;
 using HackNSlash.Scripts.Audio;
+using HackNSlash.Scripts.VFX;
 using UnityEngine;
 using Util;
 
@@ -15,6 +16,7 @@ namespace Combat
         [SerializeField] private Knockback knockback;
         [SerializeField] private Animator _animator;
         [SerializeField] private AudioManager _audioManager;
+        [SerializeField] private VFXManager _vfxManager;
             
         private void OnEnable()
         {
@@ -22,6 +24,7 @@ namespace Combat
             {
                 hurtbox.OnHitReceived += ctx => health.TakeDamage(ctx.Damage);
                 if (_audioManager != null) hurtbox.OnHitReceived += ctx => _audioManager.PlayRandom("dmg");
+                if (_vfxManager != null) hurtbox.OnHitReceived += ctx => _vfxManager.PlayVFX("impact", transform);
             }
 
             if (knockback != null)

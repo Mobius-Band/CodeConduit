@@ -15,7 +15,7 @@ namespace HackNSlash.Scripts.VFX
             
             if (vfx == null)
             {
-                Debug.LogWarning("Visual Effect: " + name + " not found!");
+                Debug.Log("Visual Effect: " + name + " not found!");
                 return;
             }
 

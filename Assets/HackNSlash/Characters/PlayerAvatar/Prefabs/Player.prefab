@@ -338,6 +338,12 @@ MonoBehaviour:
     delay: 0
     duration: 1
     rotation: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 5594184920316917956, guid: d2dfb48b25fd1094f84e22fcf4e9c56b,
+      type: 3}
+    name: impact
+    delay: 0
+    duration: 1
+    rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &7999598548989104734
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +529,7 @@ MonoBehaviour:
   knockback: {fileID: 7999598550174513738}
   _animator: {fileID: 1148600999}
   _audioManager: {fileID: 6040675030765683148}
+  _vfxManager: {fileID: 0}
 --- !u!114 &7999598550174513723
 MonoBehaviour:
   m_ObjectHideFlags: 0
