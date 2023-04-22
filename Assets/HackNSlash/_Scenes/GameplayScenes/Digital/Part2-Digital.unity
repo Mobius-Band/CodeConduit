@@ -1126,6 +1126,12 @@ Transform:
   m_Father: {fileID: 1834707307}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &696898082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2041568001074526839, guid: 4f87f1521805a794aa6863705018b061,
+    type: 3}
+  m_PrefabInstance: {fileID: 7999598550174513712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &719228098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7894,8 +7900,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526313647736398635, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
+      propertyPath: visualEffects.Array.data[0].rotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526313647736398635, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: visualEffects.Array.data[0].rotation.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526313647736398635, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
       propertyPath: visualEffects.Array.data[1].rotation.x
-      value: 180
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526313647736398635, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: visualEffects.Array.data[1].rotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526313647736398635, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: visualEffects.Array.data[1].rotation.z
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7554866524067866233, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
@@ -8137,6 +8163,11 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 7999598550174513713}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: _playerWeapon
+      value: 
+      objectReference: {fileID: 696898082}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_Name

@@ -7,9 +7,10 @@ namespace Combat
 {
     public class ComboManager : AttackManager
     {
-        private PlayerMovement _playerMovement;
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private VFXManager _vfxManager;
+        [SerializeField] private Transform _playerWeapon;
+        private PlayerMovement _playerMovement;
         private bool isReturningToIdle;
         private bool _hasNextAttack;
         private bool _isAttackSuspended;

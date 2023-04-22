@@ -9,7 +9,7 @@ namespace HackNSlash.Scripts.VFX
         public VFX[] visualEffects;
         private GameObject _instantiatedObject;
         
-        public void PlayVFX(string name, Transform parent)
+        public void PlayVFX(string name, Transform parent, Vector3 rotation = default)
         {
             VFX vfx = Array.Find(visualEffects, vfx => vfx.name == name);
             
@@ -19,7 +19,9 @@ namespace HackNSlash.Scripts.VFX
                 return;
             }
 
-            StartCoroutine(SpawnAndKill(vfx.visualEffect, parent, vfx.rotation, vfx.delay, vfx.duration));
+            var vfxRotation = vfx.rotation;
+            if (rotation != default) vfxRotation = rotation;
+            StartCoroutine(SpawnAndKill(vfx.visualEffect, parent, vfxRotation, vfx.delay, vfx.duration));
         }
 
         private IEnumerator SpawnAndKill(GameObject gameObject, Transform parent, Vector3 rotation, float delay, float duration)
@@ -27,6 +29,8 @@ namespace HackNSlash.Scripts.VFX
             yield return new WaitForSeconds(delay);
             
              _instantiatedObject = Instantiate(gameObject, parent);
+             _instantiatedObject.transform.localScale = Vector3.one;
+             _instantiatedObject.transform.localPosition = Vector3.zero;
              _instantiatedObject.transform.rotation = Quaternion.Euler(rotation);
              
             yield return new WaitForSeconds(duration);

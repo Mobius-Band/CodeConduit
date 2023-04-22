@@ -529,7 +529,7 @@ MonoBehaviour:
   knockback: {fileID: 7999598550174513738}
   _animator: {fileID: 1148600999}
   _audioManager: {fileID: 6040675030765683148}
-  _vfxManager: {fileID: 0}
+  _vfxManager: {fileID: 7526313647736398635}
 --- !u!114 &7999598550174513723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +564,7 @@ MonoBehaviour:
   animator: {fileID: 1148600999}
   _audioManager: {fileID: 6040675030765683148}
   _vfxManager: {fileID: 7526313647736398635}
+  _playerWeapon: {fileID: 0}
 --- !u!114 &7999598550174513730
 MonoBehaviour:
   m_ObjectHideFlags: 0
