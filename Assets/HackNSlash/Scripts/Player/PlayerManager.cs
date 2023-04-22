@@ -49,16 +49,16 @@ namespace Player
                 _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
                 _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
                 _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                _playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
+                _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
+                _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
+                _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
+                _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
+                _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
+                _playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
+                _playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
             }
-            _playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
-            _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
-            _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
-            _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
-            _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
-            _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
-            _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
-            _playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
-            _playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
         }
 
         private void OnDisable()
