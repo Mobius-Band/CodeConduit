@@ -1,17 +1,16 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
         [SerializeField] private Transform _holder; 
+        [HideInInspector] public bool isHoldingSphere;
         private PlayerInteraction _playerInteraction;
         private Transform _sphere;
-        private bool _isHoldingSphere;
         private Transform _sphereParent;
-        public bool IsHoldingSphere => _isHoldingSphere;
+        public bool IsHoldingSphere => isHoldingSphere;
 
         private void Awake()
         {
@@ -22,7 +21,7 @@ namespace HackNSlash.Scripts.Player
         {
             if (_playerInteraction.canInteract)
             {
-                if (!_isHoldingSphere)
+                if (!isHoldingSphere)
                 {
                     PickupSphere();
                 }
@@ -53,11 +52,11 @@ namespace HackNSlash.Scripts.Player
         {
             if (_holder.childCount > 0)
             {
-                _isHoldingSphere = true;
+                isHoldingSphere = true;
             }
             else
             {
-                _isHoldingSphere = false;
+                isHoldingSphere = false;
             }
             
             if (_playerInteraction._closestObject == null)
@@ -69,7 +68,7 @@ namespace HackNSlash.Scripts.Player
             {
                 _sphere = _playerInteraction._closestObject;
                 
-                if (!_isHoldingSphere)
+                if (!isHoldingSphere)
                 {
                     _sphereParent = _sphere.parent;
                 }

@@ -23,12 +23,16 @@ namespace HackNSlash.Scripts.GameManagement
         [Header("SCENE TRANSITION EVENTS")] 
         [SerializeField] private UnityEvent OnMainMenuLoaded;
 
-        [Header("ELEVATOR STATE SETUP")] [SerializeField]
-        private ElevatorState _elevatorState;
+        [Header("ELEVATOR STATE SETUP")] 
+        [SerializeField] private ElevatorState _elevatorState;
+
+        [Header("ELEVATOR STATE SETUP")] 
+        [SerializeField] private SphereElevatorState _sphereElevatorState;
         
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
         public ElevatorState ElevatorState => _elevatorState;
+        public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         
         public void LoadMainMenu()
         {

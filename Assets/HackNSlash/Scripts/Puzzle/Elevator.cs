@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sequence = DG.Tweening.Sequence;
 
-namespace HackNSlash.Scripts.Util
+namespace HackNSlash.Scripts.Puzzle
 {
     public class Elevator : MonoBehaviour
     {
@@ -61,7 +61,6 @@ namespace HackNSlash.Scripts.Util
             _canUseElevator = false;
             
             float direction;
-
             if (StartOnElevator)
             {
                 if (IsDown) { direction = _downPosition; }
@@ -73,7 +72,6 @@ namespace HackNSlash.Scripts.Util
                 else { direction = _downPosition; }
             }
             
-
             // using a dotween sequence to make the player enter the elevator and then go up
             
             Sequence sequence = DOTween.Sequence();
