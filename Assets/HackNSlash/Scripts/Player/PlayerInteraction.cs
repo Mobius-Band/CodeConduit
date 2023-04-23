@@ -8,30 +8,35 @@ namespace HackNSlash.Scripts.Player
     {
         [SerializeField] private float _interactionDistance;
         [SerializeField] private Transform[] _interactableObjects;
+        [HideInInspector] public Transform _closestObject;
         [HideInInspector] public bool canInteract;
-        private Transform _closestObject;
 
         private void Update()
         {
-            foreach (Transform interactableObject in _interactableObjects)
+            foreach (var interactableObject in _interactableObjects)
             {
                 if (Vector3.Distance(transform.position, interactableObject.position) < _interactionDistance)
                 {
                     if (!_closestObject) _closestObject = interactableObject;
+                    canInteract = true;
                     
                     if (Vector3.Distance(transform.position, interactableObject.position) < 
                         Vector3.Distance(transform.position, _closestObject.position))
                     {
                         _closestObject = interactableObject;
-                        print(interactableObject.name);
-                        canInteract = true;
                         break;
                     }
                 }
-                else
-                {
-                    canInteract = false;
-                }
+            }
+
+            if (!_closestObject)
+            {
+                return;
+            }
+            
+            if (Vector3.Distance(transform.position, _closestObject.position) > _interactionDistance)
+            {
+                canInteract = false;
             }
         }
     }

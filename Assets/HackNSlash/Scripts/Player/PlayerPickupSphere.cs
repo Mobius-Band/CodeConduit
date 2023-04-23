@@ -1,43 +1,44 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
-        [Header("SETUP")]
-        [SerializeField] private Transform _holder;
-        [SerializeField] private float _activationDistance;
-        [SerializeField] private bool _canPickUp;
-        [SerializeField] private bool _isHoldingSphere;
-        [Header("EVENTS")] 
-        [SerializeField] private UnityEvent<bool> OnSphereCanBePicked;
-         private Transform _sphere;
-         private Transform _sphereParent;
-         private BoxCollider _collider;
-         private float _colliderZInitialValue;
-         
-         public bool IsHoldingSphere => _isHoldingSphere;
+        [SerializeField] private Transform _holder; 
+        private PlayerInteraction _playerInteraction;
+        private Transform _sphere;
+        private bool _isHoldingSphere;
+        private Transform _sphereParent;
+        public bool IsHoldingSphere => _isHoldingSphere;
 
-         private void Start()
-         {
-             _collider = GetComponent<BoxCollider>();
-             _colliderZInitialValue = _collider.size.z;
-         }
+        private void Awake()
+        {
+            _playerInteraction = GetComponent<PlayerInteraction>();
+        }
 
+        public void SphereInteract()
+        {
+            if (_playerInteraction.canInteract)
+            {
+                if (!_isHoldingSphere)
+                {
+                    PickupSphere();
+                }
+                else
+                {
+                    DropSphere();
+                }
+            }
+        }
+        
          public void PickupSphere()
          {
-            if (_isHoldingSphere)
-            {
-                _sphere.GetComponent<Collider>().isTrigger = false;
-                DropSphere();
-            }
-            
-            if (_canPickUp && !_isHoldingSphere)
-            {
-                _sphere.GetComponent<Collider>().isTrigger = true;
-                _isHoldingSphere = true;
-            }
+            _sphere.SetParent(_holder);
+            _sphere.localPosition = Vector3.zero;
+                    
+            _sphere.GetComponent<Collider>().isTrigger = true;
         }
 
         private void DropSphere()
@@ -45,58 +46,34 @@ namespace HackNSlash.Scripts.Player
             _sphere.SetParent(_sphereParent);
             _sphere.localPosition = new Vector3(_sphere.localPosition.x, 1, _sphere.localPosition.z);
 
-            _isHoldingSphere = false;
+            _sphere.GetComponent<Collider>().isTrigger = false;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void Update()
         {
-            if (other.gameObject.CompareTag("Movable"))
+            if (_holder.childCount > 0)
             {
-                _sphere = other.gameObject.transform;
+                _isHoldingSphere = true;
+            }
+            else
+            {
+                _isHoldingSphere = false;
+            }
+            
+            if (_playerInteraction._closestObject == null)
+            {
+                return;
+            }
+            
+            if (_playerInteraction._closestObject.CompareTag("Movable"))
+            {
+                _sphere = _playerInteraction._closestObject;
+                
                 if (!_isHoldingSphere)
                 {
                     _sphereParent = _sphere.parent;
                 }
             }
-        }
-
-        private void Update()
-        {
-            if (_sphere == null)
-            {
-                return;
-            }
-            
-            if (Vector3.Distance(transform.position, _sphere.position) < _activationDistance)
-            {
-                if (_canPickUp == false && _isHoldingSphere == false)
-                {
-                    OnSphereCanBePicked?.Invoke(!_canPickUp);
-                }
-                _canPickUp = true;
-            }
-            else
-            {
-                if (_canPickUp == true)
-                {
-                    OnSphereCanBePicked?.Invoke(!_canPickUp);
-                }
-                _canPickUp = false;
-            }
-            
-            var colliderSize = _collider.size;
-            if (_isHoldingSphere)
-            {
-                _sphere.SetParent(_holder);
-                _sphere.localPosition = Vector3.zero;
-                colliderSize.z = 4;
-            }
-            else
-            {
-                colliderSize.z = _colliderZInitialValue;
-            }
-
-            _collider.size = colliderSize;
         }
     }
 }
