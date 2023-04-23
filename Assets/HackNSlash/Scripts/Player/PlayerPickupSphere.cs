@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
@@ -10,11 +12,19 @@ namespace HackNSlash.Scripts.Player
         private PlayerInteraction _playerInteraction;
         private Transform _sphere;
         private Transform _sphereParent;
-        public bool IsHoldingSphere => isHoldingSphere;
+        private Vector3[] _initialSpherePositions;
+            public bool IsHoldingSphere => isHoldingSphere;
 
+        private static Dictionary<Transform, Vector3> SpherePositions
+        {
+            get => GameManager.Instance.SphereElevatorState.SpherePositions;
+            set => GameManager.Instance.SphereElevatorState.SpherePositions = value;
+        }
+        
         private void Awake()
         {
             _playerInteraction = GetComponent<PlayerInteraction>();
+            // _initialSpherePositions = SpherePositions;
         }
 
         public void SphereInteract()
@@ -31,8 +41,8 @@ namespace HackNSlash.Scripts.Player
                 }
             }
         }
-        
-         public void PickupSphere()
+
+        private void PickupSphere()
          {
             _sphere.SetParent(_holder);
             _sphere.localPosition = Vector3.zero;
@@ -46,6 +56,8 @@ namespace HackNSlash.Scripts.Player
             _sphere.localPosition = new Vector3(_sphere.localPosition.x, 1, _sphere.localPosition.z);
 
             _sphere.GetComponent<Collider>().isTrigger = false;
+
+            SetSpherePosition();
         }
 
         private void Update()
@@ -73,6 +85,11 @@ namespace HackNSlash.Scripts.Player
                     _sphereParent = _sphere.parent;
                 }
             }
+        }
+
+        private void SetSpherePosition()
+        {
+            
         }
     }
 }
