@@ -36,7 +36,7 @@ namespace Player
             if (_isPuzzlePlayer)
             {
                 // create interaction function
-                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.PickupSphere();
+                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
                 return;
             }
             

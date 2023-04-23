@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ElevatorState
   m_EditorClassIdentifier: 
   isDown: 1
-  startOnElevator: 0
+  startOnElevator: 1
