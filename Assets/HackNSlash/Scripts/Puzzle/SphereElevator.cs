@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using HackNSlash.Scripts.GameManagement;
 using HackNSlash.Scripts.Player;
@@ -12,38 +11,38 @@ namespace HackNSlash.Scripts.Puzzle
         [SerializeField] private PlayerPickupSphere _playerPickupSphere;
         private bool _hasSphere;
         
-        private static float SphereAmount
-        {
-            get => GameManager.Instance.SphereElevatorState.sphereAmount;
-            set => GameManager.Instance.SphereElevatorState.sphereAmount = value;
-        }
-        
-        private static Dictionary<Transform, Vector3> SpherePositions
-        {
-            get => GameManager.Instance.SphereElevatorState.SpherePositions;
-            set => GameManager.Instance.SphereElevatorState.SpherePositions = value;
-        }
-        
-        private static bool IsDown
-        {
-            get => GameManager.Instance.SphereElevatorState.isDown;
-            set => GameManager.Instance.SphereElevatorState.isDown = value;
-        }
+        // private static float SphereAmount
+        // {
+        //     get => GameManager.Instance.SphereElevatorState.sphereAmount;
+        //     set => GameManager.Instance.SphereElevatorState.sphereAmount = value;
+        // }
+        //
+        // private static Dictionary<Transform, Vector3> SpherePositions
+        // {
+        //     get => GameManager.Instance.SphereElevatorState.SpherePositions;
+        //     set => GameManager.Instance.SphereElevatorState.SpherePositions = value;
+        // }
+        //
+        // private static bool IsDown
+        // {
+        //     get => GameManager.Instance.SphereElevatorState.isDown;
+        //     set => GameManager.Instance.SphereElevatorState.isDown = value;
+        // }
+        //
+        // private static bool StartOnElevator
+        // {
+        //     get => GameManager.Instance.SphereElevatorState.startOnElevator;
+        //     set => GameManager.Instance.SphereElevatorState.startOnElevator = value;
+        // }
 
-        private static bool StartOnElevator
-        {
-            get => GameManager.Instance.SphereElevatorState.startOnElevator;
-            set => GameManager.Instance.SphereElevatorState.startOnElevator = value;
-        }
-
-        private void Start()
-        {
-            for (var i = 0; i < SphereAmount - 1; i++)
-            {
-                var currentSphere = Instantiate(_sphere);
-                // currentSphere.transform.position = SpherePositions;
-            }
-        }
+        // private void Start()
+        // {
+        //     for (var i = 0; i < SphereAmount - 1; i++)
+        //     {
+        //         var currentSphere = Instantiate(_sphere);
+        //         // currentSphere.transform.position = SpherePositions;
+        //     }
+        // }
 
         private void Update()
         {

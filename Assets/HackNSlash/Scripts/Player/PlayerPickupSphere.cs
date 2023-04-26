@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using HackNSlash.Scripts.GameManagement;
+using HackNSlash.Scripts.Puzzle;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
+        [SerializeField] private SphereManager sphereManager;
         [SerializeField] private Transform _holder; 
         [HideInInspector] public bool isHoldingSphere;
         private PlayerInteraction _playerInteraction;
         private Transform _sphere;
         private Transform _sphereParent;
         private Vector3[] _initialSpherePositions;
-            public bool IsHoldingSphere => isHoldingSphere;
+        public bool IsHoldingSphere => isHoldingSphere;
 
-        private static Dictionary<Transform, Vector3> SpherePositions
-        {
-            get => GameManager.Instance.SphereElevatorState.SpherePositions;
-            set => GameManager.Instance.SphereElevatorState.SpherePositions = value;
-        }
+        // private static Dictionary<Transform, Vector3> SpherePositions
+        // {
+        //     get => GameManager.Instance.SphereElevatorState.SpherePositions;
+        //     set => GameManager.Instance.SphereElevatorState.SpherePositions = value;
+        // }
         
         private void Awake()
         {
@@ -89,7 +91,7 @@ namespace HackNSlash.Scripts.Player
 
         private void SetSpherePosition()
         {
-            
+            sphereManager.SetPositionInDatabase(_sphere);
         }
     }
 }

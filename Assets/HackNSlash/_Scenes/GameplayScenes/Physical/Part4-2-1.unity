@@ -1058,6 +1058,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1129898074}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1180175049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4582998877126424072, guid: ee76155120ec5844faba6d47143c7a24,
+    type: 3}
+  m_PrefabInstance: {fileID: 193993551719105226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1181378990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1115,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7865051691408674845}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1494518445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1582082293, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7865051691408674845}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623ebb6901c442eabf74683e1e00eede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1497891995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2034,6 +2052,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 193993551719105226}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &193993551719105229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180175049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f438523b704a7ab10f779f4127fd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spheres:
+  - {fileID: 906285124}
+  - {fileID: 1905505059}
+  sphereElevatorState: {fileID: 11400000, guid: 416f8da2abfe1274f9cad5d716e96da7,
+    type: 2}
 --- !u!1001 &665962588898802305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2391,6 +2426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63bcc7fda46d204685aa35b3e54ea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sphere: {fileID: 0}
+  _playerPickupSphere: {fileID: 1494518445}
 --- !u!33 &7096929552654189870
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2421,6 +2458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 477326497}
     m_Modifications:
+    - target: {fileID: 1582082293, guid: b8c4c7e65f7204a4fae30c751ebdfcd3, type: 3}
+      propertyPath: sphereManager
+      value: 
+      objectReference: {fileID: 193993551719105229}
     - target: {fileID: 153701454289835674, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
       propertyPath: m_RootOrder

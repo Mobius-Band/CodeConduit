@@ -25,14 +25,14 @@ namespace HackNSlash.Scripts.GameManagement
 
         [Header("ELEVATOR STATE SETUP")] 
         [SerializeField] private ElevatorState _elevatorState;
-
-        [Header("ELEVATOR STATE SETUP")] 
-        [SerializeField] private SphereElevatorState _sphereElevatorState;
+        
+        // [Header("ELEVATOR STATE SETUP")] 
+        // [SerializeField] private SphereElevatorState _sphereElevatorState;
         
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
         public ElevatorState ElevatorState => _elevatorState;
-        public SphereElevatorState SphereElevatorState => _sphereElevatorState;
+        // public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         
         public void LoadMainMenu()
         {
