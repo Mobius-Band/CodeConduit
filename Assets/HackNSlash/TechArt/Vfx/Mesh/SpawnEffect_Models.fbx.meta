@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-guid: 10e883308ba24c24cab21ffcffa4304b
+guid: 09c630a435166604eaaf3c0a3701c138
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: -5406887951907583895
-    second: rig|Idle_PassivoOficial
-  - first:
-      74: 3961181768061819084
-    second: rig|T_Pose
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -38,7 +32,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -82,7 +76,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
