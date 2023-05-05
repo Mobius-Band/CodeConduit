@@ -59,7 +59,7 @@ namespace HackNSlash.Scripts.Player
 
             _sphere.GetComponent<Collider>().isTrigger = false;
 
-            SetSpherePosition();
+            // SetSpherePosition();
         }
 
         private void Update()
