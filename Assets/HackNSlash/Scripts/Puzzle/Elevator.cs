@@ -53,6 +53,7 @@ namespace HackNSlash.Scripts.Puzzle
             }
         
             // starting on the elevator:
+            if (_player)
             StartCoroutine(PlayerStartOnElevator());
         }
 
