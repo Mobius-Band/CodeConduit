@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using HackNSlash.Scripts.GameManagement;
-using HackNSlash.Scripts.Puzzle;
+﻿using HackNSlash.Scripts.Puzzle;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
-        [SerializeField] private SphereManager sphereManager;
         [SerializeField] private Transform _holder; 
         [HideInInspector] public bool isHoldingSphere;
         private PlayerInteraction _playerInteraction;
@@ -16,17 +12,10 @@ namespace HackNSlash.Scripts.Player
         private Transform _sphereParent;
         private Vector3[] _initialSpherePositions;
         public bool IsHoldingSphere => isHoldingSphere;
-
-        // private static Dictionary<Transform, Vector3> SpherePositions
-        // {
-        //     get => GameManager.Instance.SphereElevatorState.SpherePositions;
-        //     set => GameManager.Instance.SphereElevatorState.SpherePositions = value;
-        // }
         
         private void Awake()
         {
             _playerInteraction = GetComponent<PlayerInteraction>();
-            // _initialSpherePositions = SpherePositions;
         }
 
         public void SphereInteract()
@@ -46,7 +35,11 @@ namespace HackNSlash.Scripts.Player
 
         private void PickupSphere()
          {
-            _sphere.SetParent(_holder);
+             if (_sphere == null)
+             {
+                 return;
+             }
+             _sphere.SetParent(_holder);
             _sphere.localPosition = Vector3.zero;
                     
             _sphere.GetComponent<Collider>().isTrigger = true;
@@ -58,40 +51,25 @@ namespace HackNSlash.Scripts.Player
             _sphere.localPosition = new Vector3(_sphere.localPosition.x, 1, _sphere.localPosition.z);
 
             _sphere.GetComponent<Collider>().isTrigger = false;
-
-            // SetSpherePosition();
         }
 
         private void Update()
         {
-            if (_holder.childCount > 0)
+            isHoldingSphere = _holder.childCount > 0;
+
+            var closestObject = _playerInteraction._closestObject;
+            if (closestObject == null || !closestObject.CompareTag("Movable"))
             {
-                isHoldingSphere = true;
-            }
-            else
-            {
-                isHoldingSphere = false;
-            }
-            
-            if (_playerInteraction._closestObject == null)
-            {
+                _sphere = null;
                 return;
             }
             
-            if (_playerInteraction._closestObject.CompareTag("Movable"))
+            _sphere = _playerInteraction._closestObject;
+            if (!isHoldingSphere)
             {
-                _sphere = _playerInteraction._closestObject;
-                
-                if (!isHoldingSphere)
-                {
-                    _sphereParent = _sphere.parent;
-                }
+                _sphereParent = _sphere.parent;
             }
-        }
-
-        private void SetSpherePosition()
-        {
-            sphereManager.SetPositionInDatabase(_sphere);
+            
         }
     }
 }
