@@ -1,9 +1,8 @@
-﻿using HackNSlash.Scripts.Puzzle;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
 {
-    public class PlayerPickupSphere : MonoBehaviour
+    public class PlayerPickupSphere : MonoBehaviour, IInteractor
     {
         [SerializeField] private Transform _holder; 
         [HideInInspector] public bool isHoldingSphere;
@@ -18,7 +17,7 @@ namespace HackNSlash.Scripts.Player
             _playerInteraction = GetComponent<PlayerInteraction>();
         }
 
-        public void SphereInteract()
+        public void Interact()
         {
             if (_playerInteraction.canInteract)
             {

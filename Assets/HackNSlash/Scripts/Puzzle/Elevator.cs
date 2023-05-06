@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using HackNSlash.Scripts.GameManagement;
+using HackNSlash.Scripts.Player;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -54,7 +55,9 @@ namespace HackNSlash.Scripts.Puzzle
         
             // starting on the elevator:
             if (_player)
-            StartCoroutine(PlayerStartOnElevator());
+            {
+                StartCoroutine(PlayerStartOnElevator());
+            }
         }
 
         private void ElevatorActivate()
@@ -147,6 +150,10 @@ namespace HackNSlash.Scripts.Puzzle
             {
                 if (_canUseElevator)
                 {
+                    if (other.GetComponent<PlayerPickupSphere>().IsHoldingSphere)
+                    {
+                        return;
+                    }
                     StartCoroutine(PlayerEnterElevator());
                 }
             }
