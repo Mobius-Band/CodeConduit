@@ -1,13 +1,37 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerInteraction : MonoBehaviour
     {
+        [Header("TRACKING")] 
+        [SerializeField] private float trackingDistance = 9999f;
+        [SerializeField] LayerMask trackingMask;
+        private Transform[] _interactableObjects;
+
+        [Header("INTERACTION")]
         [SerializeField] private float _interactionDistance;
-        [SerializeField] private Transform[] _interactableObjects;
-        [HideInInspector] public Transform _closestObject;
-        [HideInInspector] public bool canInteract;
+        private Transform _closestObject;
+        private bool _canInteract;
+        public bool CanInteract => _canInteract;
+        public Transform ClosestObject => _closestObject;
+
+        private void Start()
+        {
+            TrackInteractables();
+        }
+
+        private void TrackInteractables()
+        {
+            var colliders = Physics.OverlapSphere(transform.position, trackingDistance, trackingMask, QueryTriggerInteraction.Collide)
+            _interactableObjects = new Transform[colliders.Length];
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                _interactableObjects[i] = colliders[i].transform;
+            }
+        }
 
         private void Update()
         {
@@ -16,7 +40,7 @@ namespace HackNSlash.Scripts.Player
                 if (Vector3.Distance(transform.position, interactableObject.position) < _interactionDistance)
                 {
                     if (!_closestObject) _closestObject = interactableObject;
-                    canInteract = true;
+                    _canInteract = true;
                     
                     if (Vector3.Distance(transform.position, interactableObject.position) < 
                         Vector3.Distance(transform.position, _closestObject.position))
@@ -34,7 +58,7 @@ namespace HackNSlash.Scripts.Player
             
             if (Vector3.Distance(transform.position, _closestObject.position) > _interactionDistance)
             {
-                canInteract = false;
+                _canInteract = false;
             }
         }
     }

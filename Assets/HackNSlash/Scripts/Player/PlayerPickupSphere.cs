@@ -2,7 +2,7 @@
 
 namespace HackNSlash.Scripts.Player
 {
-    public class PlayerPickupSphere : MonoBehaviour, IInteractor
+    public class PlayerPickupSphere : MonoBehaviour
     {
         [SerializeField] private Transform _holder; 
         [HideInInspector] public bool isHoldingSphere;
@@ -17,18 +17,20 @@ namespace HackNSlash.Scripts.Player
             _playerInteraction = GetComponent<PlayerInteraction>();
         }
 
-        public void Interact()
+        public void SphereInteract()
         {
-            if (_playerInteraction.canInteract)
+            if (!_playerInteraction.CanInteract)
             {
-                if (!isHoldingSphere)
-                {
-                    PickupSphere();
-                }
-                else
-                {
-                    DropSphere();
-                }
+                return;
+            }
+
+            if (!isHoldingSphere)
+            {
+                PickupSphere();
+            }
+            else
+            {
+                DropSphere();
             }
         }
 
@@ -56,14 +58,14 @@ namespace HackNSlash.Scripts.Player
         {
             isHoldingSphere = _holder.childCount > 0;
 
-            var closestObject = _playerInteraction._closestObject;
+            var closestObject = _playerInteraction.ClosestObject;
             if (closestObject == null || !closestObject.CompareTag("Movable"))
             {
                 _sphere = null;
                 return;
             }
             
-            _sphere = _playerInteraction._closestObject;
+            _sphere = _playerInteraction.ClosestObject;
             if (!isHoldingSphere)
             {
                 _sphereParent = _sphere.parent;

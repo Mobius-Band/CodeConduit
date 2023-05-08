@@ -10,7 +10,7 @@ namespace HackNSlash.Scripts.Puzzle
         [SerializeField] private Transform[] spheres;
         [SerializeField] private SphereElevatorState sphereElevatorState;
 
-        private List<Vector3> databasePositions => sphereElevatorState.SpherePositions;
+        private List<Vector3> databasePositions => sphereElevatorState.spherePositions;
         
         private void Awake()
         {
@@ -53,19 +53,8 @@ namespace HackNSlash.Scripts.Puzzle
                 return;
             }
             
-            sphereElevatorState.SpherePositions.Add(refSphere.position);
+            sphereElevatorState.spherePositions.Add(refSphere.position);
             Debug.Log("sphere position ADDED");
-            
-            // if (databasePositions.Count < sphereIndex)
-            // {
-            //     databasePositions[sphereIndex] = refSphere.position;
-            //     Debug.Log("sphere position CHANGE");
-            // }
-            // else
-            // {
-            //     sphereElevatorState.SpherePositions.Add(refSphere.position);
-            //     Debug.Log("sphere position ADDED");
-            // }
         }
     }
 }

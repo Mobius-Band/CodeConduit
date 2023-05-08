@@ -28,6 +28,7 @@ namespace Player
             _playerPickupSphere = GetComponent<PlayerPickupSphere>();
         }
         
+        
         void Start()
         {
             //External
@@ -36,7 +37,7 @@ namespace Player
             if (_isPuzzlePlayer)
             {
                 // create interaction function
-                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.Interact();
+                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
                 return;
             }
             
