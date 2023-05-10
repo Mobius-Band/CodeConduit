@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hologram1
+  m_Name: HologramPlate
   m_Shader: {fileID: -6465566751694194690, guid: 4dc7676b077d2714daacdf5af68b2b69,
     type: 3}
   m_ValidKeywords: []
@@ -39,15 +39,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Fresnel_Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scroll_Speed: 0.3
+    - _Scroll_Speed: 0.05
     m_Colors:
-    - _Fresnel_Color: {r: 5.3403134, g: 4.361722, b: 0, a: 1}
-    - _Hologram_Tiling: {r: 5, g: 5, b: 0, a: 0}
-    - _Main_Color: {r: 3.9999995, g: 3.455497, b: 0, a: 1}
+    - _Fresnel_Color: {r: 0.40392157, g: 0.3882353, b: 0.05882353, a: 1}
+    - _Hologram_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Main_Color: {r: 3.5137255, g: 3.3254902, b: 0.34509805, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &3995393114474107926
+--- !u!114 &1266930188821154915
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
