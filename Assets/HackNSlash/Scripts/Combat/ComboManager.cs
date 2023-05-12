@@ -14,13 +14,14 @@ namespace Combat
         private bool isReturningToIdle;
         private bool _hasNextAttack;
         private bool _isAttackSuspended;
+        private bool _isLight;
 
         private void Start()
         {
             _playerMovement = GetComponent<PlayerMovement>();
         }
 
-        public void HandleAttackInput()
+        public void HandleAttackInput(bool isLight)
         {
             if (_isAttackSuspended)
             {
@@ -31,6 +32,7 @@ namespace Combat
             {
                 if (currentAttackIndex < attacks.Length)
                 {
+                    _isLight = isLight;
                     ComboAttack();
                 }
             }
@@ -41,7 +43,7 @@ namespace Combat
             _playerMovement.SuspendMovement();
             _playerMovement.RegainRotation();
             Attack(currentAttackIndex);
-            PlayAttackAnimation();
+            PlayAttack();
             isReturningToIdle = false;
         }
         
@@ -71,29 +73,26 @@ namespace Combat
             _playerMovement.RegainRotation();
         }
         
-        // also plays sound and vfx (should rename)
-        private void PlayAttackAnimation()
+        // also plays sound and vfx
+        private void PlayAttack()
         {
             switch (currentAttackIndex)
             {
                 case 0:
-                    animator.Play("attack1");
-                    _audioManager.Play("swoosh1");
-                    _vfxManager.PlayVFX("slash", transform);
+                    if (_isLight) AttackLight1();
+                    else AttackHeavy1();
                     break;
                 case 1:
-                    animator.Play("attack2");
-                    _audioManager.Play("swoosh3");
-                    _vfxManager.PlayVFX("slash2", transform);
+                    if (_isLight) AttackLight2();
+                    else AttackHeavy2();
                     break;
                 case 2:
-                    animator.Play("attack3");
-                    _audioManager.Play("swoosh4");
-                    _vfxManager.PlayVFX("slash", transform);
+                    if (_isLight) AttackLight3();
+                    else AttackHeavy3();
                     break;
             }
         }
-
+        
         public void SuspendAttack()
         {
             _isAttackSuspended = true;
@@ -102,6 +101,48 @@ namespace Combat
         public void RegainAttack()
         {
             _isAttackSuspended = false;
+        }
+
+        private void AttackLight1()
+        {
+            animator.Play("AttackLight1");
+            _audioManager.Play("swoosh1");
+            _vfxManager.PlayVFX("slash", transform);
+        }
+        
+        private void AttackLight2()
+        {
+            animator.Play("AttackLight2");
+            _audioManager.Play("swoosh3");
+            _vfxManager.PlayVFX("slash2", transform);
+        }
+        
+        private void AttackLight3()
+        {
+            animator.Play("AttackLight3");
+            _audioManager.Play("swoosh4");
+            _vfxManager.PlayVFX("slash", transform);
+        }
+        
+        private void AttackHeavy1()
+        {
+            animator.Play("AttackHeavy1");
+            _audioManager.Play("swoosh1");
+            _vfxManager.PlayVFX("slash", transform);
+        }
+        
+        private void AttackHeavy2()
+        {
+            animator.Play("AttackHeavy2");
+            _audioManager.Play("swoosh3");
+            _vfxManager.PlayVFX("slash2", transform);
+        }
+        
+        private void AttackHeavy3()
+        {
+            animator.Play("AttackHeavy3");
+            _audioManager.Play("swoosh4");
+            _vfxManager.PlayVFX("slash", transform);
         }
     }
 }

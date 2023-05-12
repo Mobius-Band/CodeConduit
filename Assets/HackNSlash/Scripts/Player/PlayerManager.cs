@@ -40,7 +40,8 @@ namespace Player
                 return;
             }
             
-            _input.InputActions.Player.Attack.performed += _ => _comboManager.HandleAttackInput();
+            _input.InputActions.Player.AttackLight.performed += _ => _comboManager.HandleAttackInput(true);
+            _input.InputActions.Player.AttackHeavy.performed += _ => _comboManager.HandleAttackInput(false);
             _input.InputActions.Player.Dash.performed += _ => _movement.Dash();
 
             if (_playerAnimationManager != null)
