@@ -15,6 +15,7 @@ namespace Combat
         private bool _hasNextAttack;
         private bool _isAttackSuspended;
         private bool _isLight;
+        private bool _wasLight;
 
         private void Start()
         {
@@ -79,16 +80,38 @@ namespace Combat
             switch (currentAttackIndex)
             {
                 case 0:
-                    if (_isLight) AttackLight1();
-                    else AttackHeavy1();
+                    if (_isLight)
+                    {
+                        AttackLight1();
+                        _wasLight = true;
+                    }
+                    else
+                    {
+                        AttackHeavy1();
+                        _wasLight = false;
+                    }
                     break;
                 case 1:
-                    if (_isLight) AttackLight2();
-                    else AttackHeavy2();
+                    if (_isLight)
+                    {
+                        if (!_wasLight) break;
+                        AttackLight2();
+                    }
+                    else
+                    {
+                        if (_wasLight) break;
+                        AttackHeavy2();
+                    }
                     break;
                 case 2:
-                    if (_isLight) AttackLight3();
-                    else AttackHeavy3();
+                    if (_isLight)
+                    {
+                        AttackLight3();
+                    }
+                    else
+                    {
+                        AttackHeavy3();
+                    }
                     break;
             }
         }
@@ -128,21 +151,21 @@ namespace Combat
         {
             animator.Play("AttackHeavy1");
             _audioManager.Play("swoosh1");
-            _vfxManager.PlayVFX("slash", transform);
+            // _vfxManager.PlayVFX("slash", transform);
         }
         
         private void AttackHeavy2()
         {
             animator.Play("AttackHeavy2");
             _audioManager.Play("swoosh3");
-            _vfxManager.PlayVFX("slash2", transform);
+            // _vfxManager.PlayVFX("slash2", transform);
         }
         
         private void AttackHeavy3()
         {
             animator.Play("AttackHeavy3");
             _audioManager.Play("swoosh4");
-            _vfxManager.PlayVFX("slash", transform);
+            // _vfxManager.PlayVFX("slash", transform);
         }
     }
 }
