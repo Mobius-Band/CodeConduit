@@ -110,7 +110,7 @@ namespace Combat
                     }
                     else
                     {
-                        AttackHeavy3();
+                        AttackHeavy2();
                     }
                     break;
             }
