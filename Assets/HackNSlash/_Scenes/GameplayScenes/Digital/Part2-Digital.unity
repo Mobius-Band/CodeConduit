@@ -3512,6 +3512,11 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 2024073784}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: attacks.Array.data[2].damage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_Name

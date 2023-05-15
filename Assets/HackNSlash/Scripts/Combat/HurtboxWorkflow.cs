@@ -1,5 +1,6 @@
 ﻿using System;
 using HackNSlash.Scripts.Audio;
+using HackNSlash.Scripts.Combat;
 using HackNSlash.Scripts.VFX;
 using UnityEngine;
 using Util;

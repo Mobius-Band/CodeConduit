@@ -1,8 +1,6 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Util
+namespace HackNSlash.Scripts.Combat
 {
     public class Knockback : MonoBehaviour
     {
