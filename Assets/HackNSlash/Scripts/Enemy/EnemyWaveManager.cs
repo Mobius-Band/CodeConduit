@@ -60,7 +60,7 @@ namespace HackNSlash.Scripts.Enemy
             {
                 var enemy = _enemySpawners[i].SpawnEnemy(_enemyParent);
                 enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
-                enemy.GetComponent<EnemyBehaviour>().target = playerTransform;
+                enemy.GetComponent<EnemyBehaviours>().target = playerTransform;
             }
         }
         
