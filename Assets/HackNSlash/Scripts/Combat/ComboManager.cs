@@ -7,6 +7,7 @@ namespace Combat
 {
     public class ComboManager : AttackManager
     {
+        [SerializeField] private Attack[] secondComboAttacks;
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private VFXManager _vfxManager;
         [SerializeField] private Transform _playerWeapon;
@@ -43,6 +44,14 @@ namespace Combat
         {
             _playerMovement.SuspendMovement();
             _playerMovement.RegainRotation();
+            if (_isLight)
+            {
+                currentAttack = attacks[currentAttackIndex];
+            }
+            else
+            {
+                currentAttack = secondComboAttacks[currentAttackIndex];
+            }
             Attack(currentAttackIndex);
             PlayAttack();
             isReturningToIdle = false;

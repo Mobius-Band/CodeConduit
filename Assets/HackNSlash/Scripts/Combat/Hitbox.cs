@@ -26,6 +26,7 @@ namespace Combat
         public Color activeColor = Color.blue;
         public Color hitColor = Color.red;
         [HideInInspector] public int damage;
+        [HideInInspector] public int knockback;
 
         
         private ColliderState _state = ColliderState.Inactive;
@@ -67,6 +68,7 @@ namespace Combat
             var hitEventArgs = new HitEventArgs()
             {
                 Damage = damage,
+                Knockback = knockback,
                 hitOriginTransform = attackerTransform
             };
             Array.ForEach(_hitColliders, 
@@ -95,11 +97,12 @@ namespace Combat
         /// <summary>
         /// Sets hitbox data
         /// </summary>
-        public void SetValues(Vector3 localPosition, Vector3 dimensions, int damage)
+        public void SetValues(Vector3 localPosition, Vector3 dimensions, int damage, int knockback)
         {
             transform.localPosition = localPosition;
             transform.localScale = dimensions;
             this.damage = damage;
+            this.knockback = knockback;
         }
         
         /// <summary>
@@ -107,7 +110,7 @@ namespace Combat
         /// </summary>
         public void SetValues(Attack attack)
         {
-            SetValues(attack.hitboxPosition, attack.hitboxSize, attack.damage);
+            SetValues(attack.hitboxPosition, attack.hitboxSize, attack.damage, attack.knockbackAmount);
         }
         
         private void OnDrawGizmosSelected()

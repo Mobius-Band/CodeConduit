@@ -109,6 +109,7 @@ MonoBehaviour:
   activeColor: {r: 0, g: 0, b: 1, a: 1}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   damage: 8
+  knockback: 8
   _audioManager: {fileID: 6040675030765683148}
 --- !u!1 &4557081539709777768
 GameObject:
@@ -542,26 +543,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7f17fb7fb448e881a7096f177ae1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 893670863654729700}
+  animator: {fileID: 1148600999}
+  currentAttackIndex: 0
   attacks:
   - damage: 8
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.25}
     stepAmount: 15
     stepDuration: 0.2
+    knockbackAmount: 8
   - damage: 8
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.3}
     stepAmount: 20
     stepDuration: 0.4
+    knockbackAmount: 8
   - damage: 12
     hitboxPosition: {x: 0, y: 0, z: 1.45}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.5}
     stepAmount: 25
     stepDuration: 0.7
-  hitbox: {fileID: 893670863654729700}
-  currentAttackIndex: 0
+    knockbackAmount: 24
   _isAttacking: 0
-  animator: {fileID: 1148600999}
+  secondComboAttacks:
+  - damage: 8
+    hitboxPosition: {x: 0, y: 0, z: 1.25}
+    hitboxSize: {x: 1.5, y: 1.5, z: 1.25}
+    stepAmount: 15
+    stepDuration: 0.2
+    knockbackAmount: 8
+  - damage: 8
+    hitboxPosition: {x: 0, y: 0, z: 1.25}
+    hitboxSize: {x: 1.5, y: 1.5, z: 1.3}
+    stepAmount: 20
+    stepDuration: 0.4
+    knockbackAmount: 8
+  - damage: 12
+    hitboxPosition: {x: 0, y: 0, z: 1.45}
+    hitboxSize: {x: 1.5, y: 1.5, z: 1.5}
+    stepAmount: 25
+    stepDuration: 0.7
+    knockbackAmount: 12
   _audioManager: {fileID: 6040675030765683148}
   _vfxManager: {fileID: 7526313647736398635}
   _playerWeapon: {fileID: 2041568001074526839}

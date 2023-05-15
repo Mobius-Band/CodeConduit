@@ -34,7 +34,7 @@ namespace Combat
                 {
                     hurtbox.OnHitReceived += ctx => _animator.Play("Hit", 0);
                 }
-                hurtbox.OnHitReceived += ctx => knockback.ApplyKnockback(ctx.hitOriginTransform, ctx.Damage);
+                hurtbox.OnHitReceived += ctx => knockback.ApplyKnockback(ctx.hitOriginTransform, ctx.Knockback);
             }
         }
     }

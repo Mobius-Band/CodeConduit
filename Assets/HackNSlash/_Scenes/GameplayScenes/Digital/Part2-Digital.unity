@@ -3512,10 +3512,50 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 2024073784}
+    - target: {fileID: 893670863654729700, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: knockback
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
-      propertyPath: attacks.Array.data[2].damage
-      value: 30
+      propertyPath: secondComboAttacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: attacks.Array.data[0].knockbackAmount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: attacks.Array.data[1].knockbackAmount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: attacks.Array.data[2].knockbackAmount
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: secondComboAttacks.Array.data[0].damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: secondComboAttacks.Array.data[0].hitboxSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: secondComboAttacks.Array.data[0].hitboxSize.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: secondComboAttacks.Array.data[0].hitboxSize.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
