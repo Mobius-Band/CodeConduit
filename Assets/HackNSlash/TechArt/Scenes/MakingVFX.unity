@@ -384,8 +384,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604032737}
-  m_LocalRotation: {x: 0.24688622, y: 0.20458776, z: -0.053171128, w: 0.94570816}
-  m_LocalPosition: {x: 19.770435, y: 12.783736, z: 54.104374}
+  m_LocalRotation: {x: 0.21816473, y: -0.50199044, z: 0.13288358, w: 0.82628787}
+  m_LocalPosition: {x: 102.43288, y: 28.69086, z: -15.958304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1416,11 +1416,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 601498222936723217, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6d95f0f01ec81247938ef886a1430c2, type: 2}
     - target: {fileID: 848663211173497067, guid: bff6e6be8c80ac14aaddfc85a59992c4,
         type: 3}
       propertyPath: m_Name
       value: WallRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 8790476106865192546, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6d95f0f01ec81247938ef886a1430c2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bff6e6be8c80ac14aaddfc85a59992c4, type: 3}
 --- !u!1001 &4201502563568702827
@@ -1623,6 +1633,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1709092337291308610, guid: 3cadfab2313586b488d88e660e39b8da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c94185f8119b1641adc76198747489e, type: 2}
     - target: {fileID: 2073128256177172532, guid: 3cadfab2313586b488d88e660e39b8da,
         type: 3}
       propertyPath: m_Name
