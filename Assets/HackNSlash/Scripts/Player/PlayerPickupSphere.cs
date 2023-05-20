@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 namespace HackNSlash.Scripts.Player
 {
