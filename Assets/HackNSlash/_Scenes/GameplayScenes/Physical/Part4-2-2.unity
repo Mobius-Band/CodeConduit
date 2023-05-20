@@ -1013,6 +1013,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 980997707601624378, guid: ee621fd890202f24398f461f69385c74,
         type: 3}
+      propertyPath: time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 980997707601624378, guid: ee621fd890202f24398f461f69385c74,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1494518443}
+    - target: {fileID: 980997707601624378, guid: ee621fd890202f24398f461f69385c74,
+        type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1494518443}
