@@ -24,6 +24,7 @@ namespace HackNSlash.Scripts.Player
                 return;
             }
 
+            
             if (!isHoldingSphere)
             {
                 PickupSphere();
