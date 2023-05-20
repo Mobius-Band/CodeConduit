@@ -60,22 +60,18 @@ namespace HackNSlash.Scripts.Enemy
             {
                 var enemy = _enemySpawners[i].SpawnEnemy(_enemyParent);
                 enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
-                enemy.GetComponent<EnemyBehaviours>().target = playerTransform;
+                enemy.GetComponent<EnemyBehaviours>().attackTarget = playerTransform;
             }
         }
         
         private void EnemyDied()
         {
             _enemiesLeft--;
-            Debug.Log("Enemies Left: " + _enemiesLeft);
-
         }
         
         private void EnemySpawned()
         {
             _enemiesLeft++;
-            Debug.Log("Enemies Left: " + _enemiesLeft);
-
         }
 
         private void SetSpawningCount()

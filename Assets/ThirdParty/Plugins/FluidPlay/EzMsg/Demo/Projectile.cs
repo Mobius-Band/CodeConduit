@@ -52,15 +52,15 @@ public class Projectile : MonoBehaviour {
 //	    * Please notice the shorthand form (extension to GameObject) doesn't allow chaining
 //	    var h2 = other.gameObject.Request<IArmor, int?>(_=>_.GetHealth());
 
-//      * Pre-initialized Request. In this case, we will not send the request to the children of target
+//      * Pre-initialized Request. In this case, we will not send the request to the children of attackTarget
 //	    var h3 = other.gameObject.Request(GetArmorHealth, false);
 //	    Debug.Log("Health found: "+h3+" Time: "+Time.time);
 
 //	    bool? validTarget = EzMsg.Request<IArmor, bool?>(other.gameObject, _=>_.IsDestructible(), true);
-//	    Debug.Log(validTarget == null ? "No valid target found." : "Is target valid ? "+validTarget );
+//	    Debug.Log(validTarget == null ? "No valid attackTarget found." : "Is attackTarget valid ? "+validTarget );
 
 //	    bool validTarget = EzMsg.Request<IArmor, bool>(other.gameObject, _=>_.IsDestructibleNonNullable(), true, true);
-//	    Debug.Log("Is target valid ? "+validTarget );
+//	    Debug.Log("Is attackTarget valid ? "+validTarget );
 
 //	    EzMsg.Send<IArmor>(other.gameObject, _=>_.ApplyDamage(Damage)).Run();
 //	    other.gameObject.Send<IArmor>(_=>_.ApplyDamage(Damage));

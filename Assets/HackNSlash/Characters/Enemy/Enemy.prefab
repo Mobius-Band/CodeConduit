@@ -391,15 +391,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756381825117879883}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  _hurtbox: {fileID: 8558181481965967197}
+  attackTarget: {fileID: 0}
   _hoverDuration: 1
   _targetDefinitionInterval: 1
-  _attackEnablingAngle: 30
+  _attackIntervalDuration: 1
+  _attackEnablingDistance: 20
+  _fleeingDistance: 10
+  _damageFreezeDuration: 2
 --- !u!95 &2882879165835375624
 Animator:
   serializedVersion: 4

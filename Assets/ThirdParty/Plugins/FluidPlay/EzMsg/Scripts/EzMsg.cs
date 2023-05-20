@@ -88,12 +88,12 @@ public static class EzMsg  {
     #endregion << SendSeqData Extension Methods
 
     /// <summary>
-    /// Non-chainable counterpart to Send, returning the first response from a given target, interface and Functor.
+    /// Non-chainable counterpart to Send, returning the first response from a given attackTarget, interface and Functor.
     /// Eg.: var curState = EzMsg.Request<IFSM, FSMState>(gameObject, (x,y) => x.GetCurrentState());
     /// </summary>
     /// <param name="target">Target GameObject</param>
     /// <param name="functor">Method to call, must return a T2 type</param>
-    /// <param name="requestToChildren">Should the request be sent to children of target?</param>
+    /// <param name="requestToChildren">Should the request be sent to children of attackTarget?</param>
     /// <param name="responseCheck">Should each request check for a non-null response? Use nullable types with this.</param>
     /// <typeparam name="T1">Required interface which should be implemented in a matching component</typeparam>
     /// <typeparam name="T2">Required method return type</typeparam>
@@ -109,7 +109,7 @@ public static class EzMsg  {
         // GetComponentsInChildren(false) = exclude inactive
         for (var i = 0; i < target.GetComponentsInChildren<Transform>(false).Length; i++) {
             Transform child = target.GetComponentsInChildren<Transform>(false)[i];
-            // Skips `target` so it isn't requested twice
+            // Skips `attackTarget` so it isn't requested twice
             if (child == target.transform)
                 continue;
             response = Request(child.gameObject, null, functor);
@@ -162,7 +162,7 @@ public static class EzMsg  {
 //        {
 //            Debug.Log("Sending message to " + typeof(T) + " after " + delay / 1000 + " s.");
 //            // Fire Event
-//            //ExecuteRecursive(target, functor, sendToChildren, sendSeqData);
+//            //ExecuteRecursive(attackTarget, functor, sendToChildren, sendSeqData);
 //            callbackAction.SafeInvoke();
 //            timer.Stop();
 //            timer.Dispose();
@@ -178,12 +178,12 @@ public static class EzMsg  {
         if (target == null || target.transform.childCount == 0 || !sendToChildren)
             yield break;
 
-        // Will wait for the logic completion of all valid targets in the target's hierarchy
+        // Will wait for the logic completion of all valid targets in the attackTarget's hierarchy
         // (false) = don't include inactive
         for (var i = 0; i < target.GetComponentsInChildren<Transform>(false).Length; i++)
         {
             Transform child = target.GetComponentsInChildren<Transform>(false)[i];
-            // Skips `target` so it isn't requested twice
+            // Skips `attackTarget` so it isn't requested twice
             if (child == target.transform)
                 continue;
             yield return Manager.StartCoroutine(Manager.ExecuteSeq(child.gameObject, functor).GetEnumerator());
@@ -195,7 +195,7 @@ public static class EzMsg  {
         var internalHandlers = s_HandlerListPool.Get();
         GetEventList<T>(target, internalHandlers);
         //	if (s_InternalHandlers.Count > 0)
-        //		Debug.Log("Executing " + typeof (T) + " on " + target);
+        //		Debug.Log("Executing " + typeof (T) + " on " + attackTarget);
 
         for (var i = 0; i < internalHandlers.Count; i++)
         {
@@ -307,7 +307,7 @@ public static class EzMsg  {
         var internalHandlers = s_HandlerListPool.Get();
         GetEventList<T>(target, internalHandlers);
         //	if (s_InternalHandlers.Count > 0)
-        //		Debug.Log("Executing " + typeof (T) + " on " + target);
+        //		Debug.Log("Executing " + typeof (T) + " on " + attackTarget);
 
         for (var i = 0; i < internalHandlers.Count; i++)
         {
@@ -372,10 +372,10 @@ public static class EzMsg  {
         var internalHandlers = s_HandlerListPool.Get();
         GetEventList<T1>(target, internalHandlers);
         // Debug Purposes Only
-//            Debug.Log(internalHandlers.Count + " scripts found of type " + typeof (T1) + " on " + target.name);
+//            Debug.Log(internalHandlers.Count + " scripts found of type " + typeof (T1) + " on " + attackTarget.name);
 //
 //            if (internalHandlers.Count > 0)
-//                Debug.Log("Executing " + typeof (T1) + " on " + target);
+//                Debug.Log("Executing " + typeof (T1) + " on " + attackTarget);
 
         T2 returnValue = default(T2);
         for (var i = 0; i < internalHandlers.Count; i++)
