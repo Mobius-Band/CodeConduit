@@ -1,6 +1,7 @@
 using System;
 using Combat;
 using HackNSlash.Scripts.Player;
+using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.UI;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Player
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private PlayerAnimationManager _playerAnimationManager;
+        [SerializeField] private SphereElevator _sphereElevator;
         [SerializeField] private bool _isPuzzlePlayer;
         private PlayerInputManager _input;
         private ComboManager _comboManager;
@@ -38,6 +40,7 @@ namespace Player
             {
                 // create interaction function
                 _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
+                if (_sphereElevator) _input.InputActions.PuzzlePlayer.Interact.performed += _ => _sphereElevator.ActivateButton();
                 return;
             }
             
