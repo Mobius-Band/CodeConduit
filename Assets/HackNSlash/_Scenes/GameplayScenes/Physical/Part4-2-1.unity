@@ -2556,7 +2556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63bcc7fda46d204685aa35b3e54ea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sphere: {fileID: 0}
   _playerPickupSphere: {fileID: 1494518445}
 --- !u!33 &7096929552654189870
 MeshFilter:
@@ -2656,6 +2655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PhysicalPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: trackingMask.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}

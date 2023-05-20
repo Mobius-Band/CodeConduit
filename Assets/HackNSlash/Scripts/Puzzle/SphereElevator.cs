@@ -6,6 +6,7 @@ namespace HackNSlash.Scripts.Puzzle
     public class SphereElevator : MonoBehaviour
     {
         // [SerializeField] private GameObject _sphere;
+        [SerializeField] private Transform button;
         [SerializeField] private PlayerPickupSphere _playerPickupSphere;
         private bool _hasSphere;
         
