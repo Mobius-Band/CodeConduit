@@ -6,14 +6,15 @@ using HackNSlash.Scripts.Player;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Sequence = DG.Tweening.Sequence;
 
 namespace HackNSlash.Scripts.Puzzle
 {
     public class Elevator : MonoBehaviour
     {
-        [SerializeField] private float _time;
-        [SerializeField] private Transform _player;
+        [SerializeField] private float time;
+        [SerializeField] private Transform player;
         private String _elevatorScene1 = "Part4-2-1";
         private String _elevatorScene2 = "Part4-2-2";
         private float _upPosition;
@@ -49,12 +50,12 @@ namespace HackNSlash.Scripts.Puzzle
             if (!StartOnElevator)
             {
                 _canUseElevator = true;
-                _player.GetComponent<Rigidbody>().isKinematic = false;
+                player.GetComponent<Rigidbody>().isKinematic = false;
                 return;
             }
         
             // starting on the elevator:
-            if (_player)
+            if (player)
             {
                 StartCoroutine(PlayerStartOnElevator());
             }
@@ -81,30 +82,30 @@ namespace HackNSlash.Scripts.Puzzle
             Sequence sequence = DOTween.Sequence();
             
             sequence.Append(
-                _player.GetComponent<Rigidbody>().DOMove(new Vector3(
-                    transform.position.x, _player.transform.position.y, transform.position.z), _time/2));
+                player.GetComponent<Rigidbody>().DOMove(new Vector3(
+                    transform.position.x, player.transform.position.y, transform.position.z), time/2));
             
             sequence.Append(
-                _player.transform.DORotate(new Vector3(
-                    _player.rotation.x, 0, _player.rotation.z), _time/2));
+                player.transform.DORotate(new Vector3(
+                    player.rotation.x, 0, player.rotation.z), time/2));
             
-            sequence.Append(transform.DOMove(new Vector3(0, direction, 0), _time));
+            sequence.Append(transform.DOMove(new Vector3(transform.position.x, direction, transform.position.z), time));
             
             DOTween.Play(sequence);
         }
 
         private IEnumerator PlayerEnterElevator()
         {
-            _player.SetParent(transform);
-            _player.GetComponent<PlayerMovement>().SuspendMovement();
-            _player.GetComponent<PlayerMovement>().SuspendRotation();
-            _player.GetComponent<Rigidbody>().isKinematic = true;
+            player.SetParent(transform);
+            player.GetComponent<PlayerMovement>().SuspendMovement();
+            player.GetComponent<PlayerMovement>().SuspendRotation();
+            player.GetComponent<Rigidbody>().isKinematic = true;
 
             ElevatorActivate();
 
             StartOnElevator = true;
             
-            yield return new WaitForSeconds(_time * 2);
+            yield return new WaitForSeconds(time * 2);
         
             if (IsDown) { IsDown = false; } 
             else { IsDown = true; }
@@ -124,21 +125,21 @@ namespace HackNSlash.Scripts.Puzzle
             }
             
             _canUseElevator = false;
-            _player.SetParent(transform);
-            _player.GetComponent<PlayerMovement>().SuspendMovement();
-            _player.GetComponent<PlayerMovement>().SuspendRotation();
-            _player.GetComponent<Rigidbody>().isKinematic = true;
-            _player.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            player.SetParent(transform);
+            player.GetComponent<PlayerMovement>().SuspendMovement();
+            player.GetComponent<PlayerMovement>().SuspendRotation();
+            player.GetComponent<Rigidbody>().isKinematic = true;
+            player.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
 
             ElevatorActivate();
             
-            yield return new WaitForSeconds(_time * 2);
+            yield return new WaitForSeconds(time * 2);
             
-            _player.GetComponent<PlayerMovement>().RegainMovement();
-            _player.GetComponent<PlayerMovement>().RegainRotation();
-            _player.GetComponent<Rigidbody>().isKinematic = false;
+            player.GetComponent<PlayerMovement>().RegainMovement();
+            player.GetComponent<PlayerMovement>().RegainRotation();
+            player.GetComponent<Rigidbody>().isKinematic = false;
             
-            yield return new WaitForSeconds(_time);
+            yield return new WaitForSeconds(time);
 
             StartOnElevator = false;
             _canUseElevator = true;
