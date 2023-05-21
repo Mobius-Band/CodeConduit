@@ -937,5 +937,5 @@ MonoBehaviour:
   trackingDistance: 9999
   trackingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _interactionDistance: 3

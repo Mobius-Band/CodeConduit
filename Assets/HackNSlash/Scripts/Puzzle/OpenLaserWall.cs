@@ -32,8 +32,11 @@ namespace HackNSlash.Scripts.Puzzle
 
         private void DisableDoor()
         {
-            renderer.material.DOFade(0, toggleDuration)
-                .OnComplete(() => collider.enabled = false);
+            for (int i = 0; i < renderer.materials.Length - 1; i++)
+            {
+                renderer.materials[i].DOFade(0, toggleDuration)
+                    .OnComplete(() => collider.enabled = false);
+            }
         }
     }
 }

@@ -18,5 +18,5 @@ MonoBehaviour:
   digitalPart3Scene:
     sceneAsset: {fileID: 102900000, guid: 09ff4a24072e435419ac7b9781107c1b, type: 3}
     sceneAssetGuidHex: 09ff4a24072e435419ac7b9781107c1b
-  canAccessPart2: 0
-  canAccessPart3: 0
+  canAccessPart2: 1
+  canAccessPart3: 1
