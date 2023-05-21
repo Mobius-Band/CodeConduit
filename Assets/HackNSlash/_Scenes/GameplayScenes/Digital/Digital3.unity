@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07791105, g: 0.04027653, b: 0.01327149, a: 1}
+  m_IndirectSpecularColor: {r: 0.0032629638, g: 0.0020449418, b: 0.019305695, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1756381824401406759}
+  _vfxManager: {fileID: 0}
 --- !u!4 &245581475
 Transform:
   m_ObjectHideFlags: 0
@@ -1180,6 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1756381824401406759}
+  _vfxManager: {fileID: 0}
 --- !u!4 &694403976
 Transform:
   m_ObjectHideFlags: 0
@@ -1972,6 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1756381824401406759}
+  _vfxManager: {fileID: 0}
 --- !u!4 &1267994932
 Transform:
   m_ObjectHideFlags: 0
@@ -2320,6 +2323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1756381824401406759}
+  _vfxManager: {fileID: 0}
 --- !u!4 &1646823476
 Transform:
   m_ObjectHideFlags: 0
@@ -3517,6 +3521,16 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 2024073784}
+    - target: {fileID: 6279688743703421922, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 926bb9cbfc0a11641a5979886f6a5118, type: 2}
+    - target: {fileID: 7734593893130525832, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c756214248a237644b8c3ef929053c62, type: 2}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_Name

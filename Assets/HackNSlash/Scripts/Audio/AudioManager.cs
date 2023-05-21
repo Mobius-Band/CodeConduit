@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -60,7 +59,7 @@ namespace HackNSlash.Scripts.Audio
             
             if (s == null)
             {
-                Debug.LogWarning("Sound: " + name + " not found!");
+                Debug.Log("Sound: " + name + " not found!");
                 return;
             }
 
@@ -86,7 +85,7 @@ namespace HackNSlash.Scripts.Audio
 
             if (s == null)
             {
-                Debug.LogWarning("Sound with index: " + index + " not found!");
+                Debug.Log("Sound with index: " + index + " not found!");
                 return;
             }
             
