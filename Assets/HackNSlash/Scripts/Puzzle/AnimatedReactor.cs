@@ -1,21 +1,16 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Puzzle
 {
-    [RequireComponent(typeof(Animator))]
     public class AnimatedReactor : PuzzleReactor
     {
-        private Animator _anim;
-        
-        private void Start()
-        {
-            _anim = GetComponent<Animator>();
-        }
+        [SerializeField] private float toggleDuration;
         
         public override void React(bool isOn)
         {
-            _anim.SetBool("isOn", isOn);
+            GetComponentInChildren<Renderer>().material.DOFade(0, toggleDuration)
+                .OnComplete(() => GetComponent<Collider>().enabled = false);
         }
     }
 }

@@ -1,27 +1,29 @@
 using System;
-using HackNSlash.Scripts.Puzzle;
 using UnityEngine;
 
-public class PuzzleBridge : MonoBehaviour
+namespace HackNSlash.Scripts.Puzzle
 {
-    [SerializeField] private PuzzleSwitch[] _puzzleSwitches;
-    [SerializeField] private PuzzleReactor _puzzleReactor;
+    public class PuzzleBridge : MonoBehaviour
+    {
+        [SerializeField] private PuzzleSwitch[] puzzleSwitches;
+        [SerializeField] private PuzzleReactor puzzleReactor;
 
-    private bool areAllSwitchesActivated => Array.TrueForAll(_puzzleSwitches, p => p.isActivated);
-    public event Action<bool> OnAnySwitchToggled;
+        private bool AreAllSwitchesActivated => Array.TrueForAll(puzzleSwitches, p => p.isActivated);
+        public event Action<bool> OnAnySwitchToggled;
     
-    private void Start()
-    {
-        foreach (var puzzleSwitch in _puzzleSwitches)
+        private void Start()
         {
-            puzzleSwitch.OnSwitchActivated += CheckSwitches;
-            puzzleSwitch.OnSwitchDeactivated += CheckSwitches;
+            foreach (var puzzleSwitch in puzzleSwitches)
+            {
+                puzzleSwitch.OnSwitchActivated += CheckSwitches;
+                puzzleSwitch.OnSwitchDeactivated += CheckSwitches;
+            }
+            OnAnySwitchToggled += puzzleReactor.React;
         }
-        OnAnySwitchToggled += _puzzleReactor.React;
-    }
 
-    private void CheckSwitches()
-    {
-        OnAnySwitchToggled?.Invoke(areAllSwitchesActivated);
+        private void CheckSwitches()
+        {
+            OnAnySwitchToggled?.Invoke(AreAllSwitchesActivated);
+        }
     }
 }
