@@ -9,7 +9,6 @@ namespace Player
     {
         [Range(1, 100)] 
         [SerializeField] private float _moveSpeed;
-        [Range(1, 50)] 
         [SerializeField] private float _rotationTime = 1f;
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private Transform _cameraHolder;

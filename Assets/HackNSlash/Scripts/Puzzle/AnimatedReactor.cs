@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -8,6 +8,8 @@ namespace HackNSlash.Scripts.Puzzle
     {
         [SerializeField] private float toggleDuration;
         private Renderer _renderer;
+        private float _alphaValue;
+        private bool _opened = false;
 
         private void Start()
         {
@@ -16,11 +18,27 @@ namespace HackNSlash.Scripts.Puzzle
 
         public override void React(bool isOn)
         {
-            for (int i = 0; i < _renderer.materials.Length - 1; i++)
+            StartCoroutine(AlphaLerp());
+            
+            _renderer.materials[1].DOFade(0, toggleDuration)
+                .OnComplete(() => GetComponent<Collider>().enabled = false);
+        }
+
+        private IEnumerator AlphaLerp()
+        {
+            if (_opened)
             {
-                _renderer.materials[i].DOFade(0, toggleDuration)
-                    .OnComplete(() => GetComponent<Collider>().enabled = false);
+                yield break;
             }
+            
+            for (float i = 1; i > 0; i -= 0.1f)
+            {
+                _renderer.materials[0].SetFloat("_AlphaController", i);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            _opened = true;
+            _renderer.materials[0].SetFloat("_AlphaController", 0.0f);
         }
     }
 }

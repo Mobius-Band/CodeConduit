@@ -9,7 +9,7 @@ namespace HackNSlash.Scripts.Player
         [Header("TRACKING")] 
         [SerializeField] private float trackingDistance = 9999f;
         [SerializeField] LayerMask trackingMask;
-        private Transform[] _interactableObjects;
+        [SerializeField] private Transform[] _interactableObjects;
 
         [Header("INTERACTION")]
         [SerializeField] private float _interactionDistance;
@@ -35,6 +35,11 @@ namespace HackNSlash.Scripts.Player
 
         private void Update()
         {
+            if (_closestObject)
+            {
+                print(_closestObject);
+            }
+            
             foreach (var interactableObject in _interactableObjects)
             {
                 if (Vector3.Distance(transform.position, interactableObject.position) < _interactionDistance)
@@ -58,6 +63,7 @@ namespace HackNSlash.Scripts.Player
             
             if (Vector3.Distance(transform.position, _closestObject.position) > _interactionDistance)
             {
+                _closestObject = null;
                 _canInteract = false;
             }
         }

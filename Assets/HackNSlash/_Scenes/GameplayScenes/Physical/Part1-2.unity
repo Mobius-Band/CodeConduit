@@ -1423,5 +1423,20 @@ PrefabInstance:
       propertyPath: puzzleSwitches.Array.data[0]
       value: 
       objectReference: {fileID: 969911542}
+    - target: {fileID: 5690927069476229167, guid: d90ae49f6a2ef584eb6c34813d19b3be,
+        type: 3}
+      propertyPath: toggleDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690927069713291989, guid: d90ae49f6a2ef584eb6c34813d19b3be,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690927069713291989, guid: d90ae49f6a2ef584eb6c34813d19b3be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a19def683711a84cb6f6a7d0dacb32c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d90ae49f6a2ef584eb6c34813d19b3be, type: 3}

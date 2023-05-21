@@ -260,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7833612491108152522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 2, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -808,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 7999598550545812523, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: _rotationTime
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812524, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
@@ -969,4 +969,5 @@ MonoBehaviour:
   trackingMask:
     serializedVersion: 2
     m_Bits: 512
+  _interactableObjects: []
   _interactionDistance: 3
