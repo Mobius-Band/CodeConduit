@@ -56,7 +56,7 @@ namespace Player
             _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
             _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
             _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
-            _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
+            _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentMeleeAttack);
             _playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
             _playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
         }
@@ -69,7 +69,7 @@ namespace Player
             _playerAnimationManager.OnAnimationReturningToIdle -= _comboManager.SetReturningToIdle;
             _playerAnimationManager.OnAnimationEndDash -= _movement.EndDash;
             _playerAnimationManager.OnAnimationSetNextAttack -= _comboManager.SetNextAttack;
-            _playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.CurrentAttack);
+            _playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.CurrentMeleeAttack);
         }
 
         void Update()

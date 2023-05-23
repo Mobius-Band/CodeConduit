@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using Transform = UnityEngine.Transform;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AttackManager))]

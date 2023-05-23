@@ -60,8 +60,13 @@ namespace Combat
         /// </summary>
         public void TryHit(Transform attackerTransform)
         {
+            TryHit(attackerTransform, damage, mask);
+        }
+
+        public void TryHit(Transform attackerTransform, int damage, LayerMask targetMask)
+        {
             _hitColliders = Physics.OverlapBox(
-                transform.position, transform.localScale / 2, transform.localRotation, mask);
+                transform.position, transform.localScale / 2, transform.localRotation, targetMask);
             if (_hitColliders.Length <= 0) 
                 return;
             var hitEventArgs = new HitEventArgs()
@@ -103,11 +108,11 @@ namespace Combat
         }
         
         /// <summary>
-        /// Sets hitbox data, using an attack data object;
+        /// Sets hitbox data, using an meleeAttack data object;
         /// </summary>
-        public void SetValues(Attack attack)
+        public void SetValues(MeleeAttack meleeAttack)
         {
-            SetValues(attack.hitboxPosition, attack.hitboxSize, attack.damage);
+            SetValues(meleeAttack.hitboxPosition, meleeAttack.hitboxSize, meleeAttack.damage);
         }
         
         private void OnDrawGizmosSelected()

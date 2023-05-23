@@ -10,7 +10,7 @@ namespace HackNSlash.Scripts.Enemy
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GameObject _enemyPrefab;
-        [SerializeField] private VFXManager _vfxManager;
+        private VFXManager _vfxManager;
         
         public Action OnEnemySpawned;
 
@@ -19,10 +19,30 @@ namespace HackNSlash.Scripts.Enemy
             var newEnemy = Instantiate(_enemyPrefab, transform.position, quaternion.identity, enemyParent);
             OnEnemySpawned?.Invoke();
             newEnemy.SetActive(false);
-            _vfxManager.visualEffects[0].visualEffect.gameObject.GetComponent<VisualEffect>().SetMesh("Mesh", newEnemy.GetComponentInChildren<MeshFilter>().mesh);
-            _vfxManager.transform.localPosition = Vector3.zero;
-            _vfxManager.transform.position = newEnemy.transform.position;
-            _vfxManager.PlayVFX("spawn", transform);
+            _vfxManager = newEnemy.transform.GetComponentInChildren<VFXManager>();
+            if (_vfxManager != null)
+            {
+                // _vfxManager.visualEffects[0].visualEffect.GetComponentInChildren<VisualEffect>().SetMesh("Mesh", newEnemy.GetComponentInChildren<MeshFilter>().mesh);
+                var vfx = _vfxManager.visualEffects[0];
+                if (vfx == null)
+                {
+                    Debug.LogWarning($"VFX is null");
+                }
+
+                var vfxGO = _vfxManager.visualEffects;
+                if (vfxGO == null)
+                {
+                    Debug.LogWarning($"vfxGO is null");
+                }
+                _vfxManager.transform.localPosition = Vector3.zero;
+                _vfxManager.transform.position = newEnemy.transform.position;
+                _vfxManager.PlayVFX("spawn", transform);
+            }
+            else
+            {
+                Debug.LogWarning($"{name}'s VFXManager couldn't be found");
+            }
+
             StartCoroutine(SetActiveWithDelay(newEnemy));
             
             return newEnemy;

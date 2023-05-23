@@ -1,5 +1,4 @@
-﻿using System;
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Combat
@@ -11,22 +10,22 @@ namespace Combat
     public class AttackManager : MonoBehaviour
     {
         [Tooltip("A collection of attacks that can be used by this character.")]
-        public Attack[] attacks; 
+        public MeleeAttack[] attacks; 
         [Tooltip("The hitbox that will be used to detect collisions with other objects - this should be a child of the character")]
         [SerializeField] private Hitbox hitbox;
-        [Tooltip("An integer that represents the index of the current attack in the attacks array" +
+        [Tooltip("An integer that represents the index of the current meleeAttack in the attacks array" +
                  "\n In editor: Click the three dots in the upper right corner of this component and " +
-                 "press 'Set Current Attack' to visualize the current attack´s hitbox")]
+                 "press 'Set Current MeleeAttack' to visualize the current meleeAttack´s hitbox")]
         public int currentAttackIndex = 0;
         
-        public Attack CurrentAttack => attacks[currentAttackIndex];
+        public MeleeAttack CurrentMeleeAttack => attacks[currentAttackIndex];
 
         [HideInInspector] public bool _isAttacking;
         public Animator animator;
 
-        [Tooltip("Apply current attack's position and size to the hitbox, for debugging. " +
-                 "Use this to visualize the current attack's hitbox in the editor.")]
-        [ContextMenu("Set Current Attack")]
+        [Tooltip("Apply current meleeAttack's position and size to the hitbox, for debugging. " +
+                 "Use this to visualize the current meleeAttack's hitbox in the editor.")]
+        [ContextMenu("Set Current MeleeAttack")]
         private void SetCurrentAttack()
         {
             if (hitbox.IsUnityNull())
@@ -36,7 +35,7 @@ namespace Combat
 
             if (currentAttackIndex < attacks.Length || currentAttackIndex >= 0)
             {
-                hitbox.SetValues(CurrentAttack);
+                hitbox.SetValues(CurrentMeleeAttack);
             }
         }
         
@@ -50,7 +49,7 @@ namespace Combat
         }
         
         /// <summary>
-        /// Called by an Animation Event to start the current attack 
+        /// Called by an Animation Event to start the current meleeAttack 
         /// </summary>
         public void ToggleHitbox()
         {
@@ -58,9 +57,9 @@ namespace Combat
         }
         
         /// <summary>
-        ///  Set index for current attack and trigger it´s animation
+        ///  Set index for current meleeAttack and trigger it´s animation
         /// </summary>
-        /// <param name="index"> Index of the attack in the attacks array</param>
+        /// <param name="index"> Index of the meleeAttack in the attacks array</param>
         public void Attack(int index)
         {
             _isAttacking = true;
