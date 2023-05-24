@@ -135,9 +135,9 @@ namespace Player
             }
         }
 
-        public void AttackStep(MeleeAttack meleeAttack)
+        public void AttackStep(Attack attack)
         {
-            StartCoroutine(AttackStepCoroutine(meleeAttack.stepAmount, meleeAttack.stepDuration));
+            StartCoroutine(AttackStepCoroutine(attack.stepAmount, attack.stepDuration));
         }
 
         public bool IsMoving()

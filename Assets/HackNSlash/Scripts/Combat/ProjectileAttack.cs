@@ -7,14 +7,26 @@ namespace Combat
     public class ProjectileAttack : Attack
     {
         [SerializeField] private GameObject projectilePrefab;
-        [SerializeField] private GameObject speed;
-        [SerializeField] private Transform origin;
-        [SerializeField] private Vector3 localDirection;
+        [SerializeField] private float fireForce;
+        [SerializeField] private float projectileLifetime;
+        // [SerializeField] private Vector3 localDirection;
 
-        public void Execute()
+        public void Execute(Transform origin, LayerMask mask)
         {
-            UnityEngine.Object.Instantiate(projectilePrefab, origin.position, origin.rotation);
-            
+            var projectileGameObject = UnityEngine.Object.Instantiate(projectilePrefab, origin.position, origin.rotation);
+
+            if (projectileGameObject.TryGetComponent(out Projectile projectile))
+            {
+                projectile.Rigidbody.AddForce(origin.forward * fireForce, ForceMode.Impulse);
+                projectile.Hitbox.SetValues(Vector3.zero, Vector3.one, damage);
+                projectile.Hitbox.mask = mask;
+                projectile.Hitbox.StartTryHitOnce(projectile.transform);
+                projectile.SetLastLifetime(projectileLifetime);
+            }
+            else
+            {
+                Debug.LogError($"{projectilePrefab.name} should have a Projectile component");
+            }
         }
     }
 }
