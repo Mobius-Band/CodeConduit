@@ -19,9 +19,6 @@ namespace HackNSlash.Scripts.Puzzle
         public override void React(bool isOn)
         {
             StartCoroutine(AlphaLerp());
-            
-            _renderer.materials[1].DOFade(0, toggleDuration)
-                .OnComplete(() => GetComponent<Collider>().enabled = false);
         }
 
         private IEnumerator AlphaLerp()
@@ -30,6 +27,9 @@ namespace HackNSlash.Scripts.Puzzle
             {
                 yield break;
             }
+            
+            _renderer.materials[1].DOFade(0, toggleDuration/4)
+                .OnComplete(() => GetComponent<Collider>().enabled = false);
             
             for (float i = 1; i > 0; i -= 0.1f)
             {
