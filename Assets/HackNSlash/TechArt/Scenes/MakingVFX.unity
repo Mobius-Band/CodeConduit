@@ -2251,6 +2251,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 2677273185581071710, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263929290232314684, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5610264706847524331, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137002023160094145, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507315571635668848, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619511080713222927, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776476494698078469, guid: bff6e6be8c80ac14aaddfc85a59992c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8790476106865192546, guid: bff6e6be8c80ac14aaddfc85a59992c4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
