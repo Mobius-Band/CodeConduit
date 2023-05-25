@@ -475,6 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 75
   _currentHealth: 0
+  _vfxManager: {fileID: 0}
 --- !u!114 &7991685233936134495
 MonoBehaviour:
   m_ObjectHideFlags: 0
