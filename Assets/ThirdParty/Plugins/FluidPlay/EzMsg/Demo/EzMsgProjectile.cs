@@ -2,7 +2,7 @@
 {
 using UnityEngine;
 using Ez;
-public class Projectile : MonoBehaviour {
+public class EzMsgProjectile : MonoBehaviour {
 
 	public int Damage = 10;
 

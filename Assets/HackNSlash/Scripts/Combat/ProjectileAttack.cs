@@ -9,7 +9,6 @@ namespace Combat
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private float fireForce;
         [SerializeField] private float projectileLifetime;
-        // [SerializeField] private Vector3 localDirection;
 
         public void Execute(Transform origin, LayerMask mask)
         {
@@ -18,7 +17,7 @@ namespace Combat
             if (projectileGameObject.TryGetComponent(out Projectile projectile))
             {
                 projectile.Rigidbody.AddForce(origin.forward * fireForce, ForceMode.Impulse);
-                projectile.Hitbox.SetValues(Vector3.zero, Vector3.one, damage);
+                projectile.Hitbox.SetValues(hitboxPosition, hitboxSize, damage);
                 projectile.Hitbox.mask = mask;
                 projectile.Hitbox.StartTryHitOnce(projectile.transform);
                 projectile.SetLastLifetime(projectileLifetime);
