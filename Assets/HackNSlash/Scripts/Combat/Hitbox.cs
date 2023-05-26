@@ -72,7 +72,7 @@ namespace Combat
 
         private IEnumerator TryHitOnceCoroutine(Transform a)
         {
-            while (TryHit(a))
+            while (!TryHit(a))
             {
                 yield return null;
             }

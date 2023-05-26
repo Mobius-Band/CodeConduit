@@ -13,7 +13,7 @@ namespace Combat
         public void Execute(Transform origin, LayerMask mask)
         {
             var projectileGameObject = UnityEngine.Object.Instantiate(projectilePrefab, origin.position, origin.rotation);
-
+            
             if (projectileGameObject.TryGetComponent(out Projectile projectile))
             {
                 projectile.Rigidbody.AddForce(origin.forward * fireForce, ForceMode.Impulse);

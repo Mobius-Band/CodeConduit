@@ -1,21 +1,16 @@
-using System;
 using System.Collections;
 using Combat;
 using HackNSlash.Scripts.Util;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 using Transform = UnityEngine.Transform;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(AttackManager))]
 public class EnemyBehaviours : MonoBehaviour
 {
-    [SerializeField] public Hurtbox _hurtbox;
-    [FormerlySerializedAs("target")]
-    [Space]
     [HideInInspector] public Transform attackTarget;
+    [SerializeField] public Hurtbox _hurtbox;
+    [Space]
     [SerializeField] private float _fleeingMovementMultiplier = 2;
     [SerializeField] private float _hoverDuration = 0.5f;
     [SerializeField] private float _targetDefinitionInterval = 1f;
@@ -24,9 +19,12 @@ public class EnemyBehaviours : MonoBehaviour
     [SerializeField] private float _fleeingDistance = 9f;
     [SerializeField] private float _damageFreezeDuration = 2f;
     [SerializeField] private float _rotationSpeed = 90f;
+    [Space]
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _meleeAnimationProperty;
     
     private NavMeshAgent _navMeshAgent;
-    private AttackManager _attackManager;
+    // private AttackManager _attackManager;
     private NavMeshMovementStats _movementStats;
 
     private Coroutine destinationUpdater;
@@ -43,7 +41,7 @@ public class EnemyBehaviours : MonoBehaviour
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _attackManager = GetComponent<AttackManager>();
+        // _attackManager = GetComponent<AttackManager>();
 
         _movementStats = new NavMeshMovementStats().SavePermanentStats(_navMeshAgent);
 
@@ -134,7 +132,7 @@ public class EnemyBehaviours : MonoBehaviour
     public void Fire()
     {
         _repositionTarget = null;
-        _attackManager.Attack(0);
+        _animator.SetTrigger(_meleeAnimationProperty);
     }
 
     private IEnumerator FireCoroutine()
@@ -143,7 +141,7 @@ public class EnemyBehaviours : MonoBehaviour
         {
             yield return StartCoroutine(RotateTowardsPlayerCoroutine());
             Fire();
-            yield return new WaitForSeconds(_attackIntervalDuration);    
+            yield return new WaitForSeconds(_attackIntervalDuration);
         }
     }
 

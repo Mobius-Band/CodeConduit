@@ -4,19 +4,15 @@ using UnityEngine;
 
 namespace Combat
 {
-    [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(Hitbox))]
     public class Projectile : MonoBehaviour
     {
-        public Rigidbody Rigidbody { get; private set; }
-        public Hitbox Hitbox { get; private set; }
+        [SerializeField] private Rigidbody rigidBody;
+        [SerializeField] private Hitbox hitbox;
+
         private float lifetime;
 
-        private void Awake()
-        {
-            Rigidbody = GetComponent<Rigidbody>();
-            Hitbox = GetComponent<Hitbox>();
-        }
+        public Rigidbody Rigidbody => rigidBody;
+        public Hitbox Hitbox => hitbox;
 
         public void SetLastLifetime(float value)
         {
@@ -32,11 +28,10 @@ namespace Combat
                 if (timer > lifetime)
                 {
                     Destroy(gameObject);
+                    yield break;
                 }
-                else
-                {
-                    timer += Time.deltaTime;
-                }
+                timer += Time.deltaTime;
+                yield return null;
             }
         }
     }

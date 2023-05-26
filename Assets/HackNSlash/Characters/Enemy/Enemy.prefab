@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203895115}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.27}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1756381825117879880}
-  m_RootOrder: 1
+  m_Father: {fileID: 6003781667467696155}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &203895117
 MonoBehaviour:
@@ -67,12 +67,10 @@ GameObject:
   - component: {fileID: 1756381825117879893}
   - component: {fileID: 1756381825117879891}
   - component: {fileID: 1945491278599199748}
-  - component: {fileID: 2873912139984920135}
   - component: {fileID: 2943333921522794505}
   - component: {fileID: 7991685233936134495}
   - component: {fileID: 4488416870366018777}
   - component: {fileID: 1583625510422783112}
-  - component: {fileID: 5202282847084391880}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -93,7 +91,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1756381825118617421}
-  - {fileID: 203895116}
   - {fileID: 2633767070648000369}
   - {fileID: 6003781667467696155}
   - {fileID: 914243013911614289}
@@ -170,16 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hurtbox: {fileID: 8558181481965967197}
   attackTarget: {fileID: 0}
+  _hurtbox: {fileID: 8558181481965967197}
   _fleeingMovementMultiplier: 2
   _hoverDuration: 1
   _targetDefinitionInterval: 1
-  _attackIntervalDuration: 1
+  _attackIntervalDuration: 5
   _attackEnablingDistance: 20
   _fleeingDistance: 10
   _damageFreezeDuration: 2
   _rotationSpeed: 90
+  _animator: {fileID: 1000858142219024006}
+  _meleeAnimationProperty: shoot
 --- !u!195 &1945491278599199748
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -202,28 +201,6 @@ NavMeshAgent:
   m_BaseOffset: 1.03
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2873912139984920135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756381825117879883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d4403819c3d4b1b8d65215855d5f031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attacks:
-  - damage: 12
-    hitboxPosition: {x: 0, y: 0, z: 1.27}
-    hitboxSize: {x: 1.6, y: 1.6, z: 1.7}
-    stepAmount: 0
-    stepDuration: 0
-  hitbox: {fileID: 203895117}
-  currentAttackIndex: 0
-  _isAttacking: 0
-  animator: {fileID: 0}
 --- !u!114 &2943333921522794505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +231,7 @@ MonoBehaviour:
   hurtbox: {fileID: 8558181481965967197}
   health: {fileID: 2943333921522794505}
   knockback: {fileID: 1756381825117879892}
-  _animator: {fileID: 0}
+  _animator: {fileID: 1000858142219024006}
   _audioManager: {fileID: 0}
   _vfxManager: {fileID: 666541943393612739}
 --- !u!114 &4488416870366018777
@@ -288,37 +265,6 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: fd2e3ea53f911bd4ab3c87a085c986c1, type: 2}
---- !u!114 &5202282847084391880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756381825117879883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64eb48e921fd3b488315c28205ad371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileAttack:
-    damage: 12
-    hitboxPosition: {x: 0, y: 0, z: 0}
-    hitboxSize: {x: 1, y: 1, z: 1}
-    stepAmount: 0
-    stepDuration: 0
-    projectilePrefab: {fileID: 796682382519708785, guid: e1bcf17bc788a814a8212b44a609ca23,
-      type: 3}
-    fireForce: 50
-    projectileLifetime: 2
-  bodyLaunchAttack:
-    damage: 0
-    hitboxPosition: {x: 0, y: 0, z: 0}
-    hitboxSize: {x: 0, y: 0, z: 0}
-    stepAmount: 0
-    stepDuration: 0
-  attackedMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &1756381825118617420
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,9 +629,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 203895116}
   m_Father: {fileID: 1756381825117879880}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &666541943393612739
 MonoBehaviour:
@@ -737,7 +684,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1756381825117879880}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8558181481965967197
 MonoBehaviour:
@@ -774,7 +721,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cf34314017a87a94a84099289fe1bd64,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf34314017a87a94a84099289fe1bd64,
         type: 3}
@@ -889,7 +836,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cf34314017a87a94a84099289fe1bd64,
         type: 3}
       propertyPath: m_Name
-      value: Enemy_Mesh (1)
+      value: Enemy_Mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf34314017a87a94a84099289fe1bd64, type: 3}
@@ -919,6 +866,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7758908885594484196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575294728680360427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64eb48e921fd3b488315c28205ad371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileAttack:
+    damage: 12
+    hitboxPosition: {x: 0, y: 0, z: 0}
+    hitboxSize: {x: 2, y: 2, z: 2}
+    stepAmount: 0
+    stepDuration: 0
+    projectilePrefab: {fileID: 796682382519708785, guid: e1bcf17bc788a814a8212b44a609ca23,
+      type: 3}
+    fireForce: 50
+    projectileLifetime: 2
+  bodyLaunchAttack:
+    damage: 0
+    hitboxPosition: {x: 0, y: 0, z: 0}
+    hitboxSize: {x: 0, y: 0, z: 0}
+    stepAmount: 0
+    stepDuration: 0
+  attackedMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &914243013911614289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf34314017a87a94a84099289fe1bd64,
