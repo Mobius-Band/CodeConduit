@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7909314134626420991}
   - component: {fileID: 2402629720931004538}
   - component: {fileID: 6407192979303547395}
+  - component: {fileID: 8915164363412737018}
   m_Layer: 0
   m_Name: Cadeira.005
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8915164363412737018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61922129674303300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8659627, y: 2.9249842, z: 1.8396808}
+  m_Center: {x: -0.0000038117391, y: 1.0946013, z: 0.90074587}
 --- !u!1 &500430681707618800
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +109,7 @@ GameObject:
   - component: {fileID: 3874982342549808421}
   - component: {fileID: 3163276074832046968}
   - component: {fileID: 5779305013761183916}
+  - component: {fileID: 9912084186809123}
   m_Layer: 0
   m_Name: Cadeira.004
   m_TagString: Untagged
@@ -168,6 +183,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9912084186809123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500430681707618800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.865962, y: 2.924984, z: 1.83968}
+  m_Center: {x: 0.000000029802322, y: 1.0946012, z: 0.9007455}
 --- !u!1 &550478486320011883
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +207,7 @@ GameObject:
   - component: {fileID: 5669813422130820992}
   - component: {fileID: 5047613219815175402}
   - component: {fileID: 2436258140096207916}
+  - component: {fileID: 2622336506448258491}
   m_Layer: 0
   m_Name: Mesa.007
   m_TagString: Untagged
@@ -255,6 +284,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2622336506448258491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550478486320011883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.0584164, y: 1.2914623, z: 2.2489202}
+  m_Center: {x: 0.23096275, y: 0.6928875, z: 0}
 --- !u!1 &660352981349459189
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +391,7 @@ GameObject:
   - component: {fileID: 9105020703788447080}
   - component: {fileID: 1216934524638865470}
   - component: {fileID: 2430460343980235927}
+  - component: {fileID: 7411241157138828787}
   m_Layer: 0
   m_Name: Chao.004
   m_TagString: Untagged
@@ -421,6 +464,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7411241157138828787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015952550203186978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 0.2, z: 26.172958}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1 &1157732621608068240
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +572,7 @@ GameObject:
   - component: {fileID: 9132386926545105128}
   - component: {fileID: 5490248431304253195}
   - component: {fileID: 3479534326671998842}
+  - component: {fileID: 1386628930058375954}
   m_Layer: 0
   m_Name: Parede.007
   m_TagString: Untagged
@@ -588,6 +645,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1386628930058375954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311936905928815231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 5.3, z: 28}
+  m_Center: {x: -0.1, y: 1.5, z: -0.5}
 --- !u!1 &1724246895557629609
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +669,7 @@ GameObject:
   - component: {fileID: 1171653945529220045}
   - component: {fileID: 1655475366932605093}
   - component: {fileID: 2367700600408055397}
+  - component: {fileID: 21188694107304706}
   m_Layer: 0
   m_Name: Parede.005
   m_TagString: Untagged
@@ -672,6 +743,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &21188694107304706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724246895557629609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 39.54503, y: 5.068798, z: 1}
+  m_Center: {x: 0, y: -0.48263562, z: 0}
 --- !u!1 &1726171288255791726
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +851,7 @@ GameObject:
   - component: {fileID: 2600260416417351735}
   - component: {fileID: 8987663235454704591}
   - component: {fileID: 3180738094439512159}
+  - component: {fileID: 319103650641615279}
   m_Layer: 0
   m_Name: Cabine
   m_TagString: Untagged
@@ -840,6 +925,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &319103650641615279
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820519405610063811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.132037, y: 5.0687985, z: 18.41232}
+  m_Center: {x: -15.039951, y: 2.5343993, z: -13.14007}
 --- !u!1 &1854603623140154241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1181,7 @@ GameObject:
   - component: {fileID: 6850083009271092697}
   - component: {fileID: 8472074578361733607}
   - component: {fileID: 2847817532326997069}
+  - component: {fileID: 3626232386202698589}
   m_Layer: 0
   m_Name: Mesa.002
   m_TagString: Untagged
@@ -1159,6 +1258,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3626232386202698589
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246678531119423891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.0584164, y: 1.2914623, z: 2.2489202}
+  m_Center: {x: -0.2309618, y: 0.6928875, z: 0}
 --- !u!1 &2344007910045031422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,6 +1282,7 @@ GameObject:
   - component: {fileID: 4718021613583863177}
   - component: {fileID: 3426736735854241805}
   - component: {fileID: 8470756562264947780}
+  - component: {fileID: 4499559585098951426}
   m_Layer: 0
   m_Name: Cadeira.006
   m_TagString: Untagged
@@ -1243,6 +1356,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4499559585098951426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344007910045031422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8659625, y: 2.924984, z: 1.8396804}
+  m_Center: {x: 0.00000002980233, y: 1.0946012, z: 0.90074575}
 --- !u!1 &2403738649165364585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,6 +2558,7 @@ GameObject:
   - component: {fileID: 8143951303957824161}
   - component: {fileID: 5932107463677795637}
   - component: {fileID: 8301146909500945109}
+  - component: {fileID: 5445225687824735654}
   m_Layer: 0
   m_Name: Mesa.004
   m_TagString: Untagged
@@ -2505,6 +2632,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5445225687824735654
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090318456730847289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.981518, y: 1.2914623, z: 1.842541}
+  m_Center: {x: 0.0017104149, y: -0.16036694, z: 0}
 --- !u!1 &7153288115214855969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,6 +2905,7 @@ GameObject:
   - component: {fileID: 5951624727972961743}
   - component: {fileID: 2276601641611865210}
   - component: {fileID: 6636759396036303654}
+  - component: {fileID: 8850843810400751379}
   m_Layer: 0
   m_Name: Ornamento.001
   m_TagString: Untagged
@@ -2837,6 +2978,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8850843810400751379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231048669893068830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.42412, y: 18.16, z: 8.72906}
+  m_Center: {x: -0.67058086, y: 3.07, z: -0.5323043}
 --- !u!1 &8425342471239822678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3252,7 @@ GameObject:
   - component: {fileID: 7647730271315388859}
   - component: {fileID: 3640678372362664363}
   - component: {fileID: 3787928010994994569}
+  - component: {fileID: 7148116948650406431}
   m_Layer: 0
   m_Name: Parede.006
   m_TagString: Untagged
@@ -3171,3 +3326,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7148116948650406431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912910435434088394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 39.54503, y: 5.068798, z: 1}
+  m_Center: {x: 0, y: -0.48263562, z: 0.13309288}
