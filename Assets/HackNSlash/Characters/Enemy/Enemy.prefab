@@ -170,9 +170,9 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   _hurtbox: {fileID: 8558181481965967197}
   _fleeingMovementMultiplier: 2
-  _hoverDuration: 1
-  _targetDefinitionInterval: 1
-  _attackIntervalDuration: 5
+  _hoverDuration: 0.5
+  _targetDefinitionInterval: 2
+  _attackIntervalDuration: 3
   _attackEnablingDistance: 20
   _fleeingDistance: 10
   _damageFreezeDuration: 2
@@ -198,7 +198,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2.51
-  m_BaseOffset: 1.03
+  m_BaseOffset: 1.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2943333921522794505

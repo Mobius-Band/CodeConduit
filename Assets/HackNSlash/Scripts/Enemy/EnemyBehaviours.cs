@@ -90,19 +90,24 @@ public class EnemyBehaviours : MonoBehaviour
 
     public void StartTargetUpdate()
     {
-        // if (IsWithinFleeingDistance())
-        // {
-        //     _movementStats.MultiplyAgentStats(ref _navMeshAgent, _fleeingMovementMultiplier);
-        // }
-        // else
-        // {
-        //     _movementStats.ResetAgentStats(ref _navMeshAgent);
-        // }
-        destinationUpdater = StartCoroutine(UpdateDestinationCoroutine(IsWithinFleeingDistance()));
+        if (IsWithinFleeingDistance())
+        {
+            _movementStats.MultiplyAgentStats(ref _navMeshAgent, _fleeingMovementMultiplier);
+        }
+        else
+        {
+            _movementStats.ResetAgentStats(ref _navMeshAgent);
+        }
+        _navMeshAgent.isStopped = false;
+        destinationUpdater = StartCoroutine(UpdateDestinationCoroutine());
     }
 
     public void CeaseTargetUpdate()
     {
+        if (CanAttack())
+        {
+            _navMeshAgent.isStopped = true;
+        }
         if (destinationUpdater == null)
         {
             Debug.LogWarning("Can't cease what hasn't been started");
