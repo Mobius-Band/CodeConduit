@@ -173,15 +173,11 @@ public class EnemyBehaviours : MonoBehaviour
 
     private IEnumerator FreezeCoroutine()
     {
-        // StopAllCoroutines();
-        // CeaseTargetUpdate();
         _navMeshAgent.isStopped = true;
         _isFrozen = true;
-        Debug.Log("Is Frozen: " + _isFrozen);
         yield return new WaitForSeconds(_damageFreezeDuration);
         _isFrozen = false;
         _navMeshAgent.isStopped = false;
-        Debug.Log("Is Frozen: " + _isFrozen);
     }
 
     public void Freeze()

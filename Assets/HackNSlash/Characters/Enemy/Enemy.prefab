@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdffdfd3b29ef541b34a007fa3d934b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 40
+  _knockbackForce: 30
 --- !u!114 &1756381825117879893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   _attackIntervalDuration: 2
   _attackEnablingDistance: 20
   _fleeingDistance: 10
-  _damageFreezeDuration: 2
+  _damageFreezeDuration: 1
   _rotationSpeed: 120
   _animator: {fileID: 1000858142219024006}
   _meleeAnimationProperty: shoot
@@ -632,7 +632,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.68, y: 4.76, z: 6.81}
+  m_Size: {x: 4.5, y: 6, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &809155140205999290
 PrefabInstance:
