@@ -41,7 +41,6 @@ public class EnemyBehaviours : MonoBehaviour
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        // _attackManager = GetComponent<AttackManager>();
 
         _movementStats = new NavMeshMovementStats().SavePermanentStats(_navMeshAgent);
 
@@ -59,19 +58,23 @@ public class EnemyBehaviours : MonoBehaviour
     {
         if (_isTargetNull)
         {
-            Debug.LogError($"{name}'s attackTarget is null");
             yield return null;
         }
         while (true)
         {
             float goalDistance = (_fleeingDistance + _attackEnablingDistance) / 2;
             _repositionTarget = attackTarget.position.GetRandomXZPositionAround(goalDistance);
+
             _navMeshAgent.SetDestination(_repositionTarget.Value);
             if (onlyOnce)
             {
-                yield break;
+                yield return new WaitUntil(IsWithinFleeingDistance);
+                yield return new WaitForSeconds(_targetDefinitionInterval * 2f);
             }
-            yield return new WaitForSeconds(_targetDefinitionInterval);
+            else
+            {
+                yield return new WaitForSeconds(_targetDefinitionInterval);
+            }
         }
     }
     
@@ -99,7 +102,7 @@ public class EnemyBehaviours : MonoBehaviour
             _movementStats.ResetAgentStats(ref _navMeshAgent);
         }
         _navMeshAgent.isStopped = false;
-        destinationUpdater = StartCoroutine(UpdateDestinationCoroutine());
+        destinationUpdater = StartCoroutine(UpdateDestinationCoroutine(IsWithinFleeingDistance()));
     }
 
     public void CeaseTargetUpdate()
