@@ -170,10 +170,11 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   _hurtbox: {fileID: 8558181481965967197}
   _vfxManager: {fileID: 666541943393612739}
+  _attackIntervalDuration_MIN: 1.5
+  _attackIntervalDuration_MAX: 2
   _fleeingMovementMultiplier: 2
   _hoverDuration: 0.5
   _targetDefinitionInterval: 1
-  _attackIntervalDuration: 2
   _attackEnablingDistance: 20
   _fleeingDistance: 10
   _damageFreezeDuration: 1
@@ -809,7 +810,7 @@ MonoBehaviour:
     stepDuration: 0
     projectilePrefab: {fileID: 796682382519708785, guid: e1bcf17bc788a814a8212b44a609ca23,
       type: 3}
-    fireForce: 50
+    fireForce: 20
     projectileLifetime: 2
   bodyLaunchAttack:
     damage: 0

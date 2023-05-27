@@ -11,12 +11,13 @@ public class EnemyBehaviours : MonoBehaviour
 {
     [HideInInspector] public Transform attackTarget;
     [SerializeField] public Hurtbox _hurtbox;
-    [SerializeField] private VFXManager _vfxManager; 
-    [Space]
+    [SerializeField] private VFXManager _vfxManager;
+    [Space] 
+    [SerializeField] private float _attackIntervalDuration_MIN;
+    [SerializeField] private float _attackIntervalDuration_MAX;
     [SerializeField] private float _fleeingMovementMultiplier = 2;
     [SerializeField] private float _hoverDuration = 0.5f;
     [SerializeField] private float _targetDefinitionInterval = 1f;
-    [SerializeField] private float _attackIntervalDuration = 5f;
     [SerializeField] private float _attackEnablingDistance = 15f;
     [SerializeField] private float _fleeingDistance = 9f;
     [SerializeField] private float _damageFreezeDuration = 2f;
@@ -33,6 +34,7 @@ public class EnemyBehaviours : MonoBehaviour
     private Coroutine fireRoutine;
 
     private Vector3? _repositionTarget;
+    private float _attackIntervalDuration;
     private bool _isTargetNull;
     private bool _isFrozen;
 
@@ -143,6 +145,11 @@ public class EnemyBehaviours : MonoBehaviour
 
     #region OFFENSIVE
 
+    public void DefineAttackInterval()
+    {
+        _attackIntervalDuration = Random.Range(_attackIntervalDuration_MIN, _attackIntervalDuration_MAX);
+    }
+    
     public void Fire()
     {
         _repositionTarget = null;
@@ -154,8 +161,9 @@ public class EnemyBehaviours : MonoBehaviour
         while (true)
         {
             yield return StartCoroutine(RotateTowardsPlayerCoroutine());
-            Fire();
+            DefineAttackInterval();
             yield return new WaitForSeconds(_attackIntervalDuration);
+            Fire();
         }
     }
 
