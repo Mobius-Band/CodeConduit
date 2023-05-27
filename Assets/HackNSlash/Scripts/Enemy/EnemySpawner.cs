@@ -19,6 +19,7 @@ namespace HackNSlash.Scripts.Enemy
             var newEnemy = Instantiate(_enemyPrefab, transform.position, quaternion.identity, enemyParent);
             OnEnemySpawned?.Invoke();
             newEnemy.SetActive(false);
+            // newEnemy.GetComponentInChildren<MeshRenderer>().enabled = false;
             _vfxManager = newEnemy.transform.GetComponentInChildren<VFXManager>();
             if (_vfxManager != null)
             {
@@ -36,6 +37,7 @@ namespace HackNSlash.Scripts.Enemy
                 }
                 _vfxManager.transform.localPosition = Vector3.zero;
                 _vfxManager.transform.position = newEnemy.transform.position;
+                newEnemy.SetActive(true);
                 _vfxManager.PlayVFX("spawn", transform);
             }
             else

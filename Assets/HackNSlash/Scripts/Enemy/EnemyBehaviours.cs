@@ -1,6 +1,7 @@
 using System.Collections;
 using Combat;
 using HackNSlash.Scripts.Util;
+using HackNSlash.Scripts.VFX;
 using UnityEngine;
 using UnityEngine.AI;
 using Transform = UnityEngine.Transform;
@@ -10,6 +11,7 @@ public class EnemyBehaviours : MonoBehaviour
 {
     [HideInInspector] public Transform attackTarget;
     [SerializeField] public Hurtbox _hurtbox;
+    [SerializeField] private VFXManager _vfxManager; 
     [Space]
     [SerializeField] private float _fleeingMovementMultiplier = 2;
     [SerializeField] private float _hoverDuration = 0.5f;
@@ -45,6 +47,10 @@ public class EnemyBehaviours : MonoBehaviour
         _movementStats = new NavMeshMovementStats().SavePermanentStats(_navMeshAgent);
 
         _hurtbox.OnHitReceived += _ => Freeze();
+        if (_vfxManager != null)
+        {
+            _hurtbox.OnHitReceived += _ => _vfxManager.PlayVFX("impact", transform);
+        }
     }
     
     private void Start()
@@ -167,10 +173,15 @@ public class EnemyBehaviours : MonoBehaviour
 
     private IEnumerator FreezeCoroutine()
     {
-        StopAllCoroutines();
+        // StopAllCoroutines();
+        // CeaseTargetUpdate();
+        _navMeshAgent.isStopped = true;
         _isFrozen = true;
+        Debug.Log("Is Frozen: " + _isFrozen);
         yield return new WaitForSeconds(_damageFreezeDuration);
         _isFrozen = false;
+        _navMeshAgent.isStopped = false;
+        Debug.Log("Is Frozen: " + _isFrozen);
     }
 
     public void Freeze()
