@@ -1332,7 +1332,7 @@ GameObject:
   - component: {fileID: 3745312176834288508}
   - component: {fileID: 9098304336771181914}
   - component: {fileID: 5066882357393375801}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ornamento
   m_TagString: Untagged
   m_Icon: {fileID: 0}

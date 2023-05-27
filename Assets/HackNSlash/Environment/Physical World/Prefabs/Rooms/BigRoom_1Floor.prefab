@@ -2980,7 +2980,7 @@ GameObject:
   - component: {fileID: 2276601641611865210}
   - component: {fileID: 6636759396036303654}
   - component: {fileID: 8850843810400751379}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ornamento.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
