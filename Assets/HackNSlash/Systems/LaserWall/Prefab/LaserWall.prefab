@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorIndex: 2
   collider: {fileID: 8978242384257330072}
-  renderer: {fileID: 0}
+  renderer: {fileID: 1638588782975055623}
   toggleDuration: 5
 --- !u!1001 &396198747689093441
 PrefabInstance:
@@ -142,6 +142,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6ed26624a1a045498a7f1aa20282db4, type: 3}
+--- !u!23 &1638588782975055623 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1423976927002918470, guid: b6ed26624a1a045498a7f1aa20282db4,
+    type: 3}
+  m_PrefabInstance: {fileID: 396198747689093441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2766125885708795145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2530130732967916616, guid: b6ed26624a1a045498a7f1aa20282db4,
