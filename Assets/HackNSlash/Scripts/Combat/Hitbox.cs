@@ -72,7 +72,6 @@ namespace Combat
 
         private IEnumerator TryHitOnceCoroutine(Transform a)
         {
-            Debug.Log("aaaa");
             while (!TryHit(a))
             {
                 yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
@@ -81,16 +80,21 @@ namespace Combat
         
         public void StartTryHitOnce(Transform attackerTransform)
         {
-            _hitOnceRoutine = StartCoroutine(TryHitOnceCoroutine(attackerTransform));  
+            StopTryHitOnce();
+            if (_hitOnceRoutine == null)
+            {
+                Debug.Log("Routine Started");
+                _hitOnceRoutine = StartCoroutine(TryHitOnceCoroutine(attackerTransform));
+            }
         }
 
         public void StopTryHitOnce()
         {
-            if (_hitOnceRoutine == null)
+            if (_hitOnceRoutine != null)
             {
-                return;
+                StopCoroutine(_hitOnceRoutine);
+                _hitOnceRoutine = null;
             }
-            StopCoroutine(_hitOnceRoutine);
         }
         
         /// <summary>

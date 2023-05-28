@@ -16,6 +16,9 @@ public class EnemyAttackManager : MonoBehaviour
     [SerializeField] private float dashForce;
     [SerializeField] private int dashDamage;
     [SerializeField] private float velocityThreshold;
+    [SerializeField] private float preparationTime;
+
+    public float DashPreparationTime => preparationTime;
 
     private void Awake()
     {
@@ -30,10 +33,9 @@ public class EnemyAttackManager : MonoBehaviour
 
     private IEnumerator CheckForMovementStability(Action action)
     {
-        Debug.Log("Velocity: " + rigidbody.velocity.magnitude );
-        if (rigidbody.velocity.sqrMagnitude > (velocityThreshold * velocityThreshold))
+        while (rigidbody.velocity.sqrMagnitude > (velocityThreshold * velocityThreshold))
         {
-            yield return null;
+            yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
         }    
         action?.Invoke();
     }
@@ -43,7 +45,7 @@ public class EnemyAttackManager : MonoBehaviour
         rigidbody.AddForce(transform.forward * dashForce, ForceMode.Impulse);
         hitbox.damage = dashDamage;
         hitbox.StartTryHitOnce(transform);
-        // StartCoroutine(CheckForMovementStability(hitbox.StopTryHitOnce));
+        StartCoroutine(CheckForMovementStability(hitbox.StopTryHitOnce));
     }
 
 }

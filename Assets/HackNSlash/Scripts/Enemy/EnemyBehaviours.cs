@@ -181,8 +181,14 @@ public class EnemyBehaviours : MonoBehaviour
         {
             yield return StartCoroutine(RotateTowardsPlayerCoroutine());
             DefineAttackInterval();
-            yield return new WaitForSeconds(_attackIntervalDuration / (1 + Convert.ToInt32(IsAtLastHealth())));
-            Fire();
+            yield return new WaitForSeconds(
+                IsAtLastHealth() ?
+                _attackIntervalDuration
+                : _attackManager.DashPreparationTime);
+            if (!_isFrozen)
+            {
+                Fire();
+            }
         }
     }
 
