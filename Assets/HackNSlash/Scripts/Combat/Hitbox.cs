@@ -31,8 +31,8 @@ namespace Combat
         
         private ColliderState _state = ColliderState.Inactive;
         private Collider[] _hitColliders = {};
-        
-        private Vector3 position => transform.position;
+
+        private Coroutine _hitOnceRoutine;
 
         private Color StateColor =>
             _state switch
@@ -72,12 +72,26 @@ namespace Combat
 
         private IEnumerator TryHitOnceCoroutine(Transform a)
         {
+            Debug.Log("aaaa");
             while (!TryHit(a))
             {
-                yield return null;
+                yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
             }
         }
-        public void StartTryHitOnce(Transform attackerTransform) => StartCoroutine(TryHitOnceCoroutine(attackerTransform));
+        
+        public void StartTryHitOnce(Transform attackerTransform)
+        {
+            _hitOnceRoutine = StartCoroutine(TryHitOnceCoroutine(attackerTransform));  
+        }
+
+        public void StopTryHitOnce()
+        {
+            if (_hitOnceRoutine == null)
+            {
+                return;
+            }
+            StopCoroutine(_hitOnceRoutine);
+        }
         
         /// <summary>
         /// Sets hitbox data

@@ -36,10 +36,6 @@ namespace Player
             _comboManager = GetComponent<ComboManager>();
         }
 
-        private void Start()
-        {
-        }
-
         private void Update()
         {
             DefineMovementAngle(out movementAngle, ref _moveDirection);

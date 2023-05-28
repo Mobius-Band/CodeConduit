@@ -1,33 +1,41 @@
+using System;
 using System.Collections;
 using Combat;
+using HackNSlash.Scripts.Enemy;
 using HackNSlash.Scripts.Util;
 using HackNSlash.Scripts.VFX;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 using Transform = UnityEngine.Transform;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBehaviours : MonoBehaviour
 {
-    [HideInInspector] public Transform attackTarget;
-    [SerializeField] public Hurtbox _hurtbox;
-    [SerializeField] private VFXManager _vfxManager;
-    [Space] 
+    [Header("LONG-DISTANCE ATTACK")]
     [SerializeField] private float _attackIntervalDuration_MIN;
     [SerializeField] private float _attackIntervalDuration_MAX;
-    [SerializeField] private float _fleeingMovementMultiplier = 2;
-    [SerializeField] private float _hoverDuration = 0.5f;
-    [SerializeField] private float _targetDefinitionInterval = 1f;
     [SerializeField] private float _attackEnablingDistance = 15f;
+    [Header("FINAL ATTACK")]
+    [SerializeField] [Range(0, 100)] private float _healthThreshold;
+    [Header("DEFAULT MOVEMENT")]
+    [SerializeField] private float _initialHoverDuration = 0.5f;
+    [SerializeField] private float _fleeingMovementMultiplier = 2;
+    [SerializeField] private float _destinationDefinitionInterval = 1f;
     [SerializeField] private float _fleeingDistance = 9f;
     [SerializeField] private float _damageFreezeDuration = 2f;
     [SerializeField] private float _rotationSpeed = 90f;
-    [Space]
+    [Header("EXTERNAL REFS")]
+    [SerializeField] public Hurtbox _hurtbox;
+    [SerializeField] private VFXManager _vfxManager;
+    [SerializeField] private EnemyAttackManager _attackManager;
+    [SerializeField] private EnemyHealth _health;
     [SerializeField] private Animator _animator;
+    [SerializeField] private EnemyAnimationManager _animationManager;
     [SerializeField] private string _meleeAnimationProperty;
+    [HideInInspector] public Transform attackTarget;
     
     private NavMeshAgent _navMeshAgent;
-    // private AttackManager _attackManager;
     private NavMeshMovementStats _movementStats;
 
     private Coroutine destinationUpdater;
@@ -39,20 +47,20 @@ public class EnemyBehaviours : MonoBehaviour
     private bool _isFrozen;
 
     public bool IsFrozen => _isFrozen;
-    public float HoverDuration => _hoverDuration;
+    public float InitialHoverDuration => _initialHoverDuration;
     public float AttackIntervalDuration => _attackIntervalDuration;
 
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-
         _movementStats = new NavMeshMovementStats().SavePermanentStats(_navMeshAgent);
-
-        _hurtbox.OnHitReceived += _ => Freeze();
+        _hurtbox.OnHitReceived += _ => TempFreeze();
+        _health.OnHealthChanged += (_,_) => TryEnterDesperateMode();
         if (_vfxManager != null)
         {
             _hurtbox.OnHitReceived += _ => _vfxManager.PlayVFX("impact", transform);
         }
+        _animationManager.OnFinalTransformationEnd += Unfreeze;
     }
     
     private void Start()
@@ -77,11 +85,11 @@ public class EnemyBehaviours : MonoBehaviour
             if (onlyOnce)
             {
                 yield return new WaitUntil(IsWithinFleeingDistance);
-                yield return new WaitForSeconds(_targetDefinitionInterval * 2f);
+                yield return new WaitForSeconds(_destinationDefinitionInterval * 2f);
             }
             else
             {
-                yield return new WaitForSeconds(_targetDefinitionInterval);
+                yield return new WaitForSeconds(_destinationDefinitionInterval);
             }
         }
     }
@@ -90,7 +98,7 @@ public class EnemyBehaviours : MonoBehaviour
     private float AngleTowardsTarget => Vector3.Angle(transform.forward, TargetDirection);
     private IEnumerator RotateTowardsPlayerCoroutine()
     {
-        while (AngleTowardsTarget > 2f)
+        while (AngleTowardsTarget > 1f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(TargetDirection);
             float rotationStep = _rotationSpeed * Time.deltaTime;
@@ -139,7 +147,12 @@ public class EnemyBehaviours : MonoBehaviour
                Mathf.Pow(_fleeingDistance, 2);
     }
 
-    public bool CanAttack() => HasReachedAttackDistance() && !IsWithinFleeingDistance();
+    public bool CanAttack()
+    {
+      return 
+          (HasReachedAttackDistance() && !IsWithinFleeingDistance())
+          || IsAtLastHealth();  
+    } 
     
     #endregion
 
@@ -153,6 +166,12 @@ public class EnemyBehaviours : MonoBehaviour
     public void Fire()
     {
         _repositionTarget = null;
+        if (IsAtLastHealth())
+        {
+            _navMeshAgent.isStopped = true;
+            _attackManager.Dash();
+            return;
+        }
         _animator.SetTrigger(_meleeAnimationProperty);
     }
 
@@ -162,7 +181,7 @@ public class EnemyBehaviours : MonoBehaviour
         {
             yield return StartCoroutine(RotateTowardsPlayerCoroutine());
             DefineAttackInterval();
-            yield return new WaitForSeconds(_attackIntervalDuration);
+            yield return new WaitForSeconds(_attackIntervalDuration / (1 + Convert.ToInt32(IsAtLastHealth())));
             Fire();
         }
     }
@@ -177,18 +196,48 @@ public class EnemyBehaviours : MonoBehaviour
         StopCoroutine(fireRoutine);
     }
 
+    private void TryEnterDesperateMode()
+    {
+        if (IsAtLastHealth())
+        {
+            Freeze();
+            _animator.Play("FinalForm");
+            _animator.SetBool("isFinalForm", true);
+        }
+    }
+    
+    public bool IsAtLastHealth()
+    {
+        return _health.HealthPercentage * 100 < _healthThreshold;
+    }
+
     #endregion
 
     private IEnumerator FreezeCoroutine()
     {
-        _navMeshAgent.isStopped = true;
-        _isFrozen = true;
+        Freeze();
         yield return new WaitForSeconds(_damageFreezeDuration);
-        _isFrozen = false;
-        _navMeshAgent.isStopped = false;
+        Unfreeze();
     }
 
-    public void Freeze()
+    private void ToggleFreeze(bool value)
+    {
+        if (_navMeshAgent.isOnNavMesh)
+        {
+            _navMeshAgent.isStopped = value;
+        }
+        _isFrozen = value;
+    }
+
+    private void Freeze()
+    {
+        CeaseTargetUpdate();
+        _navMeshAgent.SetDestination(transform.position);
+        ToggleFreeze(true);
+    } 
+    private void Unfreeze() => ToggleFreeze(false);
+
+    public void TempFreeze()
     {
         StartCoroutine(FreezeCoroutine());
     }
