@@ -83,7 +83,6 @@ namespace Combat
             StopTryHitOnce();
             if (_hitOnceRoutine == null)
             {
-                Debug.Log("Routine Started");
                 _hitOnceRoutine = StartCoroutine(TryHitOnceCoroutine(attackerTransform));
             }
         }

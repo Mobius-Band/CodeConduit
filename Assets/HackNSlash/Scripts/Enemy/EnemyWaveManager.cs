@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using HackNSlash.Scripts.GameManagement;
 using TMPro;
 using UnityEngine;
@@ -14,44 +14,46 @@ namespace HackNSlash.Scripts.Enemy
         [SerializeField] private TextMeshProUGUI _waveText;
         [SerializeField] private Transform playerTransform;
         [Space] 
-        [SerializeField] private UnityEvent OnWaveFinished;
+        [SerializeField] private UnityEvent<int, int> OnWaveFinished;
         [SerializeField] private UnityEvent OnAllWavesFinished;
         [Space(10)] 
         [SerializeField] private bool startWithLastWave;
         
-        private int _enemiesLeft;
+        private int _enemiesLeft => _enemyParent.childCount;
         private int _currentWave = 0;
 
-        private void Awake()
-        {
-            SetSpawningCount();
+        // private void Awake()
+        // {
+        //     SetSpawningCount();
+        // }
 
-            if (startWithLastWave)
-            {
-                _currentWave = _maximumWave-1;
-            }
+        private void Start()
+        {
+            _currentWave = startWithLastWave ? _maximumWave : 1;
+            StartWave(_currentWave);
         }
 
-        private void Update()
+        private void CheckWaveProgression()
         {
-            _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
-            
-            if (_enemiesLeft <= 0)
+            Debug.Log("Enemies Left: " + _enemiesLeft);
+            if (_enemiesLeft > 0)
             {
-                _currentWave += 1;
-                
-                if (_currentWave > _maximumWave)
-                {
-                    OnAllWavesFinished?.Invoke();
-                    GameManager.Instance.UnlockCurrentLaserWall();
-                    enabled = false;
-                }
-                
-                if (!enabled) return;
-                
-                OnWaveFinished?.Invoke();
-                StartWave(_currentWave);
+                return;
             }
+            OnWaveFinished?.Invoke(_currentWave, _maximumWave);
+            _currentWave += 1;
+                
+            if (_currentWave > _maximumWave)
+            {
+                OnAllWavesFinished?.Invoke();
+                GameManager.Instance.UnlockCurrentLaserWall();
+                enabled = false;
+                return;
+            }
+                
+            // if (!enabled) return;
+                
+            StartWave(_currentWave);
         }
         
         public void StartWave(int waveIndex)
@@ -62,21 +64,26 @@ namespace HackNSlash.Scripts.Enemy
                 enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
                 enemy.GetComponent<EnemyBehaviours>().attackTarget = playerTransform;
             }
+            _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
         }
         
-        private void EnemyDied()
+        private IEnumerator LateEnemyDied()
         {
-            _enemiesLeft--;
+            yield return null;
+            Debug.Log("enemy DIED");
+            CheckWaveProgression();
         }
-        
-        private void EnemySpawned()
-        {
-            _enemiesLeft++;
-        }
+        private void EnemyDied() => StartCoroutine(LateEnemyDied());
 
-        private void SetSpawningCount()
-        {
-            Array.ForEach(_enemySpawners, ctx => ctx.OnEnemySpawned += EnemySpawned);
-        }
+        // private void EnemySpawned()
+        // {
+        //     Debug.Log("enemy SPAWNED");
+        //     _enemiesLeft++;
+        // }
+
+        // private void SetSpawningCount()
+        // {
+        //     Array.ForEach(_enemySpawners, ctx => ctx.OnEnemySpawned += EnemySpawned);
+        // }
     }
 }
