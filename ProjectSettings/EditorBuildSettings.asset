@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/HackNSlash/_Scenes/InfoScenes/MainMenu.unity
     guid: afa5c5e76bfac6c4e88cfa21a311a778
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/Part2-Digital.unity
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/new Part2-Digital.unity
     guid: 247d7590ac266d54ab155725efb391a9
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part1-3.unity
@@ -59,4 +59,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part3-3.unity
     guid: 68af5355a0836d14894dc3ca50a7d790
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/new Part3-Digital.unity
+    guid: 18f51213f12fd544bb9787601c9f3433
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/new Part4-Digital.unity
+    guid: 8a8cb971dcdd52c4ea3f77462d7bf857
   m_configObjects: {}

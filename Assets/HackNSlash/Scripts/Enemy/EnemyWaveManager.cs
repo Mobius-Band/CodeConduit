@@ -21,12 +21,7 @@ namespace HackNSlash.Scripts.Enemy
         
         private int _enemiesLeft => _enemyParent.childCount;
         private int _currentWave = 0;
-
-        // private void Awake()
-        // {
-        //     SetSpawningCount();
-        // }
-
+        
         private void Start()
         {
             _currentWave = startWithLastWave ? _maximumWave : 1;
@@ -51,7 +46,7 @@ namespace HackNSlash.Scripts.Enemy
                 return;
             }
                 
-            // if (!enabled) return;
+            if (!enabled) return;
                 
             StartWave(_currentWave);
         }
@@ -74,16 +69,5 @@ namespace HackNSlash.Scripts.Enemy
             CheckWaveProgression();
         }
         private void EnemyDied() => StartCoroutine(LateEnemyDied());
-
-        // private void EnemySpawned()
-        // {
-        //     Debug.Log("enemy SPAWNED");
-        //     _enemiesLeft++;
-        // }
-
-        // private void SetSpawningCount()
-        // {
-        //     Array.ForEach(_enemySpawners, ctx => ctx.OnEnemySpawned += EnemySpawned);
-        // }
     }
 }
