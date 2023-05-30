@@ -977,7 +977,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh119582
+  m_Name: pb_Mesh-28056
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2620,6 +2620,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 2843016963949365519, guid: 0c7e1bc2617a1244084108e37834d823,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8e8db1dcf1e6eb4fbc79b84c3de5c80, type: 2}
     - target: {fileID: 2916901278294933365, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_RootOrder
@@ -2690,6 +2695,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3061793188341198869, guid: 0c7e1bc2617a1244084108e37834d823,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3127506573472968210, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_Mesh
@@ -2709,6 +2719,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103317198074635091, guid: 0c7e1bc2617a1244084108e37834d823,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 8.165405
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103317198074635091, guid: 0c7e1bc2617a1244084108e37834d823,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 96.728645
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103317198074635091, guid: 0c7e1bc2617a1244084108e37834d823,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 119.96864
       objectReference: {fileID: 0}
     - target: {fileID: 7114570520982303934, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
