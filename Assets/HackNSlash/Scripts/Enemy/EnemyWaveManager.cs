@@ -30,7 +30,6 @@ namespace HackNSlash.Scripts.Enemy
 
         private void CheckWaveProgression()
         {
-            Debug.Log("Enemies Left: " + _enemiesLeft);
             if (_enemiesLeft > 0)
             {
                 return;
@@ -65,7 +64,6 @@ namespace HackNSlash.Scripts.Enemy
         private IEnumerator LateEnemyDied()
         {
             yield return null;
-            Debug.Log("enemy DIED");
             CheckWaveProgression();
         }
         private void EnemyDied() => StartCoroutine(LateEnemyDied());
