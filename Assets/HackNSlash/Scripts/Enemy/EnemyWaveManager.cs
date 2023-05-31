@@ -58,7 +58,11 @@ namespace HackNSlash.Scripts.Enemy
                 enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
                 enemy.GetComponent<EnemyBehaviours>().attackTarget = playerTransform;
             }
-            _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
+
+            if (_waveText != null)
+            {
+                _waveText.text = $"wave: {_currentWave}/{_maximumWave}";                
+            }
         }
         
         private IEnumerator LateEnemyDied()
