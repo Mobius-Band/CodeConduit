@@ -1,4 +1,5 @@
-﻿using HackNSlash.Scripts.Util;
+﻿using System;
+using HackNSlash.Scripts.Util;
 using HackNSlash.Scripts.VFX;
 using UnityEngine;
 using Util;
@@ -13,9 +14,13 @@ namespace HackNSlash.Scripts.Enemy
         {
             //TODO: Should be handled solely by score or a bridging class
             // Score.scoreInstance.AddAmount(10);
-            OnDeath?.Invoke();
             _vfxManager.PlayVFX("spawn", transform);
             Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            OnDeath?.Invoke();
         }
     }
 }
