@@ -64,7 +64,7 @@ MonoBehaviour:
   timer: 2
   triggerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   renderer: {fileID: 8403412132928095658}
   activeMaterial: {fileID: 2100000, guid: c1cfb2a2552a2af43b86ea35fc20db7f, type: 2}
   inactiveMaterial: {fileID: 2100000, guid: 089da9fc462f6ce48bcddc898dc8ae4b, type: 2}
