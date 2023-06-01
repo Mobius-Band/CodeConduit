@@ -2129,6 +2129,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 2029975303}
     m_Modifications:
     - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetScene.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 258062dece686df46ac8c38bf93c337b,
+        type: 3}
+    - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetScene.sceneAssetGuidHex
+      value: 258062dece686df46ac8c38bf93c337b
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
       propertyPath: OnActivation.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 7848860981956641703}

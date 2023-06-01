@@ -2147,6 +2147,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 105f87c6bf2b3d84b996cf868cedacaa, type: 2}
+    - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetScene.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 527fe809e23c1fa458e9ad988d788c49,
+        type: 3}
+    - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetScene.sceneAssetGuidHex
+      value: 527fe809e23c1fa458e9ad988d788c49
+      objectReference: {fileID: 0}
     - target: {fileID: 616488684277772253, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_Enabled
