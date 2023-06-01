@@ -13,9 +13,10 @@ namespace HackNSlash.Scripts.Puzzle
 {
     public class Elevator : MonoBehaviour
     {
-        [SerializeField] private float time;
         [SerializeField] private Transform player;
-        private String _elevatorScene1 = "Part4-2-1";
+        [SerializeField] private float time;
+        [SerializeField] private float finalPlayerRotation = -90;
+        private String _elevatorScene1 = "Part4-2-1-2";
         private String _elevatorScene2 = "Part4-2-2";
         private float _upPosition;
         private float _downPosition;
@@ -87,7 +88,7 @@ namespace HackNSlash.Scripts.Puzzle
             
             sequence.Append(
                 player.transform.DORotate(new Vector3(
-                    player.rotation.x, 0, player.rotation.z), time/2));
+                    player.rotation.x, finalPlayerRotation, player.rotation.z), time/2));
             
             sequence.Append(transform.DOMove(new Vector3(transform.position.x, direction, transform.position.z), time));
             
