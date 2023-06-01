@@ -1,6 +1,7 @@
 using System;
 using Combat;
 using HackNSlash.Scripts.Player;
+using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.UI;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Player
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private PlayerAnimationManager _playerAnimationManager;
+        [SerializeField] private SphereElevator _sphereElevator;
         [SerializeField] private bool _isPuzzlePlayer;
         private PlayerInputManager _input;
         private ComboManager _comboManager;
@@ -28,6 +30,7 @@ namespace Player
             _playerPickupSphere = GetComponent<PlayerPickupSphere>();
         }
         
+        
         void Start()
         {
             //External
@@ -36,7 +39,8 @@ namespace Player
             if (_isPuzzlePlayer)
             {
                 // create interaction function
-                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.PickupSphere();
+                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
+                if (_sphereElevator) _input.InputActions.PuzzlePlayer.Interact.performed += _ => _sphereElevator.ActivateButton();
                 return;
             }
             
@@ -49,16 +53,16 @@ namespace Player
                 _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
                 _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
                 _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                _playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
+                _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
+                _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
+                _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
+                _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
+                _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
+                _playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
+                _playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
             }
-            _playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
-            _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
-            _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
-            _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
-            _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
-            _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
-            _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
-            _playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
-            _playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
         }
 
         private void OnDisable()
