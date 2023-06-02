@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
-        [SerializeField] private Transform _holder; 
+        [SerializeField] private Transform holder;
+        [SerializeField] private float dropHeight;
         [HideInInspector] public bool isHoldingSphere;
+        [HideInInspector] public Transform sphere;
         private PlayerInteraction _playerInteraction;
-        private Transform _sphere;
         private Transform _sphereParent;
         private Vector3[] _initialSpherePositions;
         public bool IsHoldingSphere => isHoldingSphere;
@@ -37,39 +39,39 @@ namespace HackNSlash.Scripts.Player
 
         private void PickupSphere()
          {
-             if (_sphere == null)
+             if (sphere == null)
              {
                  return;
              }
-             _sphere.SetParent(_holder);
-            _sphere.localPosition = Vector3.zero;
+             sphere.SetParent(holder);
+            sphere.localPosition = Vector3.zero;
                     
-            _sphere.GetComponent<Collider>().isTrigger = true;
+            sphere.GetComponent<Collider>().isTrigger = true;
         }
 
         private void DropSphere()
         {
-            _sphere.SetParent(_sphereParent);
-            _sphere.localPosition = new Vector3(_sphere.localPosition.x, 1, _sphere.localPosition.z);
+            sphere.SetParent(_sphereParent);
+            sphere.localPosition = new Vector3(sphere.localPosition.x, dropHeight, sphere.localPosition.z);
 
-            _sphere.GetComponent<Collider>().isTrigger = false;
+            sphere.GetComponent<Collider>().isTrigger = false;
         }
 
         private void Update()
         {
-            isHoldingSphere = _holder.childCount > 0;
+            isHoldingSphere = holder.childCount > 0;
 
             var closestObject = _playerInteraction.ClosestObject;
             if (closestObject == null || !closestObject.CompareTag("Movable"))
             {
-                _sphere = null;
+                sphere = null;
                 return;
             }
             
-            _sphere = _playerInteraction.ClosestObject;
+            sphere = _playerInteraction.ClosestObject;
             if (!isHoldingSphere)
             {
-                _sphereParent = _sphere.parent;
+                _sphereParent = sphere.parent;
             }
             
         }
