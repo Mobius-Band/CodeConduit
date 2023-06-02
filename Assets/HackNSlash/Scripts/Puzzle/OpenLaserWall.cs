@@ -30,12 +30,6 @@ namespace HackNSlash.Scripts.Puzzle
                         DisableDoor();
                     }
                     break;
-                case 4:
-                    if (GameManager.Instance.AccessData.canAccessPart4)
-                    {
-                        DisableDoor();
-                    }
-                    break;
             }
         }
 
