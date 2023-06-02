@@ -522,6 +522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293703876748990952, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
+      propertyPath: accessorSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293703876748990952, guid: 0492c50a418a9054184050eea4b87fe0,
+        type: 3}
       propertyPath: targetScene.sceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 247d7590ac266d54ab155725efb391a9,

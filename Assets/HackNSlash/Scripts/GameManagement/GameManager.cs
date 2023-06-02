@@ -82,6 +82,11 @@ namespace HackNSlash.Scripts.GameManagement
             {
                 AccessData.canAccessPart3 = true;
             }
+            
+            if (activeSceneIndex == AccessData.DigitalPart4Scene.BuildIndex)
+            {
+                AccessData.canAccessPart4 = true;
+            }
         }
     }
 }

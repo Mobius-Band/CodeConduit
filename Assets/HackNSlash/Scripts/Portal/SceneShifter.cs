@@ -66,6 +66,12 @@ namespace HackNSlash.Scripts.Portal
                         return false;
                     }
                     break;
+                case 4:
+                    if (GameManager.Instance.AccessData.canAccessPart4)
+                    {
+                        return false;
+                    }
+                    break;
             }
             return true;
         }

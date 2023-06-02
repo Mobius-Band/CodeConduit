@@ -926,6 +926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293703876748990952, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
+      propertyPath: accessorSceneIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293703876748990952, guid: 0492c50a418a9054184050eea4b87fe0,
+        type: 3}
       propertyPath: targetScene.sceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 18f51213f12fd544bb9787601c9f3433,
@@ -1692,6 +1697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LaserWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758285544530660221, guid: 85f68e80759841d479844370661d26a4,
+        type: 3}
+      propertyPath: doorIndex
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f68e80759841d479844370661d26a4, type: 3}

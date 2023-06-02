@@ -16,7 +16,11 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: 247d7590ac266d54ab155725efb391a9, type: 3}
     sceneAssetGuidHex: 247d7590ac266d54ab155725efb391a9
   digitalPart3Scene:
-    sceneAsset: {fileID: 102900000, guid: 09ff4a24072e435419ac7b9781107c1b, type: 3}
-    sceneAssetGuidHex: 09ff4a24072e435419ac7b9781107c1b
-  canAccessPart2: 1
-  canAccessPart3: 1
+    sceneAsset: {fileID: 102900000, guid: 18f51213f12fd544bb9787601c9f3433, type: 3}
+    sceneAssetGuidHex: 18f51213f12fd544bb9787601c9f3433
+  digitalPart4Scene:
+    sceneAsset: {fileID: 102900000, guid: 8a8cb971dcdd52c4ea3f77462d7bf857, type: 3}
+    sceneAssetGuidHex: 8a8cb971dcdd52c4ea3f77462d7bf857
+  canAccessPart2: 0
+  canAccessPart3: 0
+  canAccessPart4: 0
