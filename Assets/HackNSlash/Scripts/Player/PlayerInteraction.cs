@@ -35,11 +35,6 @@ namespace HackNSlash.Scripts.Player
 
         private void Update()
         {
-            if (_closestObject)
-            {
-                print(_closestObject);
-            }
-            
             foreach (var interactableObject in _interactableObjects)
             {
                 if (Vector3.Distance(transform.position, interactableObject.position) < _interactionDistance)

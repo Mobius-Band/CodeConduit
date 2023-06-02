@@ -1,6 +1,7 @@
 using System.Collections;
 using HackNSlash.Scripts.GameManagement;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,7 +23,7 @@ namespace HackNSlash.Scripts.Enemy
         private int _enemiesLeft => _enemyParent.childCount;
         private int _currentWave = 0;
         
-        private void Start()
+        public void Initialize()
         {
             _currentWave = startWithLastWave ? _maximumWave : 1;
             StartWave(_currentWave);
@@ -58,13 +59,20 @@ namespace HackNSlash.Scripts.Enemy
                 enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
                 enemy.GetComponent<EnemyBehaviours>().attackTarget = playerTransform;
             }
-            _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
+
+            if (_waveText != null)
+            {
+                _waveText.text = $"wave: {_currentWave}/{_maximumWave}";                
+            }
         }
         
         private IEnumerator LateEnemyDied()
         {
             yield return null;
-            CheckWaveProgression();
+            if (!gameObject.IsDestroyed())
+            {
+                CheckWaveProgression();
+            }
         }
         private void EnemyDied() => StartCoroutine(LateEnemyDied());
     }
