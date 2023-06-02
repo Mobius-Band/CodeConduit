@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CHEAT-CODE - Infinite Health",
+                    "type": "Button",
+                    "id": "44e03229-4194-4c57-8a22-70ab5ae73543",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -432,6 +441,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac955d11-8975-4d60-a143-b85f046ddadf",
+                    "path": "<Keyboard>/h",
+                    "interactions": "MultiTap(tapCount=5)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "CHEAT-CODE - Infinite Health",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
