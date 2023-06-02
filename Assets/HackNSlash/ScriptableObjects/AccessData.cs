@@ -14,7 +14,7 @@ namespace HackNSlash.ScriptableObjects
         [SerializeField] private SceneReference digitalPart4Scene;
         public SceneReference DigitalPart2Scene => digitalPart2Scene;
         public SceneReference DigitalPart3Scene => digitalPart3Scene;
-        public SceneReference DigitalPart4Scene => digitalPart3Scene;
+        public SceneReference DigitalPart4Scene => digitalPart4Scene;
 
         [Header("PERMISSIONS")]
         public bool canAccessPart2;
