@@ -192,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackIntervalDuration_MIN: 0.5
-  _attackIntervalDuration_MAX: 1
+  _attackIntervalDuration_MIN: 0.1
+  _attackIntervalDuration_MAX: 0.2
   _attackEnablingDistance: 20
   _healthThreshold: 40
-  _initialHoverDuration: 0.5
+  _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
   _destinationDefinitionInterval: 1
   _fleeingDistance: 2
