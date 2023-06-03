@@ -7879,11 +7879,6 @@ PrefabInstance:
       propertyPath: _playerWeapon
       value: 
       objectReference: {fileID: 696898082}
-    - target: {fileID: 7999598550174513723, guid: 4f87f1521805a794aa6863705018b061,
-        type: 3}
-      propertyPath: attacks.Array.data[0].damage
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812522, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_Name

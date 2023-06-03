@@ -195,7 +195,7 @@ MonoBehaviour:
   _attackIntervalDuration_MIN: 0.1
   _attackIntervalDuration_MAX: 0.2
   _attackEnablingDistance: 20
-  _healthThreshold: 40
+  _healthThreshold: 20
   _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
   _destinationDefinitionInterval: 1
