@@ -9,36 +9,63 @@ namespace HackNSlash.Scripts.Enemy
 {
     public class EnemyWaveManager : MonoBehaviour
     {
-        [SerializeField] private EnemySpawner[] _enemySpawners;
+        [SerializeField] private EnemyWaveCollection selectedWaveCollection;
         [SerializeField] private Transform _enemyParent;
-        [SerializeField] private int _maximumWave;
         [SerializeField] private TextMeshProUGUI _waveText;
         [SerializeField] private Transform playerTransform;
         [Space] 
         [SerializeField] private UnityEvent<int, int> OnWaveFinished;
         [SerializeField] private UnityEvent OnAllWavesFinished;
-        [Space(10)] 
-        [SerializeField] private bool startWithLastWave;
         
+        private int _currentWaveIndex = 0;
         private int _enemiesLeft => _enemyParent.childCount;
-        private int _currentWave = 0;
+        private int MaximumWaveIndex => selectedWaveCollection.Length;
         
         public void Initialize()
         {
-            _currentWave = startWithLastWave ? _maximumWave : 1;
-            StartWave(_currentWave);
+            // TrySetWaveCollection();
+            StartWave();
         }
 
+        // private bool TrySetWaveCollection()
+        // {
+        //     var waves = SetEnemyWavesUp();
+        //     int index = GameManager.Instance.areaIndex;
+        //     Debug.Log(index);
+        //     if (index == -1)
+        //     {
+        //         return false;
+        //     }
+        //     selectedWaveCollection = waves[index];
+        //     return true;
+        // }
+
+        public void StartWave(int waveIndex)
+        {
+            EnemyWave[] enemyWaves = selectedWaveCollection.EnemyWaves;
+            EnemyWave wave = enemyWaves[waveIndex];
+            wave.SpawnEnemies(_enemyParent, playerTransform, EnemyDied);
+
+            if (_waveText != null)
+            {
+                _waveText.text = $"wave: {_currentWaveIndex}/{enemyWaves.Length}";                
+            }
+        }
+        
+        public void StartWave() => StartWave(_currentWaveIndex);
+
+        
         private void CheckWaveProgression()
         {
             if (_enemiesLeft > 0)
             {
                 return;
             }
-            OnWaveFinished?.Invoke(_currentWave, _maximumWave);
-            _currentWave += 1;
+
+            OnWaveFinished?.Invoke(_currentWaveIndex,MaximumWaveIndex);
+            _currentWaveIndex += 1;
                 
-            if (_currentWave > _maximumWave)
+            if (_currentWaveIndex >= MaximumWaveIndex)
             {
                 OnAllWavesFinished?.Invoke();
                 GameManager.Instance.UnlockCurrentLaserWall();
@@ -48,22 +75,7 @@ namespace HackNSlash.Scripts.Enemy
                 
             if (!enabled) return;
                 
-            StartWave(_currentWave);
-        }
-        
-        public void StartWave(int waveIndex)
-        {
-            for (int i = 0; i < waveIndex; i++)
-            {
-                var enemy = _enemySpawners[i].SpawnEnemy(_enemyParent);
-                enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
-                enemy.GetComponent<EnemyBehaviours>().attackTarget = playerTransform;
-            }
-
-            if (_waveText != null)
-            {
-                _waveText.text = $"wave: {_currentWave}/{_maximumWave}";                
-            }
+            StartWave();
         }
         
         private IEnumerator LateEnemyDied()
@@ -75,5 +87,17 @@ namespace HackNSlash.Scripts.Enemy
             }
         }
         private void EnemyDied() => StartCoroutine(LateEnemyDied());
+
+        [ContextMenu("Set Enemy Waves Up")]
+        public EnemyWaveCollection[] SetEnemyWavesUp()
+        {
+            var enemyWavesCollection = GetComponentsInChildren<EnemyWaveCollection>();
+            foreach (var waveCollection in enemyWavesCollection)
+            {
+                waveCollection.GatherFromChildRecursively();
+            }
+
+            return enemyWavesCollection;
+        }
     }
 }
