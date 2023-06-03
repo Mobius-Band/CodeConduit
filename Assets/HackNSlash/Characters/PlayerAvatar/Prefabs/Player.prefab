@@ -108,7 +108,7 @@ MonoBehaviour:
   inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   activeColor: {r: 0, g: 0, b: 1, a: 1}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
-  damage: 200
+  damage: 8
   _audioManager: {fileID: 6040675030765683148}
 --- !u!1 &4557081539709777768
 GameObject:
@@ -483,10 +483,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c43d87a6c5341f188767746b720cdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimationManager: {fileID: 1148601000}
-  _sphereElevator: {fileID: 0}
-  _isPuzzlePlayer: 0
-  _pauseMenu: {fileID: 0}
+  playerAnimationManager: {fileID: 0}
+  sphereElevatorButton: {fileID: 0}
+  isPuzzlePlayer: 0
+  pauseMenu: {fileID: 0}
 --- !u!114 &808592646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - damage: 200
+  - damage: 8
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.25}
     stepAmount: 15

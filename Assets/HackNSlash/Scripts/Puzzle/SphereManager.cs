@@ -10,51 +10,32 @@ namespace HackNSlash.Scripts.Puzzle
         [SerializeField] private Transform[] spheres;
         [SerializeField] private SphereElevatorState sphereElevatorState;
 
-        private List<Vector3> databasePositions => sphereElevatorState.spherePositions;
+        private List<Vector3> DatabasePositions => sphereElevatorState.spherePositions;
         
         private void Awake()
         {
             SetPositionInScene();
         }
 
-        private void OnDisable()
+        private void SetPositionInScene()
         {
-            databasePositions.Clear();
-            Array.ForEach(spheres, SetPositionInDatabase);
-        }
-
-        private  void SetPositionInScene()
-        {
-            for (int i = 0; i < databasePositions.Count; i++)
+            if (DatabasePositions.Count > 0)
             {
-                spheres[i].position = databasePositions[i];
+                for (int i = 0; i < DatabasePositions.Count; i++)
+                {
+                    spheres[i].position = DatabasePositions[i];
+                }
             }
         }
         
-        public void SetPositionInDatabase(Transform refSphere)
+        public void SetPositionInDatabase()
         {
-            var isSphereValid = false;
-            int sphereIndex = 0;
-            int maximumIndex = spheres.Length;
-            for (sphereIndex = 0; sphereIndex < maximumIndex; sphereIndex++)
-            {
-                if (refSphere.Equals(spheres[sphereIndex]))
-                {
-                    isSphereValid = true;
-                    maximumIndex = sphereIndex;
-                }
-            }
-
-            sphereIndex--;
+            DatabasePositions.Clear();
             
-            if (!isSphereValid)
+            for (int i = 0; i < spheres.Length; i++)
             {
-                Debug.LogError("Sphere isn't valid!");
-                return;
+                sphereElevatorState.spherePositions.Insert(i, spheres[i].position);
             }
-            
-            sphereElevatorState.spherePositions.Add(refSphere.position);
-            Debug.Log("sphere position ADDED");
         }
     }
 }

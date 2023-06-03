@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: SphereElevatorState
   m_EditorClassIdentifier: 
   spherePositions:
-  - {x: -4, y: 11, z: 0}
-  - {x: 5.1, y: 1.54, z: 2.39}
-  sphereAmount: 0
+  - {x: 10, y: 1.3, z: 6}
+  - {x: 10, y: 1.3, z: 9}
   isDown: 1
   startOnElevator: 0

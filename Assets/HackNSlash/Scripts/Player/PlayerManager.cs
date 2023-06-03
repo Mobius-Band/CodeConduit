@@ -11,7 +11,7 @@ namespace HackNSlash.Scripts.Player
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private PlayerAnimationManager playerAnimationManager;
-        [SerializeField] private SphereElevator sphereElevator;
+        [SerializeField] private SphereElevatorButton sphereElevatorButton;
         [SerializeField] private bool isPuzzlePlayer;
         private PlayerInputManager _input;
         private ComboManager _comboManager;
@@ -39,7 +39,12 @@ namespace HackNSlash.Scripts.Player
             {
                 // create interaction function
                 _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
-                if (sphereElevator.canPressButton) _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevator.ActivateButton();
+                
+                if (sphereElevatorButton)
+                {
+                    _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevatorButton.ActivateButton();
+                }
+                
                 return;
             }
             

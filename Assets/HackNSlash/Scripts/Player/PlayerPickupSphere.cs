@@ -1,18 +1,20 @@
-﻿using UnityEngine;
+﻿using HackNSlash.Scripts.Puzzle;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerPickupSphere : MonoBehaviour
     {
+        [SerializeField] private SphereManager sphereManager;
+        [SerializeField] private SphereElevator sphereElevator;
         [SerializeField] private Transform holder;
-        [SerializeField] private float dropHeight;
-        [HideInInspector] public bool isHoldingSphere;
         [HideInInspector] public Transform sphere;
+        [HideInInspector] public bool isHoldingSphere;
+        public float dropHeight;
         private PlayerInteraction _playerInteraction;
         private Transform _sphereParent;
         private Vector3[] _initialSpherePositions;
-        public bool IsHoldingSphere => isHoldingSphere;
         
         private void Awake()
         {
@@ -25,7 +27,6 @@ namespace HackNSlash.Scripts.Player
             {
                 return;
             }
-
             
             if (!isHoldingSphere)
             {
@@ -38,23 +39,31 @@ namespace HackNSlash.Scripts.Player
         }
 
         private void PickupSphere()
-         {
-             if (sphere == null)
-             {
-                 return;
-             }
-             sphere.SetParent(holder);
+        {
+            if (sphere == null) return;
+             
+            sphere.SetParent(holder);
             sphere.localPosition = Vector3.zero;
-                    
-            sphere.GetComponent<Collider>().isTrigger = true;
+
+            sphere.GetComponent<ActivatorSphere>().isBeingHeld = true;
         }
 
         private void DropSphere()
         {
+            if (sphere == null) return;
+             
             sphere.SetParent(_sphereParent);
             sphere.localPosition = new Vector3(sphere.localPosition.x, dropHeight, sphere.localPosition.z);
 
-            sphere.GetComponent<Collider>().isTrigger = false;
+            // placing the sphere on the elevator
+            if (sphereElevator && sphereElevator.canPositionSphereOnHolder)
+            {
+                sphere.SetParent(sphereElevator.closestHolder);
+                sphere.localPosition = new Vector3(0, dropHeight, 0);
+            }
+
+            sphere.GetComponent<ActivatorSphere>().isBeingHeld = false;
+            if (sphereManager) sphereManager.SetPositionInDatabase();
         }
 
         private void Update()
@@ -67,13 +76,19 @@ namespace HackNSlash.Scripts.Player
                 sphere = null;
                 return;
             }
-            
-            sphere = _playerInteraction.ClosestObject;
-            if (!isHoldingSphere)
+
+            if (sphere)
             {
-                _sphereParent = sphere.parent;
+                if (!isHoldingSphere)
+                {
+                    _sphereParent = sphere.parent;
+                }
             }
-            
+            else
+            {
+                sphere = _playerInteraction.ClosestObject;
+            }
+                
         }
     }
 }
