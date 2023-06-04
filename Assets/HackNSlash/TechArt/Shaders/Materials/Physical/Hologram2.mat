@@ -52,9 +52,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _AlphaController: 1
     - _Blend: 2
     - _CastShadows: 1
     - _Cull: 0
+    - _DissolveScale: 34.2
+    - _Dissolve_Amount: 0.297
+    - _Dissolve_Widht: -17.7
     - _Dots_Noise_Scale: 100
     - _Dots_Size: 0.9
     - _DstBlend: 1
@@ -69,6 +73,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
+    - _Color: {r: 11.224973, g: 1.2929288, b: 1.1753898, a: 1}
     - _Dots_Color: {r: 3.7803926, g: 2.2761526, b: 0.31668213, a: 1}
     - _Dots_Tiling: {r: 30, g: 100, b: 0, a: 0}
     - _Fresnel_Color: {r: 0, g: 0.05490196, b: 0.7490196, a: 1}

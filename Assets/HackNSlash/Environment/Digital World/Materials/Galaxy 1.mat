@@ -60,13 +60,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 5
+    - _FresnelPower: 20
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FresnelColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 0.45490196, g: 3.482353, b: 3.2, a: 1}
     - _GalaxyColor: {r: 0.3764706, g: 2.447059, b: 3.1058824, a: 1}
     - _GalaxyOffset: {r: 0, g: 0, b: 0, a: 0}
     - _StarColor: {r: 0.26461348, g: 2.396222, b: 2.6608355, a: 1}
