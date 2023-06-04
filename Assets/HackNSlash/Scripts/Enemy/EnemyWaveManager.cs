@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using HackNSlash.Scripts.GameManagement;
 using TMPro;
@@ -98,6 +99,11 @@ namespace HackNSlash.Scripts.Enemy
             }
 
             return enemyWavesCollection;
+        }
+
+        private void OnValidate()
+        {
+            SetEnemyWavesUp();
         }
     }
 }

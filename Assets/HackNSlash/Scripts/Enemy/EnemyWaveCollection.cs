@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Enemy
@@ -9,6 +10,11 @@ namespace HackNSlash.Scripts.Enemy
 
         public EnemyWave[] EnemyWaves => enemyWaves;
         public int Length => enemyWaves.Length;
+        
+        private void OnValidate()
+        {
+            enemyWaves = enemyWaves.Where(eS => eS != null).ToArray();
+        }
         
         [ContextMenu("Gather Enemy Waves From Children")]
         public void GatherFromChild()

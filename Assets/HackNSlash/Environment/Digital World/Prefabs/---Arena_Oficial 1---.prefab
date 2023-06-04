@@ -4907,7 +4907,6 @@ GameObject:
   - component: {fileID: 5318278420865507432}
   - component: {fileID: 5966290591447019483}
   - component: {fileID: 722439234}
-  - component: {fileID: 2088590910747008289}
   m_Layer: 0
   m_Name: Altar
   m_TagString: Untagged
@@ -4988,37 +4987,6 @@ SkinnedMeshRenderer:
     m_Extent: {x: 5.8812585, y: 2.6730657, z: 5.8812585}
   m_DirtyAABB: 0
 --- !u!114 &722439234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131968920365786750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3111cf6bc25a44ccb92209b16a434994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetYPosition: 25.9
-  glowEffect: {fileID: 8548590618151272442}
-  targetEffectScale: 4
-  movementDuration: 1.5
-  onTotemFullyTweened:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HackNSlash.Scripts.Portal.SceneShifter, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &2088590910747008289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6994,7 +6962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2916901278294933365}
   m_Layer: 0
-  m_Name: Arena_Oficial 1
+  m_Name: ---Arena_Oficial 1---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7235,7 +7203,7 @@ SphereCollider:
   m_GameObject: {fileID: 4810230918360894190}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 9.43
   m_Center: {x: 0, y: 0, z: 0}

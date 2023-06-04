@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Enemy
@@ -19,6 +20,11 @@ namespace HackNSlash.Scripts.Enemy
         public void GatherFromChild()
         {
             _enemySpawners = GetComponentsInChildren<EnemySpawner>();
+        }
+
+        private void OnValidate()
+        {
+            _enemySpawners = _enemySpawners.Where(eS => eS != null).ToArray();
         }
 
         private void OnDrawGizmosSelected()
