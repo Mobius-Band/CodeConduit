@@ -1,9 +1,7 @@
-﻿using Eflatun.SceneReference;
-using HackNSlash.ScriptableObjects;
+﻿using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
@@ -38,6 +36,7 @@ namespace HackNSlash.Scripts.GameManagement
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         // public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         
+
         public void LoadMainMenu()
         {
             isBooting = true;
@@ -49,14 +48,14 @@ namespace HackNSlash.Scripts.GameManagement
         {
             Time.timeScale= 0;
             isPaused = true;
-            SetMousePointerForGameplay(false);
+            // SetMousePointerForGameplay(true);
         }
     
         public void ResumeGame()
         {
             Time.timeScale = 1;
             isPaused = false;
-            SetMousePointerForGameplay(true);
+            // SetMousePointerForGameplay(true);
         }
 
         public void Quit()
@@ -67,6 +66,7 @@ namespace HackNSlash.Scripts.GameManagement
         public void SetMousePointerForGameplay(bool doIt)
         {
             Cursor.visible = !doIt;
+            Debug.Log("Is Cursor Visible: " + Cursor.visible);
             Cursor.lockState = !doIt ? CursorLockMode.None : CursorLockMode.Locked;
         }
 

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // [SerializeField] private GameObject[] gamePlayElements;
     [SerializeField] private GameObject[] mainMenuElements;
     [SerializeField] private GameObject controlScreen;
     [Header("Main Menu Buttons")]
@@ -27,7 +26,6 @@ public class MainMenuManager : MonoBehaviour
         else
         {
             HideAllMenus();
-            // StartGameplay();
         }
         
     }
@@ -35,21 +33,14 @@ public class MainMenuManager : MonoBehaviour
     private void ShowMainMenu()
     {
         controlScreen.SetActive(false);
-        // Array.ForEach(gamePlayElements, ctx => ctx.SetActive(false));
         Array.ForEach(mainMenuElements, ctx => ctx.SetActive(true));
-        GameManager.Instance.SetMousePointerForGameplay(false);
+        GameManager.Instance.SetMousePointerForGameplay(true);
         GameManager.Instance.PauseGame();
         EventSystem.current.SetSelectedGameObject(playButton.gameObject);
     }
 
     private void StartGameplay()
     {
-        // // Array.ForEach(gamePlayElements, ctx => ctx.SetActive(true));
-        // // Array.ForEach(mainMenuElements, ctx => ctx.SetActive(false));
-        // controlScreen.SetActive(false);
-        // GameManager.Instance.isBooting = false;
-        // GameManager.Instance.SetMousePointerForGameplay(true);
-        // GameManager.Instance.ResumeGame();
         GameManager.Instance.SceneManager.LoadFirstGameplayScene();
     }
     
