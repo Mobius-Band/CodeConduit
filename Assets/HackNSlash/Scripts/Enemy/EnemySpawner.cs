@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.VFX;
 using VFXManager = HackNSlash.Scripts.VFX.VFXManager;
@@ -50,10 +51,29 @@ namespace HackNSlash.Scripts.Enemy
             return newEnemy;
         }
 
+        public GameObject SpawnEnemy(Transform enemyParent, Transform primaryTarget, Action deathAction)
+        {
+            var enemy = SpawnEnemy(enemyParent);
+            enemy.GetComponent<EnemyHealth>().OnDeath += deathAction;
+            enemy.GetComponent<EnemyBehaviours>().attackTarget = primaryTarget;
+            return enemy;
+        }
+
         private IEnumerator SetActiveWithDelay(GameObject enemy)
         {
             yield return new WaitForSeconds(2.5f);
             enemy.SetActive(true);
+        }
+
+        public void DrawGizmo()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 1);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            DrawGizmo();
         }
     }
 }

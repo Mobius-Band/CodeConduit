@@ -192,11 +192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackIntervalDuration_MIN: 0.5
-  _attackIntervalDuration_MAX: 1
+  _attackIntervalDuration_MIN: 0.1
+  _attackIntervalDuration_MAX: 0.2
   _attackEnablingDistance: 20
-  _healthThreshold: 40
-  _initialHoverDuration: 0.5
+  _attackEnablingAngle: 5
+  _healthThreshold: 20
+  _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
   _destinationDefinitionInterval: 1
   _fleeingDistance: 2
@@ -239,9 +240,9 @@ MonoBehaviour:
   hitbox: {fileID: 203895117}
   rigidbody: {fileID: 1756381825117879890}
   dashForce: 1500
-  dashDamage: 20
+  dashDamage: 10
   velocityThreshold: 0.000001
-  preparationTime: 3
+  preparationTime: 5
 --- !u!114 &1756381825117879892
 MonoBehaviour:
   m_ObjectHideFlags: 0
