@@ -1,29 +1,31 @@
 using System;
+using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Puzzle
 {
     public class ActivatorSphere : MonoBehaviour
     {
-        public int index;
+        [SerializeField] private GameManager gameManager;
+        public int sphereIndex;
+        public float dropHeight;
         public bool isBeingHeld;
-        public bool isDown;
-        public bool isOnElevator;
-        private readonly String _sphereElevatorScene1 = "Part4-2-1-1";
-        private readonly String _sphereElevatorScene2 = "Part4-2-2";
+        public bool IsDown => gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
+
+        private readonly String _sphereElevatorSceneDown = "Part4-2-1-1";
+        private readonly String _sphereElevatorSceneUp = "Part4-2-2";
 
         private void Awake()
         {
-            if (SceneManager.GetActiveScene().name == _sphereElevatorScene1)
+            if (SceneManager.GetActiveScene().name == _sphereElevatorSceneDown)
             {
-                if (isDown) return;
-                gameObject.SetActive(false);
+                gameObject.SetActive(IsDown);
             }
-            else if (SceneManager.GetActiveScene().name == _sphereElevatorScene2)
+            else if (SceneManager.GetActiveScene().name == _sphereElevatorSceneUp)
             {
-                if (!isDown) return;
-                gameObject.SetActive(false);
+                gameObject.SetActive(!IsDown);
             }
         }
     }

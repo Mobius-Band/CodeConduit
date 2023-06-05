@@ -23,7 +23,7 @@ namespace HackNSlash.Scripts.Player
             TrackInteractables();
         }
 
-        private void TrackInteractables()
+        public void TrackInteractables()
         {
             var colliders = Physics.OverlapSphere(transform.position, trackingDistance, trackingMask, QueryTriggerInteraction.Collide);
             _interactableObjects = new Transform[colliders.Length];

@@ -3,6 +3,7 @@ using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.UI;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Player
 {
@@ -11,7 +12,7 @@ namespace HackNSlash.Scripts.Player
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private PlayerAnimationManager playerAnimationManager;
-        [SerializeField] private SphereElevatorButton sphereElevatorButton;
+        [SerializeField] private SphereElevator sphereElevator;
         [SerializeField] private bool isPuzzlePlayer;
         private PlayerInputManager _input;
         private ComboManager _comboManager;
@@ -40,11 +41,10 @@ namespace HackNSlash.Scripts.Player
                 // create interaction function
                 _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
                 
-                if (sphereElevatorButton)
+                if (sphereElevator)
                 {
-                    _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevatorButton.ActivateButton();
+                    _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevator.ElevatorActivate();
                 }
-                
                 return;
             }
             

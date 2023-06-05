@@ -731,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 7999598550545812523, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: _moveSpeed
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812523, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
@@ -884,11 +884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623ebb6901c442eabf74683e1e00eede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 7399587276821413012}
-  sphere: {fileID: 0}
+  sphereManager: {fileID: 0}
   sphereElevator: {fileID: 0}
+  sphereParent: {fileID: 0}
+  holder: {fileID: 7399587276821413012}
   isHoldingSphere: 0
-  dropHeight: 1
 --- !u!114 &7767047530503740200
 MonoBehaviour:
   m_ObjectHideFlags: 0

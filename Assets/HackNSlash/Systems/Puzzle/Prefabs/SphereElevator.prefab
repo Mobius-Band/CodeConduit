@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1292667630500112640}
   - component: {fileID: 5719712775295282765}
   - component: {fileID: 5311630070338659023}
+  - component: {fileID: 5010817990604489693}
   m_Layer: 0
   m_Name: SphereHolder (3)
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5010817990604489693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201091159080003084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fd58073b71d50449aac226fac1962a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderIndex: 3
 --- !u!1 &279327549806772791
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +108,7 @@ GameObject:
   - component: {fileID: 6258009859222690552}
   - component: {fileID: 8998790452735418605}
   - component: {fileID: 4525740040276999156}
+  - component: {fileID: 1354352833460566875}
   m_Layer: 0
   m_Name: SphereHolder (2)
   m_TagString: Untagged
@@ -166,6 +181,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1354352833460566875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279327549806772791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fd58073b71d50449aac226fac1962a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderIndex: 2
 --- !u!1 &605781721465181921
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +288,7 @@ GameObject:
   - component: {fileID: 2328801133264788481}
   - component: {fileID: 6495479033766202898}
   - component: {fileID: 6407438358893417057}
+  - component: {fileID: 1981057141987047340}
   m_Layer: 0
   m_Name: SphereHolder
   m_TagString: Untagged
@@ -332,6 +361,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1981057141987047340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7381327724648369727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fd58073b71d50449aac226fac1962a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderIndex: 0
 --- !u!1 &7874449627280524271
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +385,7 @@ GameObject:
   - component: {fileID: 542203532183175373}
   - component: {fileID: 8561859879036664094}
   - component: {fileID: 1389794898310999687}
+  - component: {fileID: 173007888222531251}
   m_Layer: 0
   m_Name: SphereHolder (1)
   m_TagString: Untagged
@@ -415,6 +458,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &173007888222531251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874449627280524271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fd58073b71d50449aac226fac1962a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderIndex: 1
 --- !u!1 &8484415594417148224
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,17 +535,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63bcc7fda46d204685aa35b3e54ea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closestHolder: {fileID: 0}
   player: {fileID: 0}
   sphereHolders:
   - {fileID: 2328801133264788481}
   - {fileID: 542203532183175373}
   - {fileID: 6258009859222690552}
   - {fileID: 1292667630500112640}
+  gameManager: {fileID: 0}
+  playerInteraction: {fileID: 0}
   upPosition: 10
   downPosition: 0
   travelTime: 2
   minimumHolderPlayerDistance: 6.5
-  canPressButton: 0
 --- !u!1001 &630714562757580596
 PrefabInstance:
   m_ObjectHideFlags: 0
