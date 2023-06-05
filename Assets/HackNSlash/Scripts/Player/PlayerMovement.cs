@@ -28,11 +28,13 @@ namespace Player
         private bool _isRotationSuspended;
         private float _rotationAngle;
         private float movementAngle;
+        private RigidbodyConstraints originalRigidbodyConstraints;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _comboManager = GetComponent<ComboManager>();
+            originalRigidbodyConstraints = _rigidbody.constraints;
         }
 
         private void Update()
@@ -159,7 +161,7 @@ namespace Player
         {
             _isRotationSuspended = false;
             _rigidbody.freezeRotation = false;
-            _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            _rigidbody.constraints = originalRigidbodyConstraints;
         }
 
         public void RegainMovement()

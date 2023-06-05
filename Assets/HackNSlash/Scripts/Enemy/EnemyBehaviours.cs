@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Combat;
 using HackNSlash.Scripts.Enemy;
@@ -16,6 +15,7 @@ public class EnemyBehaviours : MonoBehaviour
     [SerializeField] private float _attackIntervalDuration_MIN;
     [SerializeField] private float _attackIntervalDuration_MAX;
     [SerializeField] private float _attackEnablingDistance = 15f;
+    [SerializeField] private float _attackEnablingAngle = 5f;
     [Header("FINAL ATTACK")]
     [SerializeField] [Range(0, 100)] private float _healthThreshold;
     [Header("DEFAULT MOVEMENT")]
@@ -98,7 +98,7 @@ public class EnemyBehaviours : MonoBehaviour
     private float AngleTowardsTarget => Vector3.Angle(transform.forward, TargetDirection);
     private IEnumerator RotateTowardsPlayerCoroutine()
     {
-        while (AngleTowardsTarget > 1f)
+        while (AngleTowardsTarget > _attackEnablingAngle)
         {
             Quaternion targetRotation = Quaternion.LookRotation(TargetDirection);
             float rotationStep = _rotationSpeed * Time.deltaTime;

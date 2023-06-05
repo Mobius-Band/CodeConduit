@@ -18,6 +18,7 @@ namespace HackNSlash.Scripts.Player
         private ComboManager _comboManager;
         private PlayerMovement _movement;
         private PlayerPickupSphere _playerPickupSphere;
+        private PlayerHealth _playerHealth;
 
         [Header("External References")] 
         [SerializeField] private PauseMenuManager pauseMenu;
@@ -28,6 +29,7 @@ namespace HackNSlash.Scripts.Player
             _comboManager = GetComponent<ComboManager>();
             _movement = GetComponent<PlayerMovement>();
             _playerPickupSphere = GetComponent<PlayerPickupSphere>();
+            _playerHealth = GetComponent<PlayerHealth>();
         }
         
         
@@ -67,6 +69,9 @@ namespace HackNSlash.Scripts.Player
                 playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
                 playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
             }
+            
+            //CheatCodes
+            _input.InputActions.Player.CHEATCODEInfiniteHealth.performed += ctx => _playerHealth.ToggleImmortalMode();
         }
 
         private void OnDisable()

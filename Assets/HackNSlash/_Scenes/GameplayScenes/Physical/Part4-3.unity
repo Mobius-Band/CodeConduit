@@ -690,12 +690,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targetScene.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 237d0e0091f6dcf4d930495361201bbd,
+      objectReference: {fileID: 102900000, guid: aec651808d2d4704d94e4d6e27b62bd7,
         type: 3}
     - target: {fileID: 3293703876748990952, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
       propertyPath: targetScene.sceneAssetGuidHex
-      value: 237d0e0091f6dcf4d930495361201bbd
+      value: aec651808d2d4704d94e4d6e27b62bd7
       objectReference: {fileID: 0}
     - target: {fileID: 4098273369717127224, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}

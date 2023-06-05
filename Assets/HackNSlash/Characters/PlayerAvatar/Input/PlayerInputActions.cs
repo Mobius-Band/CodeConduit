@@ -80,6 +80,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CHEAT-CODE - Infinite Health"",
+                    ""type"": ""Button"",
+                    ""id"": ""44e03229-4194-4c57-8a22-70ab5ae73543"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -456,6 +465,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac955d11-8975-4d60-a143-b85f046ddadf"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": ""MultiTap(tapCount=5)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""CHEAT-CODE - Infinite Health"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -808,6 +828,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_CHEATCODEInfiniteHealth = m_Player.FindAction("CHEAT-CODE - Infinite Health", throwIfNotFound: true);
         // PuzzlePlayer
         m_PuzzlePlayer = asset.FindActionMap("PuzzlePlayer", throwIfNotFound: true);
         m_PuzzlePlayer_Move = m_PuzzlePlayer.FindAction("Move", throwIfNotFound: true);
@@ -878,6 +899,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_CHEATCODEInfiniteHealth;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -888,6 +910,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @CHEATCODEInfiniteHealth => m_Wrapper.m_Player_CHEATCODEInfiniteHealth;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -915,6 +938,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @CHEATCODEInfiniteHealth.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCHEATCODEInfiniteHealth;
+                @CHEATCODEInfiniteHealth.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCHEATCODEInfiniteHealth;
+                @CHEATCODEInfiniteHealth.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCHEATCODEInfiniteHealth;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -937,6 +963,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @CHEATCODEInfiniteHealth.started += instance.OnCHEATCODEInfiniteHealth;
+                @CHEATCODEInfiniteHealth.performed += instance.OnCHEATCODEInfiniteHealth;
+                @CHEATCODEInfiniteHealth.canceled += instance.OnCHEATCODEInfiniteHealth;
             }
         }
     }
@@ -1043,6 +1072,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnCHEATCODEInfiniteHealth(InputAction.CallbackContext context);
     }
     public interface IPuzzlePlayerActions
     {
