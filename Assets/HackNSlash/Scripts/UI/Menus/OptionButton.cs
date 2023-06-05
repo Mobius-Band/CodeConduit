@@ -1,8 +1,6 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace HackNSlash.Scripts.UI.Menus
@@ -53,7 +51,6 @@ namespace HackNSlash.Scripts.UI.Menus
 
         private void ExecuteAnimation(bool isSelected)
         {
-            Debug.Log("IsSeoelected: " + isSelected);
             Fill(isSelected);
             SetFont(isSelected);
         }

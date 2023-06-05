@@ -29,13 +29,11 @@ namespace HackNSlash.Scripts.UI.Menus
 
         public void OnSelect(BaseEventData eventData)
         {
-            Debug.Log(name + " is selected");
             OnSelected?.Invoke();
         }
 
         public void OnDeselect(BaseEventData eventData)
         {
-            Debug.Log(name + " is selected NO MORE");
             OnDeselected?.Invoke();
         }
         
