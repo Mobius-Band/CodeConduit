@@ -1,8 +1,9 @@
 ﻿using System;
 using HackNSlash.Scripts.Util;
-using HackNSlash.Scripts.VFX;
 using UnityEngine;
+using UnityEngine.VFX;
 using Util;
+using VFXManager = HackNSlash.Scripts.VFX.VFXManager;
 
 namespace HackNSlash.Scripts.Enemy
 {
