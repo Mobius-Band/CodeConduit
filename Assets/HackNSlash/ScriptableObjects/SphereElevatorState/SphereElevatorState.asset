@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4415982b23f84e60bd1b4581ed47e581, type: 3}
   m_Name: SphereElevatorState
   m_EditorClassIdentifier: 
-  spherePositions:
-  - {x: -4, y: 11, z: 0}
-  - {x: 5.1, y: 1.54, z: 2.39}
-  sphereAmount: 0
-  isDown: 1
-  startOnElevator: 0
+  spherePositionsUp: []
+  spherePositionsDown: []
+  holderHasSphere: ffffffffffffffffffffffffffffffff
+  sphereIsDown: 010100
+  elevatorIsDown: 1

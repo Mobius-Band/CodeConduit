@@ -1,60 +1,113 @@
-﻿using System;
-using System.Collections.Generic;
-using HackNSlash.ScriptableObjects;
+﻿using System.Collections.Generic;
+using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace HackNSlash.Scripts.Puzzle
 {
     public class SphereManager : MonoBehaviour
     {
         [SerializeField] private Transform[] spheres;
-        [SerializeField] private SphereElevatorState sphereElevatorState;
+        [SerializeField] private Transform[] sphereHolders;
+        [SerializeField] private GameManager gameManager;
+        public List<int> HolderHasSphere => gameManager.SphereElevatorState.holderHasSphere;
+        private List<Vector3> DatabasePositionsUp => gameManager.SphereElevatorState.spherePositionsUp;
+        private List<Vector3> DatabasePositionsDown => gameManager.SphereElevatorState.spherePositionsDown;
+        private List<bool> SphereIsDown => gameManager.SphereElevatorState.sphereIsDown;
 
-        private List<Vector3> databasePositions => sphereElevatorState.spherePositions;
-        
         private void Awake()
         {
             SetPositionInScene();
-        }
-
-        private void OnDisable()
-        {
-            databasePositions.Clear();
-            Array.ForEach(spheres, SetPositionInDatabase);
-        }
-
-        private  void SetPositionInScene()
-        {
-            for (int i = 0; i < databasePositions.Count; i++)
+            
+            if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneDown)
             {
-                spheres[i].position = databasePositions[i];
+                SetPositionInDatabaseDown(true);
+            }
+            else if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneUp)
+            {
+                SetPositionInDatabaseUp(true);
             }
         }
-        
-        public void SetPositionInDatabase(Transform refSphere)
+
+        private void SetPositionInScene()
         {
-            var isSphereValid = false;
-            int sphereIndex = 0;
-            int maximumIndex = spheres.Length;
-            for (sphereIndex = 0; sphereIndex < maximumIndex; sphereIndex++)
+            // if sphere is up
+            if (DatabasePositionsUp.Count > 0)
             {
-                if (refSphere.Equals(spheres[sphereIndex]))
+                for (int i = 0; i < DatabasePositionsUp.Count; i++)
                 {
-                    isSphereValid = true;
-                    maximumIndex = sphereIndex;
+                    if (!SphereIsDown[i])
+                    {
+                        spheres[i].position = DatabasePositionsUp[i];
+                    }
+                }
+            }
+            
+            // if sphere is down
+            if (DatabasePositionsDown.Count > 0)
+            {
+                for (int i = 0; i < DatabasePositionsDown.Count; i++)
+                {
+                    if (SphereIsDown[i])
+                    {
+                        spheres[i].position = DatabasePositionsDown[i];
+                    }
                 }
             }
 
-            sphereIndex--;
-            
-            if (!isSphereValid)
+            // if sphere is on elevator
+            for (int i = 0; i < sphereHolders.Length; i++)
             {
-                Debug.LogError("Sphere isn't valid!");
-                return;
+                if (HolderHasSphere[i] != -1 && sphereHolders[i].childCount == 0)
+                {
+                    var sphere = spheres[HolderHasSphere[i]];
+                    sphere.SetParent(sphereHolders[i]);
+                    sphere.localPosition = new Vector3(0, sphere.GetComponent<ActivatorSphere>().dropHeight, 0);
+                }
             }
+        }
+
+        public void SetPositionInDatabaseUp(bool addInstead = false)
+        {
+            DatabasePositionsUp.Clear();
             
-            sphereElevatorState.spherePositions.Add(refSphere.position);
-            Debug.Log("sphere position ADDED");
+            for (int i = 0; i < spheres.Length; i++)
+            {
+                if (!SphereIsDown[i] && spheres[i].gameObject.activeSelf)
+                {
+                    if (DatabasePositionsUp.Count < spheres.Length) addInstead = true;
+                    
+                    if (addInstead)
+                    {
+                        DatabasePositionsUp.Add(spheres[i].position);
+                    }
+                    else
+                    {
+                        DatabasePositionsUp.Insert(i, spheres[i].position);
+                    }
+                }
+            }
+        }
+        
+        public void SetPositionInDatabaseDown(bool addInstead = false)
+        {
+            DatabasePositionsDown.Clear();
+            for (int i = 0; i < spheres.Length; i++)
+            {
+                if (SphereIsDown[i] && spheres[i].gameObject.activeSelf)
+                {
+                    if (DatabasePositionsDown.Count < spheres.Length) addInstead = true;
+                    
+                    if (addInstead)
+                    {
+                        DatabasePositionsDown.Add(spheres[i].position);
+                    }
+                    else
+                    {
+                        DatabasePositionsDown.Insert(i, spheres[i].position);
+                    }
+                }
+            }
         }
     }
 }

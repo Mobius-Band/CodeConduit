@@ -1,102 +1,215 @@
-using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using HackNSlash.Scripts.GameManagement;
 using HackNSlash.Scripts.Player;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace HackNSlash.Scripts.Puzzle
 {
     public class SphereElevator : MonoBehaviour
     {
-        [SerializeField] private PlayerPickupSphere _playerPickupSphere;
-        [SerializeField] private PlayerInteraction _playerInteraction;
-        [SerializeField] private float time;
-        private Transform _sphere;
-        private String _elevatorScene1 = "Part4-2-1";
-        private String _elevatorScene2 = "Part4-2-2";
-        private float _upPosition;
-        private float _downPosition;
-        private bool _hasSphere;
-        
-        private static bool IsDown
+        [HideInInspector] public Transform closestHolder;
+        [HideInInspector] public ActivatorSphere sphereToBePositioned;
+        [SerializeField] private GameManager gameManager;
+        private PlayerPickupSphere _playerPickupSphere;
+        private PlayerInteraction _playerInteraction;
+        [SerializeField] private Transform[] sphereHolders;
+        [SerializeField] private Transform player;
+        [SerializeField] private float upPosition;
+        [SerializeField] private float downPosition;
+        [SerializeField] private float travelTime;
+        [SerializeField] private float minimumHolderPlayerDistance;
+        private List<int> HolderHasSphere => gameManager.SphereElevatorState.holderHasSphere;
+        private const float BigNumber = 10000;
+        private bool _isMoving;
+        private bool _canActivateElevator;
+        private float _closestHolderDistance;
+
+        private bool IsDown
         {
-            get => GameManager.Instance.SphereElevatorState.isDown;
-            set => GameManager.Instance.SphereElevatorState.isDown = value;
+            get => gameManager.SphereElevatorState.elevatorIsDown;
+            set => gameManager.SphereElevatorState.elevatorIsDown = value;
         }
 
-        private static bool StartOnElevator
+        private void Awake()
         {
-            get => GameManager.Instance.SphereElevatorState.startOnElevator;
-            set => GameManager.Instance.SphereElevatorState.startOnElevator = value;
+            _playerInteraction = player.GetComponent<PlayerInteraction>();
+            _playerPickupSphere = player.GetComponent<PlayerPickupSphere>();
         }
         
         private void Start()
         {
+            var startPosition = IsDown ? downPosition : upPosition;
+            transform.position = new Vector3(0, startPosition, 0);
+
+            _closestHolderDistance = BigNumber;
+
             DOTween.Init();
-            
-            if (SceneManager.GetActiveScene().name == _elevatorScene1)
-            {
-                _upPosition = 10;
-                _downPosition = 0;
-            }
-            else if (SceneManager.GetActiveScene().name == _elevatorScene2)
-            {
-                _upPosition = 0;
-                _downPosition = -10;
-            }
         }
-        
+
         private void Update()
         {
-            if (_playerPickupSphere.IsHoldingSphere)
+            CheckForClosestHolder();
+            SetHolderMesh();
+
+            foreach (var holder in sphereHolders)
             {
-                _hasSphere = false;
+                if (holder.childCount > 0)
+                {
+                    holder.GetChild(0).gameObject.SetActive(true);
+                }
             }
 
-            if (_sphere && _hasSphere && !_playerPickupSphere.IsHoldingSphere)
+            var closestObject = _playerInteraction.closestObject;
+            if (!closestObject)
             {
-                _sphere.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                _canActivateElevator = false;
+                return;
             }
+            
+            if (_playerPickupSphere.isHoldingSphere)
+            {
+                _canActivateElevator = false;
+                return;
+            }
+
+            _canActivateElevator = closestObject.CompareTag("Button");
         }
 
-        private void OnTriggerEnter(Collider other)
+        public void ElevatorActivate()
         {
-            if (other.gameObject.CompareTag("Movable") && !_playerPickupSphere.IsHoldingSphere && !_hasSphere)
+            if (!_canActivateElevator || _isMoving) return;
+
+            var direction = IsDown ? upPosition : downPosition;
+
+            _isMoving = true;
+            transform.DOMove(new Vector3(transform.position.x, direction, transform.position.z), travelTime).OnComplete(() => _isMoving = false);
+
+            // set elevator and spheres isDown value
+            IsDown = !IsDown;
+
+            for (int i = 0; i < sphereHolders.Length; i++)
             {
-                _hasSphere = true;
-                if (_playerInteraction.ClosestObject.CompareTag("Movable"))
+                if (sphereHolders[i].childCount > 0)
                 {
-                    _sphere = other.gameObject.transform;
+                    gameManager.SphereElevatorState.sphereIsDown[
+                        sphereHolders[i].GetChild(0).GetComponent<ActivatorSphere>().sphereIndex] = IsDown;
+                    HolderHasSphere[i] = sphereHolders[i].GetChild(0).GetComponent<ActivatorSphere>().sphereIndex;
+                }
+                else
+                {
+                    HolderHasSphere[i] = -1;
                 }
             }
         }
 
-        public void ActivateButton()
+        private void OnTriggerStay(Collider other)
         {
-            if (!_playerInteraction.ClosestObject.CompareTag("Button") || _playerPickupSphere.IsHoldingSphere || !_hasSphere)
-            {
-                return;
-            }
+            if (!other.gameObject.CompareTag("Movable")) return;
+            if (!other.gameObject.GetComponent<ActivatorSphere>().isBeingHeld || !closestHolder ||
+                closestHolder.childCount != 0) return;
             
-            ElevatorActivate();
+            sphereToBePositioned = other.gameObject.GetComponent<ActivatorSphere>();
         }
-        
-        private void ElevatorActivate()
+
+        private void OnTriggerExit(Collider other)
         {
-            float direction;
-            if (StartOnElevator)
+            if (!other.gameObject.CompareTag("Movable")) return;
+            if (other.gameObject.GetComponent<ActivatorSphere>().isBeingHeld)
             {
-                if (IsDown) { direction = _downPosition; }
-                else { direction = _upPosition; }
+                sphereToBePositioned = null;
+            }
+        }
+
+        private void CheckForClosestHolder()
+        {
+            foreach (var holder in sphereHolders)
+            {
+                if (Vector3.Distance(holder.position, player.position) < _closestHolderDistance)
+                {
+                    closestHolder = holder;
+                }
+            }
+
+            if (closestHolder)
+            {
+                _closestHolderDistance = Vector3.Distance(closestHolder.position, player.position);
             }
             else
             {
-                if (IsDown) { direction = _upPosition; }
-                else { direction = _downPosition; }
+                _closestHolderDistance = BigNumber;
+            }
+
+            if (closestHolder &&
+                Vector3.Distance(player.position, closestHolder.position) > minimumHolderPlayerDistance)
+            {
+                closestHolder = null;
+            }
+        }
+
+        private void SetHolderMesh()
+        {
+            if (!closestHolder)
+            {
+                DisableAllHoldersMesh();
+                return;
             }
             
-            transform.DOMove(new Vector3(transform.position.x, direction, transform.position.z), time);
+            if (sphereToBePositioned)
+            {
+                if (!sphereToBePositioned.isBeingHeld)
+                {
+                    DisableAllHoldersMesh();
+                    return;
+                }
+            }
+            else
+            {
+                DisableAllHoldersMesh();
+                return;
+            }
+            
+            if (sphereToBePositioned)
+            {
+                closestHolder.GetComponent<MeshRenderer>().enabled = true;
+            }
+            else
+            {
+                DisableAllHoldersMesh();
+                return;
+            }
+
+            // disable all except closest holder mesh 
+            foreach (var holder in sphereHolders)
+            {
+                if (holder != closestHolder)
+                {
+                    holder.GetComponent<MeshRenderer>().enabled = false;
+                }
+            }
         }
+
+        private void DisableAllHoldersMesh()
+        {
+            foreach (var holder in sphereHolders)
+            {
+                holder.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+        
+        // holder debug
+        // private void OnDrawGizmos()
+        // {
+        //     if (player && closestHolder)
+        //     {
+        //         Gizmos.color = Color.magenta;
+        //         foreach (var holder in sphereHolders)
+        //         {
+        //             Gizmos.DrawLine(player.position, holder.position);
+        //         }
+        //         Gizmos.color = Color.green;
+        //         Gizmos.DrawLine(player.position, closestHolder.position);
+        //     }
+        // }
     }
 }

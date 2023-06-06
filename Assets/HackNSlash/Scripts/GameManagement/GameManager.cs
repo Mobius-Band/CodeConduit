@@ -1,4 +1,5 @@
-﻿using Eflatun.SceneReference;
+﻿using System;
+using Eflatun.SceneReference;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
@@ -37,6 +38,9 @@ namespace HackNSlash.Scripts.GameManagement
 
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         // public SphereElevatorState SphereElevatorState => _sphereElevatorState;
+        
+        public readonly String _sphereElevatorSceneDown = "Part4-2-1-1";
+        public readonly String _sphereElevatorSceneUp = "Part4-2-2";
         
         public void LoadMainMenu()
         {
