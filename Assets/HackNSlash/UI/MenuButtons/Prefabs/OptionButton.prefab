@@ -341,7 +341,7 @@ MonoBehaviour:
   text: {fileID: 3146998851927889868}
   backgroundImage: {fileID: 4867128108567619070}
   bottomLine: {fileID: 2945245337572381044}
-  fadeDuration: 0.5
+  fadeDuration: 0.25
   selectedFont: {fileID: 11400000, guid: 18b43e18c64198248811be7d05573772, type: 2}
   selectedFontSize: 112
 --- !u!1 &4955774742770828504

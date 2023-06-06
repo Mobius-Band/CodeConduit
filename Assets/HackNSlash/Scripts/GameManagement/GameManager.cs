@@ -25,17 +25,12 @@ namespace HackNSlash.Scripts.GameManagement
         [SerializeField] private ElevatorState _elevatorState;
 
         [SerializeField] private SphereElevatorState _sphereElevatorState;
-        
-        // [Header("ELEVATOR STATE SETUP")] 
-        // [SerializeField] private SphereElevatorState _sphereElevatorState;
-        
+
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
         public ElevatorState ElevatorState => _elevatorState;
 
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
-        // public SphereElevatorState SphereElevatorState => _sphereElevatorState;
-        
 
         public void LoadMainMenu()
         {
@@ -48,14 +43,12 @@ namespace HackNSlash.Scripts.GameManagement
         {
             Time.timeScale= 0;
             isPaused = true;
-            // SetMousePointerForGameplay(true);
         }
     
         public void ResumeGame()
         {
             Time.timeScale = 1;
             isPaused = false;
-            // SetMousePointerForGameplay(true);
         }
 
         public void Quit()
@@ -66,7 +59,6 @@ namespace HackNSlash.Scripts.GameManagement
         public void SetMousePointerForGameplay(bool doIt)
         {
             Cursor.visible = !doIt;
-            Debug.Log("Is Cursor Visible: " + Cursor.visible);
             Cursor.lockState = !doIt ? CursorLockMode.None : CursorLockMode.Locked;
         }
 

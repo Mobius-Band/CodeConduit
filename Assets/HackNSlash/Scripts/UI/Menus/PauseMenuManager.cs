@@ -1,4 +1,5 @@
 ﻿using HackNSlash.Scripts.GameManagement;
+using HackNSlash.Scripts.UI.Menus;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;

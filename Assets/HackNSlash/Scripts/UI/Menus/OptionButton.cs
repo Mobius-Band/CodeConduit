@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,11 +28,29 @@ namespace HackNSlash.Scripts.UI.Menus
         
         private void OnEnable()
         {
+            ResetLabel();
+            SetAnimations();
+        }
+        
+        private void OnDisable()
+        {
+            ResetLabel();
+        }
+
+        public void SetAnimations()
+        {
+            button.OnSelected.AddListener(ExecuteSelectionAnimation);
+            button.OnDeselected.AddListener(ExecuteDeselectionAnimation);
+        }
+        
+        private void ResetLabel()
+        {
             backgroundImage.fillAmount = 0;
             bottomLine.fillAmount = 1;
-            
-            button.OnSelected.AddListener(ExecuteSelectionAnimation);
-            button.OnDeselected.AddListener(ExecuteDeselectionAnimation);        }
+
+            text.font = unselectedFont;
+            text.fontSize = unselectedFontSize;
+        }
 
         private void Fill(bool on)
         {
