@@ -31,8 +31,8 @@ namespace HackNSlash.Scripts.UI
 
         private void Pause()
         {
-            ShowPauseMenu();
             GameManager.Instance.PauseGame();
+            ShowPauseMenu();
         }
         
         private void Resume()
@@ -69,8 +69,11 @@ namespace HackNSlash.Scripts.UI
 
         public void ShowPauseMenu()
         {
+            continueButton.GetComponent<OptionButton>().SetAnimations();
             pauseMenuCanvas.SetActive(true);
             EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
+            continueButton.GetComponent<OptionButton>().ExecuteAnimation(true);
+
         }
         
         public void HidePauseMenu()

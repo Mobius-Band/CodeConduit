@@ -68,12 +68,18 @@ namespace HackNSlash.Scripts.UI.Menus
             text.fontSize = on ? selectedFontSize : unselectedFontSize;
         }
 
-        private void ExecuteAnimation(bool isSelected)
+        public void ExecuteAnimation(bool isSelected)
         {
+            Debug.Log("Animation executed on: " + name);
             Fill(isSelected);
             SetFont(isSelected);
         }
         private void ExecuteSelectionAnimation() => ExecuteAnimation(true);
         private void ExecuteDeselectionAnimation() => ExecuteAnimation(false);
+
+        public void ForceSelectionState(bool state)
+        {
+            
+        }
     }
 }
