@@ -43,7 +43,7 @@ namespace HackNSlash.Scripts.Player
                 // create interaction function
                 _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
                 
-                if (sphereElevator)
+                if (sphereElevator && !_playerPickupSphere.isHoldingSphere)
                 {
                     _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevator.ElevatorActivate();
                 }

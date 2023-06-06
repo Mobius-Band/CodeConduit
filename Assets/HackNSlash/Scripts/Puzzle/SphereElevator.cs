@@ -1,27 +1,24 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using HackNSlash.Scripts.GameManagement;
 using HackNSlash.Scripts.Player;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Puzzle
 {
     public class SphereElevator : MonoBehaviour
     {
         [HideInInspector] public Transform closestHolder;
+        [HideInInspector] public ActivatorSphere sphereToBePositioned;
         [SerializeField] private GameManager gameManager;
-        [SerializeField] private PlayerInteraction playerInteraction;
+        private PlayerPickupSphere _playerPickupSphere;
+        private PlayerInteraction _playerInteraction;
         [SerializeField] private Transform[] sphereHolders;
         [SerializeField] private Transform player;
         [SerializeField] private float upPosition;
         [SerializeField] private float downPosition;
         [SerializeField] private float travelTime;
         [SerializeField] private float minimumHolderPlayerDistance;
-        private bool _sphereIsTouchingElevator;
-        private PlayerPickupSphere _playerPickupSphere;
         private List<int> HolderHasSphere => gameManager.SphereElevatorState.holderHasSphere;
         private const float BigNumber = 10000;
         private bool _isMoving;
@@ -34,12 +31,17 @@ namespace HackNSlash.Scripts.Puzzle
             set => gameManager.SphereElevatorState.elevatorIsDown = value;
         }
 
+        private void Awake()
+        {
+            _playerInteraction = player.GetComponent<PlayerInteraction>();
+            _playerPickupSphere = player.GetComponent<PlayerPickupSphere>();
+        }
+        
         private void Start()
         {
             var startPosition = IsDown ? downPosition : upPosition;
             transform.position = new Vector3(0, startPosition, 0);
 
-            _playerPickupSphere = player.GetComponent<PlayerPickupSphere>();
             _closestHolderDistance = BigNumber;
 
             DOTween.Init();
@@ -47,11 +49,7 @@ namespace HackNSlash.Scripts.Puzzle
 
         private void Update()
         {
-            if (_playerPickupSphere.isHoldingSphere)
-            {
-                CheckForClosestHolder();
-            }
-            
+            CheckForClosestHolder();
             SetHolderMesh();
 
             foreach (var holder in sphereHolders)
@@ -62,24 +60,30 @@ namespace HackNSlash.Scripts.Puzzle
                 }
             }
 
-            var closestObject = playerInteraction.closestObject;
+            var closestObject = _playerInteraction.closestObject;
             if (!closestObject)
             {
                 _canActivateElevator = false;
                 return;
             }
+            
+            if (_playerPickupSphere.isHoldingSphere)
+            {
+                _canActivateElevator = false;
+                return;
+            }
 
-            _canActivateElevator = closestObject.CompareTag("Button") && !_playerPickupSphere.isHoldingSphere;
+            _canActivateElevator = closestObject.CompareTag("Button");
         }
 
         public void ElevatorActivate()
         {
-            if (!_canActivateElevator) return;
+            if (!_canActivateElevator || _isMoving) return;
 
             var direction = IsDown ? upPosition : downPosition;
 
             _isMoving = true;
-            transform.DOMove(new Vector3(transform.position.x, direction, transform.position.z), travelTime);
+            transform.DOMove(new Vector3(transform.position.x, direction, transform.position.z), travelTime).OnComplete(() => _isMoving = false);
 
             // set elevator and spheres isDown value
             IsDown = !IsDown;
@@ -99,34 +103,21 @@ namespace HackNSlash.Scripts.Puzzle
             }
         }
 
-        public bool canPositionSphereOnHolder()
-        {
-            if (!closestHolder) return false;
-            if (closestHolder.childCount > 0) return false;
-
-            return _playerPickupSphere.isHoldingSphere && _sphereIsTouchingElevator;
-        }
-
         private void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.CompareTag("Movable"))
-            {
-                if (other.gameObject.GetComponent<ActivatorSphere>().isBeingHeld && closestHolder &&
-                    closestHolder.childCount == 0)
-                {
-                    _sphereIsTouchingElevator = true;
-                }
-            }
+            if (!other.gameObject.CompareTag("Movable")) return;
+            if (!other.gameObject.GetComponent<ActivatorSphere>().isBeingHeld || !closestHolder ||
+                closestHolder.childCount != 0) return;
+            
+            sphereToBePositioned = other.gameObject.GetComponent<ActivatorSphere>();
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.CompareTag("Movable"))
+            if (!other.gameObject.CompareTag("Movable")) return;
+            if (other.gameObject.GetComponent<ActivatorSphere>().isBeingHeld)
             {
-                if (other.gameObject.GetComponent<ActivatorSphere>().isBeingHeld)
-                {
-                    _sphereIsTouchingElevator = false;
-                }
+                sphereToBePositioned = null;
             }
         }
 
@@ -158,26 +149,51 @@ namespace HackNSlash.Scripts.Puzzle
 
         private void SetHolderMesh()
         {
-            if (!closestHolder) return;
+            if (!closestHolder)
+            {
+                DisableAllHoldersMesh();
+                return;
+            }
             
-            if (canPositionSphereOnHolder())
+            if (sphereToBePositioned)
+            {
+                if (!sphereToBePositioned.isBeingHeld)
+                {
+                    DisableAllHoldersMesh();
+                    return;
+                }
+            }
+            else
+            {
+                DisableAllHoldersMesh();
+                return;
+            }
+            
+            if (sphereToBePositioned)
             {
                 closestHolder.GetComponent<MeshRenderer>().enabled = true;
             }
             else
             {
-                foreach (var holder in sphereHolders)
-                {
-                    holder.GetComponent<MeshRenderer>().enabled = false;
-                }
+                DisableAllHoldersMesh();
+                return;
             }
 
+            // disable all except closest holder mesh 
             foreach (var holder in sphereHolders)
             {
                 if (holder != closestHolder)
                 {
                     holder.GetComponent<MeshRenderer>().enabled = false;
                 }
+            }
+        }
+
+        private void DisableAllHoldersMesh()
+        {
+            foreach (var holder in sphereHolders)
+            {
+                holder.GetComponent<MeshRenderer>().enabled = false;
             }
         }
         

@@ -14,16 +14,14 @@ namespace HackNSlash.Scripts.Puzzle
         public float dropHeight;
         public bool IsDown => gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
 
-        private readonly String _sphereElevatorSceneDown = "Part4-2-1-1";
-        private readonly String _sphereElevatorSceneUp = "Part4-2-2";
 
         private void Awake()
         {
-            if (SceneManager.GetActiveScene().name == _sphereElevatorSceneDown)
+            if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneDown)
             {
                 gameObject.SetActive(IsDown);
             }
-            else if (SceneManager.GetActiveScene().name == _sphereElevatorSceneUp)
+            else if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneUp)
             {
                 gameObject.SetActive(!IsDown);
             }

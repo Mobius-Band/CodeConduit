@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace HackNSlash.Scripts.Puzzle
 {
@@ -17,6 +18,15 @@ namespace HackNSlash.Scripts.Puzzle
         private void Awake()
         {
             SetPositionInScene();
+            
+            if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneDown)
+            {
+                SetPositionInDatabaseDown(true);
+            }
+            else if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneUp)
+            {
+                SetPositionInDatabaseUp(true);
+            }
         }
 
         private void SetPositionInScene()
@@ -56,27 +66,46 @@ namespace HackNSlash.Scripts.Puzzle
                 }
             }
         }
-        
-        public void SetPositionInDatabaseUp()
+
+        public void SetPositionInDatabaseUp(bool addInstead = false)
         {
             DatabasePositionsUp.Clear();
+            
             for (int i = 0; i < spheres.Length; i++)
             {
                 if (!SphereIsDown[i] && spheres[i].gameObject.activeSelf)
                 {
-                    DatabasePositionsDown.Insert(i, spheres[i].position);
+                    if (DatabasePositionsUp.Count < spheres.Length) addInstead = true;
+                    
+                    if (addInstead)
+                    {
+                        DatabasePositionsUp.Add(spheres[i].position);
+                    }
+                    else
+                    {
+                        DatabasePositionsUp.Insert(i, spheres[i].position);
+                    }
                 }
             }
         }
         
-        public void SetPositionInDatabaseDown()
+        public void SetPositionInDatabaseDown(bool addInstead = false)
         {
             DatabasePositionsDown.Clear();
             for (int i = 0; i < spheres.Length; i++)
             {
                 if (SphereIsDown[i] && spheres[i].gameObject.activeSelf)
                 {
-                    DatabasePositionsDown.Insert(i, spheres[i].position);
+                    if (DatabasePositionsDown.Count < spheres.Length) addInstead = true;
+                    
+                    if (addInstead)
+                    {
+                        DatabasePositionsDown.Add(spheres[i].position);
+                    }
+                    else
+                    {
+                        DatabasePositionsDown.Insert(i, spheres[i].position);
+                    }
                 }
             }
         }

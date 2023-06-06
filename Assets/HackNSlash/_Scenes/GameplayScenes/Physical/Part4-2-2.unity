@@ -2087,6 +2087,11 @@ PrefabInstance:
       objectReference: {fileID: 1782422445}
     - target: {fileID: 8484415594417148230, guid: 42dab0e705b8cd44996fa0a4d6871eb0,
         type: 3}
+      propertyPath: playerPickupSphere
+      value: 
+      objectReference: {fileID: 1494518445}
+    - target: {fileID: 8484415594417148230, guid: 42dab0e705b8cd44996fa0a4d6871eb0,
+        type: 3}
       propertyPath: _playerPickupSphere
       value: 
       objectReference: {fileID: 1494518445}
@@ -2309,6 +2314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
+      propertyPath: interactionDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
       propertyPath: trackingMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -2319,9 +2329,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
+      propertyPath: interactableObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
       propertyPath: _interactableObjects.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: interactableObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 2015876619}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: interactableObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1112560102}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: interactableObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 405282167}
+    - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: interactableObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1899366040}
     - target: {fileID: 7767047530503740200, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
       propertyPath: _interactableObjects.Array.data[0]

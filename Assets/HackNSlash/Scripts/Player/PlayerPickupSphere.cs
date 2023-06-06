@@ -33,14 +33,7 @@ namespace HackNSlash.Scripts.Player
 
             if (_sphere)
             {
-                if (isHoldingSphere)
-                {
-                    _sphere.GetComponent<ActivatorSphere>().isBeingHeld = true;
-                }
-                else
-                {
-                    _sphere.GetComponent<ActivatorSphere>().isBeingHeld = false;
-                }
+                _sphere.GetComponent<ActivatorSphere>().isBeingHeld = isHoldingSphere;
             }
             else
             {
@@ -80,23 +73,31 @@ namespace HackNSlash.Scripts.Player
         private void DropSphere()
         {
             // placing the sphere on the elevator
-            if (sphereElevator && sphereElevator.canPositionSphereOnHolder())
+            if (sphereElevator && sphereElevator.sphereToBePositioned != null)
             {
                 _sphere.SetParent(sphereElevator.closestHolder);
                 _sphere.localPosition = new Vector3(0, _sphere.GetComponent<ActivatorSphere>().dropHeight, 0);
+                _sphere.GetComponent<ActivatorSphere>().isBeingHeld = false;
                 
                 // update sphere manager lists
-                sphereManager.HolderHasSphere[sphereElevator.closestHolder.GetComponent<SphereElevatorHolder>().holderIndex] = _sphere.GetComponent<ActivatorSphere>().sphereIndex;
+                sphereManager.HolderHasSphere[sphereElevator.closestHolder.GetComponent<SphereElevatorHolder>().holderIndex] = 
+                    _sphere.GetComponent<ActivatorSphere>().sphereIndex;
+
+                sphereElevator.sphereToBePositioned = null;
+
+                return;
             }
             
             // placing the sphere on the ground
             if (_sphere.parent == holder)
             {
                 _sphere.SetParent(sphereParent);
-                _sphere.localPosition = new Vector3(_sphere.localPosition.x, _sphere.GetComponent<ActivatorSphere>().dropHeight, _sphere.localPosition.z);
+                _sphere.localPosition = 
+                    new Vector3(_sphere.localPosition.x, _sphere.GetComponent<ActivatorSphere>().dropHeight, _sphere.localPosition.z);
+                _sphere.GetComponent<ActivatorSphere>().isBeingHeld = false;
             }
             
-            _sphere.GetComponent<ActivatorSphere>().isBeingHeld = false;
+            
             if (_sphere.GetComponent<ActivatorSphere>().IsDown)
             {
                 sphereManager.SetPositionInDatabaseDown();
