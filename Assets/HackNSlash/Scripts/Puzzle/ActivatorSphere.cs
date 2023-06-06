@@ -9,9 +9,9 @@ namespace HackNSlash.Scripts.Puzzle
     public class ActivatorSphere : MonoBehaviour
     {
         [SerializeField] private GameManager gameManager;
+        [HideInInspector] public bool isBeingHeld;
         public int sphereIndex;
         public float dropHeight;
-        public bool isBeingHeld;
         public bool IsDown => gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
 
         private readonly String _sphereElevatorSceneDown = "Part4-2-1-1";

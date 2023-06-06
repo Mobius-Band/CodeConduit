@@ -24,7 +24,7 @@ namespace HackNSlash.Scripts.Player
         {
             isHoldingSphere = holder.childCount > 0;
 
-            var closestObject = _playerInteraction.ClosestObject;
+            var closestObject = _playerInteraction.closestObject;
             if (closestObject == null || !closestObject.CompareTag("Movable"))
             {
                 _sphere = null;
@@ -52,7 +52,7 @@ namespace HackNSlash.Scripts.Player
         {
             _playerInteraction.TrackInteractables();
             
-            if (!_playerInteraction.CanInteract || _sphere == null)
+            if (!_playerInteraction.canInteract || _sphere == null)
             {
                 return;
             }

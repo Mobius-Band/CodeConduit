@@ -12,10 +12,10 @@ namespace HackNSlash.Scripts.Puzzle
     public class SphereElevator : MonoBehaviour
     {
         [HideInInspector] public Transform closestHolder;
-        [SerializeField] private Transform player;
-        [SerializeField] private Transform[] sphereHolders;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerInteraction playerInteraction;
+        [SerializeField] private Transform[] sphereHolders;
+        [SerializeField] private Transform player;
         [SerializeField] private float upPosition;
         [SerializeField] private float downPosition;
         [SerializeField] private float travelTime;
@@ -50,8 +50,9 @@ namespace HackNSlash.Scripts.Puzzle
             if (_playerPickupSphere.isHoldingSphere)
             {
                 CheckForClosestHolder();
-                SetHolderMesh();
             }
+            
+            SetHolderMesh();
 
             foreach (var holder in sphereHolders)
             {
@@ -61,14 +62,14 @@ namespace HackNSlash.Scripts.Puzzle
                 }
             }
 
-            var closestObject = playerInteraction.ClosestObject;
+            var closestObject = playerInteraction.closestObject;
             if (!closestObject)
             {
                 _canActivateElevator = false;
                 return;
             }
 
-            _canActivateElevator = playerInteraction.ClosestObject.CompareTag("Button");
+            _canActivateElevator = closestObject.CompareTag("Button") && !_playerPickupSphere.isHoldingSphere;
         }
 
         public void ElevatorActivate()
@@ -158,10 +159,17 @@ namespace HackNSlash.Scripts.Puzzle
         private void SetHolderMesh()
         {
             if (!closestHolder) return;
-
+            
             if (canPositionSphereOnHolder())
             {
                 closestHolder.GetComponent<MeshRenderer>().enabled = true;
+            }
+            else
+            {
+                foreach (var holder in sphereHolders)
+                {
+                    holder.GetComponent<MeshRenderer>().enabled = false;
+                }
             }
 
             foreach (var holder in sphereHolders)
@@ -171,15 +179,8 @@ namespace HackNSlash.Scripts.Puzzle
                     holder.GetComponent<MeshRenderer>().enabled = false;
                 }
             }
-
-            if (!canPositionSphereOnHolder())
-            {
-                foreach (var holder in sphereHolders)
-                {
-                    holder.GetComponent<MeshRenderer>().enabled = false;
-                }
-            }
         }
+        
         // holder debug
         // private void OnDrawGizmos()
         // {
