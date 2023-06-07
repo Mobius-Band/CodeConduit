@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HackNSlash/_Scenes/InfoScenes/TitleScreen.unity
-    guid: 64c9b3dcb6e420941b1513422ba8e5e8
-  - enabled: 1
     path: Assets/HackNSlash/_Scenes/InfoScenes/MainMenu.unity
     guid: afa5c5e76bfac6c4e88cfa21a311a778
   - enabled: 1
