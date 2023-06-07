@@ -47,6 +47,7 @@ namespace Player
             }
             
             _input.InputActions.Player.Attack.performed += _ => _comboManager.HandleAttackInput();
+            // _input.InputActions.Player.HeavyAttack.performed += _ => _comboManager.HandleAttackInput();
             _input.InputActions.Player.Dash.performed += _ => _movement.Dash();
 
             if (_playerAnimationManager != null)
