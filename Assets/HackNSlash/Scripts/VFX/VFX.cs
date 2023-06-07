@@ -12,5 +12,6 @@ namespace HackNSlash.Scripts.VFX
         public float delay;
         public float duration;
         public Vector3 rotation;
+        public Vector3 position;
     }
 }

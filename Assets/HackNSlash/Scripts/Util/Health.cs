@@ -1,48 +1,49 @@
 using System;
+using System.Collections;
 using Enemy;
-using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Util
+namespace HackNSlash.Scripts.Util
 {
     public abstract class Health : MonoBehaviour
     {
         [SerializeField] private int maxHealth = 100;
-        [SerializeField] private int _currentHealth;
+        [SerializeField] private int currentHealth;
         private TakeDamageEffect _takeDamageEffect;
         private const int MinHealth = 0;
         
         public Action<int, int> OnHealthChanged;
         public Action OnDeath;
         
-        public float HealthPercentage => (float) _currentHealth / maxHealth;
+        public float HealthPercentage => (float) currentHealth / maxHealth;
 
         public int CurrentHealth
         {
-            get => _currentHealth;
+            get => currentHealth;
             set
             {
                 if (value <= MinHealth)
                 {
-                    _currentHealth = MinHealth;
-                    Die();
+                    currentHealth = MinHealth;
+                    StartCoroutine(Die());
                 }
                 else if (value > maxHealth)
                 {
-                    _currentHealth = maxHealth;
+                    currentHealth = maxHealth;
                 }
                 else
                 {
-                    _currentHealth = value;
+                    currentHealth = value;
                 }
-                OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+                OnHealthChanged?.Invoke(currentHealth, maxHealth);
             }
         }
 
         protected void Start()
         {
             _takeDamageEffect = GetComponent<TakeDamageEffect>();
-            _currentHealth = maxHealth;
+            currentHealth = maxHealth;
         }
 
         public void GainHealth(int amount)
@@ -56,6 +57,6 @@ namespace Util
             StartCoroutine(_takeDamageEffect.TakeDamageEffectCoroutine());
         }
 
-        protected abstract void Die();
+        protected abstract IEnumerator Die();
     }
 }

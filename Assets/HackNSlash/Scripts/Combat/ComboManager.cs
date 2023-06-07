@@ -1,4 +1,5 @@
-﻿using HackNSlash.Scripts.Audio;
+﻿using System;
+using HackNSlash.Scripts.Audio;
 using HackNSlash.Scripts.VFX;
 using Player;
 using UnityEngine;
@@ -135,42 +136,41 @@ namespace Combat
         {
             animator.Play("AttackLight1");
             _audioManager.Play("swoosh1");
-            _vfxManager.PlayVFX("slash", transform);
+            _vfxManager.PlayVFX("slashLight", transform);
         }
         
         private void AttackLight2()
         {
             animator.Play("AttackLight2");
             _audioManager.Play("swoosh3");
-            _vfxManager.PlayVFX("slash2", transform);
+            _vfxManager.PlayVFX("slashLight2", transform);
         }
         
         private void AttackLight3()
         {
             animator.Play("AttackLight3");
             _audioManager.Play("swoosh4");
-            _vfxManager.PlayVFX("slash", transform);
+            _vfxManager.PlayVFX("slashLight3", transform);
         }
         
         private void AttackHeavy1()
         {
             animator.Play("AttackHeavy1");
             _audioManager.Play("swoosh1");
-            _vfxManager.PlayVFX("slash", transform);
+            _vfxManager.PlayVFX("slashHeavy", transform);
         }
         
         private void AttackHeavy2()
         {
             animator.Play("AttackHeavy2");
             _audioManager.Play("swoosh3");
-            _vfxManager.PlayVFX("slash2", transform);
         }
         
         private void AttackHeavy3()
         {
             animator.Play("AttackHeavy3");
             _audioManager.Play("swoosh4");
-            _vfxManager.PlayVFX("slash", transform);
+            _vfxManager.PlayVFX("slashHeavy3", transform);
         }
     }
 }
