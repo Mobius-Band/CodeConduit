@@ -20,12 +20,12 @@ namespace HackNSlash.Scripts.Puzzle
             
             bool _isDown = gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
             isDown = _isDown;
-            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneDown)
+            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneDown.Name)
             {
                 gameObject.SetActive(isDown);
             }
             
-            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneUp)
+            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneUp.Name)
             {
                 gameObject.SetActive(!isDown);
             }

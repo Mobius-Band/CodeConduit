@@ -151,13 +151,13 @@ namespace HackNSlash.Scripts.Puzzle
 
         private void ChangeScene()
         {
-            if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneUp)
+            if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneUp.Name)
             {
-                SceneManager.LoadScene(gameManager.playerElevatorSceneDown);
+                SceneManager.LoadScene(gameManager.playerElevatorSceneDown.Name);
             }
-            else if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneDown)
+            else if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneDown.Name)
             {
-                SceneManager.LoadScene(gameManager.playerElevatorSceneUp);
+                SceneManager.LoadScene(gameManager.playerElevatorSceneUp.Name);
             }
         }
     }

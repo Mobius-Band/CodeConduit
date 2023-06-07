@@ -37,10 +37,10 @@ namespace HackNSlash.Scripts.GameManagement
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         
         [Header("ELEVATOR SCENES")]
-        [SerializeField] public String sphereElevatorSceneDown;
-        [SerializeField] public String sphereElevatorSceneUp;
-        [SerializeField] public String playerElevatorSceneDown;
-        [SerializeField] public String playerElevatorSceneUp;
+        [SerializeField] public SceneReference sphereElevatorSceneDown;
+        [SerializeField] public SceneReference sphereElevatorSceneUp;
+        [SerializeField] public SceneReference playerElevatorSceneDown;
+        [SerializeField] public SceneReference playerElevatorSceneUp;
 
         public void LoadMainMenu()
         {

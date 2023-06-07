@@ -66,7 +66,15 @@ MonoBehaviour:
   _elevatorState: {fileID: 11400000, guid: 7a62b8737ba87ed469a7f4eaa41248ec, type: 2}
   _sphereElevatorState: {fileID: 11400000, guid: 416f8da2abfe1274f9cad5d716e96da7,
     type: 2}
-  sphereElevatorSceneDown: Part4-PuzzleDown
-  sphereElevatorSceneUp: Part4-PuzzleUp
-  playerElevatorSceneDown: Part4-Elevator
-  playerElevatorSceneUp: Part4-PuzzleUp
+  sphereElevatorSceneDown:
+    sceneAsset: {fileID: 102900000, guid: 8c0be625b1e661944a971a67fcfe8982, type: 3}
+    sceneAssetGuidHex: 8c0be625b1e661944a971a67fcfe8982
+  sphereElevatorSceneUp:
+    sceneAsset: {fileID: 102900000, guid: 16705d983caa6f74bbf698d2b7af00a9, type: 3}
+    sceneAssetGuidHex: 16705d983caa6f74bbf698d2b7af00a9
+  playerElevatorSceneDown:
+    sceneAsset: {fileID: 102900000, guid: c07be45712dfcd542bc0a53c2281d805, type: 3}
+    sceneAssetGuidHex: c07be45712dfcd542bc0a53c2281d805
+  playerElevatorSceneUp:
+    sceneAsset: {fileID: 102900000, guid: 16705d983caa6f74bbf698d2b7af00a9, type: 3}
+    sceneAssetGuidHex: 16705d983caa6f74bbf698d2b7af00a9
