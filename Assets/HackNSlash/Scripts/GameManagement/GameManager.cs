@@ -5,6 +5,7 @@ using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
@@ -29,19 +30,18 @@ namespace HackNSlash.Scripts.GameManagement
 
         [SerializeField] private SphereElevatorState _sphereElevatorState;
         
-        // [Header("ELEVATOR STATE SETUP")] 
-        // [SerializeField] private SphereElevatorState _sphereElevatorState;
-        
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
         public ElevatorState ElevatorState => _elevatorState;
 
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
-        // public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         
-        public readonly String _sphereElevatorSceneDown = "Part4-2-1-1";
-        public readonly String _sphereElevatorSceneUp = "Part4-2-2";
-        
+        [Header("ELEVATOR SCENES")]
+        [SerializeField] public String sphereElevatorSceneDown;
+        [SerializeField] public String sphereElevatorSceneUp;
+        [SerializeField] public String playerElevatorSceneDown;
+        [SerializeField] public String playerElevatorSceneUp;
+
         public void LoadMainMenu()
         {
             isBooting = true;

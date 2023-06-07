@@ -41,7 +41,6 @@ namespace HackNSlash.Scripts.Player
                     if (Vector3.Distance(transform.position, interactableObject.position) < 
                         Vector3.Distance(transform.position, closestObject.position))
                     {
-                        closestObject = interactableObject;
                         break;
                     }
                 }

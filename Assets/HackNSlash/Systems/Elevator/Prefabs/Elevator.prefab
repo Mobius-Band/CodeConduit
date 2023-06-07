@@ -216,8 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4ba2b8b671ada458502693fe6ace92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2
+  gameManager: {fileID: 0}
   player: {fileID: 0}
+  time: 2
+  finalPlayerRotation: -90
+  upPosition: 0
+  downPosition: 0
 --- !u!65 &1759988608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,7 +233,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
+  m_Size: {x: 4, y: 1, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5794041463741474848
 GameObject:

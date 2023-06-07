@@ -19,11 +19,11 @@ namespace HackNSlash.Scripts.Puzzle
         {
             SetPositionInScene();
             
-            if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneDown)
+            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneDown)
             {
                 SetPositionInDatabaseDown(true);
             }
-            else if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneUp)
+            else if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneUp)
             {
                 SetPositionInDatabaseUp(true);
             }

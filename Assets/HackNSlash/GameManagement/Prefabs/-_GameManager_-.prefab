@@ -64,3 +64,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _elevatorState: {fileID: 11400000, guid: 7a62b8737ba87ed469a7f4eaa41248ec, type: 2}
+  _sphereElevatorState: {fileID: 11400000, guid: 416f8da2abfe1274f9cad5d716e96da7,
+    type: 2}
+  sphereElevatorSceneDown: Part4-PuzzleDown
+  sphereElevatorSceneUp: Part4-PuzzleUp
+  playerElevatorSceneDown: Part4-Elevator
+  playerElevatorSceneUp: Part4-PuzzleUp

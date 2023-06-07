@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 70711267687305216, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 208936980358598781, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
@@ -641,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 7643595300475955870, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7690020272285506728, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
@@ -894,6 +894,7 @@ MonoBehaviour:
   sphereParent: {fileID: 0}
   holder: {fileID: 7399587276821413012}
   isHoldingSphere: 0
+  sphere: {fileID: 0}
 --- !u!114 &7767047530503740200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,7 +912,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   interactableObjects: []
-  interactionDistance: 4
+  interactionDistance: 3
   canInteract: 0
   closestObject: {fileID: 0}
 --- !u!1001 &8831335887069778840

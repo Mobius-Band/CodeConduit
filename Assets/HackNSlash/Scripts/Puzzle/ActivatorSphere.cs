@@ -1,8 +1,6 @@
-using System;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Puzzle
 {
@@ -10,20 +8,22 @@ namespace HackNSlash.Scripts.Puzzle
     {
         [SerializeField] private GameManager gameManager;
         [HideInInspector] public bool isBeingHeld;
+        [HideInInspector] public bool isDown;
         public int sphereIndex;
         public float dropHeight;
-        public bool IsDown => gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
-
 
         private void Awake()
         {
-            if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneDown)
+            bool _isDown = gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
+            isDown = _isDown;
+            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneDown)
             {
-                gameObject.SetActive(IsDown);
+                gameObject.SetActive(isDown);
             }
-            else if (SceneManager.GetActiveScene().name == gameManager._sphereElevatorSceneUp)
+            
+            if (SceneManager.GetActiveScene().name == gameManager.sphereElevatorSceneUp)
             {
-                gameObject.SetActive(!IsDown);
+                gameObject.SetActive(!isDown);
             }
         }
     }

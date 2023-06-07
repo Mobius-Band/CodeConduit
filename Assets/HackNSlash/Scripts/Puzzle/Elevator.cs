@@ -13,13 +13,12 @@ namespace HackNSlash.Scripts.Puzzle
 {
     public class Elevator : MonoBehaviour
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private Transform player;
         [SerializeField] private float time;
         [SerializeField] private float finalPlayerRotation = -90;
         [SerializeField] private float upPosition;
         [SerializeField] private float downPosition;
-        private readonly String _elevatorScene1 = "Part4-2-1-2";
-        private readonly String _elevatorScene2 = "Part4-2-2";
         private bool _canUseElevator;
         private static bool IsDown
         {
@@ -119,7 +118,7 @@ namespace HackNSlash.Scripts.Puzzle
             player.GetComponent<PlayerMovement>().SuspendMovement();
             player.GetComponent<PlayerMovement>().SuspendRotation();
             player.GetComponent<Rigidbody>().isKinematic = true;
-            player.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            player.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
             ElevatorActivate();
             
@@ -152,13 +151,14 @@ namespace HackNSlash.Scripts.Puzzle
 
         private void ChangeScene()
         {
-            if (SceneManager.GetActiveScene().name == _elevatorScene1)
+            if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneUp)
             {
-                SceneManager.LoadScene(_elevatorScene2);
+                print("a");
+                SceneManager.LoadScene(gameManager.playerElevatorSceneDown);
             }
-            else if (SceneManager.GetActiveScene().name == _elevatorScene2)
+            else if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneDown)
             {
-                SceneManager.LoadScene(_elevatorScene1);
+                SceneManager.LoadScene(gameManager.playerElevatorSceneUp);
             }
         }
     }
