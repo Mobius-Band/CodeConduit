@@ -153,7 +153,6 @@ namespace HackNSlash.Scripts.Puzzle
         {
             if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneUp)
             {
-                print("a");
                 SceneManager.LoadScene(gameManager.playerElevatorSceneDown);
             }
             else if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneDown)

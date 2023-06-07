@@ -912,7 +912,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   interactableObjects: []
-  interactionDistance: 3
+  interactionDistance: 3.5
   canInteract: 0
   closestObject: {fileID: 0}
 --- !u!1001 &8831335887069778840
