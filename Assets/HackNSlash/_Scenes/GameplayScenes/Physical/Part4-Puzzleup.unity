@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 00b1c541194898043ac8b1e5f6ae6b47,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 2248c8b35bef89448ac50bc02c5e7d13,
     type: 2}
 --- !u!196 &4
@@ -3142,6 +3143,11 @@ PrefabInstance:
       propertyPath: _cameraHolder
       value: 
       objectReference: {fileID: 1878378716}
+    - target: {fileID: 153701454289835676, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
+        type: 3}
+      propertyPath: _rotationTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 153701454289835677, guid: b8c4c7e65f7204a4fae30c751ebdfcd3,
         type: 3}
       propertyPath: m_Name

@@ -974,6 +974,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereLight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1027,6 +1032,11 @@ PrefabInstance:
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204995175901584134, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1394,7 +1404,7 @@ PrefabInstance:
     - target: {fileID: 1257104596556872049, guid: 63cc681e09b75e6478691b68467661b1,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1431350350868538613, guid: 63cc681e09b75e6478691b68467661b1,
         type: 3}
@@ -1599,6 +1609,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereLight
       objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1654,6 +1669,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5204995175901584134, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7, type: 3}
 --- !u!4 &1704752245 stripped
@@ -1678,6 +1698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SphereLight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
@@ -1732,6 +1757,11 @@ PrefabInstance:
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204995175901584134, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1802,6 +1832,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312774226}
     m_Modifications:
+    - target: {fileID: 490650123582898831, guid: 85f68e80759841d479844370661d26a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 530214780809009300, guid: 85f68e80759841d479844370661d26a4,
         type: 3}
       propertyPath: m_RootOrder
@@ -1933,6 +1968,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5982841efce95a43b92436569b9bc77, type: 3}
+--- !u!1001 &5711859395034158511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1027771398}
+    m_Modifications:
+    - target: {fileID: 5711859394660718672, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_Name
+      value: Point Light Portal Cabine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711859394660719535, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ce2a90d2c6b48645bdfe4135c15a0c7, type: 3}
 --- !u!1001 &7865051691408674845
 PrefabInstance:
   m_ObjectHideFlags: 0
