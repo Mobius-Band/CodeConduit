@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7714594344107969549}
   - component: {fileID: 7714594344107969551}
   - component: {fileID: 4415341018680857123}
+  - component: {fileID: 797817693804970024}
   m_Layer: 9
   m_Name: ActivatorSphere
   m_TagString: Movable
@@ -58,11 +59,28 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7714594344107969548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2.2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &797817693804970024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714594344107969548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951d58ad59b21a6418b13205776bab43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  isBeingHeld: 0
+  isDown: 0
+  sphereIndex: 0
+  dropHeight: 1
 --- !u!1001 &3208748851812889706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,13 +143,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 62a449fdbe928b040aceec2390971c79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a037160521277c41b65c435c69cb0cd, type: 2}
+    - target: {fileID: -1018664272722485354, guid: 62a449fdbe928b040aceec2390971c79,
+        type: 3}
+      propertyPath: m_Name
+      value: SphereInside
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: 62a449fdbe928b040aceec2390971c79,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 62a449fdbe928b040aceec2390971c79,
         type: 3}
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: 62a449fdbe928b040aceec2390971c79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f366dbd32cbf5c14e953598c51918f60, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62a449fdbe928b040aceec2390971c79, type: 3}
+--- !u!1 &2325737321782233403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 62a449fdbe928b040aceec2390971c79,
+    type: 3}
+  m_PrefabInstance: {fileID: 3208748851812889706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2615059542920012829
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2325737321782233403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 420f572ea5f296848a6cbcfdb75e4b31, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &3102273608303678337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62a449fdbe928b040aceec2390971c79,

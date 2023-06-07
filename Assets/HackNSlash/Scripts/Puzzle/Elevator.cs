@@ -13,13 +13,12 @@ namespace HackNSlash.Scripts.Puzzle
 {
     public class Elevator : MonoBehaviour
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private Transform player;
         [SerializeField] private float time;
         [SerializeField] private float finalPlayerRotation = -90;
-        private String _elevatorScene1 = "Part4-2-1-2";
-        private String _elevatorScene2 = "Part4-2-2";
-        private float _upPosition;
-        private float _downPosition;
+        [SerializeField] private float upPosition;
+        [SerializeField] private float downPosition;
         private bool _canUseElevator;
         private static bool IsDown
         {
@@ -36,17 +35,6 @@ namespace HackNSlash.Scripts.Puzzle
         private void Start()
         {
             DOTween.Init();
-            
-            if (SceneManager.GetActiveScene().name == _elevatorScene1)
-            {
-                _upPosition = 10;
-                _downPosition = 0;
-            }
-            else if (SceneManager.GetActiveScene().name == _elevatorScene2)
-            {
-                _upPosition = 0;
-                _downPosition = -10;
-            }
 
             if (!StartOnElevator)
             {
@@ -69,13 +57,13 @@ namespace HackNSlash.Scripts.Puzzle
             float direction;
             if (StartOnElevator)
             {
-                if (IsDown) { direction = _downPosition; }
-                else { direction = _upPosition; }
+                if (IsDown) { direction = downPosition; }
+                else { direction = upPosition; }
             }
             else
             {
-                if (IsDown) { direction = _upPosition; }
-                else { direction = _downPosition; }
+                if (IsDown) { direction = upPosition; }
+                else { direction = downPosition; }
             }
             
             // using a dotween sequence to make the player enter the elevator and then go up
@@ -118,11 +106,11 @@ namespace HackNSlash.Scripts.Puzzle
         {
             if (IsDown)
             {
-                transform.position = new Vector3(transform.position.x,_upPosition, transform.position.z);
+                transform.position = new Vector3(transform.position.x,upPosition, transform.position.z);
             }
             else
             {
-                transform.position = new Vector3(transform.position.x,_downPosition, transform.position.z);
+                transform.position = new Vector3(transform.position.x,downPosition, transform.position.z);
             }
             
             _canUseElevator = false;
@@ -130,7 +118,7 @@ namespace HackNSlash.Scripts.Puzzle
             player.GetComponent<PlayerMovement>().SuspendMovement();
             player.GetComponent<PlayerMovement>().SuspendRotation();
             player.GetComponent<Rigidbody>().isKinematic = true;
-            player.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            player.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
             ElevatorActivate();
             
@@ -152,7 +140,7 @@ namespace HackNSlash.Scripts.Puzzle
             {
                 if (_canUseElevator)
                 {
-                    if (other.GetComponent<PlayerPickupSphere>().IsHoldingSphere)
+                    if (other.GetComponent<PlayerPickupSphere>().isHoldingSphere)
                     {
                         return;
                     }
@@ -163,13 +151,13 @@ namespace HackNSlash.Scripts.Puzzle
 
         private void ChangeScene()
         {
-            if (SceneManager.GetActiveScene().name == _elevatorScene1)
+            if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneUp.Name)
             {
-                SceneManager.LoadScene(_elevatorScene2);
+                SceneManager.LoadScene(gameManager.playerElevatorSceneDown.Name);
             }
-            else
+            else if (SceneManager.GetActiveScene().name == gameManager.playerElevatorSceneDown.Name)
             {
-                SceneManager.LoadScene(_elevatorScene1);
+                SceneManager.LoadScene(gameManager.playerElevatorSceneUp.Name);
             }
         }
     }

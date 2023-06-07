@@ -168,7 +168,7 @@ RectTransform:
   m_Children:
   - {fileID: 1352516966534259181}
   m_Father: {fileID: 153701454289835674}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -265,7 +265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 153701454289835674}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7865051692632070839
 PrefabInstance:
@@ -287,8 +287,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 808592645, guid: 4f87f1521805a794aa6863705018b061, type: 3}
+      propertyPath: isPuzzlePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808592645, guid: 4f87f1521805a794aa6863705018b061, type: 3}
       propertyPath: _isPuzzlePlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808592645, guid: 4f87f1521805a794aa6863705018b061, type: 3}
+      propertyPath: playerAnimationManager
+      value: 
+      objectReference: {fileID: 4995934118678762626}
+    - target: {fileID: 70711267687305216, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 208936980358598781, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
@@ -876,8 +889,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623ebb6901c442eabf74683e1e00eede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holder: {fileID: 7399587276821413012}
+  sphereManager: {fileID: 0}
+  sphereElevator: {fileID: 0}
+  sphereParent: {fileID: 0}
+  holder: {fileID: 7399587276821413012}
   isHoldingSphere: 0
+  sphere: {fileID: 0}
 --- !u!114 &7767047530503740200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,8 +911,10 @@ MonoBehaviour:
   trackingMask:
     serializedVersion: 2
     m_Bits: 512
-  _interactableObjects: []
-  _interactionDistance: 3
+  interactableObjects: []
+  interactionDistance: 3.5
+  canInteract: 0
+  closestObject: {fileID: 0}
 --- !u!1001 &8831335887069778840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,10 +927,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: char_model_oficial
       objectReference: {fileID: 0}
+    - target: {fileID: 1503532238466684508, guid: 6b5433e587c3a024e88762248bd370a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2276092656802581734, guid: 6b5433e587c3a024e88762248bd370a7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2276092656802581734, guid: 6b5433e587c3a024e88762248bd370a7,
         type: 3}
@@ -991,3 +1015,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4995934118678762626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7949605031359251908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4ab6fbb9055c5409d67e7ec412e137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

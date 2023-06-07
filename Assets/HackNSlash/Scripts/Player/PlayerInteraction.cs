@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Player
@@ -8,58 +6,52 @@ namespace HackNSlash.Scripts.Player
     {
         [Header("TRACKING")] 
         [SerializeField] private float trackingDistance = 9999f;
-        [SerializeField] LayerMask trackingMask;
-        [SerializeField] private Transform[] _interactableObjects;
+        [SerializeField] private LayerMask trackingMask;
+        [SerializeField] private Transform[] interactableObjects;
 
         [Header("INTERACTION")]
-        [SerializeField] private float _interactionDistance;
-        private Transform _closestObject;
-        private bool _canInteract;
-        public bool CanInteract => _canInteract;
-        public Transform ClosestObject => _closestObject;
-
+        [SerializeField] private float interactionDistance;
+        [HideInInspector] public bool canInteract;
+        [HideInInspector] public Transform closestObject;
+        
         private void Start()
         {
             TrackInteractables();
         }
 
-        private void TrackInteractables()
+        public void TrackInteractables()
         {
             var colliders = Physics.OverlapSphere(transform.position, trackingDistance, trackingMask, QueryTriggerInteraction.Collide);
-            _interactableObjects = new Transform[colliders.Length];
+            interactableObjects = new Transform[colliders.Length];
             for (int i = 0; i < colliders.Length; i++)
             {
-                _interactableObjects[i] = colliders[i].transform;
+                interactableObjects[i] = colliders[i].transform;
             }
         }
 
         private void Update()
         {
-            foreach (var interactableObject in _interactableObjects)
+            foreach (var interactableObject in interactableObjects)
             {
-                if (Vector3.Distance(transform.position, interactableObject.position) < _interactionDistance)
+                if (Vector3.Distance(transform.position, interactableObject.position) < interactionDistance)
                 {
-                    if (!_closestObject) _closestObject = interactableObject;
-                    _canInteract = true;
+                    if (!closestObject) closestObject = interactableObject;
+                    canInteract = true;
                     
                     if (Vector3.Distance(transform.position, interactableObject.position) < 
-                        Vector3.Distance(transform.position, _closestObject.position))
+                        Vector3.Distance(transform.position, closestObject.position))
                     {
-                        _closestObject = interactableObject;
                         break;
                     }
                 }
             }
 
-            if (!_closestObject)
-            {
-                return;
-            }
+            if (!closestObject) return;
             
-            if (Vector3.Distance(transform.position, _closestObject.position) > _interactionDistance)
+            if (Vector3.Distance(transform.position, closestObject.position) > interactionDistance)
             {
-                _closestObject = null;
-                _canInteract = false;
+                closestObject = null;
+                canInteract = false;
             }
         }
     }
