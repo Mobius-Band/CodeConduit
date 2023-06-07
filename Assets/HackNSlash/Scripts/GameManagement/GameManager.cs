@@ -1,9 +1,11 @@
-﻿using Eflatun.SceneReference;
+﻿using System;
+using Eflatun.SceneReference;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
@@ -23,9 +25,23 @@ namespace HackNSlash.Scripts.GameManagement
         [Header("SCENE TRANSITION EVENTS")] 
         [SerializeField] private UnityEvent OnMainMenuLoaded;
 
+        [Header("ELEVATOR STATE SETUP")] 
+        [SerializeField] private ElevatorState _elevatorState;
+
+        [SerializeField] private SphereElevatorState _sphereElevatorState;
+        
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
+        public ElevatorState ElevatorState => _elevatorState;
+
+        public SphereElevatorState SphereElevatorState => _sphereElevatorState;
         
+        [Header("ELEVATOR SCENES")]
+        [SerializeField] public SceneReference sphereElevatorSceneDown;
+        [SerializeField] public SceneReference sphereElevatorSceneUp;
+        [SerializeField] public SceneReference playerElevatorSceneDown;
+        [SerializeField] public SceneReference playerElevatorSceneUp;
+
         public void LoadMainMenu()
         {
             isBooting = true;
@@ -69,6 +85,11 @@ namespace HackNSlash.Scripts.GameManagement
             if (activeSceneIndex == AccessData.DigitalPart3Scene.BuildIndex)
             {
                 AccessData.canAccessPart3 = true;
+            }
+            
+            if (activeSceneIndex == AccessData.DigitalPart4Scene.BuildIndex)
+            {
+                AccessData.canAccessPart4 = true;
             }
         }
     }

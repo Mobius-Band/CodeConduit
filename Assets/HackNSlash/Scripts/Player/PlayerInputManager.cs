@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 namespace Player
 {
     public class PlayerInputManager : Singleton<PlayerInputManager>

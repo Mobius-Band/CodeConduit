@@ -1,5 +1,4 @@
-﻿using System;
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,7 +11,7 @@ namespace Combat
     public class AttackManager : MonoBehaviour
     {
         [Tooltip("The hitbox that will be used to detect collisions with other objects - this should be a child of the character")]
-        [SerializeField] private Hitbox hitbox;
+        [SerializeField] protected Hitbox hitbox;
         [Tooltip("An integer that represents the index of the current attack in the attacks array" +
                  "\n In editor: Click the three dots in the upper right corner of this component and " +
                  "press 'Set Current Attack' to visualize the current attack´s hitbox")]

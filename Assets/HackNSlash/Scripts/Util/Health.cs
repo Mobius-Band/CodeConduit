@@ -15,7 +15,7 @@ namespace Util
         public Action<int, int> OnHealthChanged;
         public Action OnDeath;
         
-        private float HealthPercentage => (float) _currentHealth / maxHealth;
+        public float HealthPercentage => (float) _currentHealth / maxHealth;
 
         public int CurrentHealth
         {

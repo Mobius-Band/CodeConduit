@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using HackNSlash.Scripts.GameManagement;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,79 +10,100 @@ namespace HackNSlash.Scripts.Enemy
 {
     public class EnemyWaveManager : MonoBehaviour
     {
-        [SerializeField] private EnemySpawner[] _enemySpawners;
+        [SerializeField] private EnemyWaveCollection selectedWaveCollection;
         [SerializeField] private Transform _enemyParent;
-        [SerializeField] private int _maximumWave;
         [SerializeField] private TextMeshProUGUI _waveText;
         [SerializeField] private Transform playerTransform;
         [Space] 
-        [SerializeField] private UnityEvent OnWaveFinished;
+        [SerializeField] private UnityEvent<int, int> OnWaveFinished;
         [SerializeField] private UnityEvent OnAllWavesFinished;
-        [Space(10)] 
-        [SerializeField] private bool startWithLastWave;
         
-        private int _enemiesLeft;
-        private int _currentWave = 0;
-
-        private void Awake()
+        private int _currentWaveIndex = 0;
+        private int _enemiesLeft => _enemyParent.childCount;
+        private int MaximumWaveIndex => selectedWaveCollection.Length;
+        
+        public void Initialize()
         {
-            SetSpawningCount();
-
-            if (startWithLastWave)
-            {
-                _currentWave = _maximumWave-1;
-            }
+            // TrySetWaveCollection();
+            StartWave();
         }
 
-        private void Update()
-        {
-            _waveText.text = $"wave: {_currentWave}/{_maximumWave}";
-            
-            if (_enemiesLeft <= 0)
-            {
-                _currentWave += 1;
-                
-                if (_currentWave > _maximumWave)
-                {
-                    OnAllWavesFinished?.Invoke();
-                    GameManager.Instance.UnlockCurrentLaserWall();
-                    enabled = false;
-                }
-                
-                if (!enabled) return;
-                
-                OnWaveFinished?.Invoke();
-                StartWave(_currentWave);
-            }
-        }
-        
+        // private bool TrySetWaveCollection()
+        // {
+        //     var waves = SetEnemyWavesUp();
+        //     int index = GameManager.Instance.areaIndex;
+        //     Debug.Log(index);
+        //     if (index == -1)
+        //     {
+        //         return false;
+        //     }
+        //     selectedWaveCollection = waves[index];
+        //     return true;
+        // }
+
         public void StartWave(int waveIndex)
         {
-            for (int i = 0; i < waveIndex; i++)
+            EnemyWave[] enemyWaves = selectedWaveCollection.EnemyWaves;
+            EnemyWave wave = enemyWaves[waveIndex];
+            wave.SpawnEnemies(_enemyParent, playerTransform, EnemyDied);
+
+            if (_waveText != null)
             {
-                var enemy = _enemySpawners[i].SpawnEnemy(_enemyParent);
-                enemy.GetComponent<EnemyHealth>().OnDeath += EnemyDied;
-                enemy.GetComponent<EnemyBehaviour>().target = playerTransform;
+                _waveText.text = $"wave: {_currentWaveIndex}/{enemyWaves.Length}";                
             }
         }
         
-        private void EnemyDied()
-        {
-            _enemiesLeft--;
-            Debug.Log("Enemies Left: " + _enemiesLeft);
+        public void StartWave() => StartWave(_currentWaveIndex);
 
+        
+        private void CheckWaveProgression()
+        {
+            if (_enemiesLeft > 0)
+            {
+                return;
+            }
+
+            OnWaveFinished?.Invoke(_currentWaveIndex,MaximumWaveIndex);
+            _currentWaveIndex += 1;
+                
+            if (_currentWaveIndex >= MaximumWaveIndex)
+            {
+                OnAllWavesFinished?.Invoke();
+                GameManager.Instance.UnlockCurrentLaserWall();
+                enabled = false;
+                return;
+            }
+                
+            if (!enabled) return;
+                
+            StartWave();
         }
         
-        private void EnemySpawned()
+        private IEnumerator LateEnemyDied()
         {
-            _enemiesLeft++;
-            Debug.Log("Enemies Left: " + _enemiesLeft);
+            yield return null;
+            if (!gameObject.IsDestroyed())
+            {
+                CheckWaveProgression();
+            }
+        }
+        private void EnemyDied() => StartCoroutine(LateEnemyDied());
 
+        [ContextMenu("Set Enemy Waves Up")]
+        public EnemyWaveCollection[] SetEnemyWavesUp()
+        {
+            var enemyWavesCollection = GetComponentsInChildren<EnemyWaveCollection>();
+            foreach (var waveCollection in enemyWavesCollection)
+            {
+                waveCollection.GatherFromChildRecursively();
+            }
+
+            return enemyWavesCollection;
         }
 
-        private void SetSpawningCount()
+        private void OnValidate()
         {
-            Array.ForEach(_enemySpawners, ctx => ctx.OnEnemySpawned += EnemySpawned);
+            SetEnemyWavesUp();
         }
     }
 }

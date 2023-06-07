@@ -26,8 +26,36 @@ MonoBehaviour:
     sceneAssetGuidHex: b630b27b3243c1142a80d215b5b736dc
   firstGameplayType: 0
   physicalWorldScenes:
-  - sceneAsset: {fileID: 102900000, guid: 2daaebfda5f3e70449ab2ead61ee9b74, type: 3}
-    sceneAssetGuidHex: 2daaebfda5f3e70449ab2ead61ee9b74
+  - sceneAsset: {fileID: 102900000, guid: 381a66a9cdafa404bb44b1b5609928da, type: 3}
+    sceneAssetGuidHex: 381a66a9cdafa404bb44b1b5609928da
+  - sceneAsset: {fileID: 102900000, guid: a61ac29c6af88d4449d55315212c6b66, type: 3}
+    sceneAssetGuidHex: a61ac29c6af88d4449d55315212c6b66
+  - sceneAsset: {fileID: 102900000, guid: fceb9dce34fe97348a5ce4c0d9559f1a, type: 3}
+    sceneAssetGuidHex: fceb9dce34fe97348a5ce4c0d9559f1a
+  - sceneAsset: {fileID: 102900000, guid: 8f5b4209a7898bd4ca2740e478301e25, type: 3}
+    sceneAssetGuidHex: 8f5b4209a7898bd4ca2740e478301e25
+  - sceneAsset: {fileID: 102900000, guid: 03dfda952037ce14c9cee67d0429b90f, type: 3}
+    sceneAssetGuidHex: 03dfda952037ce14c9cee67d0429b90f
+  - sceneAsset: {fileID: 102900000, guid: 258062dece686df46ac8c38bf93c337b, type: 3}
+    sceneAssetGuidHex: 258062dece686df46ac8c38bf93c337b
+  - sceneAsset: {fileID: 102900000, guid: 7a55016e1823b1a44b62919013bb6c28, type: 3}
+    sceneAssetGuidHex: 7a55016e1823b1a44b62919013bb6c28
+  - sceneAsset: {fileID: 102900000, guid: 7c389f0fb0673fc4199b67ba720c0d73, type: 3}
+    sceneAssetGuidHex: 7c389f0fb0673fc4199b67ba720c0d73
+  - sceneAsset: {fileID: 102900000, guid: c07be45712dfcd542bc0a53c2281d805, type: 3}
+    sceneAssetGuidHex: c07be45712dfcd542bc0a53c2281d805
+  - sceneAsset: {fileID: 102900000, guid: 527fe809e23c1fa458e9ad988d788c49, type: 3}
+    sceneAssetGuidHex: 527fe809e23c1fa458e9ad988d788c49
+  - sceneAsset: {fileID: 102900000, guid: 8c0be625b1e661944a971a67fcfe8982, type: 3}
+    sceneAssetGuidHex: 8c0be625b1e661944a971a67fcfe8982
+  - sceneAsset: {fileID: 102900000, guid: 16705d983caa6f74bbf698d2b7af00a9, type: 3}
+    sceneAssetGuidHex: 16705d983caa6f74bbf698d2b7af00a9
+  - sceneAsset: {fileID: 102900000, guid: 0831e4c9146b7794bb5410facf4cbd7b, type: 3}
+    sceneAssetGuidHex: 0831e4c9146b7794bb5410facf4cbd7b
   digitalWorldScenes:
   - sceneAsset: {fileID: 102900000, guid: 247d7590ac266d54ab155725efb391a9, type: 3}
     sceneAssetGuidHex: 247d7590ac266d54ab155725efb391a9
+  - sceneAsset: {fileID: 102900000, guid: 8d3f9c2ec18e08b48aaafb34f71d652f, type: 3}
+    sceneAssetGuidHex: 8d3f9c2ec18e08b48aaafb34f71d652f
+  - sceneAsset: {fileID: 102900000, guid: aec651808d2d4704d94e4d6e27b62bd7, type: 3}
+    sceneAssetGuidHex: aec651808d2d4704d94e4d6e27b62bd7

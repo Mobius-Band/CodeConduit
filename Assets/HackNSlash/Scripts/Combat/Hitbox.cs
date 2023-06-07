@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Ez;
 using Ez.Msg.Demos;
 using HackNSlash.Scripts.Audio;
@@ -31,8 +32,8 @@ namespace Combat
         
         private ColliderState _state = ColliderState.Inactive;
         private Collider[] _hitColliders = {};
-        
-        private Vector3 position => transform.position;
+
+        private Coroutine _hitOnceRoutine;
 
         private Color StateColor =>
             _state switch
@@ -44,27 +45,21 @@ namespace Combat
             };
 
         [SerializeField] private AudioManager _audioManager;
-
-        void Update()
-        {
-            if (_state == ColliderState.Inactive)
-            {
-                return;
-            }
-            TryHitUpdate();
-        }
-
-
         
         /// <summary>
         ///  Uses the hitbox data to check for colliders and apply damage to them.
         /// </summary>
-        public void TryHit(Transform attackerTransform)
+        // public bool TryHit(Transform attackerTransform)
+        // {
+        //     return TryHit(attackerTransform, damage, mask);
+        // }
+
+        public bool TryHit(Transform attackerTransform)
         {
             _hitColliders = Physics.OverlapBox(
                 transform.position, transform.localScale / 2, transform.localRotation, mask);
             if (_hitColliders.Length <= 0) 
-                return;
+                return false;
             var hitEventArgs = new HitEventArgs()
             {
                 Damage = damage,
@@ -74,23 +69,32 @@ namespace Combat
             Array.ForEach(_hitColliders, 
                 hitCollider => hitCollider.gameObject.Send<IHitResponder>(_=>_.HitRespond(hitEventArgs)));
             if (_audioManager != null) _audioManager.PlayRandom("hit");
+            return true;
+        }
+
+        private IEnumerator TryHitOnceCoroutine(Transform a)
+        {
+            while (!TryHit(a))
+            {
+                yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
+            }
         }
         
-        /// <summary>
-        ///   Uses the hitbox data to check for colliders and apply damage to them. Continuously check for collider.
-        ///    Should be used for continuous damage. Should be used in Update.
-        /// </summary>
-        private void TryHitUpdate()
+        public void StartTryHitOnce(Transform attackerTransform)
         {
-            Physics.OverlapBoxNonAlloc(transform.position, transform.localScale/2, _hitColliders, transform.localRotation, mask);
-            if (_hitColliders.Length > 0)
+            StopTryHitOnce();
+            if (_hitOnceRoutine == null)
             {
-                _state = ColliderState.Hit;
-                //TODO Put damage response here
+                _hitOnceRoutine = StartCoroutine(TryHitOnceCoroutine(attackerTransform));
             }
-            else
+        }
+
+        public void StopTryHitOnce()
+        {
+            if (_hitOnceRoutine != null)
             {
-                _state = ColliderState.Active;
+                StopCoroutine(_hitOnceRoutine);
+                _hitOnceRoutine = null;
             }
         }
         

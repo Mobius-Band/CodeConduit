@@ -18,7 +18,7 @@ namespace Combat
         [SerializeField] private Animator _animator;
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private VFXManager _vfxManager;
-            
+        
         private void OnEnable()
         {
             if (health != null)

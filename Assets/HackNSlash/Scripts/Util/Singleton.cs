@@ -27,7 +27,10 @@ public class Singleton<T> : MonoBehaviour where T : UnityEngine.Component
         if (_instance == null)
         {
             _instance = this as T;
-            DontDestroyOnLoad(this.gameObject);
+            if (transform.root == transform)
+            {
+                DontDestroyOnLoad(this.gameObject);
+            }
         }
         else
         {

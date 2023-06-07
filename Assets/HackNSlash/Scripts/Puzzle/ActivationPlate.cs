@@ -1,101 +1,83 @@
 using System.Collections;
 using System.Collections.Generic;
-using HackNSlash.Scripts.Player;
-using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.Util;
 using UnityEngine;
 
-public class ActivationPlate : PuzzleSwitch
+namespace HackNSlash.Scripts.Puzzle
 {
-    [Header("System Setup")]
-    [SerializeField] private float timer = 1f;
-    [SerializeField] private LayerMask triggererMask;
+    public class ActivationPlate : PuzzleSwitch
+    {
+        [Header("System Setup")]
+        [SerializeField] private float timer = 1f;
+        [SerializeField] private LayerMask triggerMask;
 
-    [Header("Materials")] 
-    [SerializeField] private Renderer renderer;
-    [SerializeField] private Material activeMaterial;
-    [SerializeField] private Material inactiveMaterial;
+        [Header("Materials")] 
+        [SerializeField] private new Renderer renderer;
+        [SerializeField] private Material activeMaterial;
+        [SerializeField] private Material inactiveMaterial;
     
-    private List<Collider> collidersWithin;
-    private int ColliderQuantity => collidersWithin.Count;
-    // private Collider currentActivator;
-    private void Start()
-    {
-        renderer.material = inactiveMaterial;
-        collidersWithin = new List<Collider>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // if (currentActivator != null)
-        // {
-        //     return;
-        // }
-        if (triggererMask.Contains(other.gameObject.layer) == false) 
-            return;
-
-        if (collidersWithin.Contains(other) == false)
-        {
-            collidersWithin.Add(other);
-        }
-        else
-        {
-            return;
-        }
+        private List<Collider> _collidersWithin;
+        private int ColliderQuantity => _collidersWithin.Count;
         
-        // currentActivator = other;
-        isActivated = true;
-        StopCoroutine(DeactivationTimer());
-        // Debug.Log(collidersWithin);
-        Activate();
+        private void Start()
+        {
+            renderer.material = inactiveMaterial;
+            _collidersWithin = new List<Collider>();
+        }
 
-    }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!triggerMask.Contains(other.gameObject.layer)) 
+                return;
 
-    private void OnTriggerExit(Collider other)
-    {
-        // if (currentActivator == null)
-        // {
-        //     return;
-        // }
-        //
-        // if (other != currentActivator)
-        // {
-        //     return;
-        // }
-
-        // currentActivator = null;
+            if (!_collidersWithin.Contains(other))
+            {
+                _collidersWithin.Add(other);
+            }
+            else
+            {
+                return;
+            }
         
-        if (collidersWithin.Contains(other) == true)
-        {
-            collidersWithin.Remove(other);
+            isActivated = true;
+            StopCoroutine(DeactivationTimer());
+            Activate();
         }
-        else
+
+        private void OnTriggerExit(Collider other)
         {
-            return;
-        }
+            if (_collidersWithin.Contains(other))
+            {
+                _collidersWithin.Remove(other);
+            }
+            else
+            {
+                return;
+            }
         
-        if (ColliderQuantity == 0)
-        {
-            StartCoroutine(DeactivationTimer());
+            if (ColliderQuantity == 0)
+            {
+                StartCoroutine(DeactivationTimer());
+            }
         }
-    }
 
-    private IEnumerator DeactivationTimer()
-    {
-        yield return new WaitForSeconds(timer);
-        Deactivate();
-    }
+        private IEnumerator DeactivationTimer()
+        {
+            yield return new WaitForSeconds(timer);
+            Deactivate();
+        }
 
-    protected new void Activate()
-    {
-        base.Activate();
-        renderer.material = activeMaterial;
-    }
+        private new void Activate()
+        {
+            base.Activate();
+            renderer.material = activeMaterial;
+        }
 
-    protected new void Deactivate()
-    {
-        isActivated = false;
-        base.Deactivate();
-        renderer.material = inactiveMaterial;
+        private new void Deactivate()
+        {
+            isActivated = false;
+            base.Deactivate();
+            renderer.material = inactiveMaterial;
+        }
     }
 }

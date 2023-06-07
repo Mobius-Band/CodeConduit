@@ -23,8 +23,11 @@ namespace HackNSlash.Scripts.Audio
                 Destroy(gameObject);
                 return;
             }
-            
-            DontDestroyOnLoad(gameObject);
+
+            if (transform.root == transform)
+            {
+                DontDestroyOnLoad(gameObject);
+            }
 
             foreach (Sound s in sounds)
             {

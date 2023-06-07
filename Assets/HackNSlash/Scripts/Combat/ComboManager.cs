@@ -7,7 +7,6 @@ namespace Combat
 {
     public class ComboManager : AttackManager
     {
-        [SerializeField] private Attack[] secondComboAttacks;
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private VFXManager _vfxManager;
         [SerializeField] private Transform _playerWeapon;
@@ -44,14 +43,7 @@ namespace Combat
         {
             _playerMovement.SuspendMovement();
             _playerMovement.RegainRotation();
-            if (_isLight)
-            {
-                currentAttack = attacks[currentAttackIndex];
-            }
-            else
-            {
-                currentAttack = secondComboAttacks[currentAttackIndex];
-            }
+            currentAttack = attacks[currentAttackIndex];
             Attack(currentAttackIndex);
             PlayAttack();
             isReturningToIdle = false;
@@ -89,6 +81,7 @@ namespace Combat
             switch (currentAttackIndex)
             {
                 case 0:
+                    // first attack
                     if (_isLight)
                     {
                         AttackLight1();
@@ -101,6 +94,7 @@ namespace Combat
                     }
                     break;
                 case 1:
+                    // second attack
                     if (_isLight)
                     {
                         if (!_wasLight) break;
@@ -113,6 +107,7 @@ namespace Combat
                     }
                     break;
                 case 2:
+                    // third attack
                     if (_isLight)
                     {
                         AttackLight3();
@@ -161,21 +156,21 @@ namespace Combat
         {
             animator.Play("AttackHeavy1");
             _audioManager.Play("swoosh1");
-            // _vfxManager.PlayVFX("slash", transform);
+            _vfxManager.PlayVFX("slash", transform);
         }
         
         private void AttackHeavy2()
         {
             animator.Play("AttackHeavy2");
             _audioManager.Play("swoosh3");
-            // _vfxManager.PlayVFX("slash2", transform);
+            _vfxManager.PlayVFX("slash2", transform);
         }
         
         private void AttackHeavy3()
         {
             animator.Play("AttackHeavy3");
             _audioManager.Play("swoosh4");
-            // _vfxManager.PlayVFX("slash", transform);
+            _vfxManager.PlayVFX("slash", transform);
         }
     }
 }

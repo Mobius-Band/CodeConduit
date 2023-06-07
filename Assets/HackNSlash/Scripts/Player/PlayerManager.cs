@@ -1,24 +1,27 @@
-using System;
 using Combat;
-using HackNSlash.Scripts.Player;
+using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.UI;
+using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Player
+namespace HackNSlash.Scripts.Player
 {
     [RequireComponent(typeof(PlayerInputManager))]
     [RequireComponent(typeof(PlayerMovement))]
     public class PlayerManager : MonoBehaviour
     {
-        [SerializeField] private PlayerAnimationManager _playerAnimationManager;
-        [SerializeField] private bool _isPuzzlePlayer;
+        [SerializeField] private PlayerAnimationManager playerAnimationManager;
+        [SerializeField] private SphereElevator sphereElevator;
+        [SerializeField] private bool isPuzzlePlayer;
         private PlayerInputManager _input;
         private ComboManager _comboManager;
         private PlayerMovement _movement;
         private PlayerPickupSphere _playerPickupSphere;
+        private PlayerHealth _playerHealth;
 
         [Header("External References")] 
-        [SerializeField] private PauseMenuManager _pauseMenu;
+        [SerializeField] private PauseMenuManager pauseMenu;
         
         void Awake()
         {
@@ -26,17 +29,24 @@ namespace Player
             _comboManager = GetComponent<ComboManager>();
             _movement = GetComponent<PlayerMovement>();
             _playerPickupSphere = GetComponent<PlayerPickupSphere>();
+            _playerHealth = GetComponent<PlayerHealth>();
         }
+        
         
         void Start()
         {
             //External
-            _input.InputActions.Player.Pause.performed += _ => _pauseMenu.TogglePauseMenu();
+            _input.InputActions.Player.Pause.performed += _ => pauseMenu.TogglePauseMenu();
             
-            if (_isPuzzlePlayer)
+            if (isPuzzlePlayer)
             {
                 // create interaction function
-                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.PickupSphere();
+                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
+                
+                if (sphereElevator && !_playerPickupSphere.isHoldingSphere)
+                {
+                    _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevator.ElevatorActivate();
+                }
                 return;
             }
             
@@ -44,38 +54,41 @@ namespace Player
             _input.InputActions.Player.AttackHeavy.performed += _ => _comboManager.HandleAttackInput(false);
             _input.InputActions.Player.Dash.performed += _ => _movement.Dash();
 
-            if (_playerAnimationManager != null)
+            if (playerAnimationManager != null)
             {
-                _playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
-                _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
-                _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
-                _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
+                playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
+                playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
+                playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
+                playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
+                playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
+                playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
+                playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
+                playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.currentAttack);
+                playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
+                playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
             }
-            _playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
-            _playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
-            _playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
-            _playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
-            _playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
-            _playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
-            _playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.currentAttack);
-            _playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
-            _playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
+            
+            //CheatCodes
+            _input.InputActions.Player.CHEATCODEInfiniteHealth.performed += ctx => _playerHealth.ToggleImmortalMode();
         }
 
         private void OnDisable()
         {
-            _playerAnimationManager.OnAnimationEndCombo -= _comboManager.EndCombo;
-            _playerAnimationManager.OnAnimationHit -= _comboManager.ToggleHitbox;
-            _playerAnimationManager.OnAnimationSuspendRotation -= _movement.SuspendRotation;
-            _playerAnimationManager.OnAnimationReturningToIdle -= _comboManager.SetReturningToIdle;
-            _playerAnimationManager.OnAnimationEndDash -= _movement.EndDash;
-            _playerAnimationManager.OnAnimationSetNextAttack -= _comboManager.SetNextAttack;
-            _playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.currentAttack);
+            playerAnimationManager.OnAnimationEndCombo -= _comboManager.EndCombo;
+            playerAnimationManager.OnAnimationHit -= _comboManager.ToggleHitbox;
+            playerAnimationManager.OnAnimationSuspendRotation -= _movement.SuspendRotation;
+            playerAnimationManager.OnAnimationReturningToIdle -= _comboManager.SetReturningToIdle;
+            playerAnimationManager.OnAnimationEndDash -= _movement.EndDash;
+            playerAnimationManager.OnAnimationSetNextAttack -= _comboManager.SetNextAttack;
+            playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.currentAttack);
         }
 
         void Update()
         {
-            if (_isPuzzlePlayer)
+            if (isPuzzlePlayer)
             {
                 _movement.MoveInput = _input.InputActions.PuzzlePlayer.Move.ReadValue<Vector2>();
                 return;
