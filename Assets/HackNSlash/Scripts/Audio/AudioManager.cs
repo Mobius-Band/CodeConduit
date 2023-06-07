@@ -34,8 +34,11 @@ namespace HackNSlash.Scripts.Audio
                 s.source = gameObject.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
                 s.source.volume = s.volume;
-                s.source.pitch = s.pitch;
                 s.source.loop = s.loop;
+                s.source.spatialize = s.spatialize;
+                s.source.spatialBlend = s.spatialBlend;
+
+                if (!s.spatialize) s.spatialBlend = 0;
             }
         }
 
