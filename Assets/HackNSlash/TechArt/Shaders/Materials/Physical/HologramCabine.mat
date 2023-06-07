@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HologramMonitor
+  m_Name: HologramCabine
   m_Shader: {fileID: -6465566751694194690, guid: 829ab4a22ae2bdc4bb01916d10182c04,
     type: 3}
   m_ValidKeywords: []
@@ -58,8 +58,8 @@ Material:
     - _QueueOffset: 0
     - _Scroll_Speed: 0.1
     m_Colors:
-    - _Color: {r: 0.111600004, g: 0.23436008, b: 0.93, a: 1}
-    - _Fresnel_Color: {r: 0, g: 0.105882354, b: 0.6509804, a: 1}
+    - _Color: {r: 0.20392153, g: 0.7137255, b: 1.4980392, a: 1}
+    - _Fresnel_Color: {r: 0, g: 0, b: 0, a: 1}
     - _Hologram_Tiling: {r: 3, g: 3, b: 0, a: 0}
     - _Main_Color: {r: 1.7568628, g: 3.827451, b: 14.933333, a: 1}
   m_BuildTextureStacks: []
