@@ -66,7 +66,7 @@ namespace HackNSlash.Scripts.Player
             sphere.localPosition = Vector3.zero;
             
             // update sphere manager lists
-            if (sphereElevator.closestHolder) sphereManager.HolderHasSphere[sphereElevator.closestHolder.GetComponent<SphereElevatorHolder>().holderIndex] = -1;
+            if (sphereElevator && sphereElevator.closestHolder) sphereManager.HolderHasSphere[sphereElevator.closestHolder.GetComponent<SphereElevatorHolder>().holderIndex] = -1;
         }
 
         private void DropSphere()
@@ -95,7 +95,8 @@ namespace HackNSlash.Scripts.Player
                     new Vector3(sphere.localPosition.x, sphere.GetComponent<ActivatorSphere>().dropHeight, sphere.localPosition.z);
                 sphere.GetComponent<ActivatorSphere>().isBeingHeld = false;
             }
-            
+
+            if (!sphereElevator) return;
             
             if (sphere.GetComponent<ActivatorSphere>().isDown)
             {
