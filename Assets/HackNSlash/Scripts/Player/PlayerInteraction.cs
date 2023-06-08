@@ -13,6 +13,8 @@ namespace HackNSlash.Scripts.Player
         [SerializeField] private float interactionDistance;
         [HideInInspector] public bool canInteract;
         [HideInInspector] public Transform closestObject;
+
+        public bool CanInteract => closestObject != null;
         
         private void Start()
         {
