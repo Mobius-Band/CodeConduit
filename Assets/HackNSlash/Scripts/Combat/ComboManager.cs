@@ -164,6 +164,7 @@ namespace Combat
         {
             animator.Play("AttackHeavy2");
             _audioManager.Play("swoosh3");
+            _vfxManager.PlayVFX("slashHeavy2", transform);
         }
         
         private void AttackHeavy3()

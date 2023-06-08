@@ -329,22 +329,53 @@ MonoBehaviour:
   visualEffects:
   - visualEffect: {fileID: 1505749015903295713, guid: 9ae8a80d76ecf0044a2d1f8a5260366e,
       type: 3}
-    name: slash
+    name: slashLight
     delay: 0
     duration: 1
-    rotation: {x: 180, y: 0, z: -20}
+    rotation: {x: 180, y: -135, z: -20}
+    position: {x: 0, y: 0, z: 0}
   - visualEffect: {fileID: 1505749015903295713, guid: 9ae8a80d76ecf0044a2d1f8a5260366e,
       type: 3}
-    name: slash2
+    name: slashLight2
     delay: 0
     duration: 1
     rotation: {x: 0, y: 0, z: 20}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 1505749015903295713, guid: 9ae8a80d76ecf0044a2d1f8a5260366e,
+      type: 3}
+    name: slashLight3
+    delay: 0
+    duration: 1
+    rotation: {x: 180, y: -135, z: 0}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 7055719424817577498, guid: 4be7e608294ec3d49a53d18f97fd7716,
+      type: 3}
+    name: slashHeavy
+    delay: 0.3
+    duration: 1
+    rotation: {x: -135, y: 180, z: -90}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 3911515036214541515, guid: c6c421448cc565e4782443d106676bed,
+      type: 3}
+    name: slashHeavy2
+    delay: 0.3
+    duration: 1
+    rotation: {x: 15, y: 0, z: 90}
+    position: {x: 0, y: 0, z: 1.6}
+  - visualEffect: {fileID: 7055719424817577498, guid: 4be7e608294ec3d49a53d18f97fd7716,
+      type: 3}
+    name: slashHeavy3
+    delay: 0.35
+    duration: 1
+    rotation: {x: -175, y: 180, z: -90}
+    position: {x: 0, y: 1, z: 0.75}
   - visualEffect: {fileID: 5594184920316917956, guid: d2dfb48b25fd1094f84e22fcf4e9c56b,
       type: 3}
     name: impact
     delay: 0
     duration: 1
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: -45, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
 --- !u!1 &7999598548989104734
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  _currentHealth: 0
+  currentHealth: 0
 --- !u!114 &7999598550174513715
 MonoBehaviour:
   m_ObjectHideFlags: 0
