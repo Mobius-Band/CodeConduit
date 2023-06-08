@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 2943333921522794505}
   - component: {fileID: 7991685233936134495}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Enemy basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,17 +305,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackIntervalDuration_MIN: 1
-  _attackIntervalDuration_MAX: 2
-  _attackEnablingDistance: 20
+  _attackIntervalDuration_MIN: 1.8
+  _attackIntervalDuration_MAX: 2.4
+  _attackEnablingDistance: 25
   _attackEnablingAngle: 5
-  _healthThreshold: 20
+  _healthThreshold: 0
   _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
   _destinationDefinitionInterval: 1
   _fleeingDistance: 2
   _damageFreezeDuration: 1
-  _rotationSpeed: 180
+  _rotationSpeed: 230
   _hurtbox: {fileID: 8558181481965967197}
   _vfxManager: {fileID: 666541943393612739}
   _attackManager: {fileID: 2813538361096930913}
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationManager: {fileID: 3769470881825178513}
   projectileAttack:
-    damage: 10
+    damage: 15
     hitboxPosition: {x: 0, y: 0, z: 0}
     hitboxSize: {x: 2, y: 2, z: 2}
     stepAmount: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   dashForce: 1500
   dashDamage: 10
   velocityThreshold: 0.000001
-  preparationTime: 3
+  preparationTime: 1
 --- !u!114 &1756381825117879892
 MonoBehaviour:
   m_ObjectHideFlags: 0
