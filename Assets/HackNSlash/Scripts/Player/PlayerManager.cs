@@ -38,6 +38,8 @@ namespace HackNSlash.Scripts.Player
             //External
             _input.InputActions.Player.Pause.performed += _ => pauseMenu.TogglePauseMenu();
             
+            playerAnimationManager.OnAnimationMovementStep += _movement.PlayStepSound;
+            
             if (isPuzzlePlayer)
             {
                 // create interaction function

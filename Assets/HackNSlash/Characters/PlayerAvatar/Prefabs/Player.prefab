@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 7643595300475955870}
   - component: {fileID: 6040675030765683148}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: AudioManagerDigitalPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,163 +209,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: 82a857f8ce364954bb67ca6d25aa8250, type: 3}
-    name: walk
+  - clip: {fileID: 8300000, guid: ad3b3ae4d6a4df242b60f2d3720757dd, type: 3}
+    name: step1
     tag: walk
-    volume: 1.25
-    loop: 1
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 3eb32db713e5bc94ebcf125908ab3aa6, type: 3}
-    name: dash
-    tag: dash
-    volume: 1
+    volume: 0.7
     loop: 0
     spatialize: 0
     spatialBlend: 0
     startPlaying: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 54cd132c81f366b4ab9231ed3f6c68ba, type: 3}
-    name: hit1
-    tag: hit
-    volume: 0.5
+  - clip: {fileID: 8300000, guid: 3d12814bb849b174ea8b52f2c8679ebc, type: 3}
+    name: step2
+    tag: walk
+    volume: 0.8
     loop: 0
     spatialize: 0
     spatialBlend: 0
     startPlaying: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: b0ffe981bb628464a961e04de24ca3e2, type: 3}
-    name: hit2
-    tag: hit
-    volume: 0.5
+  - clip: {fileID: 8300000, guid: 2d1712a948b18ab4c85d55b9e7fa1ae3, type: 3}
+    name: step3
+    tag: walk
+    volume: 0.6
     loop: 0
     spatialize: 0
     spatialBlend: 0
     startPlaying: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 29edcd4ac9622b844a6f8dbfe696865e, type: 3}
-    name: hit3
-    tag: hit
-    volume: 0.5
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 9b02dd568ffd18e40bc396b80fa3e8b5, type: 3}
-    name: hit4
-    tag: hit
-    volume: 0.5
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: a22a045c431450b45a90745f4c04e0a5, type: 3}
-    name: swoosh1
-    tag: swoosh
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 56f6603b671c95d4f8abb627c6bada82, type: 3}
-    name: swoosh2
-    tag: swoosh
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: faa3bb5e70580df4aace5530d67b8cfc, type: 3}
-    name: swoosh3
-    tag: swoosh
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 12d364f65065e8245abe0f1956525ae7, type: 3}
-    name: swoosh4
-    tag: swoosh
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 7878a449e9b13c740b124c2330dfcd1a, type: 3}
-    name: dmg1
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 3ee6f0c7ade07eb498e60608b3074e3a, type: 3}
-    name: dmg2
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: cc5638beaaeaa754d88b59615625c4aa, type: 3}
-    name: dmg3
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: fbccaf8d806e0f4419ad54867c93dcf6, type: 3}
-    name: dmg4
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: e3d0870063863f04f9f8f0a0951f17e9, type: 3}
-    name: dmg5
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 2de9ca7b6522d1a4eaca3fa720fdfbd2, type: 3}
-    name: dmg6
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: b162682b6ca15644aac65d57efb24a3d, type: 3}
-    name: dmg7
-    tag: dmg
-    volume: 1
-    loop: 0
-    spatialize: 0
-    spatialBlend: 0
-    startPlaying: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 6fc347d874f63664aadeca53bdc0e1f6, type: 3}
-    name: dmg8
-    tag: dmg
-    volume: 1
+  - clip: {fileID: 8300000, guid: 53d9902be5545b945aa33e6ca2b01ae0, type: 3}
+    name: step4
+    tag: walk
+    volume: 0.7
     loop: 0
     spatialize: 0
     spatialBlend: 0
@@ -586,14 +460,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7ca3e901b52c049868681c25cdcb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 10
-  _rotationTime: 10
-  _audioManager: {fileID: 6040675030765683148}
-  _cameraHolder: {fileID: 0}
-  _animator: {fileID: 1148600999}
-  _dashSpeed: 50
-  _dashTime: 0.45
-  _isDashing: 0
+  audioManager: {fileID: 6040675030765683148}
+  cameraHolder: {fileID: 0}
+  animator: {fileID: 1148600999}
+  moveSpeed: 10
+  rotationTime: 10
+  dashSpeed: 50
+  dashTime: 0.45
+  isDashing: 0
 --- !u!114 &808592645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5662,6 +5536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079155853427505992, guid: e1f1d94006a7741498af23c18c9f6621,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8080545243561693117, guid: e1f1d94006a7741498af23c18c9f6621,
         type: 3}

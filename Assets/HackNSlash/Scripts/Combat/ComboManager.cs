@@ -1,5 +1,6 @@
 ﻿using System;
 using HackNSlash.Scripts.Audio;
+using HackNSlash.Scripts.Player;
 using HackNSlash.Scripts.VFX;
 using Player;
 using UnityEngine;
@@ -63,7 +64,7 @@ namespace Combat
             isReturningToIdle = false;
             StopAttack();
             currentAttackIndex = 0;
-            if (!_playerMovement._isDashing)
+            if (!_playerMovement.isDashing)
             {
                 _playerMovement.RegainMovement();
                 _playerMovement.RegainRotation();
