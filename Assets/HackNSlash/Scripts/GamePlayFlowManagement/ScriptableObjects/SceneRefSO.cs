@@ -2,6 +2,7 @@ using System;
 using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace HackNSlash.Scripts.GamePlayFlowManagement
 {
@@ -21,14 +22,23 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
 
         private int currentDigitalSceneIndex = 0;
         private int currentPhysicalSceneIndex = 0;
-
+        public int previousSceneIndex = -1;
+        private int currentSceneIndex = -1;
+        
         public void LoadTitleScreen() => titleScreenScene.SafeLoad();
 
-        public void LoadMainMenu() => mainMenuScene.SafeLoad();
+        public void LoadMainMenu()
+        {
+            previousSceneIndex = -1;
+            mainMenuScene.SafeLoad();
+        }
 
         public void LoadVictoryScene() => victoryScene.SafeLoad();
 
-        public void LoadGameOverScene() => gameOverScene.SafeLoad();
+        public void LoadGameOverScene()
+        {
+            gameOverScene.SafeLoad();  
+        } 
 
         public void LoadFirstGameplayScene(GameplaySceneType sceneType)
         {
@@ -48,6 +58,11 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         public void LoadFirstGameplayScene()
         {
             LoadFirstGameplayScene(firstGameplayType);
+        }
+
+        public void DefinePreviousScene(Scene replaced)
+        {
+            previousSceneIndex = replaced.buildIndex;
         }
 
         public void LoadCurrentGameplayScene(GameplaySceneType sceneType)

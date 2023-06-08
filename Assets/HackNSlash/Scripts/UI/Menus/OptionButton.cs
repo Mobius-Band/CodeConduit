@@ -70,7 +70,6 @@ namespace HackNSlash.Scripts.UI.Menus
 
         public void ExecuteAnimation(bool isSelected)
         {
-            Debug.Log("Animation executed on: " + name);
             Fill(isSelected);
             SetFont(isSelected);
         }
