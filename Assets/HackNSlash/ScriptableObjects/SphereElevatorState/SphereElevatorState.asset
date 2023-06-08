@@ -15,5 +15,5 @@ MonoBehaviour:
   spherePositionsUp: []
   spherePositionsDown: []
   holderHasSphere: ffffffffffffffffffffffffffffffff
-  sphereIsDown: 000000
+  sphereIsDown: 000001
   elevatorIsDown: 1

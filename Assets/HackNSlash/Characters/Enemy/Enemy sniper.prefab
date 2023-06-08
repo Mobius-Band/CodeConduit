@@ -193,17 +193,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackIntervalDuration_MIN: 2
-  _attackIntervalDuration_MAX: 2
-  _attackEnablingDistance: 25
-  _attackEnablingAngle: 5
+  _attackIntervalDuration_MIN: 0.5
+  _attackIntervalDuration_MAX: 0.8
+  _attackEnablingDistance: 40
+  _attackEnablingAngle: 8
   _healthThreshold: 0
   _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
   _destinationDefinitionInterval: 1
   _fleeingDistance: 2
   _damageFreezeDuration: 1
-  _rotationSpeed: 230
+  _rotationSpeed: 270
   _hurtbox: {fileID: 8558181481965967197}
   _vfxManager: {fileID: 666541943393612739}
   _attackManager: {fileID: 2813538361096930913}
@@ -226,9 +226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationManager: {fileID: 3769470881825178513}
   projectileAttack:
-    damage: 15
+    damage: 5
     hitboxPosition: {x: 0, y: 0, z: 0}
-    hitboxSize: {x: 2, y: 2, z: 2}
+    hitboxSize: {x: 1, y: 1, z: 1}
     stepAmount: 0
     stepDuration: 0
     knockbackAmount: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b146ebdab6d44c78bba82599642ed970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 100
   currentHealth: 0
   vfxManager: {fileID: 666541943393612739}
 --- !u!114 &7991685233936134495
