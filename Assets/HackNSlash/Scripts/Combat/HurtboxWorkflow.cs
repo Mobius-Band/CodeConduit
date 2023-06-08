@@ -1,5 +1,7 @@
 ﻿using System;
 using HackNSlash.Scripts.Audio;
+using HackNSlash.Scripts.Combat;
+using HackNSlash.Scripts.Util;
 using HackNSlash.Scripts.VFX;
 using UnityEngine;
 using Util;
@@ -33,7 +35,7 @@ namespace Combat
                 {
                     hurtbox.OnHitReceived += ctx => _animator.Play("Hit", 0);
                 }
-                hurtbox.OnHitReceived += ctx => knockback.ApplyKnockback(ctx.hitOriginTransform, ctx.Damage);
+                hurtbox.OnHitReceived += ctx => knockback.ApplyKnockback(ctx.hitOriginTransform, ctx.Knockback);
             }
         }
     }

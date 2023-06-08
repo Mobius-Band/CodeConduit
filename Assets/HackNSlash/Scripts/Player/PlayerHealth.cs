@@ -1,4 +1,6 @@
+using System.Collections;
 using HackNSlash.Scripts.GameManagement;
+using HackNSlash.Scripts.Util;
 using UnityEngine;
 using Util;
 
@@ -8,17 +10,16 @@ namespace HackNSlash.Scripts.Player
     {
         private bool isImmortal;
         
-        new void Start()
+        void Start()
         {
-            base.Start();
             OnHealthChanged += PlayerStatsManager.Instance.SetHealthPercentage;
         }
         
-        protected override void Die()
+        protected override IEnumerator Die()
         {
             if (isImmortal)
             {
-                return;
+                yield break;
             }
             GameManager.Instance.SceneManager.LoadGameOverScene();
         }

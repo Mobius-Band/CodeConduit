@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "AttackLight",
                     "type": "Button",
                     "id": "08ee313e-2ea8-414d-bd32-0f9b1811f75c",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HeavyAttack",
+                    "name": "AttackHeavy",
                     "type": "Button",
                     "id": "081cae38-e993-4c37-9ae2-278bc1a20d5c",
                     "expectedControlType": "Button",
@@ -253,7 +253,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Attack",
+                    "action": "AttackLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -264,7 +264,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Attack",
+                    "action": "AttackLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -341,7 +341,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "HeavyAttack",
+                    "action": "AttackHeavy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -352,7 +352,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "HeavyAttack",
+                    "action": "AttackHeavy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -363,7 +363,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "HeavyAttack",
+                    "action": "AttackHeavy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -374,7 +374,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "HeavyAttack",
+                    "action": "AttackHeavy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -385,7 +385,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "AttackLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -396,7 +396,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "AttackLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -50,7 +50,8 @@ namespace HackNSlash.Scripts.Player
                 return;
             }
             
-            _input.InputActions.Player.Attack.performed += _ => _comboManager.HandleAttackInput();
+            _input.InputActions.Player.AttackLight.performed += _ => _comboManager.HandleAttackInput(true);
+            _input.InputActions.Player.AttackHeavy.performed += _ => _comboManager.HandleAttackInput(false);
             _input.InputActions.Player.Dash.performed += _ => _movement.Dash();
 
             if (playerAnimationManager != null)
@@ -65,7 +66,7 @@ namespace HackNSlash.Scripts.Player
                 playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
                 playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
                 playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
-                playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.CurrentAttack);
+                playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.currentAttack);
                 playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
                 playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
             }
@@ -82,7 +83,7 @@ namespace HackNSlash.Scripts.Player
             playerAnimationManager.OnAnimationReturningToIdle -= _comboManager.SetReturningToIdle;
             playerAnimationManager.OnAnimationEndDash -= _movement.EndDash;
             playerAnimationManager.OnAnimationSetNextAttack -= _comboManager.SetNextAttack;
-            playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.CurrentAttack);
+            playerAnimationManager.OnAnimationAttackStep -= () => _movement.AttackStep(_comboManager.currentAttack);
         }
 
         void Update()

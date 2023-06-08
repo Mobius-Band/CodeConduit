@@ -83,8 +83,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147130096485138616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.25}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7999598550545812525}
@@ -108,7 +108,8 @@ MonoBehaviour:
   inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   activeColor: {r: 0, g: 0, b: 1, a: 1}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
-  damage: 8
+  damage: 0
+  knockback: 0
   _audioManager: {fileID: 6040675030765683148}
 --- !u!1 &4557081539709777768
 GameObject:
@@ -328,22 +329,53 @@ MonoBehaviour:
   visualEffects:
   - visualEffect: {fileID: 1505749015903295713, guid: 9ae8a80d76ecf0044a2d1f8a5260366e,
       type: 3}
-    name: slash
+    name: slashLight
     delay: 0
     duration: 1
-    rotation: {x: 180, y: 0, z: -20}
+    rotation: {x: 180, y: -135, z: -20}
+    position: {x: 0, y: 0, z: 0}
   - visualEffect: {fileID: 1505749015903295713, guid: 9ae8a80d76ecf0044a2d1f8a5260366e,
       type: 3}
-    name: slash2
+    name: slashLight2
     delay: 0
     duration: 1
-    rotation: {x: 0, y: 0, z: -20}
+    rotation: {x: 0, y: 0, z: 20}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 1505749015903295713, guid: 9ae8a80d76ecf0044a2d1f8a5260366e,
+      type: 3}
+    name: slashLight3
+    delay: 0
+    duration: 1
+    rotation: {x: 180, y: -135, z: 0}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 7055719424817577498, guid: 4be7e608294ec3d49a53d18f97fd7716,
+      type: 3}
+    name: slashHeavy
+    delay: 0.3
+    duration: 1
+    rotation: {x: -135, y: 180, z: -90}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 3911515036214541515, guid: c6c421448cc565e4782443d106676bed,
+      type: 3}
+    name: slashHeavy2
+    delay: 0.3
+    duration: 1
+    rotation: {x: 15, y: 0, z: 90}
+    position: {x: 0, y: 0, z: 1.6}
+  - visualEffect: {fileID: 7055719424817577498, guid: 4be7e608294ec3d49a53d18f97fd7716,
+      type: 3}
+    name: slashHeavy3
+    delay: 0.35
+    duration: 1
+    rotation: {x: -175, y: 180, z: -90}
+    position: {x: 0, y: 1, z: 0.75}
   - visualEffect: {fileID: 5594184920316917956, guid: d2dfb48b25fd1094f84e22fcf4e9c56b,
       type: 3}
     name: impact
     delay: 0
     duration: 1
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: -45, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
 --- !u!1 &7999598548989104734
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  _currentHealth: 0
+  currentHealth: 0
 --- !u!114 &7999598550174513715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,26 +576,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7f17fb7fb448e881a7096f177ae1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 893670863654729700}
+  animator: {fileID: 1148600999}
+  currentAttackIndex: 0
   attacks:
   - damage: 8
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.25}
     stepAmount: 15
     stepDuration: 0.2
+    knockbackAmount: 350
   - damage: 8
     hitboxPosition: {x: 0, y: 0, z: 1.25}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.3}
     stepAmount: 20
     stepDuration: 0.4
+    knockbackAmount: 350
   - damage: 12
     hitboxPosition: {x: 0, y: 0, z: 1.45}
     hitboxSize: {x: 1.5, y: 1.5, z: 1.5}
     stepAmount: 15
     stepDuration: 0.2
-  hitbox: {fileID: 893670863654729700}
-  currentAttackIndex: 0
+    knockbackAmount: 350
+  currentAttack:
+    damage: 0
+    hitboxPosition: {x: 0, y: 0, z: 0}
+    hitboxSize: {x: 0, y: 0, z: 0}
+    stepAmount: 0
+    stepDuration: 0
+    knockbackAmount: 0
   _isAttacking: 0
-  animator: {fileID: 1148600999}
   _audioManager: {fileID: 6040675030765683148}
   _vfxManager: {fileID: 7526313647736398635}
   _playerWeapon: {fileID: 2041568001074526839}
@@ -595,7 +637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdffdfd3b29ef541b34a007fa3d934b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 80
 --- !u!1001 &2513141561335992374
 PrefabInstance:
   m_ObjectHideFlags: 0

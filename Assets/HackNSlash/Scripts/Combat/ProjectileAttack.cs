@@ -17,7 +17,7 @@ namespace Combat
             if (projectileGameObject.TryGetComponent(out Projectile projectile))
             {
                 projectile.Rigidbody.AddForce(origin.forward * fireForce, ForceMode.Impulse);
-                projectile.Hitbox.SetValues(hitboxPosition, hitboxSize, damage);
+                projectile.Hitbox.SetValues(hitboxPosition, hitboxSize, damage, knockbackAmount);
                 projectile.Hitbox.mask = mask;
                 projectile.Hitbox.StartTryHitOnce(projectile.transform);
                 projectile.SetLastLifetime(projectileLifetime);

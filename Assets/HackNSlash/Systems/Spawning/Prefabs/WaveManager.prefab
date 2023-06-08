@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9639308b784e0744a68e654217270f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 1756381825117879883, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+  _enemyPrefab: {fileID: 1756381825117879883, guid: 8337bdffb4bb9f44c84e6c80c020b183,
     type: 3}
 --- !u!1 &4986404963808896180
 GameObject:
@@ -920,12 +920,14 @@ MonoBehaviour:
     delay: 0
     duration: 3
     rotation: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
   - visualEffect: {fileID: 3807077204976283540, guid: dc63777ae79366e4fba0ba19ca15bb5a,
       type: 3}
     name: death
     delay: 0
     duration: 3
     rotation: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
 --- !u!1 &4986404964863993791
 GameObject:
   m_ObjectHideFlags: 0
