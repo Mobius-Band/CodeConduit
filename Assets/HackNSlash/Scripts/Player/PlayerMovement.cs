@@ -57,12 +57,10 @@ namespace Player
             {
                 _animator.SetBool("isMoving", true);
                 _rigidbody.velocity = _moveDirection * _moveSpeed;
-                _audioManager.Play("walk");
             }
             else
             {
                 _animator.SetBool("isMoving", false);
-                _audioManager.Mute("walk");
             }
         }
         
