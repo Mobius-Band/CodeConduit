@@ -12,26 +12,28 @@ namespace HackNSlash.Scripts.Audio
 
         private void Awake()
         {
-            foreach (Sound s in sounds)
+            foreach (Sound sound in sounds)
             {
-                s.source = gameObject.AddComponent<AudioSource>();
-                s.source.clip = s.clip;
-                s.source.volume = s.volume;
-                s.source.loop = s.loop;
-                s.source.spatialize = s.spatialize;
-                s.source.spatialBlend = s.spatialBlend;
+                sound.source = gameObject.AddComponent<AudioSource>();
+                sound.source.clip = sound.clip;
+                sound.source.volume = sound.volume;
+                sound.source.loop = sound.loop;
+                sound.source.spatialize = sound.spatialize;
+                sound.source.spatialBlend = sound.spatialBlend;
 
-                if (!s.spatialize) s.spatialBlend = 0;
+                if (!sound.spatialize) sound.spatialBlend = 0;
+                
+                if (sound.startPlaying) Play(sound.name);
             }
         }
 
-        public void Play(string name)
+        public void Play(string soundName)
         {
-            Sound s = Array.Find(sounds, sound => sound.name == name);
+            Sound s = Array.Find(sounds, sound => sound.name == soundName);
             
             if (s == null)
             {
-                Debug.LogWarning("Sound: " + name + " not found!");
+                Debug.LogWarning("Sound: " + soundName + " not found!");
                 return;
             }
 

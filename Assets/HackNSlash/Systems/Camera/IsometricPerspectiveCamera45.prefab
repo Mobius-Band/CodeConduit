@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4237452040782594780}
   - component: {fileID: 4237452040782594778}
   - component: {fileID: 4237452040782594781}
-  - component: {fileID: 3135877501350652295}
   m_Layer: 0
   m_Name: IsometricPerspectiveCamera45
   m_TagString: Untagged
@@ -125,11 +124,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _focus: {fileID: 0}
   _speed: 2
---- !u!81 &3135877501350652295
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4237452040782594776}
-  m_Enabled: 1

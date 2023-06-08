@@ -26,10 +26,10 @@ MonoBehaviour:
     sceneAssetGuidHex: b630b27b3243c1142a80d215b5b736dc
   firstGameplayType: 0
   physicalWorldScenes:
-  - sceneAsset: {fileID: 102900000, guid: 381a66a9cdafa404bb44b1b5609928da, type: 3}
-    sceneAssetGuidHex: 381a66a9cdafa404bb44b1b5609928da
   - sceneAsset: {fileID: 102900000, guid: a61ac29c6af88d4449d55315212c6b66, type: 3}
     sceneAssetGuidHex: a61ac29c6af88d4449d55315212c6b66
+  - sceneAsset: {fileID: 102900000, guid: 381a66a9cdafa404bb44b1b5609928da, type: 3}
+    sceneAssetGuidHex: 381a66a9cdafa404bb44b1b5609928da
   - sceneAsset: {fileID: 102900000, guid: fceb9dce34fe97348a5ce4c0d9559f1a, type: 3}
     sceneAssetGuidHex: fceb9dce34fe97348a5ce4c0d9559f1a
   - sceneAsset: {fileID: 102900000, guid: 8f5b4209a7898bd4ca2740e478301e25, type: 3}
