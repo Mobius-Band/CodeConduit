@@ -306,11 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackIntervalDuration_MIN: 1.8
-  _attackIntervalDuration_MAX: 2.4
-  _attackEnablingDistance: 25
+  _attackIntervalDuration_MIN: 1.7
+  _attackIntervalDuration_MAX: 2.1
+  _attackEnablingDistance: 23
   _attackEnablingAngle: 5
-  _healthThreshold: 20
+  _healthThreshold: 0
   _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
   _destinationDefinitionInterval: 1
@@ -962,7 +962,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: bdc3cca7c33eb19498ea36a5e94e3fb4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

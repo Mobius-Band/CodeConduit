@@ -208,7 +208,6 @@ public class EnemyBehaviours : MonoBehaviour
         if (IsAtLastHealth())
         {
             Freeze();
-            _animator.Play("FinalForm");
             _animator.SetBool("isFinalForm", true);
         }
     }
