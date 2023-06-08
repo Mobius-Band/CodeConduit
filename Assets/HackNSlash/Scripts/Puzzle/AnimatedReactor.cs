@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using HackNSlash.Scripts.Audio;
 using UnityEngine;
 
 namespace HackNSlash.Scripts.Puzzle
@@ -8,12 +9,14 @@ namespace HackNSlash.Scripts.Puzzle
     {
         [SerializeField] private float toggleDuration;
         private Renderer _renderer;
+        private AudioManager _audioManager;
         private float _alphaValue;
         private bool _opened = false;
 
         private void Start()
         {
             _renderer = GetComponentInChildren<Renderer>();
+            _audioManager = GetComponentInChildren<AudioManager>();
         }
 
         public override void React(bool isOn)
@@ -31,6 +34,8 @@ namespace HackNSlash.Scripts.Puzzle
             {
                 yield break;
             }
+            
+            _audioManager.Play("doorActivate");
             
             _renderer.materials[1].DOFade(0, toggleDuration/4)
                 .OnComplete(() => GetComponent<Collider>().enabled = false);
