@@ -368,12 +368,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targetScene.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 527fe809e23c1fa458e9ad988d788c49,
+      objectReference: {fileID: 102900000, guid: 4c4390b418e27064c85d0c65966cecce,
         type: 3}
     - target: {fileID: 3293703876748990952, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
       propertyPath: targetScene.sceneAssetGuidHex
-      value: 527fe809e23c1fa458e9ad988d788c49
+      value: 4c4390b418e27064c85d0c65966cecce
       objectReference: {fileID: 0}
     - target: {fileID: 4098273369717127224, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 4098273369717127224, guid: 0492c50a418a9054184050eea4b87fe0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0492c50a418a9054184050eea4b87fe0, type: 3}
