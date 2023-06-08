@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 7999598550545812523, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: _rotationTime
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7999598550545812524, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
