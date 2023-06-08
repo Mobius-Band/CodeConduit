@@ -46,7 +46,7 @@ Material:
     m_Colors:
     - _Fresnel_Color: {r: 0.40392157, g: 0.3882353, b: 0.05882353, a: 1}
     - _Hologram_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Main_Color: {r: 3.5137255, g: 3.3254902, b: 0.34509805, a: 1}
+    - _Main_Color: {r: 112.439255, g: 106.55238, b: 11.185057, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1266930188821154915
 MonoBehaviour:

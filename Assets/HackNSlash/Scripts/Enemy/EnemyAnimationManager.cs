@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace HackNSlash.Scripts.Enemy
 {

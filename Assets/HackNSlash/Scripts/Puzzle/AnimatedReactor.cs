@@ -18,7 +18,10 @@ namespace HackNSlash.Scripts.Puzzle
 
         public override void React(bool isOn)
         {
-            StartCoroutine(AlphaLerp());
+            if (isOn)
+            {
+                StartCoroutine(AlphaLerp());
+            }
         }
 
         private IEnumerator AlphaLerp()

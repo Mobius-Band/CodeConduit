@@ -14,5 +14,8 @@ namespace Combat
         public Vector3 hitboxSize;
         public float stepAmount;
         public float stepDuration;
+        public int knockbackAmount;
+
+        //public Animation animation;
     }
 }

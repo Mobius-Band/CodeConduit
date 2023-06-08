@@ -1,7 +1,11 @@
-﻿using HackNSlash.ScriptableObjects;
+﻿using System;
+using Eflatun.SceneReference;
+using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
@@ -25,12 +29,18 @@ namespace HackNSlash.Scripts.GameManagement
         [SerializeField] private ElevatorState _elevatorState;
 
         [SerializeField] private SphereElevatorState _sphereElevatorState;
-
+        
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
         public ElevatorState ElevatorState => _elevatorState;
 
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
+        
+        [Header("ELEVATOR SCENES")]
+        [SerializeField] public SceneReference sphereElevatorSceneDown;
+        [SerializeField] public SceneReference sphereElevatorSceneUp;
+        [SerializeField] public SceneReference playerElevatorSceneDown;
+        [SerializeField] public SceneReference playerElevatorSceneUp;
 
         public void LoadMainMenu()
         {
@@ -43,12 +53,14 @@ namespace HackNSlash.Scripts.GameManagement
         {
             Time.timeScale= 0;
             isPaused = true;
+            SetMousePointerForGameplay(false);
         }
     
         public void ResumeGame()
         {
             Time.timeScale = 1;
             isPaused = false;
+            SetMousePointerForGameplay(true);
         }
 
         public void Quit()

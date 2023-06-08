@@ -1,8 +1,10 @@
-﻿using Eflatun.SceneReference;
+﻿using System;
+using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using PlayerInputManager = Player.PlayerInputManager;
 
 namespace HackNSlash.Scripts.Portal
@@ -47,6 +49,7 @@ namespace HackNSlash.Scripts.Portal
 
         private void ShiftScene(InputAction.CallbackContext ctx)
         {
+            GameManager.Instance.SceneManager.DefinePreviousScene(SceneManager.GetActiveScene());
             targetScene.SafeLoad();
         }
 

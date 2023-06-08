@@ -1,5 +1,6 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Combat
 {
@@ -9,19 +10,20 @@ namespace Combat
     /// </summary>
     public class AttackManager : MonoBehaviour
     {
-        [Tooltip("A collection of attacks that can be used by this character.")]
-        public Attack[] attacks; 
         [Tooltip("The hitbox that will be used to detect collisions with other objects - this should be a child of the character")]
         [SerializeField] protected Hitbox hitbox;
         [Tooltip("An integer that represents the index of the current attack in the attacks array" +
                  "\n In editor: Click the three dots in the upper right corner of this component and " +
                  "press 'Set Current Attack' to visualize the current attack´s hitbox")]
-        public int currentAttackIndex = 0;
+        public Animator animator;
+        [HideInInspector] public int currentAttackIndex = 0;
         
-        public Attack CurrentAttack => attacks[currentAttackIndex];
+        [Tooltip("A collection of attacks that can be used by this character.")]
+        public Attack[] attacks;
+
+        public Attack currentAttack;
 
         [HideInInspector] public bool _isAttacking;
-        public Animator animator;
 
         [Tooltip("Apply current attack's position and size to the hitbox, for debugging. " +
                  "Use this to visualize the current attack's hitbox in the editor.")]
@@ -35,7 +37,7 @@ namespace Combat
 
             if (currentAttackIndex < attacks.Length || currentAttackIndex >= 0)
             {
-                hitbox.SetValues(CurrentAttack);
+                hitbox.SetValues(currentAttack);
             }
         }
         
