@@ -203,7 +203,7 @@ MonoBehaviour:
   _destinationDefinitionInterval: 1
   _fleeingDistance: 2
   _damageFreezeDuration: 1
-  _rotationSpeed: 320
+  _rotationSpeed: 270
   _hurtbox: {fileID: 8558181481965967197}
   _vfxManager: {fileID: 666541943393612739}
   _attackManager: {fileID: 2813538361096930913}
