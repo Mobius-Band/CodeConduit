@@ -177,7 +177,6 @@ namespace HackNSlash.Scripts.Player
 
         public void PlayStepSound()
         {
-            print("step");
             audioManager.PlayRandom("walk");
         }
     }

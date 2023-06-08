@@ -245,6 +245,159 @@ MonoBehaviour:
     spatialBlend: 0
     startPlaying: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f7ffd38ad6e20f2438fcdea721f9636c, type: 3}
+    name: dash
+    tag: dash
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1a9ec4f27d406444aba6340c12e5e07b, type: 3}
+    name: swoosh1
+    tag: swoosh
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e9535cbed1e24d2418fb6c921cfd4f72, type: 3}
+    name: swoosh2
+    tag: swoosh
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e151e58dd83e96043921c571a60f2c91, type: 3}
+    name: swoosh3
+    tag: swoosh
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 77dea740ea6f04147b4cc65a4817056b, type: 3}
+    name: swoosh4
+    tag: swoosh
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 39def4805f249f74597c964ee1fd06eb, type: 3}
+    name: hit1
+    tag: hit
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d25bb5c1fb7579e4e8e9d3a0c7c439e2, type: 3}
+    name: hit2
+    tag: hit
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7bfc1e1190da3c742acc2e6889f3eb42, type: 3}
+    name: hit3
+    tag: hit
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: dc4420c65f0032942bc7a0f47b07d9b1, type: 3}
+    name: hit4
+    tag: hit
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 0261c17f8c9764344afc33852e67a332, type: 3}
+    name: damage1
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 66f4adcf3cabe0641a1285e01b50f224, type: 3}
+    name: damage2
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 8f2a4aaae7e05c343b047e2e2537c50c, type: 3}
+    name: damage3
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: dafb33bfcf787cb44aae57d831b591da, type: 3}
+    name: damage4
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 5bae9e0ca29a458429ac794d662a9615, type: 3}
+    name: damage5
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 611ae3e0622c65d4f9c2d9d20a60729f, type: 3}
+    name: damage6
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a0a08eb9e1a7ee640a692a3bbf4c5297, type: 3}
+    name: damage7
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ae480a08338c3b24ba13fd7caa246aa9, type: 3}
+    name: damage8
+    tag: damage
+    volume: 1
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
 --- !u!1 &6617061678207639315
 GameObject:
   m_ObjectHideFlags: 0

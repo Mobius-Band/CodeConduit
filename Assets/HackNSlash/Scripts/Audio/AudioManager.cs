@@ -98,7 +98,7 @@ namespace HackNSlash.Scripts.Audio
             }
 
             // gets the first and last indexes that have the sound tag (they need to be adjacent on the array)
-            var indexes = new Vector2(withTag[0], withTag[withTag.Count - 1]);
+            var indexes = new Vector2(withTag[0], withTag[^1]);
             return indexes;
         }
     }

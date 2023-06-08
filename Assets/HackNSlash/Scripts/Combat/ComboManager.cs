@@ -157,21 +157,21 @@ namespace Combat
         private void AttackHeavy1()
         {
             animator.Play("AttackHeavy1");
-            _audioManager.Play("swoosh1");
+            _audioManager.Play("swoosh4");
             _vfxManager.PlayVFX("slashHeavy", transform);
         }
         
         private void AttackHeavy2()
         {
             animator.Play("AttackHeavy2");
-            _audioManager.Play("swoosh3");
+            _audioManager.Play("swoosh1");
             _vfxManager.PlayVFX("slashHeavy2", transform);
         }
         
         private void AttackHeavy3()
         {
             animator.Play("AttackHeavy3");
-            _audioManager.Play("swoosh4");
+            _audioManager.Play("swoosh3");
             _vfxManager.PlayVFX("slashHeavy3", transform);
         }
     }

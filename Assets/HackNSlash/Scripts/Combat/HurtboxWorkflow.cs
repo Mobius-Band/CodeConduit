@@ -25,7 +25,7 @@ namespace Combat
             if (health != null)
             {
                 hurtbox.OnHitReceived += ctx => health.TakeDamage(ctx.Damage);
-                if (_audioManager != null) hurtbox.OnHitReceived += ctx => _audioManager.PlayRandom("dmg");
+                if (_audioManager != null) hurtbox.OnHitReceived += ctx => _audioManager.PlayRandom("damage");
                 if (_vfxManager != null) hurtbox.OnHitReceived += ctx => _vfxManager.PlayVFX("impact", transform);
             }
 

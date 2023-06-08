@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 18955844}
   - component: {fileID: 18955842}
   - component: {fileID: 18955845}
-  - component: {fileID: 18955846}
   m_Layer: 0
   m_Name: IsometricPerspectiveCamera45
   m_TagString: Untagged
@@ -249,14 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _focus: {fileID: 400750109}
   _speed: 2
---- !u!81 &18955846
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18955840}
-  m_Enabled: 1
 --- !u!1 &48867890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,75 +1112,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1801388656654207663}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1333006334
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676517, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6325955057096676519, guid: 195a81216070c6f43bfbfa4903fa113f,
-        type: 3}
-      propertyPath: m_Name
-      value: MusicPlayerDigital
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 195a81216070c6f43bfbfa4903fa113f, type: 3}
 --- !u!114 &1339936787 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 722439234, guid: 0c7e1bc2617a1244084108e37834d823,
@@ -1618,7 +1540,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &575419877261917507
 GameObject:
