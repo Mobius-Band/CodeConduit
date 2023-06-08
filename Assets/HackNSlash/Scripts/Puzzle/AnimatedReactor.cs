@@ -11,7 +11,7 @@ namespace HackNSlash.Scripts.Puzzle
         private Renderer _renderer;
         private AudioManager _audioManager;
         private float _alphaValue;
-        private bool _opened = false;
+        // private bool closed = false;
 
         private void Start()
         {
@@ -21,32 +21,22 @@ namespace HackNSlash.Scripts.Puzzle
 
         public override void React(bool isOn)
         {
-            if (isOn)
-            {
-                StartCoroutine(AlphaLerp());
-            }
+            AlphaLerp(isOn);
         }
 
-        private IEnumerator AlphaLerp()
+        private void AlphaLerp(bool closed)
         {
-            if (_opened)
-            {
-                yield break;
-            }
-            
             _audioManager.Play("doorActivate");
-            
-            _renderer.materials[1].DOFade(0, toggleDuration/4)
-                .OnComplete(() => GetComponent<Collider>().enabled = false);
-            
-            for (float i = 1; i > 0; i -= 0.1f)
-            {
-                _renderer.materials[0].SetFloat("_AlphaController", i);
-                yield return new WaitForSeconds(0.1f);
-            }
 
-            _opened = true;
-            _renderer.materials[0].SetFloat("_AlphaController", 0.0f);
+            Debug.Log("isOpned: " + closed);
+            Sequence fadeSequence = DOTween.Sequence();
+            fadeSequence.Append(_renderer.materials[1].DOFade(closed ? 0 : 1 , toggleDuration/4));
+            fadeSequence.Join(_renderer.materials[0].DOFloat(closed ? 0 : 1, "_AlphaController", toggleDuration / 4));
+            fadeSequence.OnComplete(() => GetComponent<Collider>().enabled = !closed);
+            fadeSequence.Play();
         }
+        
+        
+        
     }
 }
