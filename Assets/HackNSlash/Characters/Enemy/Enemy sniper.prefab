@@ -196,7 +196,7 @@ MonoBehaviour:
   _attackIntervalDuration_MIN: 0.5
   _attackIntervalDuration_MAX: 0.8
   _attackEnablingDistance: 40
-  _attackEnablingAngle: 3
+  _attackEnablingAngle: 8
   _healthThreshold: 0
   _initialHoverDuration: 0.1
   _fleeingMovementMultiplier: 4
