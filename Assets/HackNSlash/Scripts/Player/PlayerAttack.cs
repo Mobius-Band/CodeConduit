@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ez;
+using HackNSlash.Scripts.Player;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;

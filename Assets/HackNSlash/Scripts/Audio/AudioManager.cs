@@ -8,44 +8,32 @@ namespace HackNSlash.Scripts.Audio
     public class AudioManager : MonoBehaviour
     {
         public Sound[] sounds;
-        private int lastRandomIndex;
-
-        public static AudioManager instance;
+        private int _lastRandomIndex;
 
         private void Awake()
         {
-            if (instance == null)
+            foreach (Sound sound in sounds)
             {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
+                sound.source = gameObject.AddComponent<AudioSource>();
+                sound.source.clip = sound.clip;
+                sound.source.volume = sound.volume;
+                sound.source.loop = sound.loop;
+                sound.source.spatialize = sound.spatialize;
+                sound.source.spatialBlend = sound.spatialBlend;
 
-            if (transform.root == transform)
-            {
-                DontDestroyOnLoad(gameObject);
-            }
-
-            foreach (Sound s in sounds)
-            {
-                s.source = gameObject.AddComponent<AudioSource>();
-                s.source.clip = s.clip;
-                s.source.volume = s.volume;
-                s.source.pitch = s.pitch;
-                s.source.loop = s.loop;
+                if (!sound.spatialize) sound.spatialBlend = 0;
+                
+                if (sound.startPlaying) Play(sound.name);
             }
         }
 
-        public void Play(string name)
+        public void Play(string soundName)
         {
-            Sound s = Array.Find(sounds, sound => sound.name == name);
+            Sound s = Array.Find(sounds, sound => sound.name == soundName);
             
             if (s == null)
             {
-                Debug.LogWarning("Sound: " + name + " not found!");
+                Debug.LogWarning("Sound: " + soundName + " not found!");
                 return;
             }
 
@@ -56,33 +44,33 @@ namespace HackNSlash.Scripts.Audio
             }
         }
 
-        public void Mute(string name)
+        public void Mute(string soundName)
         {
-            Sound s = Array.Find(sounds, sound => sound.name == name);
+            Sound s = Array.Find(sounds, sound => sound.name == soundName);
             
             if (s == null)
             {
-                Debug.Log("Sound: " + name + " not found!");
+                Debug.Log("Sound: " + soundName + " not found!");
                 return;
             }
 
             s.source.volume = 0;
         }
 
-        public void PlayRandom(string tag, bool repeats = false)
+        public void PlayRandom(string soundTag, bool loops = false)
         {
-            Vector2 indexes = SearchWithTag(tag);
+            Vector2 indexes = SearchWithTag(soundTag);
             int index = (int)Random.Range(indexes.x, indexes.y);
 
-            if (!repeats)
+            if (!loops)
             {
-                while (index == lastRandomIndex)
+                while (index == _lastRandomIndex)
                 {
                     index = (int)Random.Range(indexes.x, indexes.y);
                 }
             }
             
-            lastRandomIndex = index;
+            _lastRandomIndex = index;
             
             Sound s = sounds[index];
 
@@ -95,21 +83,22 @@ namespace HackNSlash.Scripts.Audio
             Play(s.name);
         }
 
-        private Vector2 SearchWithTag(string tag)
+        private Vector2 SearchWithTag(string soundTag)
         {
             List<int> withTag = new List<int>();
             
             int i = 0;
             foreach (var sound in sounds)
             {
-                if (sound.tag == tag)
+                if (sound.tag == soundTag)
                 {
                     withTag.Add(i);
                 }
                 i++;
             }
 
-            Vector2 indexes = new Vector2(withTag[0], withTag[withTag.Count - 1]);
+            // gets the first and last indexes that have the sound tag (they need to be adjacent on the array)
+            var indexes = new Vector2(withTag[0], withTag[^1]);
             return indexes;
         }
     }

@@ -1,60 +1,69 @@
 using System;
 using UnityEngine;
 
-public class PlayerAnimationManager : MonoBehaviour
+namespace HackNSlash.Scripts.Player
 {
-    public Action OnAnimationEndCombo;
-    public Action OnAnimationHit;
-    public Action OnAnimationSuspendRotation;
-    public Action OnAnimationReturningToIdle;
-    public Action OnAnimationAttackStep;
-    public Action OnAnimationEndDash;
-    public Action OnAnimationSetNextAttack;
-    public Action OnAnimationRegainMovement;
-    public Action OnAnimationSuspendMovement;
-
-    void AnimationEndCombo()
+    public class PlayerAnimationManager : MonoBehaviour
     {
-        OnAnimationEndCombo?.Invoke();
-    }
+        public Action OnAnimationEndCombo;
+        public Action OnAnimationHit;
+        public Action OnAnimationSuspendRotation;
+        public Action OnAnimationReturningToIdle;
+        public Action OnAnimationAttackStep;
+        public Action OnAnimationEndDash;
+        public Action OnAnimationSetNextAttack;
+        public Action OnAnimationRegainMovement;
+        public Action OnAnimationSuspendMovement;
+        public Action OnAnimationMovementStep;
+
+        void AnimationEndCombo()
+        {
+            OnAnimationEndCombo?.Invoke();
+        }
     
-    void AnimationHit()
-    {
-        OnAnimationHit?.Invoke();
-    }
+        void AnimationHit()
+        {
+            OnAnimationHit?.Invoke();
+        }
     
-    void AnimationSuspendRotation()
-    {
-        OnAnimationSuspendRotation?.Invoke();
-    }
+        void AnimationSuspendRotation()
+        {
+            OnAnimationSuspendRotation?.Invoke();
+        }
 
-    void AnimationReturningToIdle()
-    {
-        OnAnimationReturningToIdle?.Invoke();
-    }
+        void AnimationReturningToIdle()
+        {
+            OnAnimationReturningToIdle?.Invoke();
+        }
 
-    void AnimationAttackStep()
-    {
-        OnAnimationAttackStep?.Invoke();
-    }
+        void AnimationAttackStep()
+        {
+            OnAnimationAttackStep?.Invoke();
+        }
 
-    void AnimationEndDash()
-    {
-        OnAnimationEndDash?.Invoke();
-    }
+        void AnimationEndDash()
+        {
+            OnAnimationEndDash?.Invoke();
+        }
 
-    void AnimationSetNextAttack()
-    {
-        OnAnimationSetNextAttack?.Invoke();
-    }
+        void AnimationSetNextAttack()
+        {
+            OnAnimationSetNextAttack?.Invoke();
+        }
 
-    void AnimationRegainMovement()
-    {
-        OnAnimationRegainMovement?.Invoke();
-    }
+        void AnimationRegainMovement()
+        {
+            OnAnimationRegainMovement?.Invoke();
+        }
     
-    void AnimationSuspendMovement()
-    {
-        OnAnimationSuspendMovement?.Invoke();
+        void AnimationSuspendMovement()
+        {
+            OnAnimationSuspendMovement?.Invoke();
+        }
+
+        void AnimationMovementStep()
+        {
+            OnAnimationMovementStep?.Invoke();
+        }
     }
 }

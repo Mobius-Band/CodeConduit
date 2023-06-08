@@ -9,8 +9,11 @@ namespace HackNSlash.Scripts.Audio
         public string name;
         public string tag;
         public float volume = 1f;
-        public float pitch = 1f;
         public bool loop;
+        public bool spatialize;
+        [Range(0.0f, 1.0f)]
+        public float spatialBlend;
+        public bool startPlaying;
 
         [HideInInspector] public AudioSource source;
     }
