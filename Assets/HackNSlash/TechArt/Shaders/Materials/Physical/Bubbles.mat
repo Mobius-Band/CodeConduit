@@ -45,7 +45,7 @@ Material:
     - _Scroll_Speed_X: 0
     - _Scroll_Speed_Y: 0.1
     m_Colors:
-    - _Color: {r: 1.7746994, g: 4.5254836, b: 16.94838, a: 1}
+    - _Color: {r: 2.307109, g: 8.0748825, b: 16.94838, a: 1}
     - _Tiling: {r: 0.6, g: 1.2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2053285462501388184

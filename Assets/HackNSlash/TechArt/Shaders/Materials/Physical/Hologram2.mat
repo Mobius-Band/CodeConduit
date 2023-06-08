@@ -74,7 +74,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 11.224973, g: 1.2929288, b: 1.1753898, a: 1}
-    - _Dots_Color: {r: 3.7803926, g: 2.2761526, b: 0.31668213, a: 1}
+    - _Dots_Color: {r: 2.9960785, g: 1.8039216, b: 0.26666668, a: 1}
     - _Dots_Tiling: {r: 30, g: 100, b: 0, a: 0}
     - _Fresnel_Color: {r: 0, g: 0.05490196, b: 0.7490196, a: 1}
     - _Noise_Speed: {r: 0, g: 0.02, b: 0, a: 0}
