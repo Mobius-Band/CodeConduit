@@ -12,6 +12,7 @@ namespace HackNSlash.Scripts.Enemy
 
         private void Awake()
         {
+            base.Awake();
             _animator = GetComponentInChildren<Animator>();
         }
         

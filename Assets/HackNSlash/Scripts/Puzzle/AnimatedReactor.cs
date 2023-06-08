@@ -18,7 +18,11 @@ namespace HackNSlash.Scripts.Puzzle
 
         public override void React(bool isOn)
         {
-            StartCoroutine(AlphaLerp());
+            Debug.Log($"{name} should be on: {isOn}");
+            if (isOn)
+            {
+                StartCoroutine(AlphaLerp());
+            }
         }
 
         private IEnumerator AlphaLerp()

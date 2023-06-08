@@ -10,9 +10,8 @@ namespace HackNSlash.Scripts.Player
     {
         private bool isImmortal;
         
-        new void Start()
+        void Start()
         {
-            base.Start();
             OnHealthChanged += PlayerStatsManager.Instance.SetHealthPercentage;
         }
         

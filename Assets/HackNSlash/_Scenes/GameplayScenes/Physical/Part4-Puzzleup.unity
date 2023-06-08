@@ -293,6 +293,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2859628887837984068, guid: d90ae49f6a2ef584eb6c34813d19b3be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d929dbe18b8849f4bae3847453a34e79, type: 2}
     - target: {fileID: 5690927069476229164, guid: d90ae49f6a2ef584eb6c34813d19b3be,
         type: 3}
       propertyPath: m_RootOrder
@@ -653,6 +658,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2859628887837984068, guid: d90ae49f6a2ef584eb6c34813d19b3be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d929dbe18b8849f4bae3847453a34e79, type: 2}
     - target: {fileID: 5690927069476229164, guid: d90ae49f6a2ef584eb6c34813d19b3be,
         type: 3}
       propertyPath: m_RootOrder
@@ -985,10 +995,20 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3325543378780706836, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
       propertyPath: m_Name
       value: SphereLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
@@ -1106,10 +1126,20 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3325543378780706836, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
       propertyPath: m_Name
       value: SphereLight (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498419595316536187, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}

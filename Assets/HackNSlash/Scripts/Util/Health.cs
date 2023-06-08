@@ -40,7 +40,7 @@ namespace HackNSlash.Scripts.Util
             }
         }
 
-        protected void Start()
+        protected void Awake()
         {
             _takeDamageEffect = GetComponent<TakeDamageEffect>();
             currentHealth = maxHealth;

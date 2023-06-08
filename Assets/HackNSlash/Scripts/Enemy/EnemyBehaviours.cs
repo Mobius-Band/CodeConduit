@@ -66,6 +66,7 @@ public class EnemyBehaviours : MonoBehaviour
     private void Start()
     {
         _isTargetNull = attackTarget == null;
+        TryEnterDesperateMode();
     }
 
     #region POSITIONING
@@ -182,9 +183,9 @@ public class EnemyBehaviours : MonoBehaviour
             yield return StartCoroutine(RotateTowardsPlayerCoroutine());
             DefineAttackInterval();
             yield return new WaitForSeconds(
-                IsAtLastHealth() ?
-                _attackIntervalDuration
-                : _attackManager.DashPreparationTime);
+                IsAtLastHealth()
+                    ? _attackManager.DashPreparationTime
+                    : _attackIntervalDuration);
             if (!_isFrozen)
             {
                 Fire();
@@ -214,7 +215,7 @@ public class EnemyBehaviours : MonoBehaviour
     
     public bool IsAtLastHealth()
     {
-        return _health.HealthPercentage * 100 < _healthThreshold;
+        return _health.HealthPercentage * 100 <= _healthThreshold;
     }
 
     #endregion

@@ -946,6 +946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -1550,6 +1555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -1637,6 +1647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SphereLight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3829828133227329985, guid: 3e28dc4dbf2286e4885a1f7f7303a2e7,
         type: 3}

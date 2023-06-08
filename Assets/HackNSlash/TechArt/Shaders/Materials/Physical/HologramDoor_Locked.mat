@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3764164250922679048
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HologramPlate
-  m_Shader: {fileID: -6465566751694194690, guid: 4dc7676b077d2714daacdf5af68b2b69,
+  m_Name: HologramDoor_Locked
+  m_Shader: {fileID: -6465566751694194690, guid: 829ab4a22ae2bdc4bb01916d10182c04,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -39,25 +52,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fresnel_Power: 1
+    - _AlphaController: 1
+    - _Fresnel_Power: 4
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scroll_Speed: 0.05
     m_Colors:
-    - _Fresnel_Color: {r: 0.40392157, g: 0.3882353, b: 0.05882353, a: 1}
-    - _Hologram_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Main_Color: {r: 112.439255, g: 106.55238, b: 11.185057, a: 1}
+    - _Color: {r: 5.0380316, g: 0.20152123, b: 0, a: 1}
+    - _Fresnel_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Hologram_Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Main_Color: {r: 7.466667, g: 7.19302, b: 0.8991275, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1266930188821154915
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
