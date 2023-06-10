@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
@@ -109,6 +110,14 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
                     throw new ArgumentOutOfRangeException(nameof(sceneType), sceneType, null);
             }
         }
+        
+        public bool IsOnMainMenu() => SceneManager.GetActiveScene().buildIndex == mainMenuScene.BuildIndex;
+
+        public bool IsOnPhysicalWorld =>
+            physicalWorldScenes.Any(scene => SceneManager.GetActiveScene().buildIndex == scene.BuildIndex);
+
+        public bool IsOnDigitalWorld =>
+            digitalWorldScenes.Any(scene => SceneManager.GetActiveScene().buildIndex == scene.BuildIndex);
     }
 }
 

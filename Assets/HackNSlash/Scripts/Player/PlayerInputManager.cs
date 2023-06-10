@@ -1,4 +1,6 @@
 ﻿
+using HackNSlash.Scripts.Util;
+
 namespace Player
 {
     public class PlayerInputManager : Singleton<PlayerInputManager>

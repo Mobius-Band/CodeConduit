@@ -1,40 +1,43 @@
 ﻿using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : UnityEngine.Component
+namespace HackNSlash.Scripts.Util
 {
-    private static T _instance;
-
-    public static T Instance
+    public class Singleton<T> : MonoBehaviour where T : UnityEngine.Component
     {
-        get
+        private static T _instance;
+
+        public static T Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<T>();
+                    if (_instance == null)
+                    {
+                        GameObject obj = new GameObject();
+                        obj.name = typeof(T).Name;
+                        _instance = obj.AddComponent<T>();
+                    }
+                }
+                return _instance;
+            }
+        }
+
+        public virtual void Awake()
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<T>();
-                if (_instance == null)
+                _instance = this as T;
+                if (transform.root == transform)
                 {
-                    GameObject obj = new GameObject();
-                    obj.name = typeof(T).Name;
-                    _instance = obj.AddComponent<T>();
+                    DontDestroyOnLoad(this.gameObject);
                 }
             }
-            return _instance;
-        }
-    }
-
-    public virtual void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this as T;
-            if (transform.root == transform)
+            else
             {
-                DontDestroyOnLoad(this.gameObject);
+                Destroy(gameObject);
             }
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 }

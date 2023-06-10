@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HackNSlash.Scripts.Util;
+using UnityEngine;
 
 namespace HackNSlash.Scripts.GameManagement
 {
