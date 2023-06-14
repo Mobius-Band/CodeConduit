@@ -21,7 +21,6 @@ namespace HackNSlash.Scripts.Audio
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            _accessData = GameManager.Instance.AccessData;
             _audioSource = GetComponent<AudioSource>();
 
             if (correspondentScenes.Length != soundtrack.Length)
@@ -32,6 +31,7 @@ namespace HackNSlash.Scripts.Audio
 
         private void Start()
         {
+            _accessData = GameManager.Instance.AccessData;
             SceneManager.sceneLoaded += OnSceneLoaded;
             if (GameManager.Instance.SceneManager.IsOnMainMenu())
             {
@@ -50,9 +50,7 @@ namespace HackNSlash.Scripts.Audio
             {
                 return;
             }
-
-            Debug.Log(SceneManager.GetActiveScene().name);
-
+            
             if (CurrentSceneIndex == correspondentScenes[3].BuildIndex)
             {
                 PlayTrack(!_accessData.canAccessPart2 ? 1 : 3);

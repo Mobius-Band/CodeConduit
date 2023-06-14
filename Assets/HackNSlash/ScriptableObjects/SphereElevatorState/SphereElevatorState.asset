@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spherePositionsUp: []
   spherePositionsDown: []
-  holderHasSphere: ffffffffffffffffffffffff02000000
-  sphereIsDown: 000001
+  holderHasSphere: ffffffffffffffffffffffffffffffff
+  sphereIsDown: 010000
   elevatorIsDown: 1
