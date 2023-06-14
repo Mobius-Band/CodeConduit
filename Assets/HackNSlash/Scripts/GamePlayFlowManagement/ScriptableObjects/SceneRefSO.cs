@@ -3,6 +3,7 @@ using System.Linq;
 using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace HackNSlash.Scripts.GamePlayFlowManagement
@@ -26,6 +27,8 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         public int previousSceneIndex = -1;
         private int currentSceneIndex = -1;
         
+        public UnityEvent OnGameOver;
+
         public void LoadTitleScreen() => titleScreenScene.SafeLoad();
 
         public void LoadMainMenu()
@@ -38,6 +41,7 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
 
         public void LoadGameOverScene()
         {
+            OnGameOver?.Invoke();
             gameOverScene.SafeLoad();  
         } 
 

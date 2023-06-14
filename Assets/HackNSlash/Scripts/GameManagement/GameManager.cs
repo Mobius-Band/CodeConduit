@@ -1,12 +1,9 @@
-﻿using System;
-using Eflatun.SceneReference;
+﻿using Eflatun.SceneReference;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using HackNSlash.Scripts.Util;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Utilities;
 
 namespace HackNSlash.Scripts.GameManagement
@@ -30,13 +27,13 @@ namespace HackNSlash.Scripts.GameManagement
         [SerializeField] private ElevatorState _elevatorState;
 
         [SerializeField] private SphereElevatorState _sphereElevatorState;
-        
+
         public SceneRefSO SceneManager => sceneRefs;
         public AccessData AccessData => _accessData;
         public ElevatorState ElevatorState => _elevatorState;
 
         public SphereElevatorState SphereElevatorState => _sphereElevatorState;
-        
+
         [Header("ELEVATOR SCENES")]
         [SerializeField] public SceneReference sphereElevatorSceneDown;
         [SerializeField] public SceneReference sphereElevatorSceneUp;

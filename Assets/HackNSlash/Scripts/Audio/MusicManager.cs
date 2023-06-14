@@ -1,7 +1,8 @@
+using System;
+using System.Linq;
 using Eflatun.SceneReference;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GameManagement;
-using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,30 +10,33 @@ namespace HackNSlash.Scripts.Audio
 {
     public class MusicManager : MonoBehaviour
     {
-        [SerializeField] private AudioClip menuTrack;
-        [SerializeField] private AudioClip[] physicalWorldTracks;
-        [SerializeField] private AudioClip[] digitalWorldTracks;
-        [SerializeField] private SceneReference[] newTrackScenes;
-        [SerializeField] private SceneRefSO sceneRefSo;
+        [SerializeField] private AudioClip[] soundtrack;
+        [SerializeField] private SceneReference[] correspondentScenes;
         private AccessData _accessData;
         private AudioSource _audioSource;
-        private AudioClip _currentClip;
-        private bool _sceneVerified;
-        private bool IsCurrentClipPlaying => _audioSource.clip == _currentClip;
-        private int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
 
-        
+        private int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
+        private bool _canDecrementIndex;
+
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            
             _accessData = GameManager.Instance.AccessData;
             _audioSource = GetComponent<AudioSource>();
+
+            if (correspondentScenes.Length != soundtrack.Length)
+            {
+                Debug.LogWarning("There should be the same amount of scenes and audioclips");
+            }
         }
 
         private void Start()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
+            if (GameManager.Instance.SceneManager.IsOnMainMenu())
+            {
+                PlayTrack(0);
+            }
         }
 
         private void OnDestroy()
@@ -42,75 +46,46 @@ namespace HackNSlash.Scripts.Audio
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (!_accessData) _accessData = GameManager.Instance.AccessData;
-            if (!_audioSource) _audioSource = GetComponent<AudioSource>();
-            
-            if (SceneVerification() && CurrentSceneIndex != sceneRefSo.previousSceneIndex)
+            if (correspondentScenes.All(cs => cs.BuildIndex != CurrentSceneIndex))
             {
-                ChooseTrack();
-            }
-        }
-
-        private void ChooseTrack()
-        {
-            // menu
-            if (sceneRefSo.IsOnMainMenu())
-            {
-                PlayTrack(-1);
-                return;
-            }
-            
-            // part 1
-            if (!_accessData.canAccessPart2)
-            {
-                PlayTrack(0);
                 return;
             }
 
-            // part 2
-            if (_accessData.canAccessPart2 && !_accessData.canAccessPart3)
+            Debug.Log(SceneManager.GetActiveScene().name);
+
+            if (CurrentSceneIndex == correspondentScenes[3].BuildIndex)
             {
-                PlayTrack(1);
+                PlayTrack(!_accessData.canAccessPart2 ? 1 : 3);
+                return;
+            }
+
+            if (CurrentSceneIndex == correspondentScenes[5].BuildIndex)
+            {
+                PlayTrack(!_accessData.canAccessPart3 ? 3 : 5);
                 return;
             }
             
-            // part 3
-            if (_accessData.canAccessPart3 && !_accessData.canAccessPart4)
+            if (CurrentSceneIndex == correspondentScenes[7].BuildIndex)
             {
-                PlayTrack(2);
+                PlayTrack(!_accessData.canAccessPart4 ? 5 : 7);
                 return;
             }
             
-            // part 4
-            if (_accessData.canAccessPart4)
-            {
-                PlayTrack(3);
-            }
+            SceneReference correctScene = correspondentScenes.First(cs => cs.BuildIndex == CurrentSceneIndex);
+            int correctIndex = Array.FindIndex(correspondentScenes, cs => correctScene.BuildIndex == cs.BuildIndex);
+            PlayTrack(correctIndex);
         }
 
         private void PlayTrack(int index)
         {
-            if (_audioSource.clip == null && IsCurrentClipPlaying) return;
+            if (_audioSource.clip == soundtrack[index])
+            {
+                return;
+            }
             
             _audioSource.Stop();
-            if (sceneRefSo.IsOnMainMenu()) _audioSource.clip = menuTrack;
-            if (sceneRefSo.IsOnPhysicalWorld) _audioSource.clip = physicalWorldTracks[index];
-            if (sceneRefSo.IsOnDigitalWorld) _audioSource.clip = digitalWorldTracks[index];
+            _audioSource.clip = soundtrack[index];
             _audioSource.Play();
-            _currentClip = _audioSource.clip;
-        }
-
-        private bool SceneVerification()
-        {
-            for (int i = 0; i < newTrackScenes.Length - 1; i++)
-            {
-                if (CurrentSceneIndex == newTrackScenes[i].BuildIndex)
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
     }
 }
