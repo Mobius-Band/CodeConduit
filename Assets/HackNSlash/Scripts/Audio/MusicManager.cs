@@ -16,9 +16,11 @@ namespace HackNSlash.Scripts.Audio
         [SerializeField] private SceneRefSO sceneRefSo;
         private AccessData _accessData;
         private AudioSource _audioSource;
-        private bool _canPlayNewTrack;
+        private AudioClip _currentClip;
         private bool _sceneVerified;
+        private bool IsCurrentClipPlaying => _audioSource.clip == _currentClip;
         private int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
+
         
         private void Awake()
         {
@@ -40,7 +42,10 @@ namespace HackNSlash.Scripts.Audio
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (SceneVerification() && _canPlayNewTrack && CurrentSceneIndex != sceneRefSo.previousSceneIndex)
+            if (!_accessData) _accessData = GameManager.Instance.AccessData;
+            if (!_audioSource) _audioSource = GetComponent<AudioSource>();
+            
+            if (SceneVerification() && CurrentSceneIndex != sceneRefSo.previousSceneIndex)
             {
                 ChooseTrack();
             }
@@ -85,12 +90,14 @@ namespace HackNSlash.Scripts.Audio
 
         private void PlayTrack(int index)
         {
+            if (_audioSource.clip == null && IsCurrentClipPlaying) return;
+            
             _audioSource.Stop();
             if (sceneRefSo.IsOnMainMenu()) _audioSource.clip = menuTrack;
             if (sceneRefSo.IsOnPhysicalWorld) _audioSource.clip = physicalWorldTracks[index];
             if (sceneRefSo.IsOnDigitalWorld) _audioSource.clip = digitalWorldTracks[index];
             _audioSource.Play();
-            _canPlayNewTrack = false;
+            _currentClip = _audioSource.clip;
         }
 
         private bool SceneVerification()
@@ -99,7 +106,6 @@ namespace HackNSlash.Scripts.Audio
             {
                 if (CurrentSceneIndex == newTrackScenes[i].BuildIndex)
                 {
-                    _canPlayNewTrack = true;
                     return true;
                 }
             }
