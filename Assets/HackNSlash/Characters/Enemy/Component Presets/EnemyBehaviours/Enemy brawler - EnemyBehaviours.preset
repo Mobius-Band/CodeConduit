@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemy brawler - EnemyBehaviours
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: f31b0886bced44144993afd413f75736,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _attackIntervalDuration_MIN
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _attackIntervalDuration_MAX
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _attackEnablingDistance
+    value: 25
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _attackEnablingAngle
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _healthThreshold
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _initialHoverDuration
+    value: 0.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _fleeingMovementMultiplier
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _destinationDefinitionInterval
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _fleeingDistance
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _damageFreezeDuration
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _rotationSpeed
+    value: 230
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _hurtbox
+    value: 
+    objectReference: {fileID: 8558181481965967197, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: _vfxManager
+    value: 
+    objectReference: {fileID: 666541943393612739, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: _attackManager
+    value: 
+    objectReference: {fileID: 2813538361096930913, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: _health
+    value: 
+    objectReference: {fileID: 2943333921522794505, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: _animator
+    value: 
+    objectReference: {fileID: 1000858142219024006, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: _animationManager
+    value: 
+    objectReference: {fileID: 3769470881825178513, guid: a8c9a80eebb1dbb4fbfe48f4a134fc34,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: _meleeAnimationProperty
+    value: shoot
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: attackTarget
+    value: 
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

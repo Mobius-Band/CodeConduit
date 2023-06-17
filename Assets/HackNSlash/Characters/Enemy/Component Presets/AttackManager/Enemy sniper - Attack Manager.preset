@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EnemyAttackManager
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: d64eb48e921fd3b488315c28205ad371,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _animationManager
+    value: 
+    objectReference: {fileID: 3769470881825178513, guid: 96d9eef659184ba4f86095efaac20318,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.damage
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.hitboxPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.hitboxPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.hitboxPosition.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.hitboxSize.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.hitboxSize.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.hitboxSize.z
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.stepAmount
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.stepDuration
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.knockbackAmount
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.projectilePrefab
+    value: 
+    objectReference: {fileID: 796682382519708785, guid: e1bcf17bc788a814a8212b44a609ca23,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.fireForce
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: projectileAttack.projectileLifetime
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: attackedMask.m_Bits
+    value: 256
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hitbox
+    value: 
+    objectReference: {fileID: 203895117, guid: 96d9eef659184ba4f86095efaac20318, type: 3}
+  - target: {fileID: 0}
+    propertyPath: rigidbody
+    value: 
+    objectReference: {fileID: 1756381825117879890, guid: 96d9eef659184ba4f86095efaac20318,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: dashForce
+    value: 1500
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashDamage
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: velocityThreshold
+    value: 0.000001
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: preparationTime
+    value: 1
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
