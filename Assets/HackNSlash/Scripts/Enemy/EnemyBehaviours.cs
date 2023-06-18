@@ -68,6 +68,7 @@ public class EnemyBehaviours : MonoBehaviour
     private void Start()
     {
         _hurtbox.OnHitReceived += _ => _audioManager.PlayRandom("dmg");
+        _animationManager.OnDeathBegin.AddListener(() => _attackManager.ShutDashOff());
         _animationManager.OnDeathBegin.AddListener(Freeze);
         _animationManager.OnDeathBegin.AddListener(() => _hurtbox.enabled = false);
         _animationManager.OnDeathBegin.AddListener(() => _audioManager.PlayRandom("death"));
@@ -222,6 +223,7 @@ public class EnemyBehaviours : MonoBehaviour
     
     public bool IsAtLastHealth()
     {
+        if (_health.HealthPercentage <= 0) return false;
         return _health.HealthPercentage * 100 <= _healthThreshold;
     }
 
@@ -240,6 +242,8 @@ public class EnemyBehaviours : MonoBehaviour
         {
             _navMeshAgent.isStopped = value;
         }
+
+        _attackManager.enabled = value;
         _isFrozen = value;
     }
 

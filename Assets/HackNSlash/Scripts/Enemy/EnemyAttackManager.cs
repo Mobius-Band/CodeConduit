@@ -52,4 +52,9 @@ public class EnemyAttackManager : MonoBehaviour
         StartCoroutine(CheckForMovementStability(hitbox.StopTryHitOnce));
     }
 
+    public void ShutDashOff()
+    {
+        hitbox.enabled = false;
+        GetComponent<Collider>().enabled = false;
+    }
 }

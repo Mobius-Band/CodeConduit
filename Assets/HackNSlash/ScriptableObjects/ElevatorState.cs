@@ -7,5 +7,11 @@ namespace HackNSlash.ScriptableObjects
     {
         public bool isDown;
         public bool startOnElevator = false;
+
+        public void Reset()
+        {
+            isDown = true;
+            startOnElevator = false;
+        }
     }
 }

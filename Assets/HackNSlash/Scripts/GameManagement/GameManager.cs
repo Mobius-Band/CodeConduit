@@ -1,4 +1,5 @@
-﻿using Eflatun.SceneReference;
+﻿using System;
+using Eflatun.SceneReference;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GamePlayFlowManagement;
 using HackNSlash.Scripts.Util;
@@ -39,6 +40,12 @@ namespace HackNSlash.Scripts.GameManagement
         [SerializeField] public SceneReference sphereElevatorSceneUp;
         [SerializeField] public SceneReference playerElevatorSceneDown;
         [SerializeField] public SceneReference playerElevatorSceneUp;
+
+        public void Start()
+        {
+            isBooting = true;
+            OnMainMenuLoaded?.Invoke();
+        }
 
         public void LoadMainMenu()
         {

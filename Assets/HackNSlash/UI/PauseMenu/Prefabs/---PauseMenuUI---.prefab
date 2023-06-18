@@ -1751,7 +1751,7 @@ PrefabInstance:
     - target: {fileID: 4304140864938203629, guid: f4e6a8cfeb803dc4daf5ef4a70fdecfb,
         type: 3}
       propertyPath: m_text
-      value: RESTART
+      value: RESET LEVEL
       objectReference: {fileID: 0}
     - target: {fileID: 4304140865034858391, guid: f4e6a8cfeb803dc4daf5ef4a70fdecfb,
         type: 3}
