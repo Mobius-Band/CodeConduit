@@ -28,7 +28,7 @@ namespace HackNSlash.Scripts.Audio
             }
         }
 
-        public void Play(string soundName)
+        public void Play(string soundName, bool enableHardRepeat)
         {
             Sound s = Array.Find(sounds, sound => sound.name == soundName);
             
@@ -39,11 +39,13 @@ namespace HackNSlash.Scripts.Audio
             }
 
             s.source.volume = s.volume;
-            if (!s.source.isPlaying)
+            if (!s.source.isPlaying || enableHardRepeat)
             {
                 s.source.Play();
             }
         }
+
+        public void Play(string soundName) => Play(soundName, false);
 
         public void Mute(string soundName)
         {

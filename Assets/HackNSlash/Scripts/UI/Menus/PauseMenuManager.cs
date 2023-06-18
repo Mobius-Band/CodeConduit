@@ -1,4 +1,5 @@
-﻿using HackNSlash.Scripts.GameManagement;
+﻿using HackNSlash.Scripts.Audio;
+using HackNSlash.Scripts.GameManagement;
 using HackNSlash.Scripts.UI.Menus;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,7 @@ namespace HackNSlash.Scripts.UI
     public class PauseMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject pauseMenuCanvas;
+        [SerializeField] private AudioManager audioManager;
         [Header("Buttons")]
         [SerializeField] private Button continueButton;
         [SerializeField] private Button restartButton;
@@ -59,6 +61,7 @@ namespace HackNSlash.Scripts.UI
             controlsSubmenu.SetActive(true);
             HidePauseMenu();
             EventSystem.current.SetSelectedGameObject(controlsReturnButton.gameObject);
+            audioManager.Play("openSubMenu", true);
         }
     
         public void HideControls()
@@ -73,7 +76,7 @@ namespace HackNSlash.Scripts.UI
             pauseMenuCanvas.SetActive(true);
             EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
             continueButton.GetComponent<OptionButton>().ExecuteAnimation(true);
-
+            audioManager.Play("openMainMenu", true);
         }
         
         public void HidePauseMenu()

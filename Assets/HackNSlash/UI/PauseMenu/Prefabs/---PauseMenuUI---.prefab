@@ -32,6 +32,7 @@ Transform:
   - {fileID: 2657051620399090042}
   - {fileID: 5596113708167715483}
   - {fileID: 1640045373512072867}
+  - {fileID: 5861452211154071951}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuCanvas: {fileID: 2657051620399090037}
+  audioManager: {fileID: 5276931915011545548}
   continueButton: {fileID: 1113476072071790915}
   restartButton: {fileID: 7830677306938643122}
   controlsButton: {fileID: 9188318930336622921}
@@ -505,6 +507,69 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &3726094956505952176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5861452211154071951}
+  - component: {fileID: 5276931915011545548}
+  m_Layer: 0
+  m_Name: PauseMenuAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5861452211154071951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726094956505952176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2657051619707641717}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5276931915011545548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726094956505952176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c557eb39ae1da95448ea7d1b6ae93ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 5a5f22066eb9bc34a8f25e576e9f4e5b, type: 3}
+    name: openSubMenu
+    tag: openSubMenu
+    volume: 0.6
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 83f38c49d0786ab419d4074dc7cb26ae, type: 3}
+    name: openMainMenu
+    tag: openMainMenu
+    volume: 0.3
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
 --- !u!1001 &2657051619105046993
 PrefabInstance:
   m_ObjectHideFlags: 0

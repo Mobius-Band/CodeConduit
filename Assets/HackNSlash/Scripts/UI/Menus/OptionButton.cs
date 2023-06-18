@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using HackNSlash.Scripts.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace HackNSlash.Scripts.UI.Menus
     public class OptionButton : MonoBehaviour
     {
         [SerializeField] private ButtonReactor button;
+        [SerializeField] private AudioManager _audioManager;
         [SerializeField] private TMP_Text text;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private Image bottomLine;
@@ -40,6 +42,7 @@ namespace HackNSlash.Scripts.UI.Menus
         public void SetAnimations()
         {
             button.OnSelected.AddListener(ExecuteSelectionAnimation);
+            button.OnSelected.AddListener(PlaySelectionAudio);
             button.OnDeselected.AddListener(ExecuteDeselectionAnimation);
         }
         
@@ -76,9 +79,9 @@ namespace HackNSlash.Scripts.UI.Menus
         private void ExecuteSelectionAnimation() => ExecuteAnimation(true);
         private void ExecuteDeselectionAnimation() => ExecuteAnimation(false);
 
-        public void ForceSelectionState(bool state)
+        private void PlaySelectionAudio()
         {
-            
+            _audioManager.Play("selected", true);
         }
     }
 }
