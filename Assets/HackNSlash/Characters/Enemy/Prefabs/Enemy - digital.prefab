@@ -52,7 +52,7 @@ MonoBehaviour:
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   damage: 15
   knockback: 0
-  _audioManager: {fileID: 0}
+  _audioManager: {fileID: 7803952802484850539}
 --- !u!1 &1088576257459036384
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +209,7 @@ Transform:
   - {fileID: 203895116}
   - {fileID: 2633767070648000369}
   - {fileID: 6003781667467696155}
+  - {fileID: 8586460017552677820}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -319,6 +320,7 @@ MonoBehaviour:
   _rotationSpeed: 230
   _hurtbox: {fileID: 8558181481965967197}
   _vfxManager: {fileID: 666541943393612739}
+  _audioManager: {fileID: 7803952802484850539}
   _attackManager: {fileID: 2813538361096930913}
   _health: {fileID: 2943333921522794505}
   _animator: {fileID: 1000858142219024006}
@@ -338,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationManager: {fileID: 3769470881825178513}
+  _audioManager: {fileID: 7803952802484850539}
   projectileAttack:
     damage: 15
     hitboxPosition: {x: 0, y: 0, z: 0}
@@ -401,6 +404,7 @@ MonoBehaviour:
   maxHealth: 200
   currentHealth: 0
   vfxManager: {fileID: 666541943393612739}
+  animationManager: {fileID: 3769470881825178513}
 --- !u!114 &7991685233936134495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +563,186 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!1 &5054317312760466921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8586460017552677820}
+  - component: {fileID: 7803952802484850539}
+  m_Layer: 6
+  m_Name: DigitalEnemyAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8586460017552677820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054317312760466921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1756381825117879880}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7803952802484850539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054317312760466921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c557eb39ae1da95448ea7d1b6ae93ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: c1ecb4be38571a642beb7678de82ea44, type: 3}
+    name: projectileAtk1
+    tag: projectileAtk
+    volume: 0.7
+    loop: 0
+    spatialize: 1
+    spatialBlend: 1
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d69f6dc17a0584f458032f976094492e, type: 3}
+    name: projectileAtk2
+    tag: projectileAtk
+    volume: 0.7
+    loop: 0
+    spatialize: 1
+    spatialBlend: 1
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1d4c099fe108011429c55acbee5cb759, type: 3}
+    name: projectileAtk3
+    tag: projectileAtk
+    volume: 0.7
+    loop: 0
+    spatialize: 1
+    spatialBlend: 1
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 80a4e2a163123c34fbe676eac4604911, type: 3}
+    name: projectileAtk4
+    tag: projectileAtk
+    volume: 0.7
+    loop: 0
+    spatialize: 1
+    spatialBlend: 1
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ad1c9dc39bff26c4ea6898e17e58eb42, type: 3}
+    name: dmg1
+    tag: dmg
+    volume: 0.6
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 12fabe92fe5c90648b0242e8e7eb863a, type: 3}
+    name: dmg2
+    tag: dmg
+    volume: 0.6
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 59a2b00313d51fe44ba45e6b92100b62, type: 3}
+    name: dmg3
+    tag: dmg
+    volume: 0.6
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 638d55df6f5836945bf87177efbf70eb, type: 3}
+    name: dmg4
+    tag: dmg
+    volume: 0.6
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1bf00ed1ce7d5234dbb72d01b2d57890, type: 3}
+    name: death1
+    tag: death
+    volume: 0.9
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4f4aab9a9440e45448d42c3b1a186025, type: 3}
+    name: spawn
+    tag: spawn
+    volume: 1
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1a58c115ca1a0da48b8ec9cc6731f28a, type: 3}
+    name: dash1
+    tag: dash
+    volume: 0.9
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d4b10a9f9ea6409449238ddb2ea2321c, type: 3}
+    name: dash2
+    tag: dash
+    volume: 0.9
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 0e0beff6bed90d04cbcf093b1e259c12, type: 3}
+    name: dash3
+    tag: dash
+    volume: 0.9
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a3befe12c4ced104bb13e777939064af, type: 3}
+    name: dash4
+    tag: dash
+    volume: 0.9
+    loop: 0
+    spatialize: 1
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 27704346feccd10489d451df52a759ca, type: 3}
+    name: hit1
+    tag: hit
+    volume: 0.5
+    loop: 0
+    spatialize: 0
+    spatialBlend: 0.7
+    startPlaying: 0
+    source: {fileID: 0}
 --- !u!1 &5781178405598638187
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +799,7 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 30.220295, y: 9.296714, z: 4.3904943, w: 0}
+      - m_Value: {x: 30.22029, y: 9.296714, z: 4.390494, w: 0}
         m_Name: Main Color
         m_Overridden: 1
     m_Uint:
@@ -727,6 +911,13 @@ MonoBehaviour:
   - visualEffect: {fileID: 5594184920316917956, guid: d2dfb48b25fd1094f84e22fcf4e9c56b,
       type: 3}
     name: impact
+    delay: 0
+    duration: 1
+    rotation: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+  - visualEffect: {fileID: 3807077204976283540, guid: dc63777ae79366e4fba0ba19ca15bb5a,
+      type: 3}
+    name: dissolve
     delay: 0
     duration: 1
     rotation: {x: 0, y: 0, z: 0}
@@ -981,6 +1172,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fd9027b6c940868e02b61a77673e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMouthAttackBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &914243013911614289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf34314017a87a94a84099289fe1bd64,

@@ -24,22 +24,8 @@ namespace HackNSlash.Scripts.Enemy
         
         public void Initialize()
         {
-            // TrySetWaveCollection();
             StartWave();
         }
-
-        // private bool TrySetWaveCollection()
-        // {
-        //     var waves = SetEnemyWavesUp();
-        //     int index = GameManager.Instance.areaIndex;
-        //     Debug.Log(index);
-        //     if (index == -1)
-        //     {
-        //         return false;
-        //     }
-        //     selectedWaveCollection = waves[index];
-        //     return true;
-        // }
 
         public void StartWave(int waveIndex)
         {

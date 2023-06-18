@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,6 +15,7 @@ namespace HackNSlash.Scripts.Audio
             foreach (Sound sound in sounds)
             {
                 sound.source = gameObject.AddComponent<AudioSource>();
+                sound.source.playOnAwake = false;
                 sound.source.clip = sound.clip;
                 sound.source.volume = sound.volume;
                 sound.source.loop = sound.loop;
@@ -59,14 +60,15 @@ namespace HackNSlash.Scripts.Audio
 
         public void PlayRandom(string soundTag, bool loops = false)
         {
-            Vector2 indexes = SearchWithTag(soundTag);
-            int index = (int)Random.Range(indexes.x, indexes.y);
+            Vector2Int indexes = SearchWithTag(soundTag);
+            int index = Random.Range(indexes.x, indexes.y);
 
-            if (!loops)
+            bool isUnique = indexes.x == indexes.y;
+            if (!loops && !isUnique)
             {
                 while (index == _lastRandomIndex)
                 {
-                    index = (int)Random.Range(indexes.x, indexes.y);
+                    index = Random.Range(indexes.x, indexes.y);
                 }
             }
             
@@ -83,7 +85,7 @@ namespace HackNSlash.Scripts.Audio
             Play(s.name);
         }
 
-        private Vector2 SearchWithTag(string soundTag)
+        private Vector2Int SearchWithTag(string soundTag)
         {
             List<int> withTag = new List<int>();
             
@@ -98,7 +100,7 @@ namespace HackNSlash.Scripts.Audio
             }
 
             // gets the first and last indexes that have the sound tag (they need to be adjacent on the array)
-            var indexes = new Vector2(withTag[0], withTag[^1]);
+            var indexes = new Vector2Int(withTag[0], withTag[^1]);
             return indexes;
         }
     }

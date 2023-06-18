@@ -1,5 +1,6 @@
 using System.Collections;
 using Combat;
+using HackNSlash.Scripts.Audio;
 using HackNSlash.Scripts.Enemy;
 using HackNSlash.Scripts.Util;
 using HackNSlash.Scripts.VFX;
@@ -28,6 +29,7 @@ public class EnemyBehaviours : MonoBehaviour
     [Header("EXTERNAL REFS")]
     [SerializeField] public Hurtbox _hurtbox;
     [SerializeField] private VFXManager _vfxManager;
+    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private EnemyAttackManager _attackManager;
     [SerializeField] private EnemyHealth _health;
     [SerializeField] private Animator _animator;
@@ -65,8 +67,14 @@ public class EnemyBehaviours : MonoBehaviour
     
     private void Start()
     {
-        _isTargetNull = attackTarget == null;
+        _hurtbox.OnHitReceived += _ => _audioManager.PlayRandom("dmg");
+        _animationManager.OnDeathBegin.AddListener(Freeze);
+        _animationManager.OnDeathBegin.AddListener(() => _hurtbox.enabled = false);
+        _animationManager.OnDeathBegin.AddListener(() => _audioManager.PlayRandom("death"));
+
+            _isTargetNull = attackTarget == null;
         TryEnterDesperateMode();
+        _audioManager.Play("spawn");
     }
 
     #region POSITIONING
@@ -167,7 +175,7 @@ public class EnemyBehaviours : MonoBehaviour
     public void Fire()
     {
         _repositionTarget = null;
-        if (IsAtLastHealth())
+        if (IsAtLastHealth() && !_isFrozen)
         {
             _navMeshAgent.isStopped = true;
             _attackManager.Dash();

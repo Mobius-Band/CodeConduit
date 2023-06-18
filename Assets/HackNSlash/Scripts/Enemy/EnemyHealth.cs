@@ -8,12 +8,18 @@ namespace HackNSlash.Scripts.Enemy
     public class EnemyHealth : Health
     {
         [SerializeField] private VFXManager vfxManager;
+        [SerializeField] private EnemyAnimationManager animationManager;
         private Animator _animator;
 
         private void Awake()
         {
             base.Awake();
             _animator = GetComponentInChildren<Animator>();
+        }
+
+        private void Start()
+        {
+            animationManager.OnDeathEnd.AddListener(() => Destroy(gameObject));
         }
         
         protected override IEnumerator Die()
@@ -22,13 +28,14 @@ namespace HackNSlash.Scripts.Enemy
             // _animator.StopPlayback();
             
             // not working for some reason??
-            _animator.Play("Enemy_DissolveOut");
+            // _animator.Play("Enemy_DissolveOut");
+            _animator.SetTrigger("die");
             vfxManager.PlayVFX("dissolve", transform);
             // TODO: needs to stop enemy behaviour
             
             // yield return new WaitForSeconds(3.0f);
             
-            Destroy(gameObject);
+            // Destroy(gameObject);
             yield break;
         }
 

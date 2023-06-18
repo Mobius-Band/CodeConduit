@@ -1,0 +1,788 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DigitalPlayer - AudioManager
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: c557eb39ae1da95448ea7d1b6ae93ad8,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: ad3b3ae4d6a4df242b60f2d3720757dd, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].name
+    value: step1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].tag
+    value: walk
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[0].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 3d12814bb849b174ea8b52f2c8679ebc, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].name
+    value: step2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].tag
+    value: walk
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].volume
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[1].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 2d1712a948b18ab4c85d55b9e7fa1ae3, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].name
+    value: step3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].tag
+    value: walk
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].volume
+    value: 0.6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[2].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 53d9902be5545b945aa33e6ca2b01ae0, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].name
+    value: step4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].tag
+    value: walk
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[3].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: f7ffd38ad6e20f2438fcdea721f9636c, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].name
+    value: dash
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].tag
+    value: dash
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[4].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 1a9ec4f27d406444aba6340c12e5e07b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].name
+    value: swoosh1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].tag
+    value: swoosh
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[5].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: e9535cbed1e24d2418fb6c921cfd4f72, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].name
+    value: swoosh2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].tag
+    value: swoosh
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[6].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: e151e58dd83e96043921c571a60f2c91, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].name
+    value: swoosh3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].tag
+    value: swoosh
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[7].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 77dea740ea6f04147b4cc65a4817056b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].name
+    value: swoosh4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].tag
+    value: swoosh
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[8].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 39def4805f249f74597c964ee1fd06eb, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].name
+    value: hit1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].tag
+    value: hit
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[9].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: d25bb5c1fb7579e4e8e9d3a0c7c439e2, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].name
+    value: hit2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].tag
+    value: hit
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[10].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 7bfc1e1190da3c742acc2e6889f3eb42, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].name
+    value: hit3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].tag
+    value: hit
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[11].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: dc4420c65f0032942bc7a0f47b07d9b1, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].name
+    value: hit4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].tag
+    value: hit
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[12].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 0261c17f8c9764344afc33852e67a332, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].name
+    value: damage1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[13].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 66f4adcf3cabe0641a1285e01b50f224, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].name
+    value: damage2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[14].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 8f2a4aaae7e05c343b047e2e2537c50c, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].name
+    value: damage3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[15].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: dafb33bfcf787cb44aae57d831b591da, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].name
+    value: damage4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[16].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 5bae9e0ca29a458429ac794d662a9615, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].name
+    value: damage5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[17].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 611ae3e0622c65d4f9c2d9d20a60729f, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].name
+    value: damage6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[18].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: a0a08eb9e1a7ee640a692a3bbf4c5297, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].name
+    value: damage7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[19].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: ae480a08338c3b24ba13fd7caa246aa9, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].name
+    value: damage8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].tag
+    value: damage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].spatialize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].spatialBlend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].startPlaying
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sounds.Array.data[20].source
+    value: 
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

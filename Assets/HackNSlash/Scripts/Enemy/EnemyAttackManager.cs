@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using Combat;
+using HackNSlash.Scripts.Audio;
 using HackNSlash.Scripts.Enemy;
 using UnityEngine;
 
 public class EnemyAttackManager : MonoBehaviour
 {
     [SerializeField] private EnemyAnimationManager _animationManager;
+    [SerializeField] private AudioManager _audioManager;
     [Header("PROJECTILE")]
     [SerializeField] private ProjectileAttack projectileAttack;
     [SerializeField] private LayerMask attackedMask;
@@ -20,9 +22,10 @@ public class EnemyAttackManager : MonoBehaviour
 
     public float DashPreparationTime => preparationTime;
 
-    private void Awake()
+    private void Start()
     {
         _animationManager.OnMouthAttack += Shoot;
+        _animationManager.OnMouthAttackBegin.AddListener(() => _audioManager.PlayRandom("projectileAtk"));
     }
 
     //Should be called on an Animation Event
@@ -45,6 +48,7 @@ public class EnemyAttackManager : MonoBehaviour
         rigidbody.AddForce(transform.forward * dashForce, ForceMode.Impulse);
         hitbox.damage = dashDamage;
         hitbox.StartTryHitOnce(transform);
+        _audioManager.PlayRandom("dash");
         StartCoroutine(CheckForMovementStability(hitbox.StopTryHitOnce));
     }
 
