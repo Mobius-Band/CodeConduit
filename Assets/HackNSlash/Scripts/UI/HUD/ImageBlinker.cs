@@ -10,9 +10,11 @@ namespace HackNSlash.UI.DigitalWorld_HUD.Popups.Scripts
         [SerializeField] private Animator animator;
         [SerializeField] private string blinkAnimProperty;
         [SerializeField] public UnityEvent onBlinkEnd;
+        [SerializeField] public UnityEvent onBlinkStart;
 
         public void Blink()
         {
+            onBlinkStart?.Invoke();
             animator.SetTrigger(blinkAnimProperty);
         }
 
