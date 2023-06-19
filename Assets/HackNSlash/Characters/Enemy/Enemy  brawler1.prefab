@@ -319,6 +319,7 @@ MonoBehaviour:
   _rotationSpeed: 230
   _hurtbox: {fileID: 8558181481965967197}
   _vfxManager: {fileID: 666541943393612739}
+  _audioManager: {fileID: 0}
   _attackManager: {fileID: 2813538361096930913}
   _health: {fileID: 2943333921522794505}
   _animator: {fileID: 1000858142219024006}
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationManager: {fileID: 3769470881825178513}
+  _audioManager: {fileID: 0}
   projectileAttack:
     damage: 15
     hitboxPosition: {x: 0, y: 0, z: 0}
@@ -355,7 +357,7 @@ MonoBehaviour:
   hitbox: {fileID: 203895117}
   rigidbody: {fileID: 1756381825117879890}
   dashForce: 750
-  dashDamage: 10
+  dashDamage: 7
   velocityThreshold: 0.000001
   preparationTime: 1.7
 --- !u!114 &1756381825117879892
@@ -401,6 +403,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   vfxManager: {fileID: 666541943393612739}
+  animationManager: {fileID: 0}
 --- !u!114 &7991685233936134495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,6 +984,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fd9027b6c940868e02b61a77673e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMouthAttackBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &914243013911614289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf34314017a87a94a84099289fe1bd64,
