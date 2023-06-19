@@ -19,6 +19,7 @@ namespace HackNSlash.Scripts.Player
         private PlayerMovement _movement;
         private PlayerPickupSphere _playerPickupSphere;
         private PlayerHealth _playerHealth;
+        private PlayerInteraction _playerInteraction;
 
         [Header("External References")] 
         [SerializeField] private PauseMenuManager pauseMenu;
@@ -30,6 +31,7 @@ namespace HackNSlash.Scripts.Player
             _movement = GetComponent<PlayerMovement>();
             _playerPickupSphere = GetComponent<PlayerPickupSphere>();
             _playerHealth = GetComponent<PlayerHealth>();
+            _playerInteraction = GetComponent<PlayerInteraction>();
         }
         
         
@@ -37,8 +39,8 @@ namespace HackNSlash.Scripts.Player
         {
             //External
             _input.InputActions.Player.Pause.performed += _ => pauseMenu.TogglePauseMenu();
-            
             playerAnimationManager.OnAnimationMovementStep += _movement.PlayStepSound;
+            _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerInteraction.Interact();
             
             if (isPuzzlePlayer)
             {

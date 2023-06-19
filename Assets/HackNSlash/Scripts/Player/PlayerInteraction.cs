@@ -28,6 +28,10 @@ namespace HackNSlash.Scripts.Player
             for (int i = 0; i < colliders.Length; i++)
             {
                 interactableObjects[i] = colliders[i].transform;
+                if (interactableObjects[i].TryGetComponent(out IInteractable interactable))
+                {
+                    interactable.PlayerInteraction = this;
+                }
             }
         }
 
@@ -54,6 +58,20 @@ namespace HackNSlash.Scripts.Player
             {
                 closestObject = null;
                 canInteract = false;
+            }
+        }
+
+        public void Interact()
+        {
+            if (closestObject == null)
+            {
+                return;
+            }
+
+            if (closestObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.React();
+                return;
             }
         }
     }

@@ -43,6 +43,7 @@ namespace HackNSlash.Scripts.GameManagement
 
         public void Start()
         {
+            SetMousePointerForGameplay(true);
             isBooting = true;
             OnMainMenuLoaded?.Invoke();
         }
@@ -58,7 +59,7 @@ namespace HackNSlash.Scripts.GameManagement
         {
             Time.timeScale= 0;
             isPaused = true;
-            SetMousePointerForGameplay(false);
+            SetMousePointerForGameplay(true);
         }
     
         public void ResumeGame()
