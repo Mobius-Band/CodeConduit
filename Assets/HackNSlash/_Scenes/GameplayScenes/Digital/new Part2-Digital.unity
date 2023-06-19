@@ -1847,13 +1847,19 @@ PrefabInstance:
     - target: {fileID: 947063302328620657, guid: 5de5bf9c427badc4aba722e7f29f18c4,
         type: 3}
       propertyPath: enemyWaves.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 947063302328620657, guid: 5de5bf9c427badc4aba722e7f29f18c4,
         type: 3}
       propertyPath: enemyWaves.Array.data[2]
       value: 
       objectReference: {fileID: 4986404964379485951}
+    - target: {fileID: 2361411988114713675, guid: 5de5bf9c427badc4aba722e7f29f18c4,
+        type: 3}
+      propertyPath: _enemyPrefab
+      value: 
+      objectReference: {fileID: 1756381825117879883, guid: 14c190642dd32d04bb25bf6447e4d70c,
+        type: 3}
     - target: {fileID: 4986404963808896178, guid: 5de5bf9c427badc4aba722e7f29f18c4,
         type: 3}
       propertyPath: _enemyParent
@@ -1945,11 +1951,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5810705347473127646, guid: e8b982e70db83274c8700cc3674b0508,
         type: 3}
+    - target: {fileID: 7349510621114802444, guid: 5de5bf9c427badc4aba722e7f29f18c4,
+        type: 3}
+      propertyPath: _enemySpawners.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5de5bf9c427badc4aba722e7f29f18c4, type: 3}
 --- !u!114 &4986404964379485951 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7349510621114802444, guid: 5de5bf9c427badc4aba722e7f29f18c4,
+  m_CorrespondingSourceObject: {fileID: 1198390030795775562, guid: 5de5bf9c427badc4aba722e7f29f18c4,
     type: 3}
   m_PrefabInstance: {fileID: 4986404964379485950}
   m_PrefabAsset: {fileID: 0}
