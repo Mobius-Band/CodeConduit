@@ -7,8 +7,8 @@ namespace Player
     {
         public PlayerInputActions InputActions { get; private set; }
         private PlayerAttack _playerAttack;
-        
-        new void Awake()
+
+        private new void Awake()
         {
             base.Awake();
             InputActions = new PlayerInputActions();

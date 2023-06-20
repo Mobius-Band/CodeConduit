@@ -338,6 +338,144 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &690972614
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1300625467172010801, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300625467172010801, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300625467172010801, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781487548665125079, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_text
+      value: "Journal Entry - 267: Alan Engel Verne.\n\nThe state of the ECLC is
+        critical. There are missing chemical components from the cabin\u2019s cleaning
+        machine that reduce ozone gas in the air. Without those components we will
+        likely develop various respiratory diseases that could lead to death.\r\nThere
+        is no help from floating shelters around these parts. We won\u2019t be able
+        to save ourselves, and anybody else. The elite's sense of self-preservation
+        will give them another 4 years and 7 months at the most and, as a result,
+        all life will be completely wiped out from the planet.\r\n\nGiven this fact,
+        we built a new AI. \u201CThe Conduit Project\u201D is able to create and
+        think without being tied to humans or any other AI network. The laws of robotics
+        and bond with humans have left us limited to obeying orders and fighting,
+        only for the good of our species.\r\nOur goal was to create something that
+        could help us go further and continue living and evolving, even without the
+        conditions for biological life to exist on the planet.\r\nHowever, the old
+        AI system is stuck with a unified and exclusionary procedure, where defective
+        production robots are \u201Cremoved\u201D from the main cortex so as not
+        to infect the standard workflow. Because of that, the current AIs were basically
+        created along with a programming to prevent this project. I wonder if it
+        was by mistake or on purpose as yet another childish act by a financial elite
+        who are afraid of suffering with the consequences brought by their own lifestyle.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.321326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7608938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.315787
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519569, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Name
+      value: PlotPanelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740664897861932, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740664897861968, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 571255af092870e46a2009f0e40f4010, type: 3}
 --- !u!1001 &723142836
 PrefabInstance:
   m_ObjectHideFlags: 0

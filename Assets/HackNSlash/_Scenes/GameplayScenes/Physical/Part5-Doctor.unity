@@ -551,6 +551,125 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1187434499
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1781487548665125079, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_text
+      value: "Journal Entry - 374: Alan Engel Verne.\r\n\nI'm still apprehensive
+        about hanging up, even though I'm convinced of the code's effectiveness and
+        the certainty that the new project will succeed.\r\nEven so, I have a weird
+        feeling that something is missing, like a ghost algorithm or any element
+        that could compromise the project's outcome. Weird enough to postpone my
+        actions. I recently ran a diagnostic that revealed a process efficiency of
+        98%. The responsibility of experiencing something unusual for an AI, but
+        extremely common for any form of biological life: concern for my offspring
+        or descendants.\r\nIt feels like sacrificing myself to bring Luden to life
+        is somehow the only thing that makes sense at the moment, and the idea of
+        \u200B\u200Bnot personally witnessing how it all comes out feels unfair.\r\n\nLuden,
+        if you are receiving these text files, I hope you are able to survive and
+        understand the world in a new way. Not just like an AI and not even like
+        a human being, but like Luden. That's the only way to define you and I'm
+        sure that's more than enough.\n\r--------------------------------------------------
+        ---------------------------------------------------last file\r\n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5872.3467
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.321326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7608938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.315787
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519569, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Name
+      value: PlotPanelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740664897861932, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 571255af092870e46a2009f0e40f4010, type: 3}
 --- !u!4 &1249866841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8643355372414051168, guid: def65b832b588b64ca865e85d6f6f590,

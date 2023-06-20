@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1481006595095357600}
   - component: {fileID: 3108206827174563583}
   - component: {fileID: 6226116790420246591}
+  - component: {fileID: 4930625261047205433}
   m_Layer: 0
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -212,12 +213,25 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1752173846612096513}
   m_HandleRect: {fileID: 8588096455870355009}
   m_Direction: 2
-  m_Value: 0.00000072756166
-  m_Size: 0.82146883
+  m_Value: 1
+  m_Size: 0.5604678
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4930625261047205433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485862468079097234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af7ca4dab69453a9bb4d6f42ba9328b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRate: -0.1
 --- !u!1 &4296503495708378045
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +468,7 @@ MonoBehaviour:
   interactable: {fileID: 7956740664137712573}
   canvas: {fileID: 7956740664897861932}
   exitButton: {fileID: 5026131199473053569}
+  scrollInput: {fileID: 4930625261047205433}
 --- !u!1 &7956740664061280772
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 45, y: 167.77997}
+  m_AnchoredPosition: {x: 45, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6554182851893905551
@@ -893,7 +908,11 @@ MonoBehaviour:
     have sought refuge in their floating sanctuaries, marvels of futuristic technology
     and opulence, while the underprivileged are left to wither amidst the detritus
     and pollutants. A timeless adage rings true: \"As one ascends to celestial heights,
-    a thousand souls are cast into the abyss below.\""
+    a thousand souls are cast into the abyss below.\"\n\nAs a scientist, I shoulder
+    the responsibility to wield my knowledge and skills in a relentless crusade to
+    salvage our planet and all its diverse lifeforms. I am unwavering in my commitment
+    to ensure that humanity transcends the realms of insignificance, etching an indelible
+    mark upon the tapestry of this future world."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eeeca10c5c16fb74da9e508fd3dd0c9f, type: 2}
   m_sharedMaterial: {fileID: 5491693224220743028, guid: eeeca10c5c16fb74da9e508fd3dd0c9f,
@@ -1011,8 +1030,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50.000015}
-  m_SizeDelta: {x: -400, y: -100.00003}
+  m_AnchoredPosition: {x: 200, y: -22.449984}
+  m_SizeDelta: {x: -400, y: -155.09996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7956740663350349370
 PrefabInstance:

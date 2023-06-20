@@ -41,6 +41,8 @@ namespace HackNSlash.Scripts.GameManagement
         [SerializeField] public SceneReference playerElevatorSceneDown;
         [SerializeField] public SceneReference playerElevatorSceneUp;
 
+        public bool CanUsePauseMenu = true;
+        
         public void Start()
         {
             SetMousePointerForGameplay(true);

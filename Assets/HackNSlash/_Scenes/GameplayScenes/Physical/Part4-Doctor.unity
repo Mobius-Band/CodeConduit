@@ -413,6 +413,115 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 495104433}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &576001279
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1781487548665125079, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_text
+      value: "Journal Entry - 373: Alan Engel Verne.\r\n\nTime is running out. We
+        have 134 hours until the standard AI detects my firewall and shuts it down
+        in the process. When that happens I won't be able to conclude The Conduit
+        Project, at least not the way I wanted.\n\nI'm going to create a reprogramming
+        algorithm that will compile the necessary amount of information for a new
+        AI that can last as long as it wants and can't be detected. We are deploying
+        an AI \u200B\u200Bfrom a forgotten experimental case that was left behind
+        in the blueprint because the model was too expensive for us to implement
+        on a production scale. However, it has a very powerful processor, which is
+        perfect for the new AI to \u200B\u200Brun without being tied to the main
+        system. We call it Model: Luden 01."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.321326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7608938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.315787
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740663371519569, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Name
+      value: PlotPanelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740664897861932, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 571255af092870e46a2009f0e40f4010, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

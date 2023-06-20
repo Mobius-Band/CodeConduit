@@ -13,6 +13,7 @@ namespace HackNSlash.Scripts.PlotPanel
         [SerializeField] private PlotPanelInteractable interactable;
         [SerializeField] private Canvas canvas;
         [SerializeField] private Button exitButton;
+        [SerializeField] private ScrollInput scrollInput;
 
         private Coroutine togglerRoutine;
 
@@ -25,6 +26,8 @@ namespace HackNSlash.Scripts.PlotPanel
         private IEnumerator TogglePlotPanel(bool value)
         {
             canvas.enabled = value;
+            scrollInput.enabled = value;
+            GameManager.Instance.CanUsePauseMenu = !value;
             if (value)
             {
                 EventSystem.current.SetSelectedGameObject(exitButton.gameObject);

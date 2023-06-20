@@ -20,6 +20,8 @@ namespace HackNSlash.Scripts.UI
         [Header("PauseSubMenu")]
         [SerializeField] private GameObject controlsSubmenu;
         [SerializeField] private Button controlsReturnButton;
+
+        private bool isMenuActivated = false;
         
         private void Start()
         {
@@ -35,6 +37,7 @@ namespace HackNSlash.Scripts.UI
         {
             GameManager.Instance.PauseGame();
             ShowPauseMenu();
+            isMenuActivated = true;
         }
         
         private void Resume()
@@ -42,11 +45,16 @@ namespace HackNSlash.Scripts.UI
             HidePauseMenu();
             controlsSubmenu.SetActive(false);
             GameManager.Instance.ResumeGame();
+            isMenuActivated = false;
         }
 
         public void TogglePauseMenu()
         {
-            if (GameManager.Instance.isPaused)
+            if (!GameManager.Instance.CanUsePauseMenu)
+            {
+                return;
+            }
+            if (isMenuActivated)
             {
                 Resume();
             }
