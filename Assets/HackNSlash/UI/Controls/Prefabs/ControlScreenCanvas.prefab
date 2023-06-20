@@ -168,7 +168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4456716519441025679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -585,7 +585,12 @@ PrefabInstance:
     - target: {fileID: 3146998851927889868, guid: d10e45f110f3d5844a634468abd94457,
         type: 3}
       propertyPath: m_text
-      value: MAIN MENU
+      value: BACK
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146998851927889868, guid: d10e45f110f3d5844a634468abd94457,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3146998852033061302, guid: d10e45f110f3d5844a634468abd94457,
         type: 3}
@@ -696,6 +701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867128108567619070, guid: d10e45f110f3d5844a634468abd94457,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.77254903
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10e45f110f3d5844a634468abd94457, type: 3}
