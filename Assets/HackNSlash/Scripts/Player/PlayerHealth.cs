@@ -2,14 +2,16 @@ using System.Collections;
 using HackNSlash.Scripts.GameManagement;
 using HackNSlash.Scripts.Util;
 using UnityEngine;
+using UnityEngine.Events;
 using Util;
 
 namespace HackNSlash.Scripts.Player
 {
     public class PlayerHealth : Health
     {
+        public UnityEvent OnPlayerDeath;
         private bool isImmortal;
-        
+
         void Start()
         {
             OnHealthChanged += PlayerStatsManager.Instance.SetHealthPercentage;
@@ -21,7 +23,7 @@ namespace HackNSlash.Scripts.Player
             {
                 yield break;
             }
-            GameManager.Instance.SceneManager.LoadGameOverScene();
+            OnPlayerDeath?.Invoke();
         }
 
         public void ToggleImmortalMode()

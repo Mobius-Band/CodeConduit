@@ -11,7 +11,7 @@ namespace HackNSlash.Scripts.Enemy
         [SerializeField] private EnemyAnimationManager animationManager;
         private Animator _animator;
 
-        private void Awake()
+        private new void Awake()
         {
             base.Awake();
             _animator = GetComponentInChildren<Animator>();
@@ -24,18 +24,8 @@ namespace HackNSlash.Scripts.Enemy
         
         protected override IEnumerator Die()
         {
-            // _animator.SetBool("isFinalForm", false);
-            // _animator.StopPlayback();
-            
-            // not working for some reason??
-            // _animator.Play("Enemy_DissolveOut");
             _animator.SetTrigger("die");
             vfxManager.PlayVFX("dissolve", transform);
-            // TODO: needs to stop enemy behaviour
-            
-            // yield return new WaitForSeconds(3.0f);
-            
-            // Destroy(gameObject);
             yield break;
         }
 

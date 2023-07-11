@@ -1,9 +1,9 @@
+using System;
 using Combat;
 using HackNSlash.Scripts.Puzzle;
 using HackNSlash.Scripts.UI;
 using Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Player
 {
@@ -14,6 +14,8 @@ namespace HackNSlash.Scripts.Player
         [SerializeField] private PlayerAnimationManager playerAnimationManager;
         [SerializeField] private SphereElevator sphereElevator;
         [SerializeField] private bool isPuzzlePlayer;
+        [SerializeField] private Renderer[] playerRenderers;
+        
         private PlayerInputManager _input;
         private ComboManager _comboManager;
         private PlayerMovement _movement;
@@ -34,13 +36,13 @@ namespace HackNSlash.Scripts.Player
             _playerInteraction = GetComponent<PlayerInteraction>();
         }
         
-        
         void Start()
         {
             //External
             _input.InputActions.Player.Pause.performed += _ => pauseMenu.TogglePauseMenu();
-            playerAnimationManager.OnAnimationMovementStep += _movement.PlayStepSound;
             _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerInteraction.Interact();
+            
+            _playerHealth.OnPlayerDeath.AddListener(KillPlayer);
             
             if (isPuzzlePlayer)
             {
@@ -66,17 +68,18 @@ namespace HackNSlash.Scripts.Player
                 playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
                 playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
                 playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
-                playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
-                playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
+                // playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
+                // playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
                 playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
                 playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
                 playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.currentAttack);
                 playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
                 playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
+                playerAnimationManager.OnAnimationMovementStep += _movement.PlayStepSound;
             }
             
             //CheatCodes
-            _input.InputActions.Player.CHEATCODEInfiniteHealth.performed += ctx => _playerHealth.ToggleImmortalMode();
+            _input.InputActions.Player.CHEATCODEInfiniteHealth.performed += _ => _playerHealth.ToggleImmortalMode();
         }
 
         private void OnDisable()
@@ -99,6 +102,13 @@ namespace HackNSlash.Scripts.Player
             }
             
             _movement.MoveInput = _input.InputActions.Player.Move.ReadValue<Vector2>();
+        }
+
+        private void KillPlayer()
+        {
+            Array.ForEach(playerRenderers, r => r.enabled = false);
+            _input.enabled = false;
+            Debug.Log("Player is dead");
         }
     }
 }
