@@ -9,18 +9,16 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
 {
     public class GameResetter : MonoBehaviour
     {
-
-        private void OnEnable()
+        public void ResetToPreviousSceneOrToMainMenu()
         {
+            Debug.Log("Resetting this shit@");
             int previousSceneIndex = GameManager.Instance.SceneManager.previousSceneIndex;
             if (previousSceneIndex < 0)
             {
-                InputSystem.onAnyButtonPress.CallOnce(_
-                    => GameManager.Instance.LoadMainMenu());
+                GameManager.Instance.LoadMainMenu();
                 return;
             }
-            InputSystem.onAnyButtonPress.CallOnce(_
-                => SceneManager.LoadScene(previousSceneIndex));
+            SceneManager.LoadScene(previousSceneIndex);
         }
     }
 }

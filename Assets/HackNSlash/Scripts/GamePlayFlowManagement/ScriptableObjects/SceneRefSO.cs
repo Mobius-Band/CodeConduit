@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
@@ -21,6 +22,10 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         [SerializeField] private GameplaySceneType firstGameplayType;
         [SerializeField] private SceneReference[] physicalWorldScenes;
         [SerializeField] private SceneReference[] digitalWorldScenes;
+
+        [Header("PHYSICAL-DIGITAL CORRELATION INDEXES")]
+        [SerializeField] private int[] physicalPortalSceneIndexes;
+        [SerializeField] private int[] digitalPortalSceneIndexes;
 
         private int currentDigitalSceneIndex = 0;
         private int currentPhysicalSceneIndex = 0;
@@ -122,6 +127,15 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
 
         public bool IsOnDigitalWorld =>
             digitalWorldScenes.Any(scene => SceneManager.GetActiveScene().buildIndex == scene.BuildIndex);
+
+        [ContextMenu("Set Portal Scenes Index")]
+        public void SetPortalScenesIndex()
+        {
+            var portalPhysicalScenes = physicalWorldScenes.Where(pwS => pwS.Name.ToLower().Contains("portal"));
+            var sceneReferences = portalPhysicalScenes as SceneReference[] ?? portalPhysicalScenes.ToArray();
+            physicalPortalSceneIndexes = sceneReferences.Select(ppS => ppS.BuildIndex).ToArray();
+            digitalPortalSceneIndexes = digitalWorldScenes.Select(ppS => ppS.BuildIndex).ToArray();
+        }
     }
 }
 

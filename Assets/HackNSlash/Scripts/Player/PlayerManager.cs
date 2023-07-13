@@ -15,6 +15,7 @@ namespace HackNSlash.Scripts.Player
         [SerializeField] private SphereElevator sphereElevator;
         [SerializeField] private bool isPuzzlePlayer;
         [SerializeField] private Renderer[] playerRenderers;
+        [SerializeField] private Collider[] playerColliders;
         
         private PlayerInputManager _input;
         private ComboManager _comboManager;
@@ -25,6 +26,7 @@ namespace HackNSlash.Scripts.Player
 
         [Header("External References")] 
         [SerializeField] private PauseMenuManager pauseMenu;
+        [SerializeField] private GameObject deathScreen;
         
         void Awake()
         {
@@ -68,8 +70,6 @@ namespace HackNSlash.Scripts.Player
                 playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
                 playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
                 playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
-                // playerAnimationManager.OnAnimationSuspendRotation += _movement.SuspendRotation;
-                // playerAnimationManager.OnAnimationReturningToIdle += _comboManager.SetReturningToIdle;
                 playerAnimationManager.OnAnimationEndDash += _movement.EndDash;
                 playerAnimationManager.OnAnimationSetNextAttack += _comboManager.SetNextAttack;
                 playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.currentAttack);
@@ -104,11 +104,14 @@ namespace HackNSlash.Scripts.Player
             _movement.MoveInput = _input.InputActions.Player.Move.ReadValue<Vector2>();
         }
 
+        
+        
         private void KillPlayer()
         {
             Array.ForEach(playerRenderers, r => r.enabled = false);
+            Array.ForEach(playerColliders, c => c.enabled = false);
             _input.enabled = false;
-            Debug.Log("Player is dead");
+            deathScreen.SetActive(true);
         }
     }
 }
