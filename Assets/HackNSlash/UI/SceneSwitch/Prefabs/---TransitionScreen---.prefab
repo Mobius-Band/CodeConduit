@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b0300fb7aee7d45b9dd2cdeeb8a60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
   blackoutPanel: {fileID: 2330379179955140413}
+  fadeInDuration: 1
+  fadeOutDuration: 2
   fadeInStarted: {fileID: 11400000, guid: 07e580103ad3de14480ec2ae6927d216, type: 2}
   fadeInEnded: {fileID: 11400000, guid: 9524c35797addbe4aa520ba905974bb0, type: 2}
   fadeOutStarted: {fileID: 11400000, guid: 5aac0167073f34f4fa99e6a63051287d, type: 2}

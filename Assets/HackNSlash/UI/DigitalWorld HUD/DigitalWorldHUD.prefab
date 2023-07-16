@@ -95,6 +95,9 @@ MonoBehaviour:
   onBlinkEnd:
     m_PersistentCalls:
       m_Calls: []
+  onBlinkStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &132909526
 Animator:
   serializedVersion: 4
@@ -429,12 +432,12 @@ PrefabInstance:
     - target: {fileID: 3396818257674390535, guid: 6b4c83e0d88c23c4a949f5a997ca0a0e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3396818257674390535, guid: 6b4c83e0d88c23c4a949f5a997ca0a0e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 3396818257674390535, guid: 6b4c83e0d88c23c4a949f5a997ca0a0e,
         type: 3}

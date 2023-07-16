@@ -700,6 +700,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 1ba76ffbd9a9b3541ae1ff0614c942d8, type: 2}
+    - target: {fileID: 8725577240460782839, guid: 9f3ffd341e3a06743b029ca777394a99,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0142961675
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725577240460782839, guid: 9f3ffd341e3a06743b029ca777394a99,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.695532
+      objectReference: {fileID: 0}
     - target: {fileID: 8896992512292256018, guid: 9f3ffd341e3a06743b029ca777394a99,
         type: 3}
       propertyPath: m_Enabled
@@ -725,6 +735,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312774226}
     m_Modifications:
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: timer
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
       propertyPath: triggerMask.m_Bits
@@ -1510,6 +1525,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
+      propertyPath: timer
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
       propertyPath: triggerMask.m_Bits
       value: 768
       objectReference: {fileID: 0}
@@ -1588,6 +1608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312774226}
     m_Modifications:
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: timer
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
       propertyPath: triggerMask.m_Bits
@@ -2530,11 +2555,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312774226}
     m_Modifications:
-    - target: {fileID: 2234113259851893680, guid: 42dab0e705b8cd44996fa0a4d6871eb0,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8484415594417148224, guid: 42dab0e705b8cd44996fa0a4d6871eb0,
         type: 3}
       propertyPath: m_Name
