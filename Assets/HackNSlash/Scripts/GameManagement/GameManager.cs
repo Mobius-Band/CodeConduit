@@ -100,5 +100,10 @@ namespace HackNSlash.Scripts.GameManagement
                 AccessData.canAccessPart4 = true;
             }
         }
+
+        // public AsyncOperation SafeLoadAsync(SceneReference sceneReference)
+        // {
+        //     LoadMainMenu(
+        // }
     }
 }

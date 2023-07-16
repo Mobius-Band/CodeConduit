@@ -104,14 +104,15 @@ namespace HackNSlash.Scripts.Player
             _movement.MoveInput = _input.InputActions.Player.Move.ReadValue<Vector2>();
         }
 
-        
-        
         private void KillPlayer()
         {
             Array.ForEach(playerRenderers, r => r.enabled = false);
             Array.ForEach(playerColliders, c => c.enabled = false);
-            _input.enabled = false;
+            StopInput();
             deathScreen.SetActive(true);
         }
+
+        public void StopInput() => _input.enabled = false;
+        public void ResumeInput() => _input.enabled = true;
     }
 }

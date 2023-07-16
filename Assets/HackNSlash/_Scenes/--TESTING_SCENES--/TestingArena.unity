@@ -1179,7 +1179,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9130
+  m_Name: pb_Mesh-1792
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2320,7 +2320,7 @@ PrefabInstance:
     - target: {fileID: 3127506573472968210, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 22798
+      value: 22801
       objectReference: {fileID: 0}
     - target: {fileID: 3537777644385623812, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
@@ -7732,6 +7732,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -15.174277
       objectReference: {fileID: 0}
+    - target: {fileID: 7870168195633215473, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: fadeDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7900282025526956297, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8057,6 +8062,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.000043984175
       objectReference: {fileID: 0}
+    - target: {fileID: 8324634527237745407, guid: 4f87f1521805a794aa6863705018b061,
+        type: 3}
+      propertyPath: _previouslyRegisteredEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cc5f3919ae2181458d1c8b793b13940,
+        type: 2}
     - target: {fileID: 8358551533922858057, guid: 4f87f1521805a794aa6863705018b061,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

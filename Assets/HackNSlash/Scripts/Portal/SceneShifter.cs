@@ -1,24 +1,34 @@
 ﻿using System;
-using Eflatun.SceneReference;
 using HackNSlash.Scripts.GameManagement;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using PlayerInputManager = Player.PlayerInputManager;
+using SceneReference = Eflatun.SceneReference.SceneReference;
 
 namespace HackNSlash.Scripts.Portal
 {
     public class SceneShifter : MonoBehaviour
     {
+        [Header("BASE SETUP")]
         [SerializeField] private SceneReference targetScene;
         [SerializeField] private bool shouldStartActive;
         [SerializeField] private int accessorSceneIndex = -1;
+        
+        [Header("EVENTS")]
         [SerializeField] private UnityEvent OnActivation;
         [SerializeField] private UnityEvent OnDeactivation;
 
+        [Header("GAME EVENTS")] 
+        [SerializeField] private GameEvent sceneShiftStarted;
+
+        private bool isReadyToShift;
+
         private void Start()
         {
+            isReadyToShift = false;
             DisableInteraction();
             SetActive(shouldStartActive && CanBeAccessed());
         }
@@ -38,18 +48,28 @@ namespace HackNSlash.Scripts.Portal
         public void EnableInteraction()
         {
             PlayerInputManager.Instance.InputActions.PuzzlePlayer.Interact.performed +=
-                ShiftScene;
+                StartSceneShifting;
         }
         
         public void DisableInteraction()
         {
             PlayerInputManager.Instance.InputActions.PuzzlePlayer.Interact.performed -=
-                ShiftScene;
+                StartSceneShifting;
         }
 
-        private void ShiftScene(InputAction.CallbackContext ctx)
+        private void StartSceneShifting(InputAction.CallbackContext ctx)
         {
             GameManager.Instance.SceneManager.DefinePreviousScene(SceneManager.GetActiveScene());
+            isReadyToShift = true;
+            sceneShiftStarted.Raise();
+        }
+
+        public void EndSceneShifting()
+        {
+            if (!isReadyToShift)
+            {
+                return;
+            }
             targetScene.SafeLoad();
         }
 
