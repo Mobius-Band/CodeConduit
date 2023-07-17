@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 239743926}
   - component: {fileID: 239743928}
   - component: {fileID: 239743927}
+  - component: {fileID: 245275941321487733}
   m_Layer: 0
   m_Name: Particles
   m_TagString: Untagged
@@ -4812,6 +4813,34 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &245275941321487733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239743925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 0
+  tweenDuration: 4
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  propertyName: _EmissionColor
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &813433969807592181
 GameObject:
   m_ObjectHideFlags: 0
@@ -5032,6 +5061,7 @@ GameObject:
   - component: {fileID: 1585753722767179756}
   - component: {fileID: 2843016963949365519}
   - component: {fileID: 4166439495983826796}
+  - component: {fileID: 6666166068360619369}
   m_Layer: 0
   m_Name: Espiral
   m_TagString: Untagged
@@ -5119,6 +5149,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6666166068360619369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359001105734369487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 0
+  tweenDuration: 4
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  propertyName: _Color
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2218445334224759701
 GameObject:
   m_ObjectHideFlags: 0
@@ -6772,6 +6830,7 @@ GameObject:
   - component: {fileID: 3767716639135228232}
   - component: {fileID: 5303121036770629340}
   - component: {fileID: 2728873731245059169}
+  - component: {fileID: 507617282388305245}
   m_Layer: 0
   m_Name: Totem
   m_TagString: Untagged
@@ -6844,6 +6903,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &507617282388305245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2556773619826953781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 0
+  tweenDuration: 4
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  propertyName: _MainColor
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3056119777950409556
 GameObject:
   m_ObjectHideFlags: 0
@@ -7059,6 +7146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2648400426191622266}
   - component: {fileID: 2323898423339674427}
+  - component: {fileID: 605564193058895344}
   m_Layer: 0
   m_Name: Altar
   m_TagString: Untagged
@@ -7135,6 +7223,34 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 2.7028975, z: 0}
     m_Extent: {x: 5.881257, y: 2.6730657, z: 5.881257}
   m_DirtyAABB: 0
+--- !u!114 &605564193058895344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724389250052453285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIndex: 1
+  tweenDuration: 4
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  propertyName: _EmissionColor
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4810230918360894190
 GameObject:
   m_ObjectHideFlags: 0
@@ -7876,7 +7992,8 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 9524c35797addbe4aa520ba905974bb0,
+    type: 2}
   _event: {fileID: 11400000, guid: 9524c35797addbe4aa520ba905974bb0, type: 2}
   _response:
     m_PersistentCalls:

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using DG.Tweening;
 using HackNSlash.Scripts.Audio;
 using HackNSlash.Scripts.Enemy;
 using HackNSlash.UI.DigitalWorld_HUD.Popups.Scripts;
@@ -12,18 +14,32 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         [SerializeField] public ImageBlinker threatPopup;
         [SerializeField] public EnemyWaveManager enemyWaveManager;
         [SerializeField] private AudioManager _audioManager;
-
+        [SerializeField] private MaterialTweener[] materialTweeners;
+        [SerializeField] private float materialTweeningInterval;
+        
         private void Awake()
         {
             connectionPopup.onBlinkStart.AddListener(() => _audioManager.Play("connected"));
             connectionPopup.onBlinkEnd.AddListener(threatPopup.Blink);
             threatPopup.onBlinkStart.AddListener(() => _audioManager.Play("threat"));
-            threatPopup.onBlinkEnd.AddListener(enemyWaveManager.Initialize);
+            IEnumerator materialSequence = (MaterialTweeningSequence(enemyWaveManager.Initialize));
+            threatPopup.onBlinkEnd.AddListener(() => StartCoroutine(materialSequence));
         }
 
         private void Start()
         {
             connectionPopup.Blink();
+        }
+
+        private IEnumerator MaterialTweeningSequence(Action sequenceEndAction)
+        {
+            materialTweeners[0].TweenTowardsTargetColor();
+            for (int i = 1; i < materialTweeners.Length; i++)
+            {
+                yield return new WaitForSeconds(materialTweeningInterval);
+                materialTweeners[i].TweenTowardsTargetColor();
+            }
+            sequenceEndAction.Invoke();
         }
     }
 }

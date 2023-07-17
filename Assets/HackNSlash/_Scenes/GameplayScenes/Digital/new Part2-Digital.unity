@@ -659,7 +659,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-732930
+  m_Name: pb_Mesh-1114604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1335,7 +1335,7 @@ PrefabInstance:
     - target: {fileID: 3127506573472968210, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 22813
+      value: 22852
       objectReference: {fileID: 0}
     - target: {fileID: 3537777644385623812, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
@@ -2202,6 +2202,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 978579844}
     m_Modifications:
+    - target: {fileID: 364499417211189590, guid: 473011ceacf34034799db07f2cbcb350,
+        type: 3}
+      propertyPath: propertyName
+      value: _EmissionColor
+      objectReference: {fileID: 0}
     - target: {fileID: 7641891185757150755, guid: 473011ceacf34034799db07f2cbcb350,
         type: 3}
       propertyPath: m_Camera
