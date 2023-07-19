@@ -44,8 +44,10 @@ Material:
     - _QueueOffset: 0
     - _Scroll_Speed: 0.05
     m_Colors:
+    - _FresnelColor: {r: 1.5686275, g: 11.294118, b: 11.984314, a: 1}
     - _Fresnel_Color: {r: 1.5686275, g: 11.294118, b: 11.984314, a: 1}
     - _Hologram_Tiling: {r: 3, g: 1, b: 0, a: 0}
+    - _MainColor: {r: 0.39215693, g: 2.8160198, b: 2.9960785, a: 1}
     - _Main_Color: {r: 0.39215693, g: 2.8160198, b: 2.9960785, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8909483834511803258

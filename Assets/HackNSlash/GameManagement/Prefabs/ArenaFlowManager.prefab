@@ -49,6 +49,17 @@ MonoBehaviour:
   threatPopup: {fileID: 0}
   enemyWaveManager: {fileID: 0}
   _audioManager: {fileID: 3472666401785217123}
+  materialTweeners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  materialTweeningInterval: 0
 --- !u!1 &8341772823564866124
 GameObject:
   m_ObjectHideFlags: 0

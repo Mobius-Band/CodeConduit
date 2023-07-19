@@ -16,6 +16,7 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         [SerializeField] private AudioManager _audioManager;
         [SerializeField] private MaterialTweener[] materialTweeners;
         [SerializeField] private float materialTweeningInterval;
+        [SerializeField] private bool startWaveAfterTweening;
         
         private void Awake()
         {
@@ -36,10 +37,25 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
             materialTweeners[0].TweenTowardsTargetColor();
             for (int i = 1; i < materialTweeners.Length; i++)
             {
+                if (startWaveAfterTweening && i == materialTweeners.Length - 1)
+                {
+                    materialTweeners[i].OnTweenedToTarget.AddListener(sequenceEndAction.Invoke);
+                }
                 yield return new WaitForSeconds(materialTweeningInterval);
                 materialTweeners[i].TweenTowardsTargetColor();
+ 
             }
-            sequenceEndAction.Invoke();
+
+            if (!startWaveAfterTweening)
+            {
+                sequenceEndAction.Invoke();
+            }
+        }
+
+        [ContextMenu("Gather Material Tweeners")]
+        public void GatherMaterialTweeners()
+        {
+            materialTweeners = FindObjectsOfType<MaterialTweener>();
         }
     }
 }
