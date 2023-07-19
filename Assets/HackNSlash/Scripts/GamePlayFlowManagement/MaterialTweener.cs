@@ -7,9 +7,12 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
 {
     public class MaterialTweener : MonoBehaviour
     {
+        [Tooltip("Leave it empty if the component's GameObject is the target one")]
+        [SerializeField] private GameObject targetGO;
+        [Space]
         [SerializeField] private int materialIndex = 0;
         [SerializeField] private float tweenDuration;
-        [SerializeField] private Color targetColor;
+        [ColorUsage(false, true)][SerializeField] private Color targetColor;
         [SerializeField] private string propertyName;
 
         private Material material;
@@ -23,12 +26,25 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
 
         private void Awake()
         {
-            material = GetComponent<Renderer>().materials[materialIndex];
+            if (targetGO == null)
+            {
+                targetGO = gameObject;
+            }
+            material = targetGO.GetComponent<Renderer>().materials[materialIndex];
             originalColor = material.GetColor(propertyName);
+        }
+
+        private void OnValidate()
+        {
+            if (targetGO == null)
+            {
+                targetGO = gameObject;
+            }
         }
 
         public void TweenTowardsTargetColor()
         {
+            Debug.Log(name);
             colorTween.Kill();
             colorTween = material.DOColor(targetColor, propertyName, tweenDuration);
             colorTween.onPlay += OnTweeningToTarget.Invoke;
