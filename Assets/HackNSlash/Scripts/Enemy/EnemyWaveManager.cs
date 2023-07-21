@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Enemy
 {
@@ -14,13 +15,16 @@ namespace HackNSlash.Scripts.Enemy
         [SerializeField] private Transform _enemyParent;
         [SerializeField] private TextMeshProUGUI _waveText;
         [SerializeField] private Transform playerTransform;
+        [FormerlySerializedAs("OnWaveFinished")]
         [Space] 
-        [SerializeField] private UnityEvent<int, int> OnWaveFinished;
-        [SerializeField] private UnityEvent OnAllWavesFinished;
+        [SerializeField] private UnityEvent<int, int> onWaveFinished;
+        [FormerlySerializedAs("OnAllWavesFinished")] [SerializeField] private UnityEvent onAllWavesFinished;
         
         private int _currentWaveIndex = 0;
         private int _enemiesLeft => _enemyParent.childCount;
         private int MaximumWaveIndex => selectedWaveCollection.Length;
+
+        public UnityEvent OnAllWavesFinished => onAllWavesFinished;
         
         public void Initialize()
         {
@@ -49,12 +53,12 @@ namespace HackNSlash.Scripts.Enemy
                 return;
             }
 
-            OnWaveFinished?.Invoke(_currentWaveIndex,MaximumWaveIndex);
+            onWaveFinished?.Invoke(_currentWaveIndex,MaximumWaveIndex);
             _currentWaveIndex += 1;
                 
             if (_currentWaveIndex >= MaximumWaveIndex)
             {
-                OnAllWavesFinished?.Invoke();
+                onAllWavesFinished?.Invoke();
                 GameManager.Instance.UnlockCurrentLaserWall();
                 enabled = false;
                 return;

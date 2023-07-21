@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &48480021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48480022}
+  - component: {fileID: 48480023}
+  m_Layer: 0
+  m_Name: Totem_FresnelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &48480022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48480021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3767716639135228232}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48480023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48480021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGO: {fileID: 2556773619826953781}
+  tweenDuration: 9
+  targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 0}
+  propertyName: _FresnelColor
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  materialIndex: 0
 --- !u!1 &239743925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4825,9 +4886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialIndex: 0
-  tweenDuration: 4
-  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  targetGO: {fileID: 0}
+  tweenDuration: 2
+  targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 1}
   propertyName: _EmissionColor
   OnTweeningToTarget:
     m_PersistentCalls:
@@ -4841,6 +4902,7 @@ MonoBehaviour:
   OnTweenedToOriginal:
     m_PersistentCalls:
       m_Calls: []
+  materialIndex: 0
 --- !u!1 &813433969807592181
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,9 +5223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialIndex: 0
-  tweenDuration: 4
-  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  targetGO: {fileID: 0}
+  tweenDuration: 2
+  targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 1}
   propertyName: _Color
   OnTweeningToTarget:
     m_PersistentCalls:
@@ -5177,6 +5239,7 @@ MonoBehaviour:
   OnTweenedToOriginal:
     m_PersistentCalls:
       m_Calls: []
+  materialIndex: 0
 --- !u!1 &2218445334224759701
 GameObject:
   m_ObjectHideFlags: 0
@@ -6683,7 +6746,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 22684
+  m_VersionIndex: 22873
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6849,7 +6912,8 @@ Transform:
   m_LocalPosition: {x: -0.6234607, y: 2.3880749, z: -0.31172395}
   m_LocalScale: {x: 3.3710763, y: 1, z: 3.3710763}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 48480022}
   m_Father: {fileID: 6574281091218394840}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6915,9 +6979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialIndex: 0
-  tweenDuration: 4
-  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  targetGO: {fileID: 0}
+  tweenDuration: 2
+  targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 0}
   propertyName: _MainColor
   OnTweeningToTarget:
     m_PersistentCalls:
@@ -6931,6 +6995,7 @@ MonoBehaviour:
   OnTweenedToOriginal:
     m_PersistentCalls:
       m_Calls: []
+  materialIndex: 0
 --- !u!1 &3056119777950409556
 GameObject:
   m_ObjectHideFlags: 0
@@ -7064,8 +7129,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3061793188341198869}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -7097,7 +7162,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1284801176}
         m_TargetAssemblyTypeName: HackNSlash.Scripts.Portal.SceneShifter, Assembly-CSharp
         m_MethodName: EnableInteraction
         m_Mode: 1
@@ -7124,7 +7189,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1284801176}
         m_TargetAssemblyTypeName: HackNSlash.Scripts.Portal.SceneShifter, Assembly-CSharp
         m_MethodName: DisableInteraction
         m_Mode: 1
@@ -7235,9 +7300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialIndex: 1
-  tweenDuration: 4
-  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  targetGO: {fileID: 0}
+  tweenDuration: 2
+  targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 1}
   propertyName: _EmissionColor
   OnTweeningToTarget:
     m_PersistentCalls:
@@ -7251,6 +7316,7 @@ MonoBehaviour:
   OnTweenedToOriginal:
     m_PersistentCalls:
       m_Calls: []
+  materialIndex: 1
 --- !u!1 &4810230918360894190
 GameObject:
   m_ObjectHideFlags: 0
@@ -7409,6 +7475,7 @@ GameObject:
   - component: {fileID: 8548590618151272442}
   - component: {fileID: 5103317198074635091}
   - component: {fileID: 2066616946327399977}
+  - component: {fileID: 1878034342}
   m_Layer: 0
   m_Name: Glow_Vfx_Graph
   m_TagString: Untagged
@@ -7511,6 +7578,34 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1878034342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862101695830875780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005cc21cbb9d4100a81a457577c791f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGO: {fileID: 7862101695830875780}
+  tweenDuration: 0
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  propertyName: Main Color
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8365872116829306066
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,6 +7715,7 @@ GameObject:
   - component: {fileID: 2602517814413236902}
   - component: {fileID: 8620214056000441365}
   - component: {fileID: 2829823971619650011}
+  - component: {fileID: 168034259}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Untagged
@@ -7695,6 +7791,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &168034259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462341063185361168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4b745eaa44ed887dcfbc9da2c2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGO: {fileID: 8462341063185361168}
+  tweenDuration: 9
+  targetColor: {r: 25.416578, g: 25.416578, b: 25.416578, a: 0}
+  propertyName: _EmissionColor
+  OnTweeningToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToTarget:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweeningToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTweenedToOriginal:
+    m_PersistentCalls:
+      m_Calls: []
+  materialIndex: 1
 --- !u!1 &8619152764823761322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,6 +7831,7 @@ GameObject:
   - component: {fileID: 217101916272112402}
   - component: {fileID: 9058950339372310101}
   - component: {fileID: 7813947948258857651}
+  - component: {fileID: 832582296}
   m_Layer: 0
   m_Name: Luas
   m_TagString: Untagged
@@ -7779,6 +7905,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &832582296
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619152764823761322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8194301233225257036, guid: 048d8d00476e54046b2da89ce04604d0, type: 3}
 --- !u!1 &9069707828337580276
 GameObject:
   m_ObjectHideFlags: 0
@@ -7897,7 +8037,7 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: fceb9dce34fe97348a5ce4c0d9559f1a, type: 3}
     sceneAssetGuidHex: fceb9dce34fe97348a5ce4c0d9559f1a
   shouldStartActive: 0
-  accessorSceneIndex: -1
+  accessorSceneIndex: 2
   OnActivation:
     m_PersistentCalls:
       m_Calls:

@@ -5,58 +5,27 @@ using UnityEngine.Events;
 
 namespace HackNSlash.Scripts.GamePlayFlowManagement
 {
-    public class MaterialTweener : MonoBehaviour
+    public class MaterialTweener : AestheticTweener
     {
-        [Tooltip("Leave it empty if the component's GameObject is the target one")]
-        [SerializeField] private GameObject targetGO;
-        [Space]
         [SerializeField] private int materialIndex = 0;
-        [SerializeField] private float tweenDuration;
-        [ColorUsage(false, true)][SerializeField] private Color targetColor;
-        [SerializeField] private string propertyName;
 
         private Material material;
-        private Color originalColor;
-        private Tween colorTween;
 
-        public UnityEvent OnTweeningToTarget;
-        public UnityEvent OnTweenedToTarget;
-        public UnityEvent OnTweeningToOriginal;
-        public UnityEvent OnTweenedToOriginal;
-
-        private void Awake()
+        protected override void InitializeAestheticsProperties()
         {
-            if (targetGO == null)
-            {
-                targetGO = gameObject;
-            }
             material = targetGO.GetComponent<Renderer>().materials[materialIndex];
             originalColor = material.GetColor(propertyName);
         }
 
-        private void OnValidate()
+        protected override void InitializeTargetTween()
         {
-            if (targetGO == null)
-            {
-                targetGO = gameObject;
-            }
+            colorTween = material.DOColor(targetColor, propertyName, tweenDuration);
         }
 
-        public void TweenTowardsTargetColor()
+        protected override void InitializeOriginalTween()
         {
-            Debug.Log(name);
-            colorTween.Kill();
-            colorTween = material.DOColor(targetColor, propertyName, tweenDuration);
-            colorTween.onPlay += OnTweeningToTarget.Invoke;
-            colorTween.onKill += OnTweenedToTarget.Invoke;
+            colorTween = material.DOColor(originalColor, propertyName, tweenDuration);
         }
         
-        public void TweenTowardsOriginalColor()
-        {
-            colorTween.Kill();
-            colorTween = material.DOColor(originalColor, propertyName, tweenDuration);
-            colorTween.onPlay += OnTweeningToOriginal.Invoke;
-            colorTween.onKill += OnTweenedToOriginal.Invoke;
-        }
     }
 }
