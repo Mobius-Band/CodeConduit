@@ -48,6 +48,7 @@ MonoBehaviour:
   tweenDuration: 9
   targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 0}
   propertyName: _FresnelColor
+  ignoreExternalSettings: 0
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -4890,6 +4891,7 @@ MonoBehaviour:
   tweenDuration: 2
   targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 1}
   propertyName: _EmissionColor
+  ignoreExternalSettings: 0
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -5227,6 +5229,7 @@ MonoBehaviour:
   tweenDuration: 2
   targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 1}
   propertyName: _Color
+  ignoreExternalSettings: 0
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -6983,6 +6986,7 @@ MonoBehaviour:
   tweenDuration: 2
   targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 0}
   propertyName: _MainColor
+  ignoreExternalSettings: 0
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -7304,6 +7308,7 @@ MonoBehaviour:
   tweenDuration: 2
   targetColor: {r: 19.037518, g: 0.8212263, b: 1.1945109, a: 1}
   propertyName: _EmissionColor
+  ignoreExternalSettings: 0
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -7591,9 +7596,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetGO: {fileID: 7862101695830875780}
-  tweenDuration: 0
-  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  tweenDuration: 2
+  targetColor: {r: 1.170963, g: 0, b: 0.024522787, a: 0}
   propertyName: Main Color
+  ignoreExternalSettings: 1
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -7807,6 +7813,7 @@ MonoBehaviour:
   tweenDuration: 9
   targetColor: {r: 25.416578, g: 25.416578, b: 25.416578, a: 0}
   propertyName: _EmissionColor
+  ignoreExternalSettings: 0
   OnTweeningToTarget:
     m_PersistentCalls:
       m_Calls: []

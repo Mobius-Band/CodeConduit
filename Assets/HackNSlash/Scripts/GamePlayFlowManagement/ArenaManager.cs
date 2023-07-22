@@ -40,7 +40,7 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
             {
                 foreach (var tweener in materialTweeners)
                 {
-                    tweener.SetColorAndDuration(targetColor, tweenDuration);
+                    tweener.TrySetColorAndDuration(targetColor, tweenDuration);
                 }
             }
             connectionPopup.Blink();

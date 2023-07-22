@@ -13,6 +13,7 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         [SerializeField] protected float tweenDuration;
         [ColorUsage(false, true)][SerializeField] protected Color targetColor;
         [SerializeField] protected string propertyName;
+        [SerializeField] protected bool ignoreExternalSettings;
         
         protected Color originalColor;
         protected Tween colorTween;
@@ -58,8 +59,12 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
             colorTween.onKill += OnTweenedToOriginal.Invoke;
         }
         
-        public void SetColorAndDuration(Color color, float duration)
+        public void TrySetColorAndDuration(Color color, float duration)
         {
+            if (ignoreExternalSettings)
+            {
+                return;
+            }
             this.targetColor = color;
             this.tweenDuration = duration;
         }
