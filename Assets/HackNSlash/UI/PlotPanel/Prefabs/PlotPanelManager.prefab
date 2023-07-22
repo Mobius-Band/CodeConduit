@@ -213,8 +213,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1752173846612096513}
   m_HandleRect: {fileID: 8588096455870355009}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5605993
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1051,9 +1051,8 @@ MonoBehaviour:
     to ensure that humanity transcends the realms of insignificance, etching an indelible
     mark upon the tapestry of this future world."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eeeca10c5c16fb74da9e508fd3dd0c9f, type: 2}
-  m_sharedMaterial: {fileID: 5491693224220743028, guid: eeeca10c5c16fb74da9e508fd3dd0c9f,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 980ebf661b568db4ea87276c6dc8ae83, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 65e8d5ef08de1384eba5c49cc7aa5eb8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1062,12 +1061,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
-  m_colorMode: 3
+  m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 1, g: 0.95660377, b: 0.95660377, a: 1}
+    topRight: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+    bottomLeft: {r: 1, g: 0.95660377, b: 0.95660377, a: 1}
+    bottomRight: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1077,8 +1076,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
