@@ -384,10 +384,25 @@ PrefabInstance:
         was by mistake or on purpose as yet another childish act by a financial elite
         who are afraid of suffering with the consequences brought by their own lifestyle.\r\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 6226116790420246591, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.47134396
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226116790420246591, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
@@ -452,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 7956740664897861932, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7956740664897861968, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
