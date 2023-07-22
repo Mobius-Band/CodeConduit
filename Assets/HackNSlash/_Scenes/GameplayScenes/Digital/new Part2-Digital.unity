@@ -2007,6 +2007,16 @@ PrefabInstance:
       objectReference: {fileID: 1577550412}
     - target: {fileID: 6110381552499317239, guid: 6d317670bae3c6a42a91175b4b6e8602,
         type: 3}
+      propertyPath: materialTweeningInterval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110381552499317239, guid: 6d317670bae3c6a42a91175b4b6e8602,
+        type: 3}
+      propertyPath: materialTweeners.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110381552499317239, guid: 6d317670bae3c6a42a91175b4b6e8602,
+        type: 3}
       propertyPath: materialTweeners.Array.data[0]
       value: 
       objectReference: {fileID: 1878034342}

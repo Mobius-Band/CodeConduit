@@ -40,29 +40,48 @@ namespace HackNSlash.Scripts.Player
         
         void Start()
         {
-            //External
+            InitializeGeneralWorkflow();
+            InitializePropInteraction();
+            if (!isPuzzlePlayer)
+            {
+                InitializeCombatInput();
+            }
+            InitializeAnimationEvents();
+            InitializeCheatCodes();
+        }
+
+        private void InitializeGeneralWorkflow()
+        {
             _input.InputActions.Player.Pause.performed += _ => pauseMenu.TogglePauseMenu();
-            _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerInteraction.Interact();
-            
             _playerHealth.OnPlayerDeath.AddListener(KillPlayer);
-            
+        }
+        
+        private void InitializePropInteraction()
+        {
             if (isPuzzlePlayer)
             {
-                // create interaction function
+                _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerInteraction.Interact();
                 _input.InputActions.PuzzlePlayer.Interact.performed += _ => _playerPickupSphere.SphereInteract();
-                
                 if (sphereElevator && !_playerPickupSphere.isHoldingSphere)
                 {
                     _input.InputActions.PuzzlePlayer.Interact.performed += _ => sphereElevator.ElevatorActivate();
                 }
+            }
+        }
+        
+        private void InitializeAnimationEvents()
+        {
+            if (playerAnimationManager == null)
+            {
+                Debug.LogError("Player animation manager hasn't been found!");
                 return;
             }
-            
-            _input.InputActions.Player.AttackLight.performed += _ => _comboManager.HandleAttackInput(true);
-            _input.InputActions.Player.AttackHeavy.performed += _ => _comboManager.HandleAttackInput(false);
-            _input.InputActions.Player.Dash.performed += _ => _movement.Dash();
-
-            if (playerAnimationManager != null)
+            playerAnimationManager.OnAnimationMovementStep += _movement.PlayStepSound;
+            if (isPuzzlePlayer)
+            {
+                //Restricted puzzle animation events
+            }
+            else
             {
                 playerAnimationManager.OnAnimationEndCombo += _comboManager.EndCombo;
                 playerAnimationManager.OnAnimationHit += _comboManager.ToggleHitbox;
@@ -75,11 +94,26 @@ namespace HackNSlash.Scripts.Player
                 playerAnimationManager.OnAnimationAttackStep += () => _movement.AttackStep(_comboManager.currentAttack);
                 playerAnimationManager.OnAnimationSuspendMovement += _movement.SuspendMovement;
                 playerAnimationManager.OnAnimationRegainMovement += _movement.RegainMovement;
-                playerAnimationManager.OnAnimationMovementStep += _movement.PlayStepSound;
             }
-            
-            //CheatCodes
-            _input.InputActions.Player.CHEATCODEInfiniteHealth.performed += _ => _playerHealth.ToggleImmortalMode();
+        }
+
+        private void InitializeCombatInput()
+        {
+            _input.InputActions.Player.AttackLight.performed += _ => _comboManager.HandleAttackInput(true);
+            _input.InputActions.Player.AttackHeavy.performed += _ => _comboManager.HandleAttackInput(false);
+            _input.InputActions.Player.Dash.performed += _ => _movement.Dash();
+        }
+
+        private void InitializeCheatCodes()
+        {
+            if (isPuzzlePlayer)
+            {
+                
+            }
+            else
+            {
+                _input.InputActions.Player.CHEATCODEInfiniteHealth.performed += _ => _playerHealth.ToggleImmortalMode();
+            }
         }
 
         private void OnDisable()
