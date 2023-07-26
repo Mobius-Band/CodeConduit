@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6319190246368710420}
   - component: {fileID: 6319190246368710421}
   m_Layer: 0
-  m_Name: ActivationPlate
+  m_Name: ActivationPlate_Identification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,8 +66,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   renderer: {fileID: 8403412132928095658}
-  activeMaterial: {fileID: 2100000, guid: c1cfb2a2552a2af43b86ea35fc20db7f, type: 2}
-  inactiveMaterial: {fileID: 2100000, guid: 089da9fc462f6ce48bcddc898dc8ae4b, type: 2}
+  lightMaterialIndex: 2
+  activeLightColor: {r: 16.94838, g: 14.10886, b: 0, a: 0}
+  transitionDuration: 0.5
+  colorPropertyName: _EmissionColor
 --- !u!1001 &1262537791336356000
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,9 +27,13 @@ namespace HackNSlash.Scripts.Player
         [Header("External References")] 
         [SerializeField] private PauseMenuManager pauseMenu;
         [SerializeField] private GameObject deathScreen;
+
+        public static PlayerManager Instance;
         
         void Awake()
         {
+            Instance = this;
+            
             _input = GetComponent<PlayerInputManager>();
             _comboManager = GetComponent<ComboManager>();
             _movement = GetComponent<PlayerMovement>();

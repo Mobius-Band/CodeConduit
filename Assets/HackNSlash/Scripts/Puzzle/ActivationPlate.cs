@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using HackNSlash.Scripts.Util;
 using UnityEngine;
 
@@ -7,21 +9,29 @@ namespace HackNSlash.Scripts.Puzzle
 {
     public class ActivationPlate : PuzzleSwitch
     {
-        [Header("System Setup")]
+        [Header("System Setup")] 
         [SerializeField] private float timer = 1f;
         [SerializeField] private LayerMask triggerMask;
 
         [Header("Materials")] 
         [SerializeField] private new Renderer renderer;
-        [SerializeField] private Material activeMaterial;
-        [SerializeField] private Material inactiveMaterial;
-    
+        [SerializeField] private int lightMaterialIndex;
+        [ColorUsage(false, true)][SerializeField] private Color activeLightColor;
+        [SerializeField] private float transitionDuration;
+        [SerializeField] private string colorPropertyName;
+
         private List<Collider> _collidersWithin;
-        private int ColliderQuantity => _collidersWithin.Count;
+        private Material _lightMaterial;
+        private Color _inactiveLightColor;
         
+        private int EmissionColorID => Shader.PropertyToID(colorPropertyName);
+
+        private int ColliderQuantity => _collidersWithin.Count;
+
         private void Start()
         {
-            renderer.material = inactiveMaterial;
+            _lightMaterial = renderer.materials[lightMaterialIndex];
+            _inactiveLightColor = _lightMaterial.GetColor(EmissionColorID);
             _collidersWithin = new List<Collider>();
         }
 
@@ -38,10 +48,13 @@ namespace HackNSlash.Scripts.Puzzle
             {
                 return;
             }
-        
-            isActivated = true;
-            StopCoroutine(DeactivationTimer());
             Activate();
+        }
+
+        private void OnCollisionStay(Collision collisionInfo)
+        {
+            Collider other = collisionInfo.collider;
+            OnTriggerEnter(other);
         }
 
         private void OnTriggerExit(Collider other)
@@ -69,15 +82,17 @@ namespace HackNSlash.Scripts.Puzzle
 
         private new void Activate()
         {
+            isActivated = true;
+            StopCoroutine(DeactivationTimer());
             base.Activate();
-            renderer.material = activeMaterial;
+            _lightMaterial.DOColor(activeLightColor, EmissionColorID, transitionDuration);
         }
 
         private new void Deactivate()
         {
             isActivated = false;
             base.Deactivate();
-            renderer.material = inactiveMaterial;
+            _lightMaterial.DOColor(_inactiveLightColor, EmissionColorID, transitionDuration);
         }
     }
 }

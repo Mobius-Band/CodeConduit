@@ -17,6 +17,12 @@ namespace HackNSlash.Scripts.Camera
         
         void Start()
         {
+            if (_focus == null)
+            {
+                this.enabled = false;
+                return;
+            }
+            
             _initialPosition = transform.position;
             _initialFocusPosition = _focus.position;
         }
