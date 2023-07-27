@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using HackNSlash.Scripts.Audio;
 using HackNSlash.Scripts.GameManagement;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HackNSlash.Scripts.Puzzle
 {
@@ -18,32 +15,12 @@ namespace HackNSlash.Scripts.Puzzle
         [SerializeField] private int doorIndex;
         private bool _opened;
 
-        private void Start()
-        {
-            switch (doorIndex)
-            {
-                case 2:
-                    if (GameManager.Instance.AccessData.canAccessPart2)
-                    {
-                        DisableDoor();
-                    }
-                    break;
-                case 3:
-                    if (GameManager.Instance.AccessData.canAccessPart3)
-                    {
-                        DisableDoor();
-                    }
-                    break;
-                case 4:
-                    if (GameManager.Instance.AccessData.canAccessPart4)
-                    {
-                        DisableDoor();
-                    }
-                    break;
-            }
-        }
+        // private void Start()
+        // {
+        //     ConditionalDisableDoor();
+        // }
 
-        private void DisableDoor()
+        public void DisableDoor()
         {
             StartCoroutine(AlphaLerp());
         }
@@ -71,6 +48,31 @@ namespace HackNSlash.Scripts.Puzzle
 
             _opened = true;
             renderer.materials[1].SetFloat("_AlphaController", 0.0f);
+        }
+
+        public void ConditionalDisableDoor()
+        {
+            switch (doorIndex)
+            {
+                case 2:
+                    if (GameManager.Instance.AccessData.canAccessPart2)
+                    {
+                        DisableDoor();
+                    }
+                    break;
+                case 3:
+                    if (GameManager.Instance.AccessData.canAccessPart3)
+                    {
+                        DisableDoor();
+                    }
+                    break;
+                case 4:
+                    if (GameManager.Instance.AccessData.canAccessPart4)
+                    {
+                        DisableDoor();
+                    }
+                    break;
+            }
         }
     }
 }

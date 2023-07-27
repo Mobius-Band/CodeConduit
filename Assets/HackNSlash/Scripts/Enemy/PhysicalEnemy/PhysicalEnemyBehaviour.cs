@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.Player;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,7 +20,7 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
         [SerializeField] private int correspondentSceneIndex;
         [SerializeField] private AccessData generalAccessData;
         [ColorUsage(false, true)][SerializeField] private Color defunctColor;
-
+        [SerializeField] private GameEvent onEnemyDeactivation;
 
         [Header("ALERT")] 
         [SerializeField] private bool useAlertBehaviour;
@@ -29,13 +30,13 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
         [SerializeField] private TweeningMaterials tweeningMaterials;
         [SerializeField] private float alertStateEffectEnterTime;
         [ColorUsage(false, true)][SerializeField] private Color alertEmission;
+        [Range(0,1)][SerializeField] private float turnSpeed;
         
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
 
         private Coroutine _alertRoutine;
 
-        // private Color[] _defaultLightColors;
         private Quaternion _defaultRotation;
         private bool _isFocusOnDanger;
         private int _currentPatrolTargetIndex = 0;
@@ -129,7 +130,9 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
             tweeningMaterials.DOColors(alertEmission, emissionColorID, alertStateEffectEnterTime);
             while (true)
             {
-                transform.LookAt(threatPoint.position, Vector3.up);
+                Vector3 direction = (threatPoint.position - transform.position).normalized;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
                 yield return new WaitForSeconds(Time.deltaTime);
             }
         }
@@ -157,7 +160,8 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
             tweeningMaterials.DOColors(alertEmission, emissionColorID, 0.01f);
             _animator.SetBool(isDefunctStateID, IsDefunct());
             float animLength = 1;
-            tweeningMaterials.DOColors(defunctColor, emissionColorID, animLength);
+            Tween deactivationTween = tweeningMaterials.DOColors(defunctColor, emissionColorID, animLength);
+            deactivationTween.onKill += onEnemyDeactivation.Raise;
         }
 
         private void TryDrawThreatGizmo()

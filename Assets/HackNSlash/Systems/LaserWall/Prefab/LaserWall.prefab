@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 530214780809009300}
   - component: {fileID: 8978242384257330072}
   - component: {fileID: 1758285544530660221}
+  - component: {fileID: 8434811601491298435}
   m_Layer: 0
   m_Name: LaserWall
   m_TagString: Untagged
@@ -70,6 +71,38 @@ MonoBehaviour:
   renderer: {fileID: 1638588782975055623}
   toggleDuration: 5
   doorIndex: 2
+--- !u!114 &8434811601491298435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530214780809009303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: 4aa1447496c2419498405cb2d8e33ce3, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1758285544530660221}
+        m_TargetAssemblyTypeName: HackNSlash.Scripts.Puzzle.OpenLaserWall, Assembly-CSharp
+        m_MethodName: ConditionalDisableDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2960301134016430190
 GameObject:
   m_ObjectHideFlags: 0

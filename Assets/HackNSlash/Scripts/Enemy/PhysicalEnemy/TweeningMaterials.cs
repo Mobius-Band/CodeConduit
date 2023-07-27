@@ -22,13 +22,17 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
             }
         }
 
-        public void DOColors(Color targetColor, int colorID, float tweeningDuration)
+        public Sequence DOColors(Color targetColor, int colorID, float tweeningDuration)
         {
             int count = renderers.Length;
+            Sequence sequence = DOTween.Sequence();
             for (int i = 0; i < count; i++)
             {
-                renderers[i].materials[materialIndexes[i]].DOColor(targetColor, colorID, tweeningDuration).Play();
+                sequence.Join(
+                renderers[i].materials[materialIndexes[i]].DOColor(targetColor, colorID, tweeningDuration).Play());
             }
+
+            return sequence.Play();
         }
 
         public void TweenToDefault(int colorID, float tweeningDuration)

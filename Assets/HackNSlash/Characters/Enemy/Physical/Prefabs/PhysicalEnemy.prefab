@@ -5193,10 +5193,13 @@ MonoBehaviour:
   includeInitialPosition: 0
   correspondentSceneIndex: 2
   generalAccessData: {fileID: 11400000, guid: 74b316f56339164498d13ed2e19bf656, type: 2}
+  defunctColor: {r: 0.011703432, g: 0.0006127451, b: 0.00030637256, a: 0}
+  onEnemyDeactivation: {fileID: 11400000, guid: 4aa1447496c2419498405cb2d8e33ce3,
+    type: 2}
   useAlertBehaviour: 1
   defensePoint: {fileID: 0}
   threatPoint: {fileID: 0}
-  threatRadius: 7
+  threatRadius: 10
   tweeningMaterials:
     renderers:
     - {fileID: 5755850403959659840}
@@ -5205,6 +5208,7 @@ MonoBehaviour:
     materialIndexes: 030000000300000002000000
   alertStateEffectEnterTime: 1
   alertEmission: {r: 99.999985, g: 5.2356014, b: 2.6178007, a: 0}
+  turnSpeed: 0
 --- !u!95 &6901062618051012479
 Animator:
   serializedVersion: 4
