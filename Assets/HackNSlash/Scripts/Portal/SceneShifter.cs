@@ -1,5 +1,4 @@
-﻿using System;
-using HackNSlash.Scripts.GameManagement;
+﻿using HackNSlash.Scripts.GameManagement;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.Events;
