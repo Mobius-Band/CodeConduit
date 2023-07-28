@@ -135,6 +135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1208714840548333869}
     m_Modifications:
+    - target: {fileID: 3116962117817235937, guid: 894e76dd408822242b84f57f2cf34e7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5346091357959448648, guid: 894e76dd408822242b84f57f2cf34e7c,
         type: 3}
       propertyPath: patrolPoints.Array.data[0]

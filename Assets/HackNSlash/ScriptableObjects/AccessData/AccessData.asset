@@ -22,5 +22,5 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: aec651808d2d4704d94e4d6e27b62bd7, type: 3}
     sceneAssetGuidHex: aec651808d2d4704d94e4d6e27b62bd7
   canAccessPart2: 1
-  canAccessPart3: 1
+  canAccessPart3: 0
   canAccessPart4: 0

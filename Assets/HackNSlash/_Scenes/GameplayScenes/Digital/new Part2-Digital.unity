@@ -1185,6 +1185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2029975303}
     m_Modifications:
+    - target: {fileID: 722439234, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetEffectScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
       propertyPath: OnActivation.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1197,6 +1201,14 @@ PrefabInstance:
       propertyPath: OnDeactivation.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7848860981956641703}
+    - target: {fileID: 1878034342, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetColor.b
+      value: 0.49045599
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878034342, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
+      propertyPath: targetColor.r
+      value: 18.735418
+      objectReference: {fileID: 0}
     - target: {fileID: 2535872861262226895, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_Name
@@ -1505,11 +1517,6 @@ PrefabInstance:
     - target: {fileID: 132909527, guid: 18a1b53cb73c0934b9bdbf379788009c, type: 3}
       propertyPath: onBlinkEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801388655238759802, guid: 18a1b53cb73c0934b9bdbf379788009c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1801388655724150368, guid: 18a1b53cb73c0934b9bdbf379788009c,
         type: 3}
