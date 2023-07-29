@@ -671,7 +671,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-137706
+  m_Name: pb_Mesh-332356
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1185,10 +1185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2029975303}
     m_Modifications:
-    - target: {fileID: 722439234, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
-      propertyPath: targetEffectScale
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1284801176, guid: 0c7e1bc2617a1244084108e37834d823, type: 3}
       propertyPath: OnActivation.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1277,7 +1273,7 @@ PrefabInstance:
     - target: {fileID: 3127506573472968210, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 22885
+      value: 22888
       objectReference: {fileID: 0}
     - target: {fileID: 4574269097812909523, guid: 0c7e1bc2617a1244084108e37834d823,
         type: 3}

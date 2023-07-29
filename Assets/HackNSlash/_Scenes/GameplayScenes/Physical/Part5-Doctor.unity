@@ -579,6 +579,16 @@ PrefabInstance:
         sure that's more than enough.\n\r--------------------------------------------------
         ---------------------------------------------------last file\r\n\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 6226116790420246591, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.6159835
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226116790420246591, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.999
+      objectReference: {fileID: 0}
     - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -587,7 +597,7 @@ PrefabInstance:
     - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 17294.037
+      value: 0.4468994
       objectReference: {fileID: 0}
     - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}

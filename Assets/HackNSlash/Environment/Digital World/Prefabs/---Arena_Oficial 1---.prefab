@@ -5096,7 +5096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetYPosition: 25.9
   glowEffect: {fileID: 8548590618151272442}
-  targetEffectScale: 4
+  targetEffectScale: 2
   movementDuration: 1.5
   onTotemFullyTweened:
     m_PersistentCalls:

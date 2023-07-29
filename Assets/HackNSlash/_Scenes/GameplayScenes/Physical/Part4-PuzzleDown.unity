@@ -742,6 +742,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
+      propertyPath: activeLightColor.b
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.g
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.r
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
       propertyPath: triggerMask.m_Bits
       value: 768
       objectReference: {fileID: 0}
@@ -805,6 +820,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8403412132928095658, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8e97379999f19e489eda9d03e38c9b4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952fc271076066a4eb4bf22072e56aa0, type: 3}
 --- !u!4 &294739886 stripped
@@ -1530,6 +1550,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
+      propertyPath: activeLightColor.b
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.g
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.r
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
       propertyPath: triggerMask.m_Bits
       value: 768
       objectReference: {fileID: 0}
@@ -1593,6 +1628,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8403412132928095658, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8e97379999f19e489eda9d03e38c9b4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952fc271076066a4eb4bf22072e56aa0, type: 3}
 --- !u!4 &1265879644 stripped
@@ -1612,6 +1652,21 @@ PrefabInstance:
         type: 3}
       propertyPath: timer
       value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.b
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.g
+      value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: activeLightColor.r
+      value: 164.6432
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
@@ -1678,6 +1733,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8403412132928095658, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8e97379999f19e489eda9d03e38c9b4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952fc271076066a4eb4bf22072e56aa0, type: 3}
 --- !u!4 &1375653573 stripped

@@ -435,6 +435,16 @@ PrefabInstance:
         perfect for the new AI to \u200B\u200Brun without being tied to the main
         system. We call it Model: Luden 01."
       objectReference: {fileID: 0}
+    - target: {fileID: 6226116790420246591, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.984631
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226116790420246591, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -443,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 7038618360076440993, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 309423.84
+      value: 11.189995
       objectReference: {fileID: 0}
     - target: {fileID: 7956740663371519568, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
@@ -509,6 +519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956740664897861933, guid: 571255af092870e46a2009f0e40f4010,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8588096455870355009, guid: 571255af092870e46a2009f0e40f4010,
         type: 3}
