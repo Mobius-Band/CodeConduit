@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using PlayerInputManager = Player.PlayerInputManager;
 using SceneReference = Eflatun.SceneReference.SceneReference;
 
@@ -22,6 +23,7 @@ namespace HackNSlash.Scripts.Portal
 
         [Header("GAME EVENTS")] 
         [SerializeField] private GameEvent sceneShiftStarted;
+        [SerializeField] private IntGameEvent onNextSceneSet;
 
         private bool isReadyToShift;
 
@@ -61,6 +63,7 @@ namespace HackNSlash.Scripts.Portal
             GameManager.Instance.SceneManager.DefinePreviousScene(SceneManager.GetActiveScene());
             isReadyToShift = true;
             sceneShiftStarted.Raise();
+            onNextSceneSet.Raise(targetScene.BuildIndex);
         }
 
         public void EndSceneShifting()

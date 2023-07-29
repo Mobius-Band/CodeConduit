@@ -8124,6 +8124,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   sceneShiftStarted: {fileID: 11400000, guid: 0cc5f3919ae2181458d1c8b793b13940, type: 2}
+  onNextSceneSet: {fileID: 11400000, guid: 13ef7f465ae32e04ab2741c56f11f05c, type: 2}
 --- !u!114 &1366702809725846893
 MonoBehaviour:
   m_ObjectHideFlags: 0

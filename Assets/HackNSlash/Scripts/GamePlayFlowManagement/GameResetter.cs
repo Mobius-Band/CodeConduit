@@ -11,7 +11,6 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
     {
         public void ResetToPreviousSceneOrToMainMenu()
         {
-            Debug.Log("Resetting this shit@");
             int previousSceneIndex = GameManager.Instance.SceneManager.previousSceneIndex;
             if (previousSceneIndex < 0)
             {

@@ -1,27 +1,44 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using HackNSlash.Scripts.GamePlayFlowManagement;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "TransformRegister", menuName = "ScriptableObjects/TransformRegister", order = 1)]
 
 public class TransformRegister : ScriptableObject
 {
-    [SerializeField] private Transform[] registeredTransforms;
+    [SerializeField] private TransformData[] registeredTransforms;
 
-    public void RegisterTransforms(Transform[] transforms)
+    public void RegisterTransformsIntoDatabase(Transform[] transforms)
     {
-        registeredTransforms = transforms;
+        int count = transforms.Length;
+        registeredTransforms = new TransformData[count];
+        for (int i = 0; i < count; i++)
+        {
+            registeredTransforms[i] = transforms[i];
+        }
     }
 
-    public void GatherTransforms(ref Transform[] runtimeTransforms)
+    public bool TrySetRuntimeTransforms(ref Transform[] runtimeTransforms)
     {
-        runtimeTransforms = registeredTransforms;
+        if (registeredTransforms.Length != runtimeTransforms.Length)
+        {
+            return false;
+        }
+        
+        int count = registeredTransforms.Length;
+        for (int i = 0; i < count; i++)
+        {
+            runtimeTransforms[i].position = registeredTransforms[i].position;
+            runtimeTransforms[i].rotation = registeredTransforms[i].rotation;
+            runtimeTransforms[i].localScale = registeredTransforms[i].scale;
+        }
+        return true;
     }
 
     public void Reset()
     {
-        registeredTransforms = Array.Empty<Transform>();
+        Debug.Log("Resetting");
+
+        registeredTransforms = Array.Empty<TransformData>();
     }
 }

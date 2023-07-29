@@ -122,11 +122,18 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
         
         public bool IsOnMainMenu() => SceneManager.GetActiveScene().buildIndex == mainMenuScene.BuildIndex;
 
-        public bool IsOnPhysicalWorld =>
-            physicalWorldScenes.Any(scene => SceneManager.GetActiveScene().buildIndex == scene.BuildIndex);
+        public bool IsOnPhysicalWorld(int index) =>
+            physicalWorldScenes.Any(scene => index == scene.BuildIndex);
 
-        public bool IsOnDigitalWorld =>
-            digitalWorldScenes.Any(scene => SceneManager.GetActiveScene().buildIndex == scene.BuildIndex);
+        public bool IsOnDigitalWorld(int index) =>
+            digitalWorldScenes.Any(scene => index == scene.BuildIndex);
+
+        public bool IsCurrentlyOnPhysicalWorld() =>
+            IsOnPhysicalWorld(SceneManager.GetActiveScene().buildIndex);
+        
+        public bool IsCurrentlyOnDigitalWorld() =>
+            IsOnDigitalWorld(SceneManager.GetActiveScene().buildIndex);
+        
 
         [ContextMenu("Set Portal Scenes Index")]
         public void SetPortalScenesIndex()

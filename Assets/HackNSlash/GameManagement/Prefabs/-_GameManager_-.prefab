@@ -88,6 +88,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: fcabbfd6203b1b746bdebfe058a4b8c4, type: 2}
+        m_TargetAssemblyTypeName: TransformRegister, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _elevatorState: {fileID: 11400000, guid: 7a62b8737ba87ed469a7f4eaa41248ec, type: 2}
   _sphereElevatorState: {fileID: 11400000, guid: 416f8da2abfe1274f9cad5d716e96da7,
     type: 2}
@@ -103,3 +115,4 @@ MonoBehaviour:
   playerElevatorSceneUp:
     sceneAsset: {fileID: 102900000, guid: 16705d983caa6f74bbf698d2b7af00a9, type: 3}
     sceneAssetGuidHex: 16705d983caa6f74bbf698d2b7af00a9
+  CanUsePauseMenu: 1

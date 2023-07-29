@@ -86,14 +86,15 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 4aa1447496c2419498405cb2d8e33ce3,
+    type: 2}
   _event: {fileID: 11400000, guid: 4aa1447496c2419498405cb2d8e33ce3, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1758285544530660221}
         m_TargetAssemblyTypeName: HackNSlash.Scripts.Puzzle.OpenLaserWall, Assembly-CSharp
-        m_MethodName: ConditionalDisableDoor
+        m_MethodName: DisableDoor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

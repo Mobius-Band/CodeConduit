@@ -47,7 +47,7 @@ namespace HackNSlash.Scripts.GameManagement
         {
             SetMousePointerForGameplay(true);
             isBooting = true;
-            OnMainMenuLoaded?.Invoke();
+            // OnMainMenuLoaded?.Invoke();
         }
 
         public void LoadMainMenu()

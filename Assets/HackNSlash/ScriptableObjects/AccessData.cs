@@ -1,13 +1,11 @@
 using Eflatun.SceneReference;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HackNSlash.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "AccessData", menuName = "ScriptableObjects/AccessData", order = 1)]
     public class AccessData : ScriptableObject
     {
-        [FormerlySerializedAs("laserWallScene1")]
         [Header("AREA")]
         [SerializeField] private SceneReference digitalPart2Scene;
         [SerializeField] private SceneReference digitalPart3Scene;

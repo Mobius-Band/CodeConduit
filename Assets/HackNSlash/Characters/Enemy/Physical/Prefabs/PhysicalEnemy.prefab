@@ -5208,7 +5208,7 @@ MonoBehaviour:
     materialIndexes: 030000000300000002000000
   alertStateEffectEnterTime: 1
   alertEmission: {r: 99.999985, g: 5.2356014, b: 2.6178007, a: 0}
-  turnSpeed: 0
+  turnSpeed: 0.04
 --- !u!95 &6901062618051012479
 Animator:
   serializedVersion: 4
