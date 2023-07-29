@@ -742,6 +742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
+      propertyPath: colorPropertyName
+      value: _MainColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
       propertyPath: activeLightColor.b
       value: 164.6432
       objectReference: {fileID: 0}
@@ -1550,6 +1555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
+      propertyPath: colorPropertyName
+      value: _MainColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
       propertyPath: activeLightColor.b
       value: 164.6432
       objectReference: {fileID: 0}
@@ -1652,6 +1662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: timer
       value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: colorPropertyName
+      value: _MainColor
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}

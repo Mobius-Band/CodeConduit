@@ -26,7 +26,7 @@ namespace HackNSlash.Scripts.PlotPanel
                 return;
             }
             _scrollbar = GetComponent<Scrollbar>();
-            _scrollbar.value = 1;
+            _scrollbar.value = 0.999f;
             _inputRoutine = StartCoroutine(CheckForScrollInput());
         }
 

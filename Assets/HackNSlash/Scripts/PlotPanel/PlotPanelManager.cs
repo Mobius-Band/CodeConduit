@@ -26,6 +26,7 @@ namespace HackNSlash.Scripts.PlotPanel
         private IEnumerator TogglePlotPanel(bool value)
         {
             canvas.enabled = value;
+            yield return new WaitForSecondsRealtime(0.1f);
             scrollInput.enabled = value;
             GameManager.Instance.CanUsePauseMenu = !value;
             if (value)
