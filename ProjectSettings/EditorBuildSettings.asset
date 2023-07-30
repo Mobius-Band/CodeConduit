@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-Puzzleup.unity
     guid: 16705d983caa6f74bbf698d2b7af00a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part4-Portal.unity
     guid: 527fe809e23c1fa458e9ad988d788c49
   - enabled: 0
@@ -59,7 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/new Part3-Digital.unity
     guid: 8d3f9c2ec18e08b48aaafb34f71d652f
-  - enabled: 1
+  - enabled: 0
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Digital/new Part4-Digital.unity
     guid: aec651808d2d4704d94e4d6e27b62bd7
   - enabled: 1

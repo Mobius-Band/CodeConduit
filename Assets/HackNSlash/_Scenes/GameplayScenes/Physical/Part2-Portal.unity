@@ -318,6 +318,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312774226}
     m_Modifications:
+    - target: {fileID: 1320033306382457004, guid: d90ae49f6a2ef584eb6c34813d19b3be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690927069476229164, guid: d90ae49f6a2ef584eb6c34813d19b3be,
         type: 3}
       propertyPath: m_RootOrder
@@ -742,6 +747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: activeLightColor.r
       value: 164.6432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
+        type: 3}
+      propertyPath: triggerMask.m_Bits
+      value: 2560
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710422, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}

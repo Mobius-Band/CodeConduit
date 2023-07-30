@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 698326266724656349}
   - component: {fileID: 6859122411640352474}
   - component: {fileID: 1121040712858582677}
+  - component: {fileID: 2006233721581430419}
   m_Layer: 0
   m_Name: PortaHolograma.003
   m_TagString: Untagged
@@ -1067,6 +1068,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2006233721581430419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118407404215848519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc074e43e27c4dfc95e4afd180137a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleDuration: 5
 --- !u!1 &9076790539679613737
 GameObject:
   m_ObjectHideFlags: 0

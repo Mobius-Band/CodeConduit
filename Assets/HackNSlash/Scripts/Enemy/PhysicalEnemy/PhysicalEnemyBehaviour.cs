@@ -20,6 +20,7 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
         [SerializeField] private int correspondentSceneIndex;
         [SerializeField] private AccessData generalAccessData;
         [ColorUsage(false, true)][SerializeField] private Color defunctColor;
+        [SerializeField] private int disabledLayer;
         [SerializeField] private GameEvent onEnemyDeactivation;
 
         [Header("ALERT")] 
@@ -162,7 +163,20 @@ namespace HackNSlash.Scripts.Enemy.PhysicalEnemy
             float animLength = 1;
             Tween deactivationTween = tweeningMaterials.DOColors(defunctColor, emissionColorID, animLength);
             deactivationTween.onKill += onEnemyDeactivation.Raise;
+            deactivationTween.onKill += SetLayerMaskDisabled;
+            deactivationTween.onKill += FlashCollider;
         }
+
+        private void SetLayerMaskDisabled() => gameObject.layer = disabledLayer;
+
+        private IEnumerator FlashColliderCoroutine()
+        {
+            var collider = GetComponent<Collider>();
+            collider.enabled = false;
+            yield return new WaitForSeconds(Time.deltaTime);
+            collider.enabled = true;
+        }
+        private void FlashCollider() => StartCoroutine(FlashColliderCoroutine()); 
 
         private void TryDrawThreatGizmo()
         {

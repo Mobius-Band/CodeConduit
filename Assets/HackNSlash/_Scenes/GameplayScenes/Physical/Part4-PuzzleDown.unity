@@ -763,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
       propertyPath: triggerMask.m_Bits
-      value: 768
+      value: 2560
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710422, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
@@ -1576,7 +1576,7 @@ PrefabInstance:
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
       propertyPath: triggerMask.m_Bits
-      value: 768
+      value: 2560
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710422, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
@@ -1686,7 +1686,7 @@ PrefabInstance:
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
       propertyPath: triggerMask.m_Bits
-      value: 768
+      value: 2560
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710422, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
@@ -2346,12 +2346,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targetScene.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 527fe809e23c1fa458e9ad988d788c49,
+      objectReference: {fileID: 102900000, guid: 0831e4c9146b7794bb5410facf4cbd7b,
         type: 3}
     - target: {fileID: 2095173725028804513, guid: 729a114c360bcda479a89d4f21f10f6c,
         type: 3}
       propertyPath: targetScene.sceneAssetGuidHex
-      value: 527fe809e23c1fa458e9ad988d788c49
+      value: 0831e4c9146b7794bb5410facf4cbd7b
       objectReference: {fileID: 0}
     - target: {fileID: 4347790091800597461, guid: 729a114c360bcda479a89d4f21f10f6c,
         type: 3}

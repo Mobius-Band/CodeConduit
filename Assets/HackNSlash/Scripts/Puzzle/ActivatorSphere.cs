@@ -14,9 +14,13 @@ namespace HackNSlash.Scripts.Puzzle
         public int sphereIndex;
         public float dropHeight;
 
-        private void Awake()
+        private void Start()
         {
             _animator = GetComponentInChildren<Animator>();
+            if (gameManager == null)
+            {
+                gameManager = GameManager.Instance;
+            }
             
             bool _isDown = gameManager.SphereElevatorState.sphereIsDown[sphereIndex];
             isDown = _isDown;

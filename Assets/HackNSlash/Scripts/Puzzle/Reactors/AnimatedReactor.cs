@@ -31,7 +31,7 @@ namespace HackNSlash.Scripts.Puzzle
             Sequence fadeSequence = DOTween.Sequence();
             fadeSequence.Append(_renderer.materials[1].DOFade(closed ? 0 : 1 , toggleDuration/4));
             fadeSequence.Join(_renderer.materials[0].DOFloat(closed ? 0 : 1, "_AlphaController", toggleDuration / 4));
-            fadeSequence.OnComplete(() => GetComponent<Collider>().enabled = !closed);
+            fadeSequence.OnComplete(() => GetComponentInChildren<Collider>().enabled = !closed);
             fadeSequence.Play();
         }
         

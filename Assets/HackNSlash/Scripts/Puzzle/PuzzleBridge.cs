@@ -7,6 +7,7 @@ namespace HackNSlash.Scripts.Puzzle
     {
         [SerializeField] private PuzzleSwitch[] puzzleSwitches;
         [SerializeField] private PuzzleReactor puzzleReactor;
+        [SerializeField] private PuzzleReactor[] secondaryReactors;
 
         private bool AreAllSwitchesActivated => Array.TrueForAll(puzzleSwitches, p => p.isActivated);
         public event Action<bool> OnAnySwitchToggled;
@@ -19,6 +20,13 @@ namespace HackNSlash.Scripts.Puzzle
                 puzzleSwitch.OnSwitchDeactivated += CheckSwitches;
             }
             OnAnySwitchToggled += puzzleReactor.React;
+
+            if (secondaryReactors.Length > 0)
+            {
+                Array.ForEach(secondaryReactors, reactor => OnAnySwitchToggled += reactor.React);
+            }
+            
+            
         }
 
         private void CheckSwitches()

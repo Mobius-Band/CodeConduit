@@ -7205,6 +7205,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  acceptedMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &4724389250052453285
 GameObject:
   m_ObjectHideFlags: 0

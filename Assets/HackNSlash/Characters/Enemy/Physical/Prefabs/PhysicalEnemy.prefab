@@ -5194,6 +5194,7 @@ MonoBehaviour:
   correspondentSceneIndex: 2
   generalAccessData: {fileID: 11400000, guid: 74b316f56339164498d13ed2e19bf656, type: 2}
   defunctColor: {r: 0.011703432, g: 0.0006127451, b: 0.00030637256, a: 0}
+  disabledLayer: 11
   onEnemyDeactivation: {fileID: 11400000, guid: 4aa1447496c2419498405cb2d8e33ce3,
     type: 2}
   useAlertBehaviour: 1

@@ -37,8 +37,6 @@ public class TransformRegister : ScriptableObject
 
     public void Reset()
     {
-        Debug.Log("Resetting");
-
         registeredTransforms = Array.Empty<TransformData>();
     }
 }

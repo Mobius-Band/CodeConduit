@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6319190246368710421, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
       propertyPath: triggerMask.m_Bits
-      value: 832
+      value: 2560
       objectReference: {fileID: 0}
     - target: {fileID: 6319190246368710422, guid: 952fc271076066a4eb4bf22072e56aa0,
         type: 3}
