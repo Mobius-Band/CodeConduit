@@ -3,23 +3,26 @@ using System.Linq;
 using Eflatun.SceneReference;
 using HackNSlash.ScriptableObjects;
 using HackNSlash.Scripts.GameManagement;
+using HackNSlash.Scripts.Util;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace HackNSlash.Scripts.Audio
 {
-    public class MusicManager : MonoBehaviour
+    public class MusicManager : Singleton<MusicManager>
     {
         [SerializeField] private AudioClip[] soundtrack;
         [SerializeField] private SceneReference[] correspondentScenes;
+        [SerializeField] private bool simulateSceneLoading;
         private AccessData _accessData;
         private AudioSource _audioSource;
 
         private int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
         private bool _canDecrementIndex;
 
-        private void Awake()
+        public override void Awake()
         {
+            base.Awake();
             DontDestroyOnLoad(gameObject);
             _audioSource = GetComponent<AudioSource>();
 
@@ -33,9 +36,15 @@ namespace HackNSlash.Scripts.Audio
         {
             _accessData = GameManager.Instance.AccessData;
             SceneManager.sceneLoaded += OnSceneLoaded;
+            if (simulateSceneLoading)
+            {
+                OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+                return;
+            }
             if (GameManager.Instance.SceneManager.IsOnMainMenu())
             {
                 PlayTrack(0);
+                return;
             }
         }
 

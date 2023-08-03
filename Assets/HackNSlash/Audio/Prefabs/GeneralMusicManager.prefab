@@ -67,8 +67,8 @@ MonoBehaviour:
     sceneAssetGuidHex: 8d3f9c2ec18e08b48aaafb34f71d652f
   - sceneAsset: {fileID: 102900000, guid: 258062dece686df46ac8c38bf93c337b, type: 3}
     sceneAssetGuidHex: 258062dece686df46ac8c38bf93c337b
-  - sceneAsset: {fileID: 102900000, guid: aec651808d2d4704d94e4d6e27b62bd7, type: 3}
-    sceneAssetGuidHex: aec651808d2d4704d94e4d6e27b62bd7
+  - sceneAsset: {fileID: 102900000, guid: 4c4390b418e27064c85d0c65966cecce, type: 3}
+    sceneAssetGuidHex: 4c4390b418e27064c85d0c65966cecce
   - sceneAsset: {fileID: 102900000, guid: 527fe809e23c1fa458e9ad988d788c49, type: 3}
     sceneAssetGuidHex: 527fe809e23c1fa458e9ad988d788c49
 --- !u!82 &3599823819650704404

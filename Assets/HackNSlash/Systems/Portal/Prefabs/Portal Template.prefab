@@ -166,6 +166,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3293703876748990952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +280,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3293703876748990952}
         m_TargetAssemblyTypeName: HackNSlash.Scripts.Portal.SceneShifter, Assembly-CSharp
         m_MethodName: EndSceneShifting
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
