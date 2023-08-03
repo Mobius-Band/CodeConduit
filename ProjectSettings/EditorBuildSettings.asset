@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part5-Doctor.unity
     guid: 0831e4c9146b7794bb5410facf4cbd7b
+  - enabled: 1
+    path: Assets/HackNSlash/_Scenes/GameplayScenes/Physical/Part5-Corridor.unity
+    guid: 80fa8edfb597d994a881043e1564664c
   m_configObjects: {}

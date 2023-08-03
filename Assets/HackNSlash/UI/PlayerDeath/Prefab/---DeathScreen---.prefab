@@ -278,7 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 6541439640109528782}
-  updateValuesOnEveryFrame: 0
+  updateValuesOnEveryFrame: 1
+  digitalGlitchStrength: 0
 --- !u!1 &3829420391070704381
 GameObject:
   m_ObjectHideFlags: 0

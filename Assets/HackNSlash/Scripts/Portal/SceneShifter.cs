@@ -66,9 +66,9 @@ namespace HackNSlash.Scripts.Portal
             onNextSceneSet.Raise(targetScene.BuildIndex);
         }
 
-        public void EndSceneShifting()
+        public void EndSceneShifting(bool ignoreFade = false)
         {
-            if (!isReadyToShift)
+            if (!isReadyToShift && !ignoreFade)
             {
                 return;
             }
