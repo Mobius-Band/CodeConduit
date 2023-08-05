@@ -14,17 +14,21 @@ namespace HackNSlash.Scripts.Audio
         [SerializeField] private AudioClip[] soundtrack;
         [SerializeField] private SceneReference[] correspondentScenes;
         [SerializeField] private bool simulateSceneLoading;
+        private float _defaultVolume;
         private AccessData _accessData;
         private AudioSource _audioSource;
 
         private int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
         private bool _canDecrementIndex;
 
+        public AudioSource AudioSource => _audioSource;
+
         public override void Awake()
         {
             base.Awake();
             DontDestroyOnLoad(gameObject);
             _audioSource = GetComponent<AudioSource>();
+            _defaultVolume = _audioSource.volume;
 
             if (correspondentScenes.Length != soundtrack.Length)
             {
@@ -93,6 +97,11 @@ namespace HackNSlash.Scripts.Audio
             _audioSource.Stop();
             _audioSource.clip = soundtrack[index];
             _audioSource.Play();
+        }
+
+        public void ResetVolume()
+        {
+            _audioSource.volume = _defaultVolume;
         }
     }
 }

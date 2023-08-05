@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using HackNSlash.Scripts.Audio;
 using HackNSlash.Scripts.Player;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,7 +23,10 @@ namespace HackNSlash.Scripts.GamePlayFlowManagement
             sequence.Join(DOTween.To(() => glitchController.DigitalGlitchStrength,
                 x => glitchController.DigitalGlitchStrength = x,
                 1, tweenDuration));
+            AudioSource musicSource = MusicManager.Instance.AudioSource;
+            sequence.Join(musicSource.DOFade(0, tweenDuration));
             sequence.onKill += onTweeningEnd.Invoke;
+            sequence.onKill += MusicManager.Instance.ResetVolume;
             sequence.Play();
         }
     }

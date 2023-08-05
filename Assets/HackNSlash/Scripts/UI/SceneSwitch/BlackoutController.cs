@@ -42,6 +42,7 @@ public class BlackoutController : MonoBehaviour
         color.a = 1;
         blackoutPanel.color = color;
         Tween fade = blackoutPanel.DOFade(0f, fadeOutDuration);
+        fade.SetUpdate(true);
         fade.onPlay += OnFadeOutStarted;
         fade.onComplete += OnFadeOutEnded;
     }

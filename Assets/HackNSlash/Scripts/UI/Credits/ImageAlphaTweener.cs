@@ -14,6 +14,7 @@ namespace HackNSlash.Scripts.UI.Credits
         {
             _tweenSequence = DOTween.Sequence();
             _tweenSequence.Join(image.DOFade(targetAlpha, tweenDuration));
+            _tweenSequence.SetEase(easeType);
             _tweenSequence.Play();
             _tweenSequence.onComplete += onTweenEnd.Invoke;
         }

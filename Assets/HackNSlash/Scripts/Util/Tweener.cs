@@ -8,6 +8,7 @@ namespace HackNSlash.Scripts.Util
     public abstract class Tweener : MonoBehaviour
     {
         [SerializeField] protected float tweenDuration;
+        [SerializeField] protected Ease easeType;
         [SerializeField] protected UnityEvent onTweenEnd;
 
         protected Sequence _tweenSequence;

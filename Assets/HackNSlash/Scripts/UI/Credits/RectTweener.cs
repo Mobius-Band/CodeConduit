@@ -13,6 +13,7 @@ namespace HackNSlash.Scripts.UI.Credits
         public override void TriggerTween()
         {
             _tweenSequence.Join(rect.DOAnchorPos(targetPosition, tweenDuration));
+            _tweenSequence.SetEase(easeType);
             _tweenSequence.Play();
             _tweenSequence.onComplete += onTweenEnd.Invoke;
         }
